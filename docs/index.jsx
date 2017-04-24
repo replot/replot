@@ -17,6 +17,8 @@ class KeyValueRow extends React.Component {
     const style = {
       cell: {
         minWidth: "100px",
+        color: "white",
+        fontSize: "0.8rem"
       }
     }
 
@@ -41,7 +43,8 @@ class KeyValueTable extends React.Component {
         width:"30%",
         display:"inline-block",
         verticalAlign: "top",
-        padding: "20px",
+        padding: "20px 40px",
+        color: "white"
       }
     }
     let rows = []
@@ -131,14 +134,6 @@ class ExampleApp extends React.Component {
       <div>
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Treemap </h1>
-          <div style={{width:"70%", display:"inline-block"}}>
-            <TreeMap data={this.state.data} weightKey="population"
-              titleKey="country" />
-          </div>
-          <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
-        </div>
-        <div className="container" style={{padding: "80px 50px"}}>
-          <h1 style={{textAlign: "left", color: "white"}}> Bar Chart </h1>
           <div style={{width:"70%", display:"inline-block"}}>
             <TreeMap data={this.state.data} weightKey="population"
               titleKey="country" />

@@ -24296,7 +24296,9 @@ var KeyValueRow = function (_React$Component) {
     value: function render() {
       var style = {
         cell: {
-          minWidth: "100px"
+          minWidth: "100px",
+          color: "white",
+          fontSize: "0.8rem"
         }
       };
 
@@ -24339,7 +24341,8 @@ var KeyValueTable = function (_React$Component2) {
           width: "30%",
           display: "inline-block",
           verticalAlign: "top",
-          padding: "20px"
+          padding: "20px 40px",
+          color: "white"
         }
       };
       var rows = [];
@@ -24433,22 +24436,6 @@ var ExampleApp = function (_React$Component3) {
             "h1",
             { style: { textAlign: "left", color: "white" } },
             " Treemap "
-          ),
-          _react2.default.createElement(
-            "div",
-            { style: { width: "70%", display: "inline-block" } },
-            _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
-              titleKey: "country" })
-          ),
-          _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) })
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "container", style: { padding: "80px 50px" } },
-          _react2.default.createElement(
-            "h1",
-            { style: { textAlign: "left", color: "white" } },
-            " Bar Chart "
           ),
           _react2.default.createElement(
             "div",
