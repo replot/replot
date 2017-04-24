@@ -24420,18 +24420,54 @@ var ExampleApp = function (_React$Component3) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        { className: "container" },
-        _react2.default.createElement(
-          "h1",
-          { style: { textAlign: "center" } },
-          " Treemaps for Replot "
-        ),
-        _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) }),
+        null,
         _react2.default.createElement(
           "div",
-          { style: { width: "70%", display: "inline-block" } },
-          _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
-            titleKey: "country" })
+          { className: "container", style: { padding: "80px 50px" } },
+          _react2.default.createElement(
+            "h1",
+            { style: { textAlign: "left", color: "white" } },
+            " Treemap "
+          ),
+          _react2.default.createElement(
+            "div",
+            { style: { width: "70%", display: "inline-block" } },
+            _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
+              titleKey: "country" })
+          ),
+          _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "container", style: { padding: "80px 50px" } },
+          _react2.default.createElement(
+            "h1",
+            { style: { textAlign: "left", color: "white" } },
+            " Bar Chart "
+          ),
+          _react2.default.createElement(
+            "div",
+            { style: { width: "70%", display: "inline-block" } },
+            _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
+              titleKey: "country" })
+          ),
+          _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "container", style: { padding: "80px 50px" } },
+          _react2.default.createElement(
+            "h1",
+            { style: { textAlign: "left", color: "white" } },
+            " Line Chart "
+          ),
+          _react2.default.createElement(
+            "div",
+            { style: { width: "70%", display: "inline-block" } },
+            _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
+              titleKey: "country" })
+          ),
+          _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) })
         )
       );
     }

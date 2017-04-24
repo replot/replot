@@ -101,12 +101,30 @@ class ExampleApp extends React.Component {
 
   render() {
     return(
-      <div className="container">
-        <h1 style={{textAlign: "center"}}> Treemaps for Replot </h1>
-        <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
-        <div style={{width:"70%", display:"inline-block"}}>
-          <TreeMap data={this.state.data} weightKey="population"
-            titleKey="country" />
+      <div>
+        <div className="container" style={{padding: "80px 50px"}}>
+          <h1 style={{textAlign: "left", color: "white"}}> Treemap </h1>
+          <div style={{width:"70%", display:"inline-block"}}>
+            <TreeMap data={this.state.data} weightKey="population"
+              titleKey="country" />
+          </div>
+          <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
+        </div>
+        <div className="container" style={{padding: "80px 50px"}}>
+          <h1 style={{textAlign: "left", color: "white"}}> Bar Chart </h1>
+          <div style={{width:"70%", display:"inline-block"}}>
+            <TreeMap data={this.state.data} weightKey="population"
+              titleKey="country" />
+          </div>
+          <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
+        </div>
+        <div className="container" style={{padding: "80px 50px"}}>
+          <h1 style={{textAlign: "left", color: "white"}}> Line Chart </h1>
+          <div style={{width:"70%", display:"inline-block"}}>
+            <TreeMap data={this.state.data} weightKey="population"
+              titleKey="country" />
+          </div>
+          <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
         </div>
       </div>
     )
