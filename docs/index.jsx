@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import TreeMap from "replot-treemap"
+import LineChart from "replot-line"
 
 
 class KeyValueRow extends React.Component {
@@ -80,6 +81,32 @@ class ExampleApp extends React.Component {
         {population: 201, country: "Pakistan"},
         {population: 186, country: "Nigeria"},
         {population: 156, country: "Bangladesh"},
+      ],
+      line: [
+        {location: "Global", year: 2013, population: 10000000},
+        {location: "Global", year: 2014, population: 1000000},
+        {location: "Global", year: 2015, population: 100000},
+        {location: "Global", year: 2016, population: 10000},
+        {location: "US", year: 2013, population: 0.1},
+        {location: "US", year: 2014, population: 1},
+        {location: "US", year: 2015, population: 1},
+        {location: "US", year: 2016, population: 0.1},
+        {location: "India", year: 2013, population: 0.0001},
+        {location: "India", year: 2014, population: 10},
+        {location: "India", year: 2015, population: 100},
+        {location: "India", year: 2016, population: 10000},
+        {location: "China", year: 2013, population: 1000000},
+        {location: "China", year: 2014, population: 10000},
+        {location: "China", year: 2015, population: 100000},
+        {location: "China", year: 2016, population: 1000},
+        {location: "Russia", year: 2013, population: 100},
+        {location: "Russia", year: 2014, population: 1000},
+        {location: "Russia", year: 2015, population: 10000},
+        {location: "Russia", year: 2016, population: 100000},
+        {location: "Antarctica", year: 2013, population: 0.0001},
+        {location: "Antarctica", year: 2014, population: 0.01},
+        {location: "Antarctica", year: 2015, population: 0.001},
+        {location: "Antarctica", year: 2016, population: 0.0001},
       ]
     }
   }
@@ -121,8 +148,9 @@ class ExampleApp extends React.Component {
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Line Chart </h1>
           <div style={{width:"70%", display:"inline-block"}}>
-            <TreeMap data={this.state.data} weightKey="population"
-              titleKey="country" />
+            <LineChart data={this.state.line} titleKey="location"
+              xKey="year" yKey="population" scale="log"
+              grid="default" legend="default" color={this.state.color} />
           </div>
           <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
         </div>
