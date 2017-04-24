@@ -21,5 +21,17 @@
   "bugs": {
     "url": "https://github.com/MacroConnections/replot/issues"
   },
-  "homepage": "https://github.com/MacroConnections/replot#readme"
+  "homepage": "https://github.com/MacroConnections/replot#readme",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^6.10.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "replot-treemap": "git+ssh://git@github.com/MacroConnections/replot-treemap.git",
+    "webpack": "^2.4.1"
+  }
 }
