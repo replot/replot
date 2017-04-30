@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import TreeMap from "replot-treemap"
 import LineChart from "replot-line"
+import BarChart from "replot-bar"
 
 
 class KeyValueRow extends React.Component {
@@ -137,6 +138,14 @@ class ExampleApp extends React.Component {
           <div style={{width:"70%", display:"inline-block"}}>
             <TreeMap data={this.state.data} weightKey="population"
               titleKey="country" />
+          </div>
+          <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
+        </div>
+        <div className="container" style={{padding: "80px 50px"}}>
+          <h1 style={{textAlign: "left", color: "white"}}> Bar Chart </h1>
+          <div style={{width:"70%", display:"inline-block"}}>
+            <BarChart data={this.state.data} xKey="country"
+              yKey="population" yScale="lin" color={this.state.color} />
           </div>
           <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
         </div>
