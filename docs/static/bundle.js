@@ -34358,13 +34358,13 @@ var _react = __webpack_require__(32);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _radium = __webpack_require__(239);
-
-var _radium2 = _interopRequireDefault(_radium);
-
 var _SectionContainer = __webpack_require__(186);
 
 var _SectionContainer2 = _interopRequireDefault(_SectionContainer);
+
+var _CenteredBlock = __webpack_require__(253);
+
+var _CenteredBlock2 = _interopRequireDefault(_CenteredBlock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34389,42 +34389,18 @@ var TitleSection = function (_React$Component) {
   _createClass(TitleSection, [{
     key: "render",
     value: function render() {
-      var style = {
-        container: {
-          textAlign: "center"
-        },
-        pseudoBlock: {
-          content: " ",
-          height: "100%",
-          display: "inline-block",
-          verticalAlign: "middle",
-          textAlign: "center"
-        },
-        centeredTitle: {
-          display: "inline-block",
-          verticalAlign: "middle",
-          textAlign: "center",
-          width: "40%",
-          minWidth: "400px"
-        }
-      };
 
       return _react2.default.createElement(
         _SectionContainer2.default,
         null,
         _react2.default.createElement(
-          "div",
-          { style: style.container },
-          _react2.default.createElement("span", { style: style.pseudoBlock }),
+          _CenteredBlock2.default,
+          null,
+          _react2.default.createElement("img", { src: "static/logo.png" }),
           _react2.default.createElement(
-            "div",
-            { style: style.centeredTitle },
-            _react2.default.createElement("img", { src: "static/logo.png" }),
-            _react2.default.createElement(
-              "h3",
-              { style: style.slogan },
-              "Beautiful Visualizations for React"
-            )
+            "h3",
+            null,
+            "Beautiful Visualizations for React"
           )
         )
       );
@@ -38754,6 +38730,89 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 253 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CenteredBlock = function (_React$Component) {
+  _inherits(CenteredBlock, _React$Component);
+
+  function CenteredBlock(props) {
+    _classCallCheck(this, CenteredBlock);
+
+    var _this = _possibleConstructorReturn(this, (CenteredBlock.__proto__ || Object.getPrototypeOf(CenteredBlock)).call(this, props));
+
+    _this.displayName = "CenteredBlock";
+    return _this;
+  }
+
+  _createClass(CenteredBlock, [{
+    key: "render",
+    value: function render() {
+      var style = {
+        container: {
+          textAlign: "center"
+        },
+        pseudoBlock: {
+          content: " ",
+          height: "100%",
+          display: "inline-block",
+          verticalAlign: "middle",
+          textAlign: "center"
+        },
+        centeredTitle: {
+          display: "inline-block",
+          verticalAlign: "middle",
+          textAlign: "center",
+          width: this.props.width,
+          minWidth: this.props.minWidth
+        }
+      };
+
+      return _react2.default.createElement(
+        "div",
+        { style: style.container },
+        _react2.default.createElement("span", { style: style.pseudoBlock }),
+        _react2.default.createElement(
+          "div",
+          { style: style.centeredTitle },
+          this.props.children
+        )
+      );
+    }
+  }]);
+
+  return CenteredBlock;
+}(_react2.default.Component);
+
+CenteredBlock.defaultProps = {
+  width: "40%",
+  minWidth: "400px"
+};
+
+exports.default = CenteredBlock;
 
 /***/ })
 /******/ ]);
