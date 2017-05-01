@@ -29224,18 +29224,6 @@ var _radium = __webpack_require__(239);
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _replotTreemap = __webpack_require__(83);
-
-var _replotTreemap2 = _interopRequireDefault(_replotTreemap);
-
-var _replotLine = __webpack_require__(82);
-
-var _replotLine2 = _interopRequireDefault(_replotLine);
-
-var _replotBar = __webpack_require__(184);
-
-var _replotBar2 = _interopRequireDefault(_replotBar);
-
 var _colors = __webpack_require__(187);
 
 var _colors2 = _interopRequireDefault(_colors);
@@ -29244,9 +29232,9 @@ var _TitleSection = __webpack_require__(185);
 
 var _TitleSection2 = _interopRequireDefault(_TitleSection);
 
-var _KeyValueTable = __webpack_require__(256);
+var _ExamplesSection = __webpack_require__(257);
 
-var _KeyValueTable2 = _interopRequireDefault(_KeyValueTable);
+var _ExamplesSection2 = _interopRequireDefault(_ExamplesSection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29265,29 +29253,12 @@ var ExampleApp = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ExampleApp.__proto__ || Object.getPrototypeOf(ExampleApp)).call(this, props));
 
     _this.state = {
-      data: [{ population: 1373, country: "China" }, { population: 1266, country: "India" }, { population: 323, country: "United States" }, { population: 258, country: "Indonesia" }, { population: 205, country: "Brazil" }, { population: 201, country: "Pakistan" }, { population: 186, country: "Nigeria" }, { population: 156, country: "Bangladesh" }],
-      line: [{ location: "Global", year: 2013, population: 10000000 }, { location: "Global", year: 2014, population: 1000000 }, { location: "Global", year: 2015, population: 100000 }, { location: "Global", year: 2016, population: 10000 }, { location: "US", year: 2013, population: 0.1 }, { location: "US", year: 2014, population: 1 }, { location: "US", year: 2015, population: 1 }, { location: "US", year: 2016, population: 0.1 }, { location: "India", year: 2013, population: 0.0001 }, { location: "India", year: 2014, population: 10 }, { location: "India", year: 2015, population: 100 }, { location: "India", year: 2016, population: 10000 }, { location: "China", year: 2013, population: 1000000 }, { location: "China", year: 2014, population: 10000 }, { location: "China", year: 2015, population: 100000 }, { location: "China", year: 2016, population: 1000 }, { location: "Russia", year: 2013, population: 100 }, { location: "Russia", year: 2014, population: 1000 }, { location: "Russia", year: 2015, population: 10000 }, { location: "Russia", year: 2016, population: 100000 }, { location: "Antarctica", year: 2013, population: 0.0001 }, { location: "Antarctica", year: 2014, population: 0.01 }, { location: "Antarctica", year: 2015, population: 0.001 }, { location: "Antarctica", year: 2016, population: 0.0001 }]
+      password: ""
     };
     return _this;
   }
 
   _createClass(ExampleApp, [{
-    key: "updateData",
-    value: function updateData(mutatedObject) {
-      var mutatedData = JSON.parse(JSON.stringify(this.state.data));
-      var chosenIndex = -1;
-      for (var index = 0; index < mutatedData.length; index++) {
-        if (mutatedData[index].country === mutatedObject.country) {
-          chosenIndex = index;
-          break;
-        }
-      }
-      if (chosenIndex > -1) {
-        mutatedData[chosenIndex].population = parseInt(mutatedObject.population);
-        this.setState({ data: mutatedData });
-      }
-    }
-  }, {
     key: "render",
     value: function render() {
       var style = {
@@ -29304,55 +29275,7 @@ var ExampleApp = function (_React$Component) {
           _radium2.default.StyleRoot,
           null,
           _react2.default.createElement(_TitleSection2.default, null),
-          _react2.default.createElement(
-            "div",
-            { className: "container", style: { padding: "80px 50px" } },
-            _react2.default.createElement(
-              "h1",
-              { style: { textAlign: "left", color: "white" } },
-              " Treemap "
-            ),
-            _react2.default.createElement(
-              "div",
-              { style: { width: "70%", display: "inline-block" } },
-              _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
-                titleKey: "country" })
-            ),
-            _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "container", style: { padding: "80px 50px" } },
-            _react2.default.createElement(
-              "h1",
-              { style: { textAlign: "left", color: "white" } },
-              " Bar Chart "
-            ),
-            _react2.default.createElement(
-              "div",
-              { style: { width: "70%", display: "inline-block" } },
-              _react2.default.createElement(_replotBar2.default, { data: this.state.data, xKey: "country",
-                yKey: "population", yScale: "lin", color: this.state.color })
-            ),
-            _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "container", style: { padding: "80px 50px" } },
-            _react2.default.createElement(
-              "h1",
-              { style: { textAlign: "left", color: "white" } },
-              " Line Chart "
-            ),
-            _react2.default.createElement(
-              "div",
-              { style: { width: "70%", display: "inline-block" } },
-              _react2.default.createElement(_replotLine2.default, { data: this.state.line, titleKey: "location",
-                xKey: "year", yKey: "population", scale: "log",
-                grid: "default", legend: "default", color: this.state.color })
-            ),
-            _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
-          )
+          _react2.default.createElement(_ExamplesSection2.default, null)
         )
       );
     }
@@ -34263,13 +34186,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var TitleSection = function (_React$Component) {
   _inherits(TitleSection, _React$Component);
 
-  function TitleSection(props) {
+  function TitleSection() {
     _classCallCheck(this, TitleSection);
 
-    var _this = _possibleConstructorReturn(this, (TitleSection.__proto__ || Object.getPrototypeOf(TitleSection)).call(this, props));
-
-    _this.displayName = "TitleSection";
-    return _this;
+    return _possibleConstructorReturn(this, (TitleSection.__proto__ || Object.getPrototypeOf(TitleSection)).apply(this, arguments));
   }
 
   _createClass(TitleSection, [{
@@ -38846,6 +38766,147 @@ var KeyValueTable = function (_React$Component2) {
 }(_react2.default.Component);
 
 exports.default = KeyValueTable;
+
+/***/ }),
+/* 257 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _replotTreemap = __webpack_require__(83);
+
+var _replotTreemap2 = _interopRequireDefault(_replotTreemap);
+
+var _replotLine = __webpack_require__(82);
+
+var _replotLine2 = _interopRequireDefault(_replotLine);
+
+var _replotBar = __webpack_require__(184);
+
+var _replotBar2 = _interopRequireDefault(_replotBar);
+
+var _SectionContainer = __webpack_require__(255);
+
+var _SectionContainer2 = _interopRequireDefault(_SectionContainer);
+
+var _KeyValueTable = __webpack_require__(256);
+
+var _KeyValueTable2 = _interopRequireDefault(_KeyValueTable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ExamplesSection = function (_React$Component) {
+  _inherits(ExamplesSection, _React$Component);
+
+  function ExamplesSection(props) {
+    _classCallCheck(this, ExamplesSection);
+
+    var _this = _possibleConstructorReturn(this, (ExamplesSection.__proto__ || Object.getPrototypeOf(ExamplesSection)).call(this, props));
+
+    _this.state = {
+      data: [{ population: 1373, country: "China" }, { population: 1266, country: "India" }, { population: 323, country: "United States" }, { population: 258, country: "Indonesia" }, { population: 205, country: "Brazil" }, { population: 201, country: "Pakistan" }, { population: 186, country: "Nigeria" }, { population: 156, country: "Bangladesh" }],
+      line: [{ location: "Global", year: 2013, population: 10000000 }, { location: "Global", year: 2014, population: 1000000 }, { location: "Global", year: 2015, population: 100000 }, { location: "Global", year: 2016, population: 10000 }, { location: "US", year: 2013, population: 0.1 }, { location: "US", year: 2014, population: 1 }, { location: "US", year: 2015, population: 1 }, { location: "US", year: 2016, population: 0.1 }, { location: "India", year: 2013, population: 0.0001 }, { location: "India", year: 2014, population: 10 }, { location: "India", year: 2015, population: 100 }, { location: "India", year: 2016, population: 10000 }, { location: "China", year: 2013, population: 1000000 }, { location: "China", year: 2014, population: 10000 }, { location: "China", year: 2015, population: 100000 }, { location: "China", year: 2016, population: 1000 }, { location: "Russia", year: 2013, population: 100 }, { location: "Russia", year: 2014, population: 1000 }, { location: "Russia", year: 2015, population: 10000 }, { location: "Russia", year: 2016, population: 100000 }, { location: "Antarctica", year: 2013, population: 0.0001 }, { location: "Antarctica", year: 2014, population: 0.01 }, { location: "Antarctica", year: 2015, population: 0.001 }, { location: "Antarctica", year: 2016, population: 0.0001 }]
+    };
+    return _this;
+  }
+
+  _createClass(ExamplesSection, [{
+    key: "updateData",
+    value: function updateData(mutatedObject) {
+      var mutatedData = JSON.parse(JSON.stringify(this.state.data));
+      var chosenIndex = -1;
+      for (var index = 0; index < mutatedData.length; index++) {
+        if (mutatedData[index].country === mutatedObject.country) {
+          chosenIndex = index;
+          break;
+        }
+      }
+      if (chosenIndex > -1) {
+        mutatedData[chosenIndex].population = parseInt(mutatedObject.population);
+        this.setState({ data: mutatedData });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+
+      return _react2.default.createElement(
+        _SectionContainer2.default,
+        null,
+        _react2.default.createElement(
+          "div",
+          { className: "container", style: { padding: "80px 50px" } },
+          _react2.default.createElement(
+            "h1",
+            { style: { textAlign: "left", color: "white" } },
+            " Treemap "
+          ),
+          _react2.default.createElement(
+            "div",
+            { style: { width: "70%", display: "inline-block" } },
+            _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
+              titleKey: "country" })
+          ),
+          _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "container", style: { padding: "80px 50px" } },
+          _react2.default.createElement(
+            "h1",
+            { style: { textAlign: "left", color: "white" } },
+            " Bar Chart "
+          ),
+          _react2.default.createElement(
+            "div",
+            { style: { width: "70%", display: "inline-block" } },
+            _react2.default.createElement(_replotBar2.default, { data: this.state.data, xKey: "country",
+              yKey: "population", yScale: "lin", color: this.state.color })
+          ),
+          _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "container", style: { padding: "80px 50px" } },
+          _react2.default.createElement(
+            "h1",
+            { style: { textAlign: "left", color: "white" } },
+            " Line Chart "
+          ),
+          _react2.default.createElement(
+            "div",
+            { style: { width: "70%", display: "inline-block" } },
+            _react2.default.createElement(_replotLine2.default, { data: this.state.line, titleKey: "location",
+              xKey: "year", yKey: "population", scale: "log",
+              grid: "default", legend: "default", color: this.state.color })
+          ),
+          _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
+        )
+      );
+    }
+  }]);
+
+  return ExamplesSection;
+}(_react2.default.Component);
+
+exports.default = ExamplesSection;
 
 /***/ })
 /******/ ]);

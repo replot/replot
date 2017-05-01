@@ -5,11 +5,6 @@ import CenteredBlock from "../components/CenteredBlock.jsx"
 
 class TitleSection extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.displayName = "TitleSection"
-  }
-
   render() {
 
     return(
