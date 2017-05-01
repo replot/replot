@@ -14,7 +14,6 @@ class CenteredBlock extends React.Component {
         textAlign: "center",
       },
       pseudoBlock: {
-        content: " ",
         height: "100%",
         display: "inline-block",
         verticalAlign: "middle",
@@ -31,7 +30,7 @@ class CenteredBlock extends React.Component {
 
     return(
       <div style={style.container}>
-        <span style={style.pseudoBlock} />
+        <span style={style.pseudoBlock}></span>
         <div style={style.centeredTitle}>
           {this.props.children}
         </div>

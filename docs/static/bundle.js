@@ -29236,6 +29236,10 @@ var _ExamplesSection = __webpack_require__(257);
 
 var _ExamplesSection2 = _interopRequireDefault(_ExamplesSection);
 
+var _CenteredBlock = __webpack_require__(254);
+
+var _CenteredBlock2 = _interopRequireDefault(_CenteredBlock);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29255,10 +29259,16 @@ var ExampleApp = function (_React$Component) {
     _this.state = {
       password: ""
     };
+    _this.passwordHandler = _this.passwordHandler.bind(_this);
     return _this;
   }
 
   _createClass(ExampleApp, [{
+    key: "passwordHandler",
+    value: function passwordHandler(e) {
+      this.setState({ password: e.target.value });
+    }
+  }, {
     key: "render",
     value: function render() {
       var style = {
@@ -29268,15 +29278,31 @@ var ExampleApp = function (_React$Component) {
         }
       };
 
+      var app = _react2.default.createElement(
+        _radium2.default.StyleRoot,
+        null,
+        _react2.default.createElement(_TitleSection2.default, null),
+        _react2.default.createElement(_ExamplesSection2.default, null)
+      );
+
+      if (this.state.password != "macro") {
+        app = _react2.default.createElement(
+          _CenteredBlock2.default,
+          null,
+          _react2.default.createElement(
+            "h3",
+            null,
+            " Password? "
+          ),
+          _react2.default.createElement("input", { style: { textAlign: "center" }, type: "password",
+            value: this.state.password, onChange: this.passwordHandler })
+        );
+      }
+
       return _react2.default.createElement(
         "div",
         { style: style.body },
-        _react2.default.createElement(
-          _radium2.default.StyleRoot,
-          null,
-          _react2.default.createElement(_TitleSection2.default, null),
-          _react2.default.createElement(_ExamplesSection2.default, null)
-        )
+        app
       );
     }
   }]);
@@ -38527,7 +38553,6 @@ var CenteredBlock = function (_React$Component) {
           textAlign: "center"
         },
         pseudoBlock: {
-          content: " ",
           height: "100%",
           display: "inline-block",
           verticalAlign: "middle",
