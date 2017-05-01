@@ -29244,6 +29244,10 @@ var _TitleSection = __webpack_require__(185);
 
 var _TitleSection2 = _interopRequireDefault(_TitleSection);
 
+var _KeyValueTable = __webpack_require__(256);
+
+var _KeyValueTable2 = _interopRequireDefault(_KeyValueTable);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29252,137 +29256,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var KeyValueRow = function (_React$Component) {
-  _inherits(KeyValueRow, _React$Component);
-
-  function KeyValueRow() {
-    _classCallCheck(this, KeyValueRow);
-
-    return _possibleConstructorReturn(this, (KeyValueRow.__proto__ || Object.getPrototypeOf(KeyValueRow)).apply(this, arguments));
-  }
-
-  _createClass(KeyValueRow, [{
-    key: "changeHandler",
-    value: function changeHandler(e) {
-      this.props.updateData({
-        country: this.props.country,
-        population: e.target.value
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var style = {
-        cell: {
-          minWidth: "100px",
-          color: "white",
-          fontSize: "0.8rem"
-        }
-      };
-
-      return _react2.default.createElement(
-        "tr",
-        { key: this.props.title },
-        _react2.default.createElement(
-          "td",
-          { style: style.cell },
-          this.props.country,
-          " "
-        ),
-        _react2.default.createElement(
-          "td",
-          { style: style.cell },
-          _react2.default.createElement("input", { type: "text", value: parseInt(this.props.population),
-            onChange: this.changeHandler.bind(this) })
-        )
-      );
-    }
-  }]);
-
-  return KeyValueRow;
-}(_react2.default.Component);
-
-var KeyValueTable = function (_React$Component2) {
-  _inherits(KeyValueTable, _React$Component2);
-
-  function KeyValueTable() {
-    _classCallCheck(this, KeyValueTable);
-
-    return _possibleConstructorReturn(this, (KeyValueTable.__proto__ || Object.getPrototypeOf(KeyValueTable)).apply(this, arguments));
-  }
-
-  _createClass(KeyValueTable, [{
-    key: "render",
-    value: function render() {
-      var style = {
-        container: {
-          width: "30%",
-          display: "inline-block",
-          verticalAlign: "top",
-          padding: "20px 40px",
-          color: "white"
-        }
-      };
-      var rows = [];
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.props.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var dataPoint = _step.value;
-
-          rows.push(_react2.default.createElement(KeyValueRow, { key: dataPoint.title,
-            country: dataPoint.country, population: dataPoint.population,
-            updateData: this.props.updateData.bind(this) }));
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      return _react2.default.createElement(
-        "div",
-        { className: "container", style: style.container },
-        _react2.default.createElement(
-          "table",
-          null,
-          _react2.default.createElement(
-            "tbody",
-            null,
-            rows
-          )
-        )
-      );
-    }
-  }]);
-
-  return KeyValueTable;
-}(_react2.default.Component);
-
-var ExampleApp = function (_React$Component3) {
-  _inherits(ExampleApp, _React$Component3);
+var ExampleApp = function (_React$Component) {
+  _inherits(ExampleApp, _React$Component);
 
   function ExampleApp(props) {
     _classCallCheck(this, ExampleApp);
 
-    var _this3 = _possibleConstructorReturn(this, (ExampleApp.__proto__ || Object.getPrototypeOf(ExampleApp)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ExampleApp.__proto__ || Object.getPrototypeOf(ExampleApp)).call(this, props));
 
-    _this3.state = {
+    _this.state = {
       data: [{ population: 1373, country: "China" }, { population: 1266, country: "India" }, { population: 323, country: "United States" }, { population: 258, country: "Indonesia" }, { population: 205, country: "Brazil" }, { population: 201, country: "Pakistan" }, { population: 186, country: "Nigeria" }, { population: 156, country: "Bangladesh" }],
       line: [{ location: "Global", year: 2013, population: 10000000 }, { location: "Global", year: 2014, population: 1000000 }, { location: "Global", year: 2015, population: 100000 }, { location: "Global", year: 2016, population: 10000 }, { location: "US", year: 2013, population: 0.1 }, { location: "US", year: 2014, population: 1 }, { location: "US", year: 2015, population: 1 }, { location: "US", year: 2016, population: 0.1 }, { location: "India", year: 2013, population: 0.0001 }, { location: "India", year: 2014, population: 10 }, { location: "India", year: 2015, population: 100 }, { location: "India", year: 2016, population: 10000 }, { location: "China", year: 2013, population: 1000000 }, { location: "China", year: 2014, population: 10000 }, { location: "China", year: 2015, population: 100000 }, { location: "China", year: 2016, population: 1000 }, { location: "Russia", year: 2013, population: 100 }, { location: "Russia", year: 2014, population: 1000 }, { location: "Russia", year: 2015, population: 10000 }, { location: "Russia", year: 2016, population: 100000 }, { location: "Antarctica", year: 2013, population: 0.0001 }, { location: "Antarctica", year: 2014, population: 0.01 }, { location: "Antarctica", year: 2015, population: 0.001 }, { location: "Antarctica", year: 2016, population: 0.0001 }]
     };
-    return _this3;
+    return _this;
   }
 
   _createClass(ExampleApp, [{
@@ -29432,7 +29318,7 @@ var ExampleApp = function (_React$Component3) {
               _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
                 titleKey: "country" })
             ),
-            _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) })
+            _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
           ),
           _react2.default.createElement(
             "div",
@@ -29448,7 +29334,7 @@ var ExampleApp = function (_React$Component3) {
               _react2.default.createElement(_replotBar2.default, { data: this.state.data, xKey: "country",
                 yKey: "population", yScale: "lin", color: this.state.color })
             ),
-            _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) })
+            _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
           ),
           _react2.default.createElement(
             "div",
@@ -29465,7 +29351,7 @@ var ExampleApp = function (_React$Component3) {
                 xKey: "year", yKey: "population", scale: "log",
                 grid: "default", legend: "default", color: this.state.color })
             ),
-            _react2.default.createElement(KeyValueTable, { data: this.state.data, updateData: this.updateData.bind(this) })
+            _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
           )
         )
       );
@@ -38815,6 +38701,151 @@ var SectionContainer = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = SectionContainer;
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var KeyValueRow = function (_React$Component) {
+  _inherits(KeyValueRow, _React$Component);
+
+  function KeyValueRow() {
+    _classCallCheck(this, KeyValueRow);
+
+    return _possibleConstructorReturn(this, (KeyValueRow.__proto__ || Object.getPrototypeOf(KeyValueRow)).apply(this, arguments));
+  }
+
+  _createClass(KeyValueRow, [{
+    key: "changeHandler",
+    value: function changeHandler(e) {
+      this.props.updateData({
+        country: this.props.country,
+        population: e.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var style = {
+        cell: {
+          minWidth: "100px",
+          color: "white",
+          fontSize: "0.8rem"
+        }
+      };
+
+      return _react2.default.createElement(
+        "tr",
+        { key: this.props.title },
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          this.props.country,
+          " "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          _react2.default.createElement("input", { type: "text", value: parseInt(this.props.population),
+            onChange: this.changeHandler.bind(this) })
+        )
+      );
+    }
+  }]);
+
+  return KeyValueRow;
+}(_react2.default.Component);
+
+var KeyValueTable = function (_React$Component2) {
+  _inherits(KeyValueTable, _React$Component2);
+
+  function KeyValueTable() {
+    _classCallCheck(this, KeyValueTable);
+
+    return _possibleConstructorReturn(this, (KeyValueTable.__proto__ || Object.getPrototypeOf(KeyValueTable)).apply(this, arguments));
+  }
+
+  _createClass(KeyValueTable, [{
+    key: "render",
+    value: function render() {
+      var style = {
+        container: {
+          width: "30%",
+          display: "inline-block",
+          verticalAlign: "top",
+          padding: "20px 40px",
+          color: "white"
+        }
+      };
+      var rows = [];
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.props.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var dataPoint = _step.value;
+
+          rows.push(_react2.default.createElement(KeyValueRow, { key: dataPoint.title,
+            country: dataPoint.country, population: dataPoint.population,
+            updateData: this.props.updateData.bind(this) }));
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      return _react2.default.createElement(
+        "div",
+        { className: "container", style: style.container },
+        _react2.default.createElement(
+          "table",
+          null,
+          _react2.default.createElement(
+            "tbody",
+            null,
+            rows
+          )
+        )
+      );
+    }
+  }]);
+
+  return KeyValueTable;
+}(_react2.default.Component);
+
+exports.default = KeyValueTable;
 
 /***/ })
 /******/ ]);
