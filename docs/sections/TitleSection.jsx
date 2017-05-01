@@ -1,6 +1,6 @@
 import React from "react"
-import SectionContainer from "./SectionContainer.jsx"
-import CenteredBlock from "./CenteredBlock.jsx"
+import SectionContainer from "../components/SectionContainer.jsx"
+import CenteredBlock from "../components/CenteredBlock.jsx"
 
 
 class TitleSection extends React.Component {
