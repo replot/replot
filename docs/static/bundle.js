@@ -38803,7 +38803,7 @@ var ExampleApp = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ExampleApp.__proto__ || Object.getPrototypeOf(ExampleApp)).call(this, props));
 
     _this.state = {
-      password: "macro"
+      password: ""
     };
     _this.passwordHandler = _this.passwordHandler.bind(_this);
     return _this;
