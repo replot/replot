@@ -7069,20 +7069,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SectionContainer = function (_React$Component) {
   _inherits(SectionContainer, _React$Component);
 
-  function SectionContainer(props) {
+  function SectionContainer() {
     _classCallCheck(this, SectionContainer);
 
-    var _this = _possibleConstructorReturn(this, (SectionContainer.__proto__ || Object.getPrototypeOf(SectionContainer)).call(this, props));
-
-    _this.displayName = "SectionContainer";
-    return _this;
+    return _possibleConstructorReturn(this, (SectionContainer.__proto__ || Object.getPrototypeOf(SectionContainer)).apply(this, arguments));
   }
 
   _createClass(SectionContainer, [{
     key: "render",
     value: function render() {
       var style = {
-        minHeight: "100vh"
+        minHeight: "100vh",
+        padding: "50px"
       };
 
       return _react2.default.createElement(
@@ -10772,11 +10770,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 const palette = {
   white: "#effeff",
   black: "#323940",
+  purple: "#3023AE",
+  gray: "#666",
 }
 
 const colors = {
   bodyText: palette.white,
   bodyBg: palette.black,
+  codeBlockLeftBorder: palette.purple,
+  codeBlockBorders: palette.gray,
 }
 
 /* harmony default export */ __webpack_exports__["default"] = colors;
@@ -38776,6 +38778,10 @@ var _ExamplesSection = __webpack_require__(102);
 
 var _ExamplesSection2 = _interopRequireDefault(_ExamplesSection);
 
+var _QuickStartSection = __webpack_require__(256);
+
+var _QuickStartSection2 = _interopRequireDefault(_QuickStartSection);
+
 var _CenteredBlock = __webpack_require__(58);
 
 var _CenteredBlock2 = _interopRequireDefault(_CenteredBlock);
@@ -38797,7 +38803,7 @@ var ExampleApp = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ExampleApp.__proto__ || Object.getPrototypeOf(ExampleApp)).call(this, props));
 
     _this.state = {
-      password: ""
+      password: "macro"
     };
     _this.passwordHandler = _this.passwordHandler.bind(_this);
     return _this;
@@ -38822,7 +38828,8 @@ var ExampleApp = function (_React$Component) {
         _radium2.default.StyleRoot,
         null,
         _react2.default.createElement(_TitleSection2.default, null),
-        _react2.default.createElement(_ExamplesSection2.default, null)
+        _react2.default.createElement(_ExamplesSection2.default, null),
+        _react2.default.createElement(_QuickStartSection2.default, null)
       );
 
       if (this.state.password != "macro") {
@@ -38853,6 +38860,151 @@ var ExampleApp = function (_React$Component) {
 ExampleApp = (0, _radium2.default)(ExampleApp);
 
 _reactDom2.default.render(_react2.default.createElement(ExampleApp, null), document.getElementById("react-app"));
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _SectionContainer = __webpack_require__(59);
+
+var _SectionContainer2 = _interopRequireDefault(_SectionContainer);
+
+var _CodeBlock = __webpack_require__(257);
+
+var _CodeBlock2 = _interopRequireDefault(_CodeBlock);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var exampleCode = "import Treemap from \u2018replot\u2019\n\nclass Demo extends React.Component {\n  render() {\n    let populations = {\n      {country: \"China\", population: 1388232693},\n      {country: \"India\", population: 1342512706},\n      {country: \"USA\", population: 326474013},\n    }\n\n    return(\n      <TreeMap data={populations} titleKey=\"country\"\n        weightKey=\"population\" />\n    )\n  }\n}";
+
+var QuickStartSection = function (_React$Component) {
+  _inherits(QuickStartSection, _React$Component);
+
+  function QuickStartSection() {
+    _classCallCheck(this, QuickStartSection);
+
+    return _possibleConstructorReturn(this, (QuickStartSection.__proto__ || Object.getPrototypeOf(QuickStartSection)).apply(this, arguments));
+  }
+
+  _createClass(QuickStartSection, [{
+    key: "render",
+    value: function render() {
+      var style = {
+        heading: {
+          textAlign: "center"
+        }
+      };
+
+      return _react2.default.createElement(
+        _SectionContainer2.default,
+        null,
+        _react2.default.createElement(
+          "h3",
+          { style: style.heading },
+          "Let's use Replot"
+        ),
+        _react2.default.createElement(
+          _CodeBlock2.default,
+          null,
+          "npm install replot"
+        ),
+        _react2.default.createElement(
+          _CodeBlock2.default,
+          null,
+          exampleCode
+        )
+      );
+    }
+  }]);
+
+  return QuickStartSection;
+}(_react2.default.Component);
+
+exports.default = QuickStartSection;
+
+/***/ }),
+/* 257 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _colors = __webpack_require__(101);
+
+var _colors2 = _interopRequireDefault(_colors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CodeBlock = function (_React$Component) {
+  _inherits(CodeBlock, _React$Component);
+
+  function CodeBlock() {
+    _classCallCheck(this, CodeBlock);
+
+    return _possibleConstructorReturn(this, (CodeBlock.__proto__ || Object.getPrototypeOf(CodeBlock)).apply(this, arguments));
+  }
+
+  _createClass(CodeBlock, [{
+    key: "render",
+    value: function render() {
+      var style = {
+        margin: "50px auto",
+        maxWidth: "600px",
+        width: "80%",
+        padding: "10px",
+        border: "1px solid " + _colors2.default.codeBlockBorders,
+        borderLeft: "2px solid " + _colors2.default.codeBlockLeftBorder,
+        whiteSpace: "pre",
+        fontFamily: "monospace"
+      };
+
+      return _react2.default.createElement(
+        "div",
+        { style: style },
+        this.props.children
+      );
+    }
+  }]);
+
+  return CodeBlock;
+}(_react2.default.Component);
+
+exports.default = CodeBlock;
 
 /***/ })
 /******/ ]);

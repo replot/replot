@@ -4,6 +4,7 @@ import Radium from "radium"
 import colors from "./colors"
 import TitleSection from "./sections/TitleSection.jsx"
 import ExamplesSection from "./sections/ExamplesSection.jsx"
+import QuickStartSection from "./sections/QuickStartSection.jsx"
 import CenteredBlock from "./components/CenteredBlock.jsx"
 
 class ExampleApp extends React.Component {
@@ -32,6 +33,7 @@ class ExampleApp extends React.Component {
       <Radium.StyleRoot>
         <TitleSection />
         <ExamplesSection />
+        <QuickStartSection />
       </Radium.StyleRoot>
 
     if (this.state.password != "macro") {
