@@ -158,7 +158,8 @@ class ExamplesSection extends React.Component {
           <div style={{width:"70%", display:"inline-block"}}>
             <LineChart data={this.state.line} titleKey="location"
               xKey="year" yKey="population" scale="log"
-              grid="default" legend="default" color={this.state.color} />
+              grid="default" legend="default" color={this.state.color}
+              axisColor="#FFFFFF" />
           </div>
           <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
         </div>
@@ -168,7 +169,7 @@ class ExamplesSection extends React.Component {
             <ScatterPlot data={this.state.scatterData}
               titleKey="continent" xKey="population" yKey="gdp"
               scale={this.state.scale} grid="default"
-              legend="default" color={this.state.color} />
+              legend="default" color={this.state.color} axisColor="#FFFFFF" />
           </div>
           <ScatterValueTable data={this.state.scatterData} updateData={this.updateData.bind(this)} />
           <ScaleSwitch scale={this.state.scale} updateScale={this.updateScale.bind(this)} />
@@ -176,7 +177,8 @@ class ExamplesSection extends React.Component {
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Network Chart </h1>
           <NetworkChart nodes={this.state.nodes} links={this.state.links}
-            labelKey="name" groupKey="country" />
+            labelKey="name" labelColor="#FFFFFF"
+            groupKey="country" lineColor="#FFFFFF"/>
         </div>
       </SectionContainer>
     )

@@ -10941,7 +10941,8 @@ var ExamplesSection = function (_React$Component) {
             { style: { width: "70%", display: "inline-block" } },
             _react2.default.createElement(_replotLine2.default, { data: this.state.line, titleKey: "location",
               xKey: "year", yKey: "population", scale: "log",
-              grid: "default", legend: "default", color: this.state.color })
+              grid: "default", legend: "default", color: this.state.color,
+              axisColor: "#FFFFFF" })
           ),
           _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
         ),
@@ -10959,7 +10960,7 @@ var ExamplesSection = function (_React$Component) {
             _react2.default.createElement(_replotScatter2.default, { data: this.state.scatterData,
               titleKey: "continent", xKey: "population", yKey: "gdp",
               scale: this.state.scale, grid: "default",
-              legend: "default", color: this.state.color })
+              legend: "default", color: this.state.color, axisColor: "#FFFFFF" })
           ),
           _react2.default.createElement(_ScatterValueTable2.default, { data: this.state.scatterData, updateData: this.updateData.bind(this) }),
           _react2.default.createElement(_ScaleSwitch2.default, { scale: this.state.scale, updateScale: this.updateScale.bind(this) })
@@ -10973,7 +10974,8 @@ var ExamplesSection = function (_React$Component) {
             " Network Chart "
           ),
           _react2.default.createElement(_replotNetwork2.default, { nodes: this.state.nodes, links: this.state.links,
-            labelKey: "name", groupKey: "country" })
+            labelKey: "name", labelColor: "#FFFFFF",
+            groupKey: "country", lineColor: "#FFFFFF" })
         )
       );
     }
