@@ -40,8 +40,8 @@ class ExampleApp extends React.Component {
       app =
         <CenteredBlock>
           <h3> Password? </h3>
-          <input style={{textAlign: "center"}} type="password"
-            value={this.state.password} onChange={this.passwordHandler} />
+          <input style={{textAlign: "center"}} autoFocus type="password"
+            value={this.state.password} onChange={this.passwordHandler}/>
         </CenteredBlock>
     }
 
