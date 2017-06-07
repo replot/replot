@@ -1,10 +1,10 @@
 import React from "react"
 
 
-class ScatterValueRow extends React.Component {
+class ScatterKeyValueRow extends React.Component {
 
   changeHandler(e) {
-    this.props.updateData({
+    this.props.updateScatterData({
       continent: this.props.continent,
       population: this.props.population,
       gdp: e.target.value
@@ -34,7 +34,7 @@ class ScatterValueRow extends React.Component {
 
 }
 
-class ScatterValueTable extends React.Component {
+class ScatterKeyValueTable extends React.Component {
 
   render() {
     const style = {
@@ -44,15 +44,28 @@ class ScatterValueTable extends React.Component {
         verticalAlign: "top",
         padding: "20px 40px",
         color: "white"
+      },
+      cell: {
+        minWidth: "100px",
+        color: "white",
+        fontSize: "1.2rem",
+        borderBottom: "thin solid #ffffff"
       }
     }
     let rows = []
+    rows.push(
+      <tr key="labels">
+        <td style={style.cell}> Continent </td>
+        <td style={style.cell}> Population </td>
+        <td style={style.cell}> GDP </td>
+      </tr>
+    )
     for (let dataPoint of this.props.data) {
       rows.push(
-        <ScatterValueRow key={dataPoint.continent.concat(dataPoint.population)}
+        <ScatterKeyValueRow key={dataPoint.continent.concat(dataPoint.population)}
           continent={dataPoint.continent} country={dataPoint.country}
           population={dataPoint.population} gdp={dataPoint.gdp}
-          updateData={this.props.updateData.bind(this)} />
+          updateScatterData={this.props.updateScatterData.bind(this)} />
       )
     }
 
@@ -69,4 +82,4 @@ class ScatterValueTable extends React.Component {
 
 }
 
-export default ScatterValueTable
+export default ScatterKeyValueTable

@@ -10809,13 +10809,13 @@ var _replotTreemap = __webpack_require__(261);
 
 var _replotTreemap2 = _interopRequireDefault(_replotTreemap);
 
-var _replotLine = __webpack_require__(258);
-
-var _replotLine2 = _interopRequireDefault(_replotLine);
-
 var _replotBar = __webpack_require__(257);
 
 var _replotBar2 = _interopRequireDefault(_replotBar);
+
+var _replotLine = __webpack_require__(258);
+
+var _replotLine2 = _interopRequireDefault(_replotLine);
 
 var _replotScatter = __webpack_require__(260);
 
@@ -10829,13 +10829,17 @@ var _SectionContainer = __webpack_require__(35);
 
 var _SectionContainer2 = _interopRequireDefault(_SectionContainer);
 
-var _KeyValueTable = __webpack_require__(110);
+var _TreeBarKeyValueTable = __webpack_require__(267);
 
-var _KeyValueTable2 = _interopRequireDefault(_KeyValueTable);
+var _TreeBarKeyValueTable2 = _interopRequireDefault(_TreeBarKeyValueTable);
 
-var _ScatterValueTable = __webpack_require__(112);
+var _LineKeyValueTable = __webpack_require__(265);
 
-var _ScatterValueTable2 = _interopRequireDefault(_ScatterValueTable);
+var _LineKeyValueTable2 = _interopRequireDefault(_LineKeyValueTable);
+
+var _ScatterKeyValueTable = __webpack_require__(266);
+
+var _ScatterKeyValueTable2 = _interopRequireDefault(_ScatterKeyValueTable);
 
 var _ScaleSwitch = __webpack_require__(111);
 
@@ -10858,10 +10862,12 @@ var ExamplesSection = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ExamplesSection.__proto__ || Object.getPrototypeOf(ExamplesSection)).call(this, props));
 
     _this.state = {
-      data: [{ population: 1373, country: "China" }, { population: 1266, country: "India" }, { population: 323, country: "United States" }, { population: 258, country: "Indonesia" }, { population: 205, country: "Brazil" }, { population: 201, country: "Pakistan" }, { population: 186, country: "Nigeria" }, { population: 156, country: "Bangladesh" }],
-      line: [{ location: "Global", year: 2013, population: 10000000 }, { location: "Global", year: 2014, population: 1000000 }, { location: "Global", year: 2015, population: 100000 }, { location: "Global", year: 2016, population: 10000 }, { location: "US", year: 2013, population: 0.1 }, { location: "US", year: 2014, population: 1 }, { location: "US", year: 2015, population: 1 }, { location: "US", year: 2016, population: 0.1 }, { location: "India", year: 2013, population: 0.0001 }, { location: "India", year: 2014, population: 10 }, { location: "India", year: 2015, population: 100 }, { location: "India", year: 2016, population: 10000 }, { location: "China", year: 2013, population: 1000000 }, { location: "China", year: 2014, population: 10000 }, { location: "China", year: 2015, population: 100000 }, { location: "China", year: 2016, population: 1000 }, { location: "Russia", year: 2013, population: 100 }, { location: "Russia", year: 2014, population: 1000 }, { location: "Russia", year: 2015, population: 10000 }, { location: "Russia", year: 2016, population: 100000 }, { location: "Antarctica", year: 2013, population: 0.0001 }, { location: "Antarctica", year: 2014, population: 0.01 }, { location: "Antarctica", year: 2015, population: 0.001 }, { location: "Antarctica", year: 2016, population: 0.0001 }],
+      treeData: [{ population: 1373, country: "China" }, { population: 1266, country: "India" }, { population: 323, country: "United States" }, { population: 258, country: "Indonesia" }, { population: 205, country: "Brazil" }, { population: 201, country: "Pakistan" }, { population: 186, country: "Nigeria" }, { population: 156, country: "Bangladesh" }],
+      barData: [{ population: 1373, country: "China" }, { population: 1266, country: "India" }, { population: 323, country: "United States" }, { population: 258, country: "Indonesia" }, { population: 205, country: "Brazil" }, { population: 201, country: "Pakistan" }, { population: 186, country: "Nigeria" }, { population: 156, country: "Bangladesh" }],
+      lineData: [{ location: "Global", year: 2013, population: 10000000 }, { location: "Global", year: 2014, population: 1000000 }, { location: "Global", year: 2015, population: 100000 }, { location: "Global", year: 2016, population: 10000 }, { location: "US", year: 2013, population: 0.1 }, { location: "US", year: 2014, population: 1 }, { location: "US", year: 2015, population: 1 }, { location: "US", year: 2016, population: 0.1 }, { location: "India", year: 2013, population: 0.0001 }, { location: "India", year: 2014, population: 10 }, { location: "India", year: 2015, population: 100 }, { location: "India", year: 2016, population: 10000 }, { location: "China", year: 2013, population: 1000000 }, { location: "China", year: 2014, population: 10000 }, { location: "China", year: 2015, population: 100000 }, { location: "China", year: 2016, population: 1000 }, { location: "Russia", year: 2013, population: 100 }, { location: "Russia", year: 2014, population: 1000 }, { location: "Russia", year: 2015, population: 10000 }, { location: "Russia", year: 2016, population: 100000 }, { location: "Antarctica", year: 2013, population: 0.0001 }, { location: "Antarctica", year: 2014, population: 0.01 }, { location: "Antarctica", year: 2015, population: 0.001 }, { location: "Antarctica", year: 2016, population: 0.0001 }],
+      lineScale: "log",
       scatterData: [{ continent: "Asia", country: "China", population: 1388232693, gdp: 11795297000 }, { continent: "Asia", country: "Japan", population: 126045211, gdp: 4841221000 }, { continent: "Asia", country: "India", population: 1342512706, gdp: 2454458000 }, { continent: "Asia", country: "South Korea", population: 50704971, gdp: 1498074000 }, { continent: "Asia", country: "Indonesia", population: 263510146, gdp: 1020515000 }, { continent: "Asia", country: "Saudi Arabia", population: 32742664, gdp: 707379000 }, { continent: "S. America", country: "Brazil", population: 211243220, gdp: 2140940000 }, { continent: "S. America", country: "Argentina", population: 44272125, gdp: 628935000 }, { continent: "S. America", country: "Colombia", population: 49067981, gdp: 306439000 }, { continent: "S. America", country: "Venezuela", population: 31925705, gdp: 251589000 }, { continent: "S. America", country: "Chile", population: 18313495, gdp: 251220000 }, { continent: "S. America", country: "Peru", population: 32166473, gdp: 207072000 }, { continent: "Europe", country: "Germany", population: 80636124, gdp: 3423287000 }, { continent: "Europe", country: "UK", population: 65511098, gdp: 2496757000 }, { continent: "Europe", country: "France", population: 64938716, gdp: 2420440000 }, { continent: "Europe", country: "Italy", population: 59797978, gdp: 1807425000 }, { continent: "Europe", country: "Russia", population: 143375006, gdp: 1560706000 }, { continent: "Europe", country: "Spain", population: 46070146, gdp: 1232440000 }, { continent: "Africa", country: "Nigeria", population: 191835936, gdp: 400621000 }, { continent: "Africa", country: "Egypt", population: 95215102, gdp: 332349000 }, { continent: "Africa", country: "South Africa", population: 55436360, gdp: 317568000 }, { continent: "Africa", country: "Algeria", population: 41063753, gdp: 173947000 }, { continent: "Africa", country: "Angola", population: 26655513, gdp: 122365000 }, { continent: "Africa", country: "Sudan", population: 42166323, gdp: 115874000 }],
-      scale: "log",
+      scatterScale: "log",
       nodes: [{ id: 1, name: "One", age: 10, country: "India" }, { id: 2, name: "Two", age: 30, country: "India" }, { id: 3, name: "Three", age: 20, country: "India" }, { id: 4, name: "Four", age: 50, country: "United States" }, { id: 5, name: "Five", age: 40, country: "United States" }, { id: 6, name: "Six", age: 20, country: "China" }, { id: 7, name: "Seven", age: 10, country: "China" }],
       links: [{ parent: 2, child: 1 }, { parent: 2, child: 7 }, { parent: 4, child: 3 }, { parent: 4, child: 2 }, { parent: 5, child: 3 }, { parent: 5, child: 6 }]
     };
@@ -10869,9 +10875,9 @@ var ExamplesSection = function (_React$Component) {
   }
 
   _createClass(ExamplesSection, [{
-    key: "updateData",
-    value: function updateData(mutatedObject) {
-      var mutatedData = JSON.parse(JSON.stringify(this.state.data));
+    key: "updateTreeData",
+    value: function updateTreeData(mutatedObject) {
+      var mutatedData = JSON.parse(JSON.stringify(this.state.treeData));
       var chosenIndex = -1;
       for (var index = 0; index < mutatedData.length; index++) {
         if (mutatedData[index].country === mutatedObject.country) {
@@ -10881,13 +10887,66 @@ var ExamplesSection = function (_React$Component) {
       }
       if (chosenIndex > -1) {
         mutatedData[chosenIndex].population = parseInt(mutatedObject.population);
-        this.setState({ data: mutatedData });
+        this.setState({ treeData: mutatedData });
       }
     }
   }, {
-    key: "updateScale",
-    value: function updateScale(mutatedObject) {
-      this.setState({ scale: mutatedObject.scale });
+    key: "updateBarData",
+    value: function updateBarData(mutatedObject) {
+      var mutatedData = JSON.parse(JSON.stringify(this.state.barData));
+      var chosenIndex = -1;
+      for (var index = 0; index < mutatedData.length; index++) {
+        if (mutatedData[index].country === mutatedObject.country) {
+          chosenIndex = index;
+          break;
+        }
+      }
+      if (chosenIndex > -1) {
+        mutatedData[chosenIndex].population = parseInt(mutatedObject.population);
+        this.setState({ barData: mutatedData });
+      }
+    }
+  }, {
+    key: "updateLineData",
+    value: function updateLineData(mutatedObject) {
+      var mutatedData = JSON.parse(JSON.stringify(this.state.lineData));
+      var chosenIndex = -1;
+      for (var index = 0; index < mutatedData.length; index++) {
+        if (mutatedData[index].location === mutatedObject.location && mutatedData[index].year === mutatedObject.year) {
+          chosenIndex = index;
+          break;
+        }
+      }
+      if (chosenIndex > -1) {
+        mutatedData[chosenIndex].population = parseFloat(mutatedObject.population);
+        this.setState({ lineData: mutatedData });
+      }
+    }
+  }, {
+    key: "updateScatterData",
+    value: function updateScatterData(mutatedObject) {
+      var mutatedData = JSON.parse(JSON.stringify(this.state.scatterData));
+      var chosenIndex = -1;
+      for (var index = 0; index < mutatedData.length; index++) {
+        if (mutatedData[index].continent === mutatedObject.continent && mutatedData[index].population === mutatedObject.population) {
+          chosenIndex = index;
+          break;
+        }
+      }
+      if (chosenIndex > -1) {
+        mutatedData[chosenIndex].gdp = parseFloat(mutatedObject.gdp);
+        this.setState({ scatterData: mutatedData });
+      }
+    }
+  }, {
+    key: "updateLineScale",
+    value: function updateLineScale(mutatedObject) {
+      this.setState({ lineScale: mutatedObject.scale });
+    }
+  }, {
+    key: "updateScatterScale",
+    value: function updateScatterScale(mutatedObject) {
+      this.setState({ scatterScale: mutatedObject.scale });
     }
   }, {
     key: "render",
@@ -10907,10 +10966,10 @@ var ExamplesSection = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { style: { width: "70%", display: "inline-block" } },
-            _react2.default.createElement(_replotTreemap2.default, { data: this.state.data, weightKey: "population",
+            _react2.default.createElement(_replotTreemap2.default, { data: this.state.treeData, weightKey: "population",
               titleKey: "country" })
           ),
-          _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
+          _react2.default.createElement(_TreeBarKeyValueTable2.default, { data: this.state.treeData, updateData: this.updateTreeData.bind(this) })
         ),
         _react2.default.createElement(
           "div",
@@ -10923,10 +10982,10 @@ var ExamplesSection = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { style: { width: "70%", display: "inline-block" } },
-            _react2.default.createElement(_replotBar2.default, { data: this.state.data, xKey: "country",
+            _react2.default.createElement(_replotBar2.default, { data: this.state.barData, xKey: "country",
               yKey: "population", yScale: "lin", color: this.state.color })
           ),
-          _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
+          _react2.default.createElement(_TreeBarKeyValueTable2.default, { data: this.state.barData, updateData: this.updateBarData.bind(this) })
         ),
         _react2.default.createElement(
           "div",
@@ -10939,12 +10998,13 @@ var ExamplesSection = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { style: { width: "70%", display: "inline-block" } },
-            _react2.default.createElement(_replotLine2.default, { data: this.state.line, titleKey: "location",
-              xKey: "year", yKey: "population", scale: "log",
+            _react2.default.createElement(_replotLine2.default, { data: this.state.lineData, titleKey: "location",
+              xKey: "year", yKey: "population", scale: this.state.lineScale,
               grid: "default", legend: "default", color: this.state.color,
               axisColor: "white", legendColor: "white" })
           ),
-          _react2.default.createElement(_KeyValueTable2.default, { data: this.state.data, updateData: this.updateData.bind(this) })
+          _react2.default.createElement(_LineKeyValueTable2.default, { data: this.state.lineData, updateLineData: this.updateLineData.bind(this) }),
+          _react2.default.createElement(_ScaleSwitch2.default, { scale: this.state.lineScale, updateScale: this.updateLineScale.bind(this) })
         ),
         _react2.default.createElement(
           "div",
@@ -10959,12 +11019,12 @@ var ExamplesSection = function (_React$Component) {
             { style: { width: "70%", display: "inline-block" } },
             _react2.default.createElement(_replotScatter2.default, { data: this.state.scatterData,
               titleKey: "continent", xKey: "population", yKey: "gdp",
-              scale: this.state.scale, grid: "default",
+              scale: this.state.scatterScale, grid: "default",
               legend: "default", color: this.state.color,
               axisColor: "white", legendColor: "white" })
           ),
-          _react2.default.createElement(_ScatterValueTable2.default, { data: this.state.scatterData, updateData: this.updateData.bind(this) }),
-          _react2.default.createElement(_ScaleSwitch2.default, { scale: this.state.scale, updateScale: this.updateScale.bind(this) })
+          _react2.default.createElement(_ScatterKeyValueTable2.default, { data: this.state.scatterData, updateScatterData: this.updateScatterData.bind(this) }),
+          _react2.default.createElement(_ScaleSwitch2.default, { scale: this.state.scatterScale, updateScale: this.updateScatterScale.bind(this) })
         ),
         _react2.default.createElement(
           "div",
@@ -11308,151 +11368,7 @@ var CodeBlock = function (_React$Component) {
 exports.default = CodeBlock;
 
 /***/ }),
-/* 110 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var KeyValueRow = function (_React$Component) {
-  _inherits(KeyValueRow, _React$Component);
-
-  function KeyValueRow() {
-    _classCallCheck(this, KeyValueRow);
-
-    return _possibleConstructorReturn(this, (KeyValueRow.__proto__ || Object.getPrototypeOf(KeyValueRow)).apply(this, arguments));
-  }
-
-  _createClass(KeyValueRow, [{
-    key: "changeHandler",
-    value: function changeHandler(e) {
-      this.props.updateData({
-        country: this.props.country,
-        population: e.target.value
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var style = {
-        cell: {
-          minWidth: "100px",
-          color: "white",
-          fontSize: "0.8rem"
-        }
-      };
-
-      return _react2.default.createElement(
-        "tr",
-        { key: this.props.title },
-        _react2.default.createElement(
-          "td",
-          { style: style.cell },
-          this.props.country,
-          " "
-        ),
-        _react2.default.createElement(
-          "td",
-          { style: style.cell },
-          _react2.default.createElement("input", { type: "text", value: parseInt(this.props.population),
-            onChange: this.changeHandler.bind(this) })
-        )
-      );
-    }
-  }]);
-
-  return KeyValueRow;
-}(_react2.default.Component);
-
-var KeyValueTable = function (_React$Component2) {
-  _inherits(KeyValueTable, _React$Component2);
-
-  function KeyValueTable() {
-    _classCallCheck(this, KeyValueTable);
-
-    return _possibleConstructorReturn(this, (KeyValueTable.__proto__ || Object.getPrototypeOf(KeyValueTable)).apply(this, arguments));
-  }
-
-  _createClass(KeyValueTable, [{
-    key: "render",
-    value: function render() {
-      var style = {
-        container: {
-          width: "30%",
-          display: "inline-block",
-          verticalAlign: "top",
-          padding: "20px 40px",
-          color: "white"
-        }
-      };
-      var rows = [];
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.props.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var dataPoint = _step.value;
-
-          rows.push(_react2.default.createElement(KeyValueRow, { key: dataPoint.title,
-            country: dataPoint.country, population: dataPoint.population,
-            updateData: this.props.updateData.bind(this) }));
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      return _react2.default.createElement(
-        "div",
-        { className: "container", style: style.container },
-        _react2.default.createElement(
-          "table",
-          null,
-          _react2.default.createElement(
-            "tbody",
-            null,
-            rows
-          )
-        )
-      );
-    }
-  }]);
-
-  return KeyValueTable;
-}(_react2.default.Component);
-
-exports.default = KeyValueTable;
-
-/***/ }),
+/* 110 */,
 /* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11539,12 +11455,11 @@ var ScaleSwitch = function (_React$Component2) {
       var style = {
         switch: {
           width: "300px",
-          float: "right",
           display: "inline-block"
         }
       };
 
-      var types = ["default", "log"];
+      var types = ["lin", "log"];
       var buttons = [];
       var color = "";
       for (var i = 0; i < types.length; i++) {
@@ -11553,7 +11468,7 @@ var ScaleSwitch = function (_React$Component2) {
         } else {
           color = "#444444";
         }
-        buttons.push(_react2.default.createElement(ScaleButton, { title: types[i],
+        buttons.push(_react2.default.createElement(ScaleButton, { key: i, title: types[i],
           updateScale: this.props.updateScale.bind(this), color: color }));
       }
 
@@ -11571,158 +11486,7 @@ var ScaleSwitch = function (_React$Component2) {
 exports.default = ScaleSwitch;
 
 /***/ }),
-/* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ScatterValueRow = function (_React$Component) {
-  _inherits(ScatterValueRow, _React$Component);
-
-  function ScatterValueRow() {
-    _classCallCheck(this, ScatterValueRow);
-
-    return _possibleConstructorReturn(this, (ScatterValueRow.__proto__ || Object.getPrototypeOf(ScatterValueRow)).apply(this, arguments));
-  }
-
-  _createClass(ScatterValueRow, [{
-    key: "changeHandler",
-    value: function changeHandler(e) {
-      this.props.updateData({
-        continent: this.props.continent,
-        population: this.props.population,
-        gdp: e.target.value
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var style = {
-        cell: {
-          minWidth: "100px",
-          color: "white",
-          fontSize: "0.8rem"
-        }
-      };
-
-      return _react2.default.createElement(
-        "tr",
-        { key: this.props.continent.concat(this.props.population) },
-        _react2.default.createElement(
-          "td",
-          { style: style.cell },
-          this.props.country,
-          " "
-        ),
-        _react2.default.createElement(
-          "td",
-          { style: style.cell },
-          this.props.population
-        ),
-        _react2.default.createElement(
-          "td",
-          { style: style.cell },
-          _react2.default.createElement("input", { type: "text", value: parseFloat(this.props.gdp),
-            onChange: this.changeHandler.bind(this) })
-        )
-      );
-    }
-  }]);
-
-  return ScatterValueRow;
-}(_react2.default.Component);
-
-var ScatterValueTable = function (_React$Component2) {
-  _inherits(ScatterValueTable, _React$Component2);
-
-  function ScatterValueTable() {
-    _classCallCheck(this, ScatterValueTable);
-
-    return _possibleConstructorReturn(this, (ScatterValueTable.__proto__ || Object.getPrototypeOf(ScatterValueTable)).apply(this, arguments));
-  }
-
-  _createClass(ScatterValueTable, [{
-    key: "render",
-    value: function render() {
-      var style = {
-        container: {
-          width: "30%",
-          display: "inline-block",
-          verticalAlign: "top",
-          padding: "20px 40px",
-          color: "white"
-        }
-      };
-      var rows = [];
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.props.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var dataPoint = _step.value;
-
-          rows.push(_react2.default.createElement(ScatterValueRow, { key: dataPoint.continent.concat(dataPoint.population),
-            continent: dataPoint.continent, country: dataPoint.country,
-            population: dataPoint.population, gdp: dataPoint.gdp,
-            updateData: this.props.updateData.bind(this) }));
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      return _react2.default.createElement(
-        "div",
-        { className: "container", style: style.container },
-        _react2.default.createElement(
-          "table",
-          null,
-          _react2.default.createElement(
-            "tbody",
-            null,
-            rows
-          )
-        )
-      );
-    }
-  }]);
-
-  return ScatterValueTable;
-}(_react2.default.Component);
-
-exports.default = ScatterValueTable;
-
-/***/ }),
+/* 112 */,
 /* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61514,6 +61278,528 @@ exports.default = _TreeMap2.default;
 /***/ })
 /******/ ]);
 });
+
+/***/ }),
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LineKeyValueRow = function (_React$Component) {
+  _inherits(LineKeyValueRow, _React$Component);
+
+  function LineKeyValueRow() {
+    _classCallCheck(this, LineKeyValueRow);
+
+    return _possibleConstructorReturn(this, (LineKeyValueRow.__proto__ || Object.getPrototypeOf(LineKeyValueRow)).apply(this, arguments));
+  }
+
+  _createClass(LineKeyValueRow, [{
+    key: "changeHandler",
+    value: function changeHandler(e) {
+      this.props.updateLineData({
+        location: this.props.location,
+        year: this.props.year,
+        population: e.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var style = {
+        cell: {
+          minWidth: "100px",
+          color: "white",
+          fontSize: "0.8rem"
+        }
+      };
+
+      return _react2.default.createElement(
+        "tr",
+        { key: this.props.location.concat(this.props.year) },
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          this.props.location,
+          " "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          this.props.year
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          _react2.default.createElement("input", { type: "text", value: parseFloat(this.props.population),
+            onChange: this.changeHandler.bind(this) })
+        )
+      );
+    }
+  }]);
+
+  return LineKeyValueRow;
+}(_react2.default.Component);
+
+var LineKeyValueTable = function (_React$Component2) {
+  _inherits(LineKeyValueTable, _React$Component2);
+
+  function LineKeyValueTable() {
+    _classCallCheck(this, LineKeyValueTable);
+
+    return _possibleConstructorReturn(this, (LineKeyValueTable.__proto__ || Object.getPrototypeOf(LineKeyValueTable)).apply(this, arguments));
+  }
+
+  _createClass(LineKeyValueTable, [{
+    key: "render",
+    value: function render() {
+      var style = {
+        container: {
+          width: "30%",
+          display: "inline-block",
+          verticalAlign: "top",
+          padding: "20px 40px",
+          color: "white"
+        },
+        cell: {
+          minWidth: "100px",
+          color: "white",
+          fontSize: "1.2rem",
+          borderBottom: "thin solid #ffffff"
+        }
+      };
+      var rows = [];
+      rows.push(_react2.default.createElement(
+        "tr",
+        { key: "labels" },
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " Location "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " Year "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " Population "
+        )
+      ));
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.props.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var dataPoint = _step.value;
+
+          rows.push(_react2.default.createElement(LineKeyValueRow, { key: dataPoint.location.concat(dataPoint.year),
+            location: dataPoint.location, year: dataPoint.year, population: dataPoint.population,
+            updateLineData: this.props.updateLineData.bind(this) }));
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      return _react2.default.createElement(
+        "div",
+        { className: "container", style: style.container },
+        _react2.default.createElement(
+          "table",
+          null,
+          _react2.default.createElement(
+            "tbody",
+            null,
+            rows
+          )
+        )
+      );
+    }
+  }]);
+
+  return LineKeyValueTable;
+}(_react2.default.Component);
+
+exports.default = LineKeyValueTable;
+
+/***/ }),
+/* 266 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScatterKeyValueRow = function (_React$Component) {
+  _inherits(ScatterKeyValueRow, _React$Component);
+
+  function ScatterKeyValueRow() {
+    _classCallCheck(this, ScatterKeyValueRow);
+
+    return _possibleConstructorReturn(this, (ScatterKeyValueRow.__proto__ || Object.getPrototypeOf(ScatterKeyValueRow)).apply(this, arguments));
+  }
+
+  _createClass(ScatterKeyValueRow, [{
+    key: "changeHandler",
+    value: function changeHandler(e) {
+      this.props.updateScatterData({
+        continent: this.props.continent,
+        population: this.props.population,
+        gdp: e.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var style = {
+        cell: {
+          minWidth: "100px",
+          color: "white",
+          fontSize: "0.8rem"
+        }
+      };
+
+      return _react2.default.createElement(
+        "tr",
+        { key: this.props.continent.concat(this.props.population) },
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          this.props.country,
+          " "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          this.props.population
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          _react2.default.createElement("input", { type: "text", value: parseFloat(this.props.gdp),
+            onChange: this.changeHandler.bind(this) })
+        )
+      );
+    }
+  }]);
+
+  return ScatterKeyValueRow;
+}(_react2.default.Component);
+
+var ScatterKeyValueTable = function (_React$Component2) {
+  _inherits(ScatterKeyValueTable, _React$Component2);
+
+  function ScatterKeyValueTable() {
+    _classCallCheck(this, ScatterKeyValueTable);
+
+    return _possibleConstructorReturn(this, (ScatterKeyValueTable.__proto__ || Object.getPrototypeOf(ScatterKeyValueTable)).apply(this, arguments));
+  }
+
+  _createClass(ScatterKeyValueTable, [{
+    key: "render",
+    value: function render() {
+      var style = {
+        container: {
+          width: "30%",
+          display: "inline-block",
+          verticalAlign: "top",
+          padding: "20px 40px",
+          color: "white"
+        },
+        cell: {
+          minWidth: "100px",
+          color: "white",
+          fontSize: "1.2rem",
+          borderBottom: "thin solid #ffffff"
+        }
+      };
+      var rows = [];
+      rows.push(_react2.default.createElement(
+        "tr",
+        { key: "labels" },
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " Continent "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " Population "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " GDP "
+        )
+      ));
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.props.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var dataPoint = _step.value;
+
+          rows.push(_react2.default.createElement(ScatterKeyValueRow, { key: dataPoint.continent.concat(dataPoint.population),
+            continent: dataPoint.continent, country: dataPoint.country,
+            population: dataPoint.population, gdp: dataPoint.gdp,
+            updateScatterData: this.props.updateScatterData.bind(this) }));
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      return _react2.default.createElement(
+        "div",
+        { className: "container", style: style.container },
+        _react2.default.createElement(
+          "table",
+          null,
+          _react2.default.createElement(
+            "tbody",
+            null,
+            rows
+          )
+        )
+      );
+    }
+  }]);
+
+  return ScatterKeyValueTable;
+}(_react2.default.Component);
+
+exports.default = ScatterKeyValueTable;
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TreeBarKeyValueRow = function (_React$Component) {
+  _inherits(TreeBarKeyValueRow, _React$Component);
+
+  function TreeBarKeyValueRow() {
+    _classCallCheck(this, TreeBarKeyValueRow);
+
+    return _possibleConstructorReturn(this, (TreeBarKeyValueRow.__proto__ || Object.getPrototypeOf(TreeBarKeyValueRow)).apply(this, arguments));
+  }
+
+  _createClass(TreeBarKeyValueRow, [{
+    key: "changeHandler",
+    value: function changeHandler(e) {
+      this.props.updateData({
+        country: this.props.country,
+        population: e.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var style = {
+        cell: {
+          minWidth: "100px",
+          color: "white",
+          fontSize: "0.8rem"
+        }
+      };
+
+      return _react2.default.createElement(
+        "tr",
+        { key: this.props.title },
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " ",
+          this.props.country,
+          " "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          _react2.default.createElement("input", { type: "text", value: parseInt(this.props.population),
+            onChange: this.changeHandler.bind(this) })
+        )
+      );
+    }
+  }]);
+
+  return TreeBarKeyValueRow;
+}(_react2.default.Component);
+
+var TreeBarKeyValueTable = function (_React$Component2) {
+  _inherits(TreeBarKeyValueTable, _React$Component2);
+
+  function TreeBarKeyValueTable() {
+    _classCallCheck(this, TreeBarKeyValueTable);
+
+    return _possibleConstructorReturn(this, (TreeBarKeyValueTable.__proto__ || Object.getPrototypeOf(TreeBarKeyValueTable)).apply(this, arguments));
+  }
+
+  _createClass(TreeBarKeyValueTable, [{
+    key: "render",
+    value: function render() {
+      var style = {
+        container: {
+          width: "30%",
+          display: "inline-block",
+          verticalAlign: "top",
+          padding: "20px 40px",
+          color: "white"
+        },
+        cell: {
+          minWidth: "100px",
+          color: "white",
+          fontSize: "1.2rem",
+          borderBottom: "thin solid #ffffff"
+        }
+      };
+      var rows = [];
+      rows.push(_react2.default.createElement(
+        "tr",
+        { key: "labels" },
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " Country "
+        ),
+        _react2.default.createElement(
+          "td",
+          { style: style.cell },
+          " Population "
+        )
+      ));
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.props.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var dataPoint = _step.value;
+
+          rows.push(_react2.default.createElement(TreeBarKeyValueRow, { key: dataPoint.title,
+            country: dataPoint.country, population: dataPoint.population,
+            updateData: this.props.updateData.bind(this) }));
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      return _react2.default.createElement(
+        "div",
+        { className: "container", style: style.container },
+        _react2.default.createElement(
+          "table",
+          null,
+          _react2.default.createElement(
+            "tbody",
+            null,
+            rows
+          )
+        )
+      );
+    }
+  }]);
+
+  return TreeBarKeyValueTable;
+}(_react2.default.Component);
+
+exports.default = TreeBarKeyValueTable;
 
 /***/ })
 /******/ ]);

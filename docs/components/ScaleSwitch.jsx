@@ -44,12 +44,11 @@ class ScaleSwitch extends React.Component {
     const style = {
       switch: {
         width: "300px",
-        float: "right",
         display:"inline-block",
       }
     }
 
-    let types = ["default", "log"]
+    let types = ["lin", "log"]
     let buttons = []
     let color = ""
     for (var i=0; i < types.length; i++) {
@@ -59,7 +58,7 @@ class ScaleSwitch extends React.Component {
         color = "#444444"
       }
       buttons.push(
-        <ScaleButton title={types[i]}
+        <ScaleButton key={i} title={types[i]}
         updateScale={this.props.updateScale.bind(this)} color={color} />
       )
     }
