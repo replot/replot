@@ -4,7 +4,7 @@ import React from "react"
 class ScatterKeyValueRow extends React.Component {
 
   changeHandler(e) {
-    this.props.updateScatterData({
+    this.props.updateData({
       continent: this.props.continent,
       population: this.props.population,
       gdp: e.target.value
@@ -55,7 +55,7 @@ class ScatterKeyValueTable extends React.Component {
     let rows = []
     rows.push(
       <tr key="labels">
-        <td style={style.cell}> Continent </td>
+        <td style={style.cell}> Country </td>
         <td style={style.cell}> Population </td>
         <td style={style.cell}> GDP </td>
       </tr>
@@ -65,7 +65,7 @@ class ScatterKeyValueTable extends React.Component {
         <ScatterKeyValueRow key={dataPoint.continent.concat(dataPoint.population)}
           continent={dataPoint.continent} country={dataPoint.country}
           population={dataPoint.population} gdp={dataPoint.gdp}
-          updateScatterData={this.props.updateScatterData.bind(this)} />
+          updateData={this.props.updateData.bind(this)} />
       )
     }
 

@@ -4,7 +4,7 @@ import React from "react"
 class LineKeyValueRow extends React.Component {
 
   changeHandler(e) {
-    this.props.updateLineData({
+    this.props.updateData({
       location: this.props.location,
       year: this.props.year,
       population: e.target.value
@@ -64,7 +64,7 @@ class LineKeyValueTable extends React.Component {
       rows.push(
         <LineKeyValueRow key={dataPoint.location.concat(dataPoint.year)}
           location={dataPoint.location} year={dataPoint.year} population={dataPoint.population}
-          updateLineData={this.props.updateLineData.bind(this)} />
+          updateData={this.props.updateData.bind(this)} />
       )
     }
 

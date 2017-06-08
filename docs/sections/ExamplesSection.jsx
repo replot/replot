@@ -218,7 +218,7 @@ class ExamplesSection extends React.Component {
               grid="default" legend="default" color={this.state.color}
               axisColor="white" legendColor="white"/>
           </div>
-          <LineKeyValueTable data={this.state.lineData} updateLineData={this.updateLineData.bind(this)} />
+          <LineKeyValueTable data={this.state.lineData} updateData={this.updateLineData.bind(this)} />
           <ScaleSwitch scale={this.state.lineScale} updateScale={this.updateLineScale.bind(this)} />
         </div>
         <div className="container" style={{padding: "80px 50px"}}>
@@ -230,14 +230,16 @@ class ExamplesSection extends React.Component {
               legend="default" color={this.state.color}
               axisColor="white" legendColor="white"/>
           </div>
-          <ScatterKeyValueTable data={this.state.scatterData} updateScatterData={this.updateScatterData.bind(this)} />
+          <ScatterKeyValueTable data={this.state.scatterData} updateData={this.updateScatterData.bind(this)} />
           <ScaleSwitch scale={this.state.scatterScale} updateScale={this.updateScatterScale.bind(this)} />
         </div>
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Network Chart </h1>
-          <NetworkChart nodes={this.state.nodes} links={this.state.links}
-            labelKey="name" labelColor="white"
-            groupKey="country" lineColor="white"/>
+          <div style={{width:"70%", display:"inline-block"}}>
+            <NetworkChart nodes={this.state.nodes} links={this.state.links}
+              labelKey="name" labelColor="white"
+              groupKey="country" lineColor="white"/>
+          </div>
         </div>
       </SectionContainer>
     )
