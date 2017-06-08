@@ -20,6 +20,14 @@ class ExamplesSection extends React.Component {
         {population: 186, country: "Nigeria"},
         {population: 156, country: "Bangladesh"},
       ],
+      groupedData: [
+        {population: 1367, country: "China", year: 2014},
+        {population: 1354, country: "China", year: 2012},
+        {population: 1340, country: "China", year: 2010},
+        {population: 317, country: "United States", year: 2014},
+        {population: 312, country: "United States", year: 2012},
+        {population: 308, country: "United States", year: 2010},
+      ],
       line: [
         {location: "Global", year: 2013, population: 10000000},
         {location: "Global", year: 2014, population: 1000000},
@@ -83,6 +91,15 @@ class ExamplesSection extends React.Component {
               yKey="population" yScale="lin" color={this.state.color} />
           </div>
           <KeyValueTable data={this.state.data} updateData={this.updateData.bind(this)} />
+        </div>
+        <div className="container">
+          <h1 style={{textAlign: "center"}}> Grouped Bar Chart </h1>
+          <div style={{width:"70%", display:"inline-block"}}>
+            <BarChart data={this.state.groupedData} xKey="year" yKey="population"
+              groupKey="country" yScale="lin" color={this.state.color} />
+          </div>
+          <KeyValueTable data={this.state.groupedData}
+            updateData={this.updateData.bind(this)} />
         </div>
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Line Chart </h1>
