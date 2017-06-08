@@ -1,7 +1,7 @@
 import React from "react"
 
 
-class KeyValueRow extends React.Component {
+class TreeBarKeyValueRow extends React.Component {
 
   changeHandler(e) {
     this.props.updateData({
@@ -21,7 +21,7 @@ class KeyValueRow extends React.Component {
 
     return(
       <tr key={this.props.title}>
-        <td style={style.cell}>{this.props.country} </td>
+        <td style={style.cell}> {this.props.country} </td>
         <td style={style.cell}>
           <input type="text" value={parseInt(this.props.population)}
             onChange={this.changeHandler.bind(this)} />
@@ -32,22 +32,34 @@ class KeyValueRow extends React.Component {
 }
 
 
-class KeyValueTable extends React.Component {
+class TreeBarKeyValueTable extends React.Component {
 
   render() {
     const style = {
       container: {
         width:"30%",
         display:"inline-block",
-        verticalAlign: "top",
-        padding: "20px 40px",
-        color: "white"
+        verticalAlign:"top",
+        padding:"20px 40px",
+        color:"white"
+      },
+      cell: {
+        minWidth: "100px",
+        color: "white",
+        fontSize: "1.2rem",
+        borderBottom: "thin solid #ffffff"
       }
     }
     let rows = []
+    rows.push(
+      <tr key="labels">
+        <td style={style.cell}> Country </td>
+        <td style={style.cell}> Population </td>
+      </tr>
+    )
     for (let dataPoint of this.props.data) {
       rows.push(
-        <KeyValueRow key={dataPoint.title}
+        <TreeBarKeyValueRow key={dataPoint.title}
           country={dataPoint.country} population={dataPoint.population}
           updateData={this.props.updateData.bind(this)} />
       )
@@ -66,4 +78,4 @@ class KeyValueTable extends React.Component {
 
 }
 
-export default KeyValueTable
+export default TreeBarKeyValueTable
