@@ -11,6 +11,7 @@ import LineKeyValueTable from "../components/LineKeyValueTable.jsx"
 import ScatterKeyValueTable from "../components/ScatterKeyValueTable.jsx"
 import ScaleSwitch from "../components/ScaleSwitch.jsx"
 
+
 class ExamplesSection extends React.Component {
 
   constructor(props) {
@@ -36,14 +37,16 @@ class ExamplesSection extends React.Component {
         {population: 186, country: "Nigeria"},
         {population: 156, country: "Bangladesh"},
       ],
+      barScale: "lin",
       groupedData: [
         {population: 1367, country: "China", year: 2014},
-        {population: 1354, country: "China", year: 2012},
-        {population: 1340, country: "China", year: 2010},
-        {population: 317, country: "United States", year: 2014},
+        {population: 1054, country: "China", year: 2012},
+        {population: 1140, country: "China", year: 2010},
+        {population: 517, country: "United States", year: 2014},
         {population: 312, country: "United States", year: 2012},
-        {population: 308, country: "United States", year: 2010},
+        {population: 908, country: "United States", year: 2010},
       ],
+      groupedScale: "lin",
       lineData: [
         {location: "Global", year: 2013, population: 10000000},
         {location: "Global", year: 2014, population: 1000000},
@@ -196,6 +199,12 @@ class ExamplesSection extends React.Component {
   updateScatterScale(mutatedObject) {
     this.setState({scatterScale: mutatedObject.scale})
   }
+  updateGroupedBarScale(mutatedObject) {
+    this.setState({groupedScale: mutatedObject.scale})
+  }
+  updateBarScale(mutatedObject) {
+    this.setState({barScale: mutatedObject.scale})
+  }
 
   render() {
 
@@ -213,18 +222,20 @@ class ExamplesSection extends React.Component {
           <h1 style={{textAlign: "left", color: "white"}}> Bar Chart </h1>
           <div style={{width:"70%", display:"inline-block"}}>
             <BarChart data={this.state.barData} xKey="country"
-              yKey="population" yScale="lin" color={this.state.color} />
+              yKey="population" yScale={this.state.barScale} color={this.state.color} />
           </div>
           <TwoColumnTable data={this.state.barData} updateData={this.updateBarData.bind(this)} />
+          <ScaleSwitch scale={this.state.barScale} updateScale={this.updateBarScale.bind(this)} />
         </div>
         <div className="container" style={{padding: "80px 50px"}}>
-          <h1 style={{textAlign: "left", color: "white"}}> Grouped Bar Chart </h1>
+          <h1 style={{textAlign: "center"}}> Grouped Bar Chart </h1>
           <div style={{width:"70%", display:"inline-block"}}>
             <BarChart data={this.state.groupedData} xKey="year" yKey="population"
-              groupKey="country" yScale="lin" color={this.state.color} />
+              groupKey="country" yScale={this.state.groupedScale} color={this.state.color} />
           </div>
           <GroupedKeyValueTable data={this.state.groupedData}
             updateData={this.updateGroupedData.bind(this)} />
+          <ScaleSwitch scale={this.state.groupedScale} updateScale={this.updateGroupedBarScale.bind(this)} />
         </div>
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Line Chart </h1>
