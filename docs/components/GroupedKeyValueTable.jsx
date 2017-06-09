@@ -1,10 +1,11 @@
 import React from "react"
 
 
-class TreeBarKeyValueRow extends React.Component {
+class GroupedKeyValueRow extends React.Component {
 
   changeHandler(e) {
     this.props.updateData({
+      year: this.props.year,
       country: this.props.country,
       population: e.target.value
     })
@@ -20,8 +21,9 @@ class TreeBarKeyValueRow extends React.Component {
     }
 
     return(
-      <tr key={this.props.title}>
-        <td style={style.cell}> {this.props.country} </td>
+      <tr key={this.props.year+this.props.country}>
+        <td style={style.cell}>{this.props.year} </td>
+        <td style={style.cell}>{this.props.country} </td>
         <td style={style.cell}>
           <input type="text" value={parseInt(this.props.population)}
             onChange={this.changeHandler.bind(this)} />
@@ -31,17 +33,15 @@ class TreeBarKeyValueRow extends React.Component {
   }
 }
 
-
-class TreeBarKeyValueTable extends React.Component {
+class GroupedKeyValueTable extends React.Component {
 
   render() {
     const style = {
       container: {
         width:"30%",
         display:"inline-block",
-        verticalAlign:"top",
-        padding:"20px 40px",
-        color:"white"
+        verticalAlign: "top",
+        padding: "20px",
       },
       cell: {
         minWidth: "100px",
@@ -53,14 +53,16 @@ class TreeBarKeyValueTable extends React.Component {
     let rows = []
     rows.push(
       <tr key="labels">
+        <td style={style.cell}> Year </td>
         <td style={style.cell}> Country </td>
         <td style={style.cell}> Population </td>
       </tr>
     )
     for (let dataPoint of this.props.data) {
       rows.push(
-        <TreeBarKeyValueRow key={dataPoint.title}
-          country={dataPoint.country} population={dataPoint.population}
+        <GroupedKeyValueRow key={dataPoint.year+dataPoint.country}
+          year={dataPoint.year} population={dataPoint.population}
+          country={dataPoint.country}
           updateData={this.props.updateData.bind(this)} />
       )
     }
@@ -78,4 +80,4 @@ class TreeBarKeyValueTable extends React.Component {
 
 }
 
-export default TreeBarKeyValueTable
+export default GroupedKeyValueTable
