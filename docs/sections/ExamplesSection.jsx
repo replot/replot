@@ -5,7 +5,8 @@ import LineChart from "replot-line"
 import ScatterPlot from "replot-scatter"
 import NetworkChart from "replot-network"
 import SectionContainer from "../components/SectionContainer.jsx"
-import TreeBarKeyValueTable from "../components/TreeBarKeyValueTable.jsx"
+import TwoColumnTable from "../components/TwoColumnTable.jsx"
+import GroupedKeyValueTable from "../components/GroupedKeyValueTable.jsx"
 import LineKeyValueTable from "../components/LineKeyValueTable.jsx"
 import ScatterKeyValueTable from "../components/ScatterKeyValueTable.jsx"
 import ScaleSwitch from "../components/ScaleSwitch.jsx"
@@ -145,6 +146,21 @@ class ExamplesSection extends React.Component {
       this.setState({barData: mutatedData})
     }
   }
+  updateGroupedData(mutatedObject) {
+    let mutatedData = JSON.parse(JSON.stringify(this.state.groupedData))
+    let chosenIndex = -1
+    for (let index=0; index < mutatedData.length; index++) {
+      if (mutatedData[index].year === mutatedObject.year &&
+        mutatedData[index].country === mutatedObject.country) {
+        chosenIndex = index
+        break
+      }
+    }
+    if (chosenIndex > -1) {
+      mutatedData[chosenIndex].population = parseInt(mutatedObject.population)
+      this.setState({groupedData: mutatedData})
+    }
+  }
   updateLineData(mutatedObject) {
     let mutatedData = JSON.parse(JSON.stringify(this.state.lineData))
     let chosenIndex = -1
@@ -191,7 +207,7 @@ class ExamplesSection extends React.Component {
             <TreeMap data={this.state.treeData} weightKey="population"
               titleKey="country" />
           </div>
-          <TreeBarKeyValueTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
+          <TwoColumnTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
         </div>
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Bar Chart </h1>
@@ -199,16 +215,16 @@ class ExamplesSection extends React.Component {
             <BarChart data={this.state.barData} xKey="country"
               yKey="population" yScale="lin" color={this.state.color} />
           </div>
-          <TreeBarKeyValueTable data={this.state.barData} updateData={this.updateBarData.bind(this)} />
+          <TwoColumnTable data={this.state.barData} updateData={this.updateBarData.bind(this)} />
         </div>
-        <div className="container">
-          <h1 style={{textAlign: "center"}}> Grouped Bar Chart </h1>
+        <div className="container" style={{padding: "80px 50px"}}>
+          <h1 style={{textAlign: "left", color: "white"}}> Grouped Bar Chart </h1>
           <div style={{width:"70%", display:"inline-block"}}>
             <BarChart data={this.state.groupedData} xKey="year" yKey="population"
               groupKey="country" yScale="lin" color={this.state.color} />
           </div>
-          <KeyValueTable data={this.state.groupedData}
-            updateData={this.updateData.bind(this)} />
+          <GroupedKeyValueTable data={this.state.groupedData}
+            updateData={this.updateGroupedData.bind(this)} />
         </div>
         <div className="container" style={{padding: "80px 50px"}}>
           <h1 style={{textAlign: "left", color: "white"}}> Line Chart </h1>
