@@ -31,7 +31,6 @@
     "eslint-plugin-react": "^6.10.3",
     "radium": "^0.18.2",
     "react": "^15.5.4",
-    "react-bar": "git+ssh://git@github.com/MacroConnections/replot-bar.git",
     "react-dom": "^15.5.4",
     "replot-bar": "git+ssh://git@github.com/MacroConnections/replot-bar.git",
     "replot-line": "git+ssh://git@github.com/MacroConnections/replot-line.git",
