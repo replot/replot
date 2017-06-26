@@ -6,7 +6,7 @@ class TwoColumnRow extends React.Component {
   changeHandler(e) {
     this.props.updateData({
       country: this.props.country,
-      population: e.target.value
+      population: e.target.value || "0"
     })
   }
 

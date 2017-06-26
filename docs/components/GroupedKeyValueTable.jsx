@@ -7,7 +7,7 @@ class GroupedKeyValueRow extends React.Component {
     this.props.updateData({
       year: this.props.year,
       country: this.props.country,
-      population: e.target.value
+      population: e.target.value || "0"
     })
   }
 
