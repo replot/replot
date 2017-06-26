@@ -1,6 +1,6 @@
 import React from "react"
 import TreeMap from "replot-treemap"
-import TwoColumnTable from "../TwoColumnTable.jsx"
+import TreeDataTable from "../TreeDataTable.jsx"
 
 
 class TreeExample extends React.Component {
@@ -27,7 +27,7 @@ class TreeExample extends React.Component {
     let mutatedData = JSON.parse(JSON.stringify(this.state.treeData))
     let chosenIndex = -1
     for (let index=0; index < mutatedData.length; index++) {
-      if (mutatedData[index].country === mutatedObject.country) {
+      if (mutatedData[index].city === mutatedObject.city) {
         chosenIndex = index
         break
       }
@@ -46,7 +46,7 @@ class TreeExample extends React.Component {
           <TreeMap data={this.state.treeData} weightKey="population"
             titleKey="country" keyOrder={this.state.keyOrder}/>
         </div>
-        <TwoColumnTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
+        <TreeDataTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
       </div>
     )
   }
