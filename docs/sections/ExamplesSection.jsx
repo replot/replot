@@ -6,7 +6,7 @@ import GroupedExample from "../components/examples/GroupedExample.jsx"
 import LineExample from "../components/examples/LineExample.jsx"
 import ScatterExample from "../components/examples/ScatterExample.jsx"
 import NetworkExample from "../components/examples/NetworkExample.jsx"
-
+import MapExample from "../components/examples/MapExample.jsx"
 
 class ExamplesSection extends React.Component {
 
@@ -20,6 +20,7 @@ class ExamplesSection extends React.Component {
         <LineExample />
         <ScatterExample />
         <NetworkExample />
+        <MapExample />
       </SectionContainer>
     )
   }

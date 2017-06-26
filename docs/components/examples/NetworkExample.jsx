@@ -31,7 +31,8 @@ class NetworkExample extends React.Component {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Network Chart </h1>
-        <div style={{width:"70%", display:"inline-block"}}>
+        <h1 style={{textAlign: "left", color: "white"}}> Coming Soon</h1>
+        <div style={{width:"70%", display:"none"}}>
           <NetworkChart nodes={this.state.nodes} links={this.state.links}
             labelKey="name" labelColor="white"
             groupKey="country" lineColor="white"/>
