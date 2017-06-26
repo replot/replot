@@ -10,46 +10,62 @@ class ScatterExample extends React.Component {
     super(props)
     this.state = {
       scatterData: [
-        {continent: "Asia", country: "China", population: 1388232693, gdp: 11795297000},
-        {continent: "Asia", country: "Japan", population: 126045211, gdp: 4841221000},
-        {continent: "Asia", country: "India", population: 1342512706, gdp: 2454458000},
-        {continent: "Asia", country: "South Korea", population: 50704971, gdp: 1498074000},
-        {continent: "Asia", country: "Indonesia", population: 263510146, gdp: 1020515000},
-        {continent: "Asia", country: "Saudi Arabia", population: 32742664, gdp: 707379000},
-        {continent: "S. America", country: "Brazil", population: 211243220, gdp: 2140940000},
-        {continent: "S. America", country: "Argentina", population: 44272125, gdp: 628935000},
-        {continent: "S. America", country: "Colombia", population: 49067981, gdp: 306439000},
-        {continent: "S. America", country: "Venezuela", population: 31925705, gdp: 251589000},
-        {continent: "S. America", country: "Chile", population: 18313495, gdp: 251220000},
-        {continent: "S. America", country: "Peru", population: 32166473, gdp: 207072000},
-        {continent: "Europe", country: "Germany", population: 80636124, gdp: 3423287000},
-        {continent: "Europe", country: "UK", population: 65511098, gdp: 2496757000},
-        {continent: "Europe", country: "France", population: 64938716, gdp: 2420440000},
-        {continent: "Europe", country: "Italy", population: 59797978, gdp: 1807425000},
-        {continent: "Europe", country: "Russia", population: 143375006, gdp: 1560706000},
-        {continent: "Europe", country: "Spain", population: 46070146, gdp: 1232440000},
-        {continent: "Africa", country: "Nigeria", population: 191835936, gdp: 400621000},
-        {continent: "Africa", country: "Egypt", population: 95215102, gdp: 332349000},
-        {continent: "Africa", country: "South Africa", population: 55436360, gdp: 317568000},
-        {continent: "Africa", country: "Algeria", population: 41063753, gdp: 173947000},
-        {continent: "Africa", country: "Angola", population: 26655513, gdp: 122365000},
-        {continent: "Africa", country: "Sudan", population: 42166323, gdp: 115874000},
+        {gender: "male", height: 70, weight: 155, shoeSize: 10},
+        {gender: "male", height: 72, weight: 144, shoeSize: 12},
+        {gender: "male", height: 73, weight: 158, shoeSize: 11.5},
+        {gender: "male", height: 72.5, weight: 160, shoeSize: 11},
+        {gender: "male", height: 77, weight: 186, shoeSize: 13},
+        {gender: "male", height: 68, weight: 153, shoeSize: 10},
+        {gender: "male", height: 69, weight: 160, shoeSize: 9},
+        {gender: "male", height: 67, weight: 166, shoeSize: 9.5},
+        {gender: "male", height: 64.5, weight: 169, shoeSize: 9},
+        {gender: "male", height: 63, weight: 126, shoeSize: 9.5},
+        {gender: "male", height: 66.5, weight: 120, shoeSize: 9},
+        {gender: "male", height: 65.5, weight: 147, shoeSize: 11},
+        {gender: "female", height: 60, weight: 91, shoeSize: 6},
+        {gender: "female", height: 63.5, weight: 100, shoeSize: 6.5},
+        {gender: "female", height: 62, weight: 102, shoeSize: 6.5},
+        {gender: "female", height: 66, weight: 112, shoeSize: 7},
+        {gender: "female", height: 59, weight: 90, shoeSize: 6},
+        {gender: "female", height: 58.5, weight: 95, shoeSize: 5.5},
+        {gender: "female", height: 61.5, weight: 115, shoeSize: 6},
+        {gender: "female", height: 69.5, weight: 125, shoeSize: 8},
+        {gender: "female", height: 71, weight: 135, shoeSize: 8.5},
+        {gender: "female", height: 58, weight: 140, shoeSize: 4.5},
+        {gender: "female", height: 68.5, weight: 158, shoeSize: 7.5},
+        {gender: "female", height: 64, weight: 160.5, shoeSize: 7.5},
+        {gender: "female", height: 65, weight: 130.5, shoeSize: 7},
       ],
       scatterScale: "log"
     }
   }
 
-  updateScatterData(mutatedObject) {
+  updateScatterShoeData(mutatedObject) {
     let mutatedData = JSON.parse(JSON.stringify(this.state.scatterData))
     let chosenIndex = -1
     for (let index=0; index < mutatedData.length; index++) {
-      if (mutatedData[index].continent === mutatedObject.continent && mutatedData[index].population === mutatedObject.population) {
+      if (mutatedData[index].weight === mutatedObject.weight && mutatedData[index].height === mutatedObject.height) {
         chosenIndex = index
         break
       }
     }
     if (chosenIndex > -1) {
-      mutatedData[chosenIndex].gdp = parseFloat(mutatedObject.gdp)
+      mutatedData[chosenIndex].shoeSize = parseFloat(mutatedObject.shoeSize)
+      this.setState({scatterData: mutatedData})
+    }
+  }
+
+  updateScatterWeightData(mutatedObject) {
+    let mutatedData = JSON.parse(JSON.stringify(this.state.scatterData))
+    let chosenIndex = -1
+    for (let index=0; index < mutatedData.length; index++) {
+      if (mutatedData[index].gender === mutatedObject.gender && mutatedData[index].height === mutatedObject.height) {
+        chosenIndex = index
+        break
+      }
+    }
+    if (chosenIndex > -1) {
+      mutatedData[chosenIndex].weight = parseFloat(mutatedObject.weight)
       this.setState({scatterData: mutatedData})
     }
   }
@@ -64,12 +80,12 @@ class ScatterExample extends React.Component {
         <h1 style={{textAlign: "left", color: "white"}}> Scatter Plot </h1>
         <div style={{width:"70%", display:"inline-block"}}>
           <ScatterPlot data={this.state.scatterData}
-            titleKey="continent" xKey="population" yKey="gdp"
-            scale={this.state.scatterScale} grid="default"
-            legend="default" color={this.state.color}
-            axisColor="white" legendColor="white"/>
+            titleKey="gender" xKey="height" yKey="weight" circleKey="shoeSize"
+            scale={this.state.scatterScale} grid="default" legend="default" color={this.state.color}
+            xLabel="on" yLabel="on" filterBy="none" axisColor="white" legendColor="white"/>
         </div>
-        <ScatterKeyValueTable data={this.state.scatterData} updateData={this.updateScatterData.bind(this)} />
+        <ScatterKeyValueTable data={this.state.scatterData} updateShoeData={this.updateScatterShoeData.bind(this)}
+          updateWeightData={this.updateScatterWeightData.bind(this)} />
         <ScaleSwitch scale={this.state.scatterScale} updateScale={this.updateScatterScale.bind(this)} />
       </div>
     )

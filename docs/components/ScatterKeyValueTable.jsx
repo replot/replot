@@ -3,11 +3,21 @@ import React from "react"
 
 class ScatterKeyValueRow extends React.Component {
 
-  changeHandler(e) {
-    this.props.updateData({
-      continent: this.props.continent,
-      population: this.props.population,
-      gdp: e.target.value
+  changeHandlerShoe(e) {
+    this.props.updateShoeData({
+      gender: this.props.gender,
+      height: this.props.height,
+      weight: this.props.weight,
+      shoeSize: e.target.value,
+    })
+  }
+
+  changeHandlerWeight(e) {
+    this.props.updateWeightData({
+      gender: this.props.gender,
+      height: this.props.height,
+      weight: e.target.value,
+      shoeSize: e.target.shoeSize,
     })
   }
 
@@ -21,12 +31,13 @@ class ScatterKeyValueRow extends React.Component {
     }
 
     return(
-      <tr key={this.props.continent.concat(this.props.population)}>
-        <td style={style.cell}>{this.props.country} </td>
-        <td style={style.cell}>{this.props.population}</td>
+      <tr>
+        <td style={style.cell}>{this.props.height}</td>
+          <input style={{width:"50%"}} type="text" value={parseFloat(this.props.weight) || ""}
+          onChange={this.changeHandlerWeight.bind(this)} />
         <td style={style.cell}>
-          <input type="text" value={parseFloat(this.props.gdp)}
-            onChange={this.changeHandler.bind(this)} />
+          <input style={{width:"50%"}} type="text" value={parseFloat(this.props.shoeSize) || ""}
+          onChange={this.changeHandlerShoe.bind(this)} />
         </td>
       </tr>
     )
@@ -55,17 +66,18 @@ class ScatterKeyValueTable extends React.Component {
     let rows = []
     rows.push(
       <tr key="labels">
-        <td style={style.cell}> Country </td>
-        <td style={style.cell}> Population </td>
-        <td style={style.cell}> GDP </td>
+        <td style={style.cell}> Height </td>
+        <td style={style.cell}> Weight </td>
+        <td style={style.cell}> Shoe Size </td>
       </tr>
     )
     for (let dataPoint of this.props.data) {
       rows.push(
-        <ScatterKeyValueRow key={dataPoint.continent.concat(dataPoint.population)}
-          continent={dataPoint.continent} country={dataPoint.country}
-          population={dataPoint.population} gdp={dataPoint.gdp}
-          updateData={this.props.updateData.bind(this)} />
+        <ScatterKeyValueRow key={dataPoint.gender.concat(dataPoint.weight)}
+          gender={dataPoint.gender} height={dataPoint.height}
+          weight={dataPoint.weight} shoeSize={dataPoint.shoeSize}
+          updateShoeData={this.props.updateShoeData.bind(this)}
+          updateWeightData={this.props.updateWeightData.bind(this)} />
       )
     }
 
