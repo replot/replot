@@ -7,7 +7,7 @@ class LineKeyValueRow extends React.Component {
     this.props.updateData({
       location: this.props.location,
       year: this.props.year,
-      population: e.target.value
+      population: e.target.value || "0"
     })
   }
 
