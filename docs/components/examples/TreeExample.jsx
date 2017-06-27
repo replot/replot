@@ -1,6 +1,7 @@
 import React from "react"
 import TreeMap from "replot-treemap"
 import TreeDataTable from "../TreeDataTable.jsx"
+import OptionsPane from "../OptionsPane.jsx"
 
 
 class TreeExample extends React.Component {
@@ -47,7 +48,8 @@ class TreeExample extends React.Component {
             titleKey="country" keyOrder={this.state.keyOrder}/>
         </div>
         <TreeDataTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
-      </div>
+        <OptionsPane />
+    </div>
     )
   }
 

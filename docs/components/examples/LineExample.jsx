@@ -65,7 +65,6 @@ class LineExample extends React.Component {
         <div style={{width:"70%", display:"inline-block"}}>
           <LineChart data={this.state.lineData} titleKey="location"
             xKey="year" yKey="population" scale={this.state.lineScale}
-            grid="default" legend="default" color={this.state.color}
             axisColor="white" legendColor="white"/>
         </div>
         <LineKeyValueTable data={this.state.lineData} updateData={this.updateLineData.bind(this)} />
