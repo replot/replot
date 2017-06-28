@@ -2,6 +2,7 @@ import React from "react"
 import TreeMap from "replot-treemap"
 import TreeDataTable from "../TreeDataTable.jsx"
 import OptionsPane from "../OptionsPane.jsx"
+import PercentDisplaySwitch from "../PercentDisplaySwitch.jsx"
 
 
 class TreeExample extends React.Component {
@@ -20,7 +21,8 @@ class TreeExample extends React.Component {
         {population: 112, country: "Canada", state: "Ontario", city: "Kingston"},
         {population: 80, country: "Canada", state: "Ontario", city: "Barrie"},
       ],
-      keyOrder: ["country", "state", "city"]
+      keyOrder: ["country", "state", "city"],
+      percentDisplay: true
     }
   }
 
@@ -39,16 +41,23 @@ class TreeExample extends React.Component {
     }
   }
 
+  updatePercentDisplay(mutatedObject) {
+    this.setState({percentDisplay: mutatedObject.percentDisplay})
+  }
+
   render() {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Treemap </h1>
         <div style={{width:"70%", display:"inline-block"}}>
           <TreeMap data={this.state.treeData} weightKey="population"
-            titleKey="country" keyOrder={this.state.keyOrder}/>
+            titleKey="country" keyOrder={this.state.keyOrder}
+            displayPercentages={this.state.percentDisplay}/>
         </div>
         <TreeDataTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
-        <OptionsPane />
+        <OptionsPane>
+          <PercentDisplaySwitch percentDisplay={this.state.percentDisplay} updatePercentDisplay={this.updatePercentDisplay.bind(this)} />
+        </OptionsPane>
     </div>
     )
   }

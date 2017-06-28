@@ -1,11 +1,11 @@
 import React from "react"
 
 
-class ScaleButton extends React.Component {
+class PercentButton extends React.Component {
 
   clickHandler() {
-    this.props.updateScale({
-      scale: this.props.title
+    this.props.updatePercentDisplay({
+      percentDisplay: this.props.title
     })
   }
 
@@ -24,19 +24,19 @@ class ScaleButton extends React.Component {
     return (
       <div className="button" style={style.button}
         onClick={this.clickHandler.bind(this)}>
-        {this.props.title}
+        {this.props.text}
       </div>
     )
   }
 
 }
 
-class ScaleSwitch extends React.Component {
+class PercentSwitch extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      scale: "log"
+      percentDisplay: true
     }
   }
 
@@ -48,24 +48,25 @@ class ScaleSwitch extends React.Component {
       }
     }
 
-    let types = ["log", "lin"]
+    let types = [false, true]
+    let text = ["false", "true"]
     let buttons = []
     let color = ""
     for (var i=0; i < types.length; i++) {
-      if (types[i] == this.props.scale) {
+      if (types[i] == this.props.percentDisplay) {
         color = "#00AA00"
       } else {
         color = "#444444"
       }
       buttons.push(
-        <ScaleButton key={i} title={types[i]}
-        updateScale={this.props.updateScale.bind(this)} color={color} />
+        <PercentButton key={i} title={types[i]} text={text[i]}
+        updatePercentDisplay={this.props.updatePercentDisplay.bind(this)} color={color} />
       )
     }
 
     return(
       <div>
-        <div> Scale: </div>
+        <div> Display Percentages: </div>
         <div className="switch" style={style.switch}>
           {buttons}
         </div>
@@ -75,4 +76,4 @@ class ScaleSwitch extends React.Component {
 
 }
 
-export default ScaleSwitch
+export default PercentSwitch
