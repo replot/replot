@@ -37,17 +37,17 @@ class OptionsPane extends React.Component {
         borderBottom: "2px solid #808080"
       },
       options: {
-        padding:  "10px",//(this.state.active ? "100px 10px" : "10px"),
+        padding:  "10px",
         color: (this.state.active ? "#ffffff" : "#C0C0C0")
       }
     }
 
-    let options = []
-    for (var key in this.props.children.props){
-      if (typeof(this.props.children.props[key]) != "function"){
-        options.push(key + ": " + this.props.children.props[key])
-      }
-    }
+    // let options = []
+    // for (var key in this.props.children.props){
+    //   if (typeof(this.props.children.props[key]) != "function"){
+    //     options.push(key + ": " + this.props.children.props[key])
+    //   }
+    // }
 
     return (
       <div style={style.outer} onClick={(this.state.active ? null : this.changeActive.bind(this))}>
@@ -60,9 +60,6 @@ class OptionsPane extends React.Component {
           </div>
         </div>
         <div style={style.options}>
-          {!this.state.active &&
-            options
-          }
           {this.state.active &&
             this.props.children
           }

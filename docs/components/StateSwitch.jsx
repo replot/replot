@@ -1,18 +1,16 @@
 import React from "react"
 
 
-class PercentButton extends React.Component {
+class StateButton extends React.Component {
 
   clickHandler() {
-    this.props.updatePercentDisplay({
-      percentDisplay: this.props.title
-    })
+    this.props.updateFunc(this.props.title)
   }
 
   render() {
     let style = {
       button: {
-        width: "50%",
+        width: `${this.props.width * 100}%`,
         float: "right",
         padding: "10px",
         textAlign: "center",
@@ -24,21 +22,14 @@ class PercentButton extends React.Component {
     return (
       <div className="button" style={style.button}
         onClick={this.clickHandler.bind(this)}>
-        {this.props.text}
+        {this.props.title}
       </div>
     )
   }
 
 }
 
-class PercentSwitch extends React.Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      percentDisplay: true
-    }
-  }
+class StateSwitch extends React.Component {
 
   render() {
     const style = {
@@ -48,25 +39,24 @@ class PercentSwitch extends React.Component {
       }
     }
 
-    let types = [false, true]
-    let text = ["false", "true"]
+    let types = this.props.states
     let buttons = []
     let color = ""
     for (var i=0; i < types.length; i++) {
-      if (types[i] == this.props.percentDisplay) {
+      if (types[i] == this.props.current) {
         color = "#00AA00"
       } else {
         color = "#444444"
       }
       buttons.push(
-        <PercentButton key={i} title={types[i]} text={text[i]}
-        updatePercentDisplay={this.props.updatePercentDisplay.bind(this)} color={color} />
+        <StateButton key={i} title={types[i]} width={1/this.props.states.length}
+        updateFunc={this.props.updateFunc} color={color} />
       )
     }
 
     return(
       <div>
-        <div> Display Percentages: </div>
+        <div> {this.props.title} </div>
         <div className="switch" style={style.switch}>
           {buttons}
         </div>
@@ -76,4 +66,4 @@ class PercentSwitch extends React.Component {
 
 }
 
-export default PercentSwitch
+export default StateSwitch

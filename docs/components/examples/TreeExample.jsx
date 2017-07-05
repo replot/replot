@@ -2,7 +2,7 @@ import React from "react"
 import TreeMap from "replot-treemap"
 import TreeDataTable from "../TreeDataTable.jsx"
 import OptionsPane from "../OptionsPane.jsx"
-import PercentDisplaySwitch from "../PercentDisplaySwitch.jsx"
+import BoolSwitch from "../BoolSwitch.jsx"
 
 
 class TreeExample extends React.Component {
@@ -41,8 +41,8 @@ class TreeExample extends React.Component {
     }
   }
 
-  updatePercentDisplay(mutatedObject) {
-    this.setState({percentDisplay: mutatedObject.percentDisplay})
+  updatePercentDisplay(chosenOption) {
+    this.setState({percentDisplay: chosenOption})
   }
 
   render() {
@@ -56,7 +56,7 @@ class TreeExample extends React.Component {
         </div>
         <TreeDataTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
         <OptionsPane>
-          <PercentDisplaySwitch percentDisplay={this.state.percentDisplay} updatePercentDisplay={this.updatePercentDisplay.bind(this)} />
+          <BoolSwitch title="Display percentages?" switch={this.state.percentDisplay} updateFunc={this.updatePercentDisplay.bind(this)} />
         </OptionsPane>
     </div>
     )
