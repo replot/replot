@@ -16,6 +16,7 @@ class StateButton extends React.Component {
         textAlign: "center",
         color: "#FFFFFF",
         backgroundColor: this.props.color,
+        cursor: "pointer"
       }
     }
 
@@ -43,7 +44,7 @@ class StateSwitch extends React.Component {
     let buttons = []
     let color = ""
     for (var i=0; i < types.length; i++) {
-      if (types[i] == this.props.current) {
+      if (types[i] == this.props.switch) {
         color = "#00AA00"
       } else {
         color = "#444444"
