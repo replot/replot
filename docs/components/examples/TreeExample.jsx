@@ -1,8 +1,9 @@
 import React from "react"
 import TreeMap from "replot-treemap"
 import TreeDataTable from "../TreeDataTable.jsx"
-import OptionsPane from "../OptionsPane.jsx"
-import BoolSwitch from "../BoolSwitch.jsx"
+import OptionsPane from "../options/OptionsPane.jsx"
+import BoolSwitch from "../options/BoolSwitch.jsx"
+import FieldSwitch from "../options/FieldSwitch.jsx"
 
 
 class TreeExample extends React.Component {
@@ -22,7 +23,8 @@ class TreeExample extends React.Component {
         {population: 80, country: "Canada", state: "Ontario", city: "Barrie"},
       ],
       keyOrder: ["country", "state", "city"],
-      percentDisplay: true
+      percentDisplay: true,
+      width: 800
     }
   }
 
@@ -45,6 +47,10 @@ class TreeExample extends React.Component {
     this.setState({percentDisplay: chosenOption})
   }
 
+  updateWidth(chosenWidth) {
+    this.setState({width: chosenWidth})
+  }
+
   render() {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
@@ -52,11 +58,13 @@ class TreeExample extends React.Component {
         <div style={{width:"70%", display:"inline-block"}}>
           <TreeMap data={this.state.treeData} weightKey="population"
             titleKey="country" keyOrder={this.state.keyOrder}
-            displayPercentages={this.state.percentDisplay}/>
+            displayPercentages={this.state.percentDisplay}
+            width={this.state.width}/>
         </div>
         <TreeDataTable data={this.state.treeData} updateData={this.updateTreeData.bind(this)} />
         <OptionsPane>
           <BoolSwitch title="Display percentages?" switch={this.state.percentDisplay} updateFunc={this.updatePercentDisplay.bind(this)} />
+          <FieldSwitch title="Change width?" switch={this.state.width} updateFunc={this.updateWidth.bind(this)} />
         </OptionsPane>
     </div>
     )

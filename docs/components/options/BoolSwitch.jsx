@@ -16,6 +16,7 @@ class BoolButton extends React.Component {
         textAlign: "center",
         color: "#FFFFFF",
         backgroundColor: this.props.color,
+        cursor: "pointer"
       }
     }
 
