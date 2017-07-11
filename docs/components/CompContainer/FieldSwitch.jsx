@@ -4,7 +4,14 @@ import React from "react"
 class FieldSwitch extends React.Component {
 
   changeHandler(e){
-    this.props.updateFunc(e.target.value || 1)
+    let val
+    if (this.props.input === "number") {
+      val = parseInt(e.target.value) || 1
+    }
+    else {
+      val = String(e.target.value)
+    }
+    this.props.updateFunc(val)
   }
 
   render() {
@@ -20,7 +27,7 @@ class FieldSwitch extends React.Component {
     return(
       <div style={{marginBottom: "10px"}}>
         <div>{this.props.name}:</div>
-        <input type="text" value={parseInt(this.props.switch)}
+        <input type="text" value={this.props.input === "number" ? parseInt(this.props.switch) : this.props.switch}
           style={style.input} onChange={this.changeHandler.bind(this)}/>
       </div>
     )
