@@ -7,8 +7,6 @@ class FieldSwitch extends React.Component {
     this.props.updateFunc(e.target.value || 1)
   }
 
-
-
   render() {
     const style = {
       input: {

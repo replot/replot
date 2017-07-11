@@ -36,8 +36,7 @@ class BoolSwitch extends React.Component {
     const style = {
       switch: {
         width: "300px",
-        display:"inline-block",
-        marginBottom: "5px"
+        display:"inline-block"
       }
     }
 
