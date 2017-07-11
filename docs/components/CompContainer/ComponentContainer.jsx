@@ -34,7 +34,7 @@ class ComponentContainer extends React.Component {
       if (option.optionType === "bool") {
         switches.push(<BoolSwitch name={option.optionName} switch={this.state.options[option.optionName]} updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
       } else if (option.optionType === "field") {
-        switches.push(<FieldSwitch name={option.optionName} switch={this.state.options[option.optionName]} updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
+        switches.push(<FieldSwitch name={option.optionName} switch={this.state.options[option.optionName]} input={option.input} updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
       } else if (option.optionType === "state") {
         switches.push(<StateSwitch name={option.optionName} switch={this.state.options[option.optionName]} states={option.states} updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
       } else if (option.optionType === "hidden") {
