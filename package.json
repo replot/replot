@@ -29,6 +29,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^6.10.3",
+    "prop-types": "^15.5.10",
     "radium": "^0.18.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

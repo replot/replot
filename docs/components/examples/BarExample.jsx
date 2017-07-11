@@ -1,8 +1,6 @@
 import React from "react"
 import BarChart from "replot-bar"
 import TwoColumnTable from "../TwoColumnTable.jsx"
-import StateSwitch from "../options/StateSwitch.jsx"
-import OptionsPane from "../options/OptionsPane.jsx"
 
 
 class BarExample extends React.Component {
@@ -52,9 +50,6 @@ class BarExample extends React.Component {
             yKey="population" yScale={this.state.barScale} color={this.state.color} />
         </div>
         <TwoColumnTable data={this.state.barData} updateData={this.updateBarData.bind(this)} />
-        <OptionsPane>
-          <StateSwitch title="Scale?" switch={this.state.barScale} states={["lin", "log"]} updateFunc={this.updateBarScale.bind(this)} />
-        </OptionsPane>
       </div>
     )
   }
