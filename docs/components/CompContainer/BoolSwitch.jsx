@@ -51,7 +51,7 @@ class BoolSwitch extends React.Component {
         color = "#444444"
       }
       buttons.push(
-        <BoolButton key={i} name={this.props.name} title={types[i]} text={text[i]}
+        <BoolButton key={i} title={types[i]} text={text[i]}
         updateFunc={this.props.updateFunc} color={color} />
       )
     }
