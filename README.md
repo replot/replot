@@ -33,6 +33,8 @@ be one of 4 predetermined values:
   but not only true and false (e.g. "lin", "log", "exp" for a graph scale)
   * In this case, you should also specify a `states` key, with a value of a javascript
     array, which enumerates what the predefined states can be.
+Lastly, each option outline should have an `initialValue` key, which holds the
+desired initial value of an option
 
 ```javascript
 this.state = {
