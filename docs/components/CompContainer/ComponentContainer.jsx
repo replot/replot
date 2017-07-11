@@ -32,19 +32,19 @@ class ComponentContainer extends React.Component {
     let switches = []
     for (let option of this.props.optionList){
       if (option.optionType === "bool") {
-        switches.push(<BoolSwitch name={option.optionName}
+        switches.push(<BoolSwitch key={option.optionName} name={option.optionName}
           switch={this.state.options[option.optionName]}
           updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
       } else if (option.optionType === "field") {
-        switches.push(<FieldSwitch name={option.optionName}
+        switches.push(<FieldSwitch key={option.optionName} name={option.optionName}
           switch={this.state.options[option.optionName]} input={option.input}
           updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
       } else if (option.optionType === "state") {
-        switches.push(<StateSwitch name={option.optionName}
+        switches.push(<StateSwitch key={option.optionName} name={option.optionName}
           switch={this.state.options[option.optionName]} states={option.states}
           updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
       } else if (option.optionType === "hidden") {
-        switches.push(<NonSwitch name={option.optionName}
+        switches.push(<NonSwitch key={option.optionName} name={option.optionName}
           switch={this.state.options[option.optionName]} />)
       }
     }
@@ -64,7 +64,7 @@ class ComponentContainer extends React.Component {
 }
 
 ComponentContainer.propTypes = {
-  options: PropTypes.array.isRequired,
+  optionList: PropTypes.array.isRequired,
   children: PropTypes.element.isRequired
 }
 
