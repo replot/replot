@@ -37,6 +37,7 @@ class BoolSwitch extends React.Component {
       switch: {
         width: "300px",
         display:"inline-block",
+        marginBottom: "5px"
       }
     }
 
@@ -51,14 +52,14 @@ class BoolSwitch extends React.Component {
         color = "#444444"
       }
       buttons.push(
-        <BoolButton key={i} title={types[i]} text={text[i]}
+        <BoolButton key={i} name={this.props.name} title={types[i]} text={text[i]}
         updateFunc={this.props.updateFunc} color={color} />
       )
     }
 
     return(
-      <div>
-        <div>{this.props.title}</div>
+      <div style={{marginBottom: "10px"}}>
+        <div>{this.props.name}:</div>
         <div className="switch" style={style.switch}>
           {buttons}
         </div>

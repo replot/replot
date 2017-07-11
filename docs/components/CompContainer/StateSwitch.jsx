@@ -37,6 +37,7 @@ class StateSwitch extends React.Component {
       switch: {
         width: "300px",
         display:"inline-block",
+        marginBottom: "5px"
       }
     }
 
@@ -56,8 +57,8 @@ class StateSwitch extends React.Component {
     }
 
     return(
-      <div>
-        <div> {this.props.title} </div>
+      <div style={{marginBottom: "10px"}}>
+        <div>{this.props.name}:</div>
         <div className="switch" style={style.switch}>
           {buttons}
         </div>

@@ -26,7 +26,8 @@ class TreeExample extends React.Component {
         {optionName: "width", optionType: "field", initialValue: 800},
         {optionName: "height", optionType: "field", initialValue: 400},
         {optionName: "initialAnimation", optionType: "bool", initialValue: true},
-        {optionName: "displayPercentages", optionType: "bool", initialValue: true}
+        {optionName: "displayPercentages", optionType: "bool", initialValue: true},
+        {optionName: "tooltip", optionType: "bool", initialValue: false}
       ]
     }
   }
@@ -45,20 +46,6 @@ class TreeExample extends React.Component {
       this.setState({treeData: mutatedData})
     }
   }
-
-  // <div style={{width:"70%", display:"inline-block"}}>
-  //   <TreeMap data={this.state.treeData} weightKey="population"
-  //     titleKey="country" keyOrder={this.state.keyOrder}
-  //     initialAnimation={this.state.initialAnimation}
-  //     displayPercentages={this.state.percentDisplay}
-  //     width={this.state.width} height={this.state.height}/>
-  // </div>
-  // <OptionsPane>
-  //   <BoolSwitch title="Initial Animation:" switch={this.state.initialAnimation} updateFunc={this.updateInitialAnimation.bind(this)} />
-  //   <BoolSwitch title="Display percentages:" switch={this.state.percentDisplay} updateFunc={this.updatePercentDisplay.bind(this)} />
-  //   <FieldSwitch title="Width:" switch={this.state.width} updateFunc={this.updateWidth.bind(this)} />
-  //   <FieldSwitch title="Height:" switch={this.state.height} updateFunc={this.updateHeight.bind(this)} />
-  // </OptionsPane>
 
   render() {
     return(
