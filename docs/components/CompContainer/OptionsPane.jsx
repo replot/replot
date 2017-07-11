@@ -21,7 +21,6 @@ class OptionsPane extends React.Component {
       outer: {
         marginTop: "20px",
         border: "2px solid #DCDCDC",
-        borderRadius: "10px"
       },
       heading: {
         fontSize: "22px",
@@ -42,12 +41,14 @@ class OptionsPane extends React.Component {
       }
     }
 
-    // let options = []
-    // for (var key in this.props.children.props){
-    //   if (typeof(this.props.children.props[key]) != "function"){
-    //     options.push(key + ": " + this.props.children.props[key])
-    //   }
-    // }
+    let options = []
+    if (Array.isArray(this.props.children)){
+      for (let i =0; i < this.props.children.length; i++){
+        options.push(<span style={{marginRight: "10px"}}>{this.props.children[i].props.title + " " + this.props.children[i].props.switch}</span>)
+      }
+    } else if (this.props.children){
+      options.push(<span style={{marginRight: "10px"}}>{this.props.children.props.title + " " + this.props.children.props.switch}</span>)
+    }
 
     return (
       <div style={style.outer} onClick={(this.state.active ? null : this.changeActive.bind(this))}>
@@ -60,6 +61,9 @@ class OptionsPane extends React.Component {
           </div>
         </div>
         <div style={style.options}>
+          {!this.state.active &&
+            options
+          }
           {this.state.active &&
             this.props.children
           }
