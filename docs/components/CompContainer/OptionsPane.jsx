@@ -44,10 +44,12 @@ class OptionsPane extends React.Component {
     let options = []
     if (Array.isArray(this.props.children)){
       for (let i =0; i < this.props.children.length; i++){
-        options.push(<span style={{marginRight: "10px"}}>{this.props.children[i].props.name + ": " + this.props.children[i].props.switch}</span>)
+        options.push(<span style={{marginRight: "10px"}}>{this.props.children[i].props.name
+        + ": " + this.props.children[i].props.switch}</span>)
       }
     } else if (this.props.children){
-      options.push(<span style={{marginRight: "10px"}}>{this.props.children.props.name + ": " + this.props.children.props.switch}</span>)
+      options.push(<span style={{marginRight: "10px"}}>{this.props.children.props.name
+      + ": " + this.props.children.props.switch}</span>)
     }
 
     return (

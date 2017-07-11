@@ -27,8 +27,9 @@ class FieldSwitch extends React.Component {
     return(
       <div style={{marginBottom: "10px"}}>
         <div>{this.props.name}:</div>
-        <input type="text" value={this.props.input === "number" ? parseInt(this.props.switch) : this.props.switch}
-          style={style.input} onChange={this.changeHandler.bind(this)}/>
+        <input type="text" style={style.input}
+          value={this.props.input === "number" ? parseInt(this.props.switch) : this.props.switch}
+          onChange={this.changeHandler.bind(this)}/>
       </div>
     )
   }
