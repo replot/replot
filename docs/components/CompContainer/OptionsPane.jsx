@@ -1,5 +1,5 @@
 import React from "react"
-import HoverText from "./HoverText.jsx"
+import Radium from "radium"
 
 
 class OptionsPane extends React.Component {
@@ -39,6 +39,20 @@ class OptionsPane extends React.Component {
         padding:  "10px",
         color: (this.state.active ? "#ffffff" : "#C0C0C0"),
         marginBottom: (this.state.active ? "300px" : null)
+      },
+      text: {
+        fontSize: "16px",
+        listStyleType: "none",
+        float: "left",
+        cursor: "pointer",
+        margin: "0 30px 5px 0",
+        textShadow: "0px 3px 10px #000000",
+        color: "#f5f5f5",
+        ":hover": {
+          textShadow: null,
+          color: "#3399cc",
+          textDecoration: "underline"
+        }
       }
     }
 
@@ -46,16 +60,16 @@ class OptionsPane extends React.Component {
     if (Array.isArray(this.props.children)){
       for (let i =0; i < this.props.children.length; i++){
         options.push(
-          <HoverText key={this.props.children[i].props.name}>
+          <li key={this.props.children[i].props.name} style={style.text}>
             {this.props.children[i].props.name + ": " + this.props.children[i].props.switch}
-          </HoverText>
+          </li>
         )
       }
     } else if (this.props.children){
       options.push(
-        <HoverText key={this.props.children.props.name}>
+        <li key={this.props.children.props.name} style={style.text}>
           {this.props.children.props.name + ": " + this.props.children.props.switch}
-        </HoverText>
+        </li>
       )
     }
 
@@ -83,4 +97,4 @@ class OptionsPane extends React.Component {
 }
 
 
-export default OptionsPane
+export default Radium(OptionsPane)
