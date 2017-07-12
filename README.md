@@ -1,7 +1,7 @@
 # replot
 Visualizations meet the virtual-dom. Coming soon!
 
-###How to utilize ComponentContainer
+### How to utilize ComponentContainer
 If a component needs live prop changing, you can utilize the ComponentContainer
 located in /docs/components/CompContainer/ComponentContainer.jsx
 
