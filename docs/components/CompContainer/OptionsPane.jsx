@@ -1,4 +1,5 @@
 import React from "react"
+import HoverText from "./HoverText.jsx"
 
 
 class OptionsPane extends React.Component {
@@ -19,8 +20,7 @@ class OptionsPane extends React.Component {
   render() {
     const style = {
       outer: {
-        marginTop: "20px",
-        border: "2px solid #DCDCDC",
+        marginTop: "5px",
       },
       heading: {
         fontSize: "22px",
@@ -37,21 +37,26 @@ class OptionsPane extends React.Component {
       },
       options: {
         padding:  "10px",
-        color: (this.state.active ? "#ffffff" : "#C0C0C0")
+        color: (this.state.active ? "#ffffff" : "#C0C0C0"),
+        marginBottom: (this.state.active ? "300px" : null)
       }
     }
 
     let options = []
     if (Array.isArray(this.props.children)){
       for (let i =0; i < this.props.children.length; i++){
-        options.push(<span key={this.props.children[i].props.name}
-          style={{marginRight: "10px"}}>{this.props.children[i].props.name
-          + ": " + this.props.children[i].props.switch}</span>)
+        options.push(
+          <HoverText key={this.props.children[i].props.name}>
+            {this.props.children[i].props.name + ": " + this.props.children[i].props.switch}
+          </HoverText>
+        )
       }
     } else if (this.props.children){
-      options.push(<span key={this.props.children.props.name}
-        style={{marginRight: "10px"}}>{this.props.children.props.name
-        + ": " + this.props.children.props.switch}</span>)
+      options.push(
+        <HoverText key={this.props.children.props.name}>
+          {this.props.children.props.name + ": " + this.props.children.props.switch}
+        </HoverText>
+      )
     }
 
     return (

@@ -10,9 +10,10 @@ class BoolButton extends React.Component {
   render() {
     let style = {
       button: {
+        fontSize: "18px",
         width: "50%",
-        float: "right",
-        padding: "10px",
+        float: "left",
+        padding: "10px 5px",
         textAlign: "center",
         color: "#FFFFFF",
         backgroundColor: this.props.color,
@@ -34,14 +35,16 @@ class BoolSwitch extends React.Component {
 
   render() {
     const style = {
-      switch: {
-        width: "300px",
-        display:"inline-block"
+      outer: {
+        float: "left",
+        fontSize: "18px",
+        margin: "0 50px 10px 0",
+        width: "300px"
       }
     }
 
-    let types = [false, true]
-    let text = ["false", "true"]
+    let types = [true, false]
+    let text = ["true", "false"]
     let buttons = []
     let color = ""
     for (var i=0; i < types.length; i++) {
@@ -57,9 +60,9 @@ class BoolSwitch extends React.Component {
     }
 
     return(
-      <div style={{marginBottom: "10px"}}>
+      <div style={style.outer}>
         <div>{this.props.name}:</div>
-        <div className="switch" style={style.switch}>
+        <div className="switch">
           {buttons}
         </div>
       </div>

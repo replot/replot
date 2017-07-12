@@ -34,10 +34,11 @@ class StateSwitch extends React.Component {
 
   render() {
     const style = {
-      switch: {
-        width: "300px",
-        display:"inline-block",
-        marginBottom: "5px"
+      outer: {
+        float: "left",
+        fontSize: "18px",
+        margin: "0 50px 10px 0",
+        width: "300px"
       }
     }
 
@@ -57,9 +58,9 @@ class StateSwitch extends React.Component {
     }
 
     return(
-      <div style={{marginBottom: "10px"}}>
+      <div style={style.outer}>
         <div>{this.props.name}:</div>
-        <div className="switch" style={style.switch}>
+        <div className="switch">
           {buttons}
         </div>
       </div>

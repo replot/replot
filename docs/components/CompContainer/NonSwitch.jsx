@@ -6,8 +6,9 @@ class NonSwitch extends React.Component {
   render() {
     const style = {
       text: {
-        fontSize: "20px",
-        marginBottom: "10px"
+        float: "left",
+        fontSize: "18px",
+        margin: "0 100px 10px 0"
       }
     }
 
