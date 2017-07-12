@@ -1,6 +1,6 @@
 import React from "react"
 import LineChart from "replot-line"
-import LineKeyValueTable from "../LineKeyValueTable.jsx"
+import DataTable from "../DataTable.jsx"
 import ScaleSwitch from "../ScaleSwitch.jsx"
 
 
@@ -67,7 +67,8 @@ class LineExample extends React.Component {
             xKey="year" yKey="population" scale={this.state.lineScale}
             axisColor="white" legendColor="white"/>
         </div>
-        <LineKeyValueTable data={this.state.lineData} updateData={this.updateLineData.bind(this)} />
+        <DataTable data={this.state.lineData} keys={["location","year"]}
+          weight="population" updateData={this.updateLineData.bind(this)}/>
         <ScaleSwitch scale={this.state.lineScale} updateScale={this.updateLineScale.bind(this)} />
       </div>
     )

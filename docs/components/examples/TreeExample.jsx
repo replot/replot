@@ -1,6 +1,6 @@
 import React from "react"
 import TreeMapManager from "replot-treemap"
-import TreeDataTable from "../TreeDataTable.jsx"
+import DataTable from "../DataTable.jsx"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 
 
@@ -51,11 +51,13 @@ class TreeExample extends React.Component {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Treemap </h1>
-        <TreeDataTable style={{float:"right"}} data={this.state.treeData}
-          updateData={this.updateTreeData.bind(this)} />
-        <ComponentContainer optionList={this.state.optionList}>
-          <TreeMapManager data={this.state.treeData} />
-        </ComponentContainer>
+        <DataTable data={this.state.treeData} keys={["country", "state", "city"]}
+          weight="population" updateData={this.updateTreeData.bind(this)}/>
+        <div style={{width: "70%"}}>
+          <ComponentContainer optionList={this.state.optionList}>
+            <TreeMapManager data={this.state.treeData} />
+          </ComponentContainer>
+        </div>
       </div>
     )
   }

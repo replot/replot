@@ -17,7 +17,7 @@ class ScatterKeyValueRow extends React.Component {
       gender: this.props.gender,
       height: this.props.height,
       weight: e.target.value,
-      shoeSize: e.target.shoeSize,
+      shoeSize: this.props.shoeSize,
     })
   }
 
