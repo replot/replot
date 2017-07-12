@@ -16,16 +16,20 @@ class FieldSwitch extends React.Component {
 
   render() {
     const style = {
+      outer: {
+        float: "left",
+        fontSize: "18px",
+        margin: "0 100px 10px 0"
+      },
       input: {
         fontSize: "18px",
         width: "150px",
-        display:"inline-block",
         padding: "9px 0"
       }
     }
 
     return(
-      <div style={{marginBottom: "10px"}}>
+      <div style={style.outer}>
         <div>{this.props.name}:</div>
         <input type="text" style={style.input}
           value={this.props.input === "number" ? parseInt(this.props.switch) : this.props.switch}

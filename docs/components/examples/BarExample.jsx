@@ -1,6 +1,7 @@
 import React from "react"
 import BarChart from "replot-bar"
 import DataTable from "../DataTable.jsx"
+import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 
 
 class BarExample extends React.Component {
@@ -18,7 +19,13 @@ class BarExample extends React.Component {
         {population: 186, country: "Nigeria"},
         {population: 156, country: "Bangladesh"},
       ],
-      barScale: "lin"
+      optionList: [
+        {optionName: "xKey", optionType: "hidden", initialValue: "country"},
+        {optionName: "yKey", optionType: "hidden", initialValue: "population"},
+        {optionName: "maxGraphW", optionType: "field", input: "number", initialValue: 800},
+        {optionName: "graphH", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "yScale", optionType: "state", states: ["lin", "log"], initialValue: "lin"}
+      ]
     }
   }
 
@@ -45,9 +52,10 @@ class BarExample extends React.Component {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Bar Chart </h1>
-        <div style={{width:"70%", display:"inline-block"}}>
-          <BarChart data={this.state.barData} xKey="country"
-            yKey="population" yScale={this.state.barScale} color={this.state.color} />
+        <div style={{width:"800px", display:"inline-block"}}>
+          <ComponentContainer optionList={this.state.optionList}>
+            <BarChart data={this.state.barData} />
+          </ComponentContainer>
         </div>
         <DataTable data={this.state.barData} keys={["country"]} weight="population"
           updateData={this.updateBarData.bind(this)}/>
