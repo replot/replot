@@ -1,6 +1,6 @@
 import React from "react"
 import BarChart from "replot-bar"
-import GroupedKeyValueTable from "../GroupedKeyValueTable.jsx"
+import DataTable from "../DataTable.jsx"
 import ScaleSwitch from "../ScaleSwitch.jsx"
 
 
@@ -49,8 +49,8 @@ class GroupedExample extends React.Component {
           <BarChart data={this.state.groupedData} xKey="year" yKey="population"
             groupKey="country" yScale={this.state.groupedScale} color={this.state.color} />
         </div>
-        <GroupedKeyValueTable data={this.state.groupedData}
-          updateData={this.updateGroupedData.bind(this)} />
+        <DataTable data={this.state.groupedData} keys={["year", "country"]}
+          weight={"population"} updateData={this.updateGroupedData.bind(this)}/>
         <ScaleSwitch scale={this.state.groupedScale} updateScale={this.updateGroupedBarScale.bind(this)} />
       </div>
     )

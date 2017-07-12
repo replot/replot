@@ -1,6 +1,6 @@
 import React from "react"
 import BarChart from "replot-bar"
-import TwoColumnTable from "../TwoColumnTable.jsx"
+import DataTable from "../DataTable.jsx"
 
 
 class BarExample extends React.Component {
@@ -49,7 +49,8 @@ class BarExample extends React.Component {
           <BarChart data={this.state.barData} xKey="country"
             yKey="population" yScale={this.state.barScale} color={this.state.color} />
         </div>
-        <TwoColumnTable data={this.state.barData} updateData={this.updateBarData.bind(this)} />
+        <DataTable data={this.state.barData} keys={["country"]} weight="population"
+          updateData={this.updateBarData.bind(this)}/>
       </div>
     )
   }
