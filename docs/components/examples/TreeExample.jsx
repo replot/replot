@@ -51,8 +51,8 @@ class TreeExample extends React.Component {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Treemap </h1>
-        <DataTable data={this.state.treeData} keys={["country", "state", "city"]}
-          weight="population" updateData={this.updateTreeData.bind(this)}/>
+        <DataTable data={this.state.treeData} keyList={["country", "state", "city"]}
+          weightKey="population" updateData={this.updateTreeData.bind(this)}/>
         <div style={{width: "800px"}}>
           <ComponentContainer optionList={this.state.optionList}>
             <TreeMapManager data={this.state.treeData} />

@@ -57,7 +57,7 @@ class BarExample extends React.Component {
             <BarChart data={this.state.barData} />
           </ComponentContainer>
         </div>
-        <DataTable data={this.state.barData} keys={["country"]} weight="population"
+        <DataTable data={this.state.barData} keyList={["country"]} weightKey="population"
           updateData={this.updateBarData.bind(this)}/>
       </div>
     )

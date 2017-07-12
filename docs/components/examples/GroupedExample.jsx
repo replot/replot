@@ -49,8 +49,8 @@ class GroupedExample extends React.Component {
           <BarChart data={this.state.groupedData} xKey="year" yKey="population"
             groupKey="country" yScale={this.state.groupedScale} color={this.state.color} />
         </div>
-        <DataTable data={this.state.groupedData} keys={["year", "country"]}
-          weight={"population"} updateData={this.updateGroupedData.bind(this)}/>
+        <DataTable data={this.state.groupedData} keyList={["year", "country"]}
+          weightKey="population" updateData={this.updateGroupedData.bind(this)}/>
         <ScaleSwitch scale={this.state.groupedScale} updateScale={this.updateGroupedBarScale.bind(this)} />
       </div>
     )

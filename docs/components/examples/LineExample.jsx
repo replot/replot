@@ -67,8 +67,8 @@ class LineExample extends React.Component {
             xKey="year" yKey="population" scale={this.state.lineScale}
             axisColor="white" legendColor="white"/>
         </div>
-        <DataTable data={this.state.lineData} keys={["location","year"]}
-          weight="population" updateData={this.updateLineData.bind(this)}/>
+        <DataTable data={this.state.lineData} keyList={["location","year"]}
+          weightKey="population" updateData={this.updateLineData.bind(this)}/>
         <ScaleSwitch scale={this.state.lineScale} updateScale={this.updateLineScale.bind(this)} />
       </div>
     )
