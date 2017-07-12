@@ -44,10 +44,6 @@ class BarExample extends React.Component {
     }
   }
 
-  updateBarScale(chosenState) {
-    this.setState({barScale: chosenState})
-  }
-
   render() {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
