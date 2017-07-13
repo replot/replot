@@ -32,7 +32,7 @@ class FieldSwitch extends React.Component {
         width: "60%",
         padding: "9px 3px",
         border: "3px solid #3d3d3d",
-        transition: "border 0.3s, boxShadow 0.3s",
+        transition: "border 0.3s, box-shadow 0.3s",
         ":focus":{
           outline: "none",
           border: "3px solid #a0a0a0",

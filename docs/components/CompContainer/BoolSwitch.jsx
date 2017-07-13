@@ -1,4 +1,5 @@
 import React from "react"
+import Radium from "radium"
 
 
 class BoolButton extends React.Component {
@@ -17,7 +18,12 @@ class BoolButton extends React.Component {
         textAlign: "center",
         color: "#FFFFFF",
         backgroundColor: this.props.color,
-        cursor: "pointer"
+        border: "1px solid #3d3d3d",
+        cursor: "pointer",
+        transition: "background-color .4s",
+        ":hover":{
+          backgroundColor: this.props.bgColor
+        }
       }
     }
 
@@ -52,18 +58,22 @@ class BoolSwitch extends React.Component {
     }
 
     let types = [true, false]
-    let text = ["true", "false"]
+    let text = ["True", "False"]
     let buttons = []
     let color = ""
+    let bgColor = ""
     for (var i=0; i < types.length; i++) {
       if (types[i] == this.props.switch) {
         color = "#00AA00"
+        bgColor = "#00AA00"
       } else {
         color = "#444444"
+        bgColor = "#005500"
       }
+      let StyledButton = Radium(BoolButton)
       buttons.push(
-        <BoolButton key={i} title={types[i]} text={text[i]}
-        updateFunc={this.props.updateFunc} color={color} />
+        <StyledButton key={i} title={types[i]} text={text[i]}
+        updateFunc={this.props.updateFunc} color={color} bgColor={bgColor}/>
       )
     }
 
@@ -81,4 +91,4 @@ class BoolSwitch extends React.Component {
 
 }
 
-export default BoolSwitch
+export default Radium(BoolSwitch)

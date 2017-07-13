@@ -1,4 +1,5 @@
 import React from "react"
+import Radium from "radium"
 
 
 class StateButton extends React.Component {
@@ -10,13 +11,19 @@ class StateButton extends React.Component {
   render() {
     let style = {
       button: {
+        fontSize: "18px",
         width: `${this.props.width * 100}%`,
-        float: "right",
-        padding: "10px",
+        float: "left",
+        padding: "10px 5px",
         textAlign: "center",
         color: "#FFFFFF",
         backgroundColor: this.props.color,
-        cursor: "pointer"
+        border: "1px solid #3d3d3d",
+        cursor: "pointer",
+        transition: "background-color .4s",
+        ":hover":{
+          backgroundColor: this.props.bgColor
+        }
       }
     }
 
@@ -36,10 +43,9 @@ class StateSwitch extends React.Component {
     const style = {
       outer: {
         fontSize: "18px",
-        minHeight: "100px",
+        minHeight: "900px",
         display: "inline-block",
         verticalAlign: "top",
-        textAlign: "center",
         width: "50%",
         boxSizing: "border-box",
         marginTop: "8px"
@@ -54,15 +60,19 @@ class StateSwitch extends React.Component {
     let types = this.props.states
     let buttons = []
     let color = ""
+    let bgColor = ""
     for (var i=0; i < types.length; i++) {
       if (types[i] == this.props.switch) {
         color = "#00AA00"
+        bgColor = "00AA00"
       } else {
         color = "#444444"
+        bgColor = "#005500"
       }
+      let StyledButton = Radium(StateButton)
       buttons.push(
-        <StateButton key={i} title={types[i]} width={1/this.props.states.length}
-        updateFunc={this.props.updateFunc} color={color} />
+        <StyledButton key={i} title={types[i]} width={1/this.props.states.length}
+        updateFunc={this.props.updateFunc} color={color} bgColor={bgColor}/>
       )
     }
 
