@@ -50,6 +50,7 @@ class ScatterKeyValueTable extends React.Component {
   render() {
     const style = {
       container: {
+        float: "right",
         width: "30%",
         display:"inline-block",
         verticalAlign: "top",
