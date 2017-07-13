@@ -91,4 +91,4 @@ class BoolSwitch extends React.Component {
 
 }
 
-export default Radium(BoolSwitch)
+export default BoolSwitch
