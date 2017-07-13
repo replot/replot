@@ -14,16 +14,13 @@ class NonSwitch extends React.Component {
         width: "50%",
         boxSizing: "border-box",
         marginTop: "8px"
-      },
-      text: {
-        textDecoration: "underline"
       }
     }
 
     return(
       <div style={style.outer}>
         <span>{this.props.name}: </span>
-        <span style={style.text}>{this.props.switch.toString()}</span>
+        <span>{this.props.switch.toString()}</span>
       </div>
     )
   }
