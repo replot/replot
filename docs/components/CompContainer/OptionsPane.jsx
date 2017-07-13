@@ -37,13 +37,14 @@ class OptionsPane extends React.Component {
       },
       options: {
         padding:  "10px",
-        color: (this.state.active ? "#ffffff" : "#C0C0C0"),
-        marginBottom: (this.state.active ? "300px" : null)
+        fontSize: 0,
+        color: (this.state.active ? "#ffffff" : "#C0C0C0")
       },
       text: {
         fontSize: "16px",
         listStyleType: "none",
-        float: "left",
+        display: "inline-block",
+        textAlign: "center",
         cursor: "pointer",
         margin: "0 30px 5px 0",
         textShadow: "0px 3px 10px #000000",

@@ -1,4 +1,5 @@
 import React from "react"
+import Radium from "radium"
 
 
 class FieldSwitch extends React.Component {
@@ -17,14 +18,26 @@ class FieldSwitch extends React.Component {
   render() {
     const style = {
       outer: {
-        float: "left",
         fontSize: "18px",
-        margin: "0 100px 10px 0"
+        minHeight: "80px",
+        display: "inline-block",
+        verticalAlign: "top",
+        textAlign: "center",
+        width: "50%",
+        boxSizing: "border-box",
+        marginTop: "8px"
       },
       input: {
         fontSize: "18px",
-        width: "150px",
-        padding: "9px 0"
+        width: "60%",
+        padding: "9px 3px",
+        border: "3px solid #3d3d3d",
+        transition: "border 0.3s, boxShadow 0.3s",
+        ":focus":{
+          outline: "none",
+          border: "3px solid #a0a0a0",
+          boxShadow: "0 0 3px 1px #505050"
+        }
       }
     }
 
@@ -40,4 +53,4 @@ class FieldSwitch extends React.Component {
 
 }
 
-export default FieldSwitch
+export default Radium(FieldSwitch)
