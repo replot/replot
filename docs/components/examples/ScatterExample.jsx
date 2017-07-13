@@ -46,6 +46,8 @@ class ScatterExample extends React.Component {
         {optionName: "yLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
         {optionName: "width", optionType: "field", input: "number", initialValue: 800},
         {optionName: "height", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "minRadius", optionType: "field", input: "number", initialValue: 2.5},
+        {optionName: "maxRadius", optionType: "field", input: "number", initialValue: 10},
         {optionName: "axisColor", optionType: "field", input: "string", initialValue: "white"},
         {optionName: "legendColor", optionType: "field", input: "string", initialValue: "white"},
         {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "log"}

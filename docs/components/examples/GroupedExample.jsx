@@ -20,6 +20,8 @@ class GroupedExample extends React.Component {
       optionList: [
         {optionName: "xKey", optionType: "hidden", initialValue: "year"},
         {optionName: "yKey", optionType: "hidden", initialValue: "population"},
+        {optionName: "xTitle", optionType: "hidden", initialValue: "Year"},
+        {optionName: "yTitle", optionType: "hidden", initialValue: "Population"},
         {optionName: "groupKey", optionType: "hidden", initialValue: "country"},
         {optionName: "maxGraphW", optionType: "field", input: "number", initialValue: 800},
         {optionName: "graphH", optionType: "field", input: "number", initialValue: 600},
