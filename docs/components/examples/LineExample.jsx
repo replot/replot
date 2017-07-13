@@ -1,7 +1,7 @@
 import React from "react"
 import LineChart from "replot-line"
 import DataTable from "../DataTable.jsx"
-import ScaleSwitch from "../ScaleSwitch.jsx"
+import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 
 
 class LineExample extends React.Component {
@@ -35,7 +35,18 @@ class LineExample extends React.Component {
         {location: "Antarctica", year: 2015, population: 0.001},
         {location: "Antarctica", year: 2016, population: 0.0001},
       ],
-      lineScale: "log"
+      optionList: [
+        {optionName: "xKey", optionType: "hidden", initialValue: "year"},
+        {optionName: "yKey", optionType: "hidden", initialValue: "population"},
+        {optionName: "titleKey", optionType: "hidden", initialValue: "location"},
+        {optionName: "xLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "yLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "axisColor", optionType: "field", input: "string", initialValue: "white"},
+        {optionName: "legendColor", optionType: "field", input: "string", initialValue: "white"},
+        {optionName: "width", optionType: "field", input: "number", initialValue: 800},
+        {optionName: "height", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "log"}
+      ]
     }
   }
 
@@ -54,22 +65,17 @@ class LineExample extends React.Component {
     }
   }
 
-  updateLineScale(mutatedObject) {
-    this.setState({lineScale: mutatedObject.scale})
-  }
-
   render() {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Line Chart </h1>
-        <div style={{width:"70%", display:"inline-block"}}>
-          <LineChart data={this.state.lineData} titleKey="location"
-            xKey="year" yKey="population" scale={this.state.lineScale}
-            axisColor="white" legendColor="white"/>
+        <div style={{width:"800px", display:"inline-block"}}>
+          <ComponentContainer optionList={this.state.optionList}>
+            <LineChart data={this.state.lineData} />
+          </ComponentContainer>
         </div>
         <DataTable data={this.state.lineData} keyList={["location","year"]}
           weightKey="population" updateData={this.updateLineData.bind(this)}/>
-        <ScaleSwitch scale={this.state.lineScale} updateScale={this.updateLineScale.bind(this)} />
       </div>
     )
   }

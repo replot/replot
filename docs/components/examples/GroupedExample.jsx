@@ -1,7 +1,7 @@
 import React from "react"
 import BarChart from "replot-bar"
 import DataTable from "../DataTable.jsx"
-import ScaleSwitch from "../ScaleSwitch.jsx"
+import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 
 
 class GroupedExample extends React.Component {
@@ -17,7 +17,14 @@ class GroupedExample extends React.Component {
         {population: 312, country: "United States", year: 2012},
         {population: 908, country: "United States", year: 2010},
       ],
-      groupedScale: "lin"
+      optionList: [
+        {optionName: "xKey", optionType: "hidden", initialValue: "year"},
+        {optionName: "yKey", optionType: "hidden", initialValue: "population"},
+        {optionName: "groupKey", optionType: "hidden", initialValue: "country"},
+        {optionName: "maxGraphW", optionType: "field", input: "number", initialValue: 800},
+        {optionName: "graphH", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "yScale", optionType: "state", states: ["lin", "log"], initialValue: "lin"}
+      ]
     }
   }
 
@@ -37,21 +44,17 @@ class GroupedExample extends React.Component {
     }
   }
 
-  updateGroupedBarScale(mutatedObject) {
-    this.setState({groupedScale: mutatedObject.scale})
-  }
-
   render() {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Grouped Bar Chart </h1>
-        <div style={{width:"70%", display:"inline-block"}}>
-          <BarChart data={this.state.groupedData} xKey="year" yKey="population"
-            groupKey="country" yScale={this.state.groupedScale} color={this.state.color} />
+        <div style={{width:"800px", display:"inline-block"}}>
+          <ComponentContainer optionList={this.state.optionList}>
+            <BarChart data={this.state.groupedData} />
+          </ComponentContainer>
         </div>
         <DataTable data={this.state.groupedData} keyList={["year", "country"]}
           weightKey="population" updateData={this.updateGroupedData.bind(this)}/>
-        <ScaleSwitch scale={this.state.groupedScale} updateScale={this.updateGroupedBarScale.bind(this)} />
       </div>
     )
   }
