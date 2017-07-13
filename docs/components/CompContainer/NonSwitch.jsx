@@ -5,17 +5,25 @@ class NonSwitch extends React.Component {
 
   render() {
     const style = {
-      text: {
-        float: "left",
+      outer: {
         fontSize: "18px",
-        margin: "0 100px 10px 0"
+        minHeight: "40px",
+        display: "inline-block",
+        verticalAlign: "top",
+        textAlign: "center",
+        width: "50%",
+        boxSizing: "border-box",
+        marginTop: "8px"
+      },
+      text: {
+        textDecoration: "underline"
       }
     }
 
     return(
-      <div style={style.text}>
+      <div style={style.outer}>
         <span>{this.props.name}: </span>
-        <span>{this.props.switch.toString()}</span>
+        <span style={style.text}>{this.props.switch.toString()}</span>
       </div>
     )
   }

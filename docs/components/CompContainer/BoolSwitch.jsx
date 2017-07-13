@@ -36,10 +36,18 @@ class BoolSwitch extends React.Component {
   render() {
     const style = {
       outer: {
-        float: "left",
         fontSize: "18px",
-        margin: "0 50px 10px 0",
-        width: "300px"
+        minHeight: "90px",
+        display: "inline-block",
+        verticalAlign: "top",
+        width: "50%",
+        boxSizing: "border-box",
+        marginTop: "8px"
+      },
+      inner: {
+        width: "60%",
+        textAlign: "center",
+        margin: "auto"
       }
     }
 
@@ -61,9 +69,11 @@ class BoolSwitch extends React.Component {
 
     return(
       <div style={style.outer}>
-        <div>{this.props.name}:</div>
-        <div className="switch">
-          {buttons}
+        <div style={style.inner}>
+          <div>{this.props.name}:</div>
+          <div className="switch">
+            {buttons}
+          </div>
         </div>
       </div>
     )
