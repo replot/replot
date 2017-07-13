@@ -1,7 +1,7 @@
 import React from "react"
 import ScatterPlot from "replot-scatter"
 import ScatterKeyValueTable from "../ScatterKeyValueTable.jsx"
-import ScaleSwitch from "../ScaleSwitch.jsx"
+import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 
 
 class ScatterExample extends React.Component {
@@ -36,7 +36,20 @@ class ScatterExample extends React.Component {
         {gender: "female", height: 64, weight: 160.5, shoeSize: 7.5},
         {gender: "female", height: 65, weight: 130.5, shoeSize: 7},
       ],
-      scatterScale: "log"
+      optionList: [
+        {optionName: "xKey", optionType: "hidden", initialValue: "height"},
+        {optionName: "yKey", optionType: "hidden", initialValue: "weight"},
+        {optionName: "titleKey", optionType: "hidden", initialValue: "gender"},
+        {optionName: "circleKey", optionType: "hidden", initialValue: "shoeSize"},
+        {optionName: "filterBy", optionType: "hidden", initialValue: "none"},
+        {optionName: "xLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "yLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "width", optionType: "field", input: "number", initialValue: 800},
+        {optionName: "height", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "axisColor", optionType: "field", input: "string", initialValue: "white"},
+        {optionName: "legendColor", optionType: "field", input: "string", initialValue: "white"},
+        {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "log"}
+      ]
     }
   }
 
@@ -70,23 +83,17 @@ class ScatterExample extends React.Component {
     }
   }
 
-  updateScatterScale(mutatedObject) {
-    this.setState({scatterScale: mutatedObject.scale})
-  }
-
   render() {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Scatter Plot </h1>
-        <div style={{width:"70%", display:"inline-block"}}>
-          <ScatterPlot data={this.state.scatterData}
-            titleKey="gender" xKey="height" yKey="weight" circleKey="shoeSize"
-            scale={this.state.scatterScale} grid="default" legend="default" color={this.state.color}
-            xLabel="on" yLabel="on" filterBy="none" axisColor="white" legendColor="white"/>
+        <div style={{width:"800px", display:"inline-block"}}>
+          <ComponentContainer optionList={this.state.optionList}>
+            <ScatterPlot data={this.state.scatterData} />
+          </ComponentContainer>
         </div>
         <ScatterKeyValueTable data={this.state.scatterData} updateShoeData={this.updateScatterShoeData.bind(this)}
           updateWeightData={this.updateScatterWeightData.bind(this)} />
-        <ScaleSwitch scale={this.state.scatterScale} updateScale={this.updateScatterScale.bind(this)} />
       </div>
     )
   }

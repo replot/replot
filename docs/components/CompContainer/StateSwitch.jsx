@@ -43,7 +43,7 @@ class StateSwitch extends React.Component {
     const style = {
       outer: {
         fontSize: "18px",
-        minHeight: "900px",
+        minHeight: "90px",
         display: "inline-block",
         verticalAlign: "top",
         width: "50%",
