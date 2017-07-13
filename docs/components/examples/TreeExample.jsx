@@ -25,9 +25,11 @@ class TreeExample extends React.Component {
         {optionName: "keyOrder", optionType: "hidden", initialValue: ["country", "state", "city"]},
         {optionName: "width", optionType: "field", input: "number", initialValue: 800},
         {optionName: "height", optionType: "field", input: "number", initialValue: 400},
+        {optionName: "otherThreshold", optionType: "field", input: "number", initialValue: .025},
         {optionName: "initialAnimation", optionType: "bool", initialValue: true},
         {optionName: "displayPercentages", optionType: "bool", initialValue: true},
-        {optionName: "tooltip", optionType: "bool", initialValue: false}
+        {optionName: "tooltip", optionType: "bool", initialValue: false},
+        {optionName: "tooltipColor", optionType: "state", states:["dark","light"], initialValue: "dark"}
       ]
     }
   }

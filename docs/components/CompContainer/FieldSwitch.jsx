@@ -7,7 +7,7 @@ class FieldSwitch extends React.Component {
   changeHandler(e){
     let val
     if (this.props.input === "number") {
-      val = parseInt(e.target.value) || 1
+      val = parseFloat(e.target.value) || 1
     }
     else {
       val = String(e.target.value)
@@ -45,7 +45,7 @@ class FieldSwitch extends React.Component {
       <div style={style.outer}>
         <div>{this.props.name}:</div>
         <input type="text" style={style.input}
-          value={this.props.input === "number" ? parseInt(this.props.switch) : this.props.switch}
+          value={this.props.input === "number" ? parseFloat(this.props.switch) : this.props.switch}
           onChange={this.changeHandler.bind(this)}/>
       </div>
     )

@@ -22,6 +22,8 @@ class BarExample extends React.Component {
       optionList: [
         {optionName: "xKey", optionType: "hidden", initialValue: "country"},
         {optionName: "yKey", optionType: "hidden", initialValue: "population"},
+        {optionName: "xTitle", optionType: "hidden", initialValue: "Country"},
+        {optionName: "yTitle", optionType: "hidden", initialValue: "Population"},
         {optionName: "maxGraphW", optionType: "field", input: "number", initialValue: 800},
         {optionName: "graphH", optionType: "field", input: "number", initialValue: 600},
         {optionName: "yScale", optionType: "state", states: ["lin", "log"], initialValue: "lin"}
