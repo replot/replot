@@ -17541,7 +17541,7 @@ var BoolSwitch = function (_React$Component2) {
   return BoolSwitch;
 }(_react2.default.Component);
 
-exports.default = (0, _radium2.default)(BoolSwitch);
+exports.default = BoolSwitch;
 
 /***/ }),
 /* 116 */
