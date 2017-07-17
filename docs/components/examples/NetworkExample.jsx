@@ -1,5 +1,6 @@
 import React from "react"
 import NetworkChart from "replot-network"
+import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 
 
 class NetworkExample extends React.Component {
@@ -342,7 +343,13 @@ class NetworkExample extends React.Component {
         {parent: "Mme.Hucheloup", child: "Gavroche", "value": 1},
         {parent: "Mme.Hucheloup", child: "Enjolras", "value": 1}
       ],
-      color: ["#ff5a3c", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"]
+      optionList: [
+        {optionName: "pointColor", optionType: "hidden", initialValue:  ["#ff5a3c", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"]},
+        {optionName: "labelKey", optionType: "hidden", initialValue: "name"},
+        {optionName: "groupKey", optionType: "hidden", initialValue: "group"},
+        {optionName: "labelColor", optionType: "field", input: "string", initialValue: "white"},
+        {optionName: "lineColor", optionType: "field", input: "string", initialValue: "white"},
+      ]
     }
   }
 
@@ -350,12 +357,9 @@ class NetworkExample extends React.Component {
     return(
       <div className="container" style={{padding: "80px 50px"}}>
         <h1 style={{textAlign: "left", color: "white"}}> Network Chart </h1>
-        <div style={{width:"75%", display:"inline-block"}}>
-          <NetworkChart nodes={this.state.nodes} links={this.state.links}
-            pointColor={this.state.color}
-            labelKey="name" labelColor="white"
-            groupKey="group" lineColor="white"/>
-        </div>
+        <ComponentContainer optionList={this.state.optionList}>
+          <NetworkChart nodes={this.state.nodes} links={this.state.links} />
+        </ComponentContainer>
       </div>
     )
   }
