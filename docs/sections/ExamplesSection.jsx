@@ -12,7 +12,6 @@ class ExamplesSection extends React.Component {
 
   render() {
 
-    // <NetworkExample />
     // <MapExample />
 
     return(
@@ -22,6 +21,7 @@ class ExamplesSection extends React.Component {
         <GroupedExample />
         <LineExample />
         <ScatterExample />
+        <NetworkExample />
       </SectionContainer>
     )
   }
