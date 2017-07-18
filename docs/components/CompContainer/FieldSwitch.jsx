@@ -1,5 +1,6 @@
 import React from "react"
 import Radium from "radium"
+import colors from "../../colors"
 
 
 class FieldSwitch extends React.Component {
@@ -18,24 +19,28 @@ class FieldSwitch extends React.Component {
   render() {
     const style = {
       outer: {
-        fontSize: "18px",
-        minHeight: "80px",
-        display: "inline-block",
+        fontSize: "0.8rem",
+        minHeight: "15px",
+        // display: "inline-block",
         verticalAlign: "top",
         textAlign: "center",
-        width: "50%",
+        // width: "50%",
         boxSizing: "border-box",
         marginTop: "8px"
       },
       input: {
-        fontSize: "18px",
-        width: "60%",
-        padding: "9px 3px",
-        border: "3px solid #3d3d3d",
-        transition: "border 0.3s, box-shadow 0.3s",
+        borderRadius: "15px 15px 15px 15px",
+        backgroundColor: colors.bodyBg,
+        height: "1.5rem",
+        width: "6rem",
+        color: colors.bodyText,
+        borderColor: "rgba(0, 218, 157, 0.50)",
+        textAlign: "center",
+        fontSize: "0.8rem",
+        display: "inline-block",
         ":focus":{
           outline: "none",
-          border: "3px solid #a0a0a0",
+          borderColor: "rgba(0, 218, 157, 1)",
           boxShadow: "0 0 3px 1px #505050"
         }
       }
@@ -43,7 +48,7 @@ class FieldSwitch extends React.Component {
 
     return(
       <div style={style.outer}>
-        <div>{this.props.name}:</div>
+        <div style={{display: "inline-block", marginRight: "5px"}}>{this.props.name}: </div>
         <input type="text" style={style.input}
           value={this.props.input === "number" ? parseFloat(this.props.switch) : this.props.switch}
           onChange={this.changeHandler.bind(this)}/>

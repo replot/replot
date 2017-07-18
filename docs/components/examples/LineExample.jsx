@@ -1,7 +1,7 @@
 import React from "react"
 import LineChart from "replot-line"
-import DataTable from "../DataTable.jsx"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
+import colors from "../../colors"
 
 
 class LineExample extends React.Component {
@@ -43,10 +43,12 @@ class LineExample extends React.Component {
         {optionName: "yLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
         {optionName: "axisColor", optionType: "field", input: "string", initialValue: "white"},
         {optionName: "legendColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "width", optionType: "field", input: "number", initialValue: 800},
-        {optionName: "height", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "width", optionType: "field", input: "number", initialValue: 625},
+        {optionName: "height", optionType: "field", input: "number", initialValue: 500},
         {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "log"}
-      ]
+      ],
+      lineScale: "log",
+      color: ["#ff5a3c", "#ff8463", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"]
     }
   }
 
@@ -66,11 +68,23 @@ class LineExample extends React.Component {
   }
 
   render() {
+    let style = {
+      title: {
+        fontSize: "45px",
+        textAlign: "center",
+        color: colors.bodyText,
+        padding: 15,
+        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+      },
+      container: {
+        padding: "80px 50px",
+      }
+    }
     return(
-      <div className="container" style={{padding: "80px 50px"}}>
-        <h1 style={{textAlign: "left", color: "white"}}> Line Chart </h1>
+      <div className="container" style={style.container}>
+        <h1 style={style.title}> Line Chart </h1>
         <ComponentContainer optionList={this.state.optionList}>
-          <LineChart data={this.state.optionList[0].initialValue} />
+          <LineChart data={this.state.optionList[0].initialValue} color={this.state.color}/>
         </ComponentContainer>
       </div>
     )

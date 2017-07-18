@@ -11,12 +11,43 @@ import NonSwitch from "./NonSwitch.jsx"
 class Toggle extends React.Component {
 
   render() {
+    let dataLabelColor
+    let optionsLabelColor
+    if (this.props.active == "data") {
+      dataLabelColor = "#00da9d"
+      optionsLabelColor = "#7f9298"
+    } else {
+      dataLabelColor = "#7f9298"
+      optionsLabelColor = "#00da9d"
+    }
+    let style = {
+      dataLabel: {
+        fontSize: "1.25rem",
+        width: "50%",
+        display: "inline-block",
+        textAlign: "center",
+        paddingTop: "10px",
+        paddingBottom: "15px",
+        backgroundColor: "#112e37",
+        color: dataLabelColor,
+      },
+      optionsLabel: {
+        fontSize: "1.25rem",
+        width: "50%",
+        display: "inline-block",
+        textAlign: "center",
+        paddingTop: "10px",
+        paddingBottom: "15px",
+        backgroundColor: "#112e37",
+        color: optionsLabelColor
+      }
+    }
     return (
       <div>
-        <div onClick={this.props.handleData} style={{width: "50%", display: "inline-block", textAlign: "center", border: "2px solid #000000"}}>
+        <div onClick={this.props.handleData} style={style.dataLabel}>
           Data
         </div>
-        <div onClick={this.props.handleOptions} style={{width: "50%", display: "inline-block", textAlign: "center", border: "2px solid #000000"}}>
+        <div onClick={this.props.handleOptions} style={style.optionsLabel}>
           Options
         </div>
       </div>
@@ -155,13 +186,27 @@ class ComponentContainer extends React.Component {
 
     let newChild = React.cloneElement(this.props.children, this.state.options)
 
+    let style = {
+      chart: {
+        width: "60%",
+        display: "inline-block",
+        verticalAlign: "top",
+      },
+      optionsData: {
+        minWidth: "30%",
+        display: "inline-block",
+        verticalAlign: "top",
+        backgroundColor: "rgba(127, 146, 152, 0.1)",
+        boxShadow: "10px 10px 5px #0c3c4a",
+      }
+    }
     return (
       <div>
-        <div style={{width: "60%", display: "inline-block", verticalAlign: "top"}}>
+        <div style={style.chart}>
           {newChild}
         </div>
-        <div style={{width: "40%", display: "inline-block", verticalAlign: "top"}}>
-          <Toggle handleData={this.toggleData.bind(this)} handleOptions={this.toggleOptions.bind(this)}/>
+        <div style={style.optionsData}>
+          <Toggle handleData={this.toggleData.bind(this)} handleOptions={this.toggleOptions.bind(this)} active={this.state.active}/>
           {this.state.active == "options" &&
             <OptionsPane>
               {switches}

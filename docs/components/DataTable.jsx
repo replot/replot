@@ -1,4 +1,5 @@
 import React from "react"
+import colors from "../colors"
 
 
 class DataRow extends React.Component {
@@ -15,8 +16,18 @@ class DataRow extends React.Component {
   render() {
     const style = {
       cell: {
-        minWidth: "100px",
-        color: "white",
+        minWidth: "80px",
+        color: colors.bodyText,
+        fontSize: "0.8rem",
+      },
+      input: {
+        borderRadius: "15px",
+        backgroundColor: colors.bodyBg,
+        height: "25px",
+        width: "6.5rem",
+        color: colors.bodyText,
+        borderColor: "rgba(0, 218, 157, 0.75)",
+        textAlign: "center",
         fontSize: "0.8rem"
       }
     }
@@ -30,7 +41,7 @@ class DataRow extends React.Component {
     }
     columns.push(
       <td key={this.props.weightKey + this.props.row} style={style.cell}>
-        <input type="text" value={parseInt(this.props.data[this.props.weightKey])}
+        <input style={style.input} type="text" value={parseInt(this.props.data[this.props.weightKey])}
           onChange={this.changeHandler.bind(this)}/>
       </td>
     )
@@ -49,15 +60,19 @@ class DataTable extends React.Component {
   render() {
     const style = {
       container: {
+        display:"inline-block",
         verticalAlign:"top",
-        padding:"20px 40px",
-        color:"white"
+        padding:"20px 20px",
+        color: colors.white,
+        maxHeight: "45%",
+        overflow: "auto",
       },
       cell: {
-        minWidth: "100px",
-        color: "white",
+        minWidth: "85px",
+        color: colors.white,
         fontSize: "1.2rem",
-        borderBottom: "thin solid #ffffff"
+        paddingBottom: "12px"
+        // borderBottom: "thin solid #ffffff",
       }
     }
 
