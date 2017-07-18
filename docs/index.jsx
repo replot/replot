@@ -26,7 +26,8 @@ class ExampleApp extends React.Component {
       body: {
         backgroundColor: colors.bodyBg,
         color: colors.bodyText,
-      }
+        maxWidth: "100%"
+      },
     }
 
     let app =
@@ -36,14 +37,14 @@ class ExampleApp extends React.Component {
         <QuickStartSection />
       </Radium.StyleRoot>
 
-    if (this.state.password != "macro") {
-      app =
-        <CenteredBlock>
-          <h3> Password? </h3>
-          <input style={{textAlign: "center"}} autoFocus type="password"
-            value={this.state.password} onChange={this.passwordHandler}/>
-        </CenteredBlock>
-    }
+    // if (this.state.password != "macro") {
+    //   app =
+    //     <CenteredBlock>
+    //       <h3> Password? </h3>
+    //       <input style={{textAlign: "center"}} autoFocus type="password"
+    //         value={this.state.password} onChange={this.passwordHandler}/>
+    //     </CenteredBlock>
+    // }
 
     return(
       <div style={style.body}>

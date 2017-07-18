@@ -1,6 +1,7 @@
 import React from "react"
 import ScatterPlot from "replot-scatter"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
+import colors from "../../colors"
 
 
 class ScatterExample extends React.Component {
@@ -43,23 +44,36 @@ class ScatterExample extends React.Component {
         {optionName: "filterBy", optionType: "hidden", initialValue: "none"},
         {optionName: "xLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
         {optionName: "yLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
-        {optionName: "width", optionType: "field", input: "number", initialValue: 800},
-        {optionName: "height", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "width", optionType: "field", input: "number", initialValue: 650},
+        {optionName: "height", optionType: "field", input: "number", initialValue: 500},
         {optionName: "minRadius", optionType: "field", input: "number", initialValue: 2.5},
         {optionName: "maxRadius", optionType: "field", input: "number", initialValue: 10},
         {optionName: "axisColor", optionType: "field", input: "string", initialValue: "white"},
         {optionName: "legendColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "log"}
-      ]
+        {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"}
+      ],
+      color: ["#ff8463", "#00da9d"]
     }
   }
 
   render() {
+    let style = {
+      title: {
+        fontSize: "45px",
+        textAlign: "center",
+        color: colors.bodyText,
+        padding: 15,
+        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+      },
+      container: {
+        padding: "80px 50px",
+      }
+    }
     return(
-      <div className="container" style={{padding: "80px 50px"}}>
-        <h1 style={{textAlign: "left", color: "white"}}> Scatter Plot </h1>
+      <div className="container" style={style.container}>
+        <h1 style={style.title}> Scatter Plot </h1>
         <ComponentContainer optionList={this.state.optionList}>
-          <ScatterPlot data={this.state.optionList[0].initialValue} />
+          <ScatterPlot data={this.state.optionList[0].initialValue} color={this.state.color}/>
         </ComponentContainer>
       </div>
     )

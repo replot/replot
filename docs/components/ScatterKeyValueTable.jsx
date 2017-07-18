@@ -1,4 +1,5 @@
 import React from "react"
+import colors from "../colors"
 
 
 class ScatterKeyValueRow extends React.Component {
@@ -8,7 +9,7 @@ class ScatterKeyValueRow extends React.Component {
       gender: this.props.gender,
       height: this.props.height,
       weight: this.props.weight,
-      shoeSize: e.target.value,
+      shoeSize: e.target.value || "0",
     })
   }
 
@@ -16,7 +17,7 @@ class ScatterKeyValueRow extends React.Component {
     this.props.updateWeightData({
       gender: this.props.gender,
       height: this.props.height,
-      weight: e.target.value,
+      weight: e.target.value || "0",
       shoeSize: this.props.shoeSize,
     })
   }
@@ -24,8 +25,18 @@ class ScatterKeyValueRow extends React.Component {
   render() {
     const style = {
       cell: {
-        minWidth: "100px",
-        color: "white",
+        minWidth: "80px",
+        color: colors.bodyText,
+        fontSize: "0.8rem",
+      },
+      input: {
+        borderRadius: "15px",
+        backgroundColor: colors.bodyBg,
+        height: "25px",
+        width: "7rem",
+        color: colors.bodyText,
+        borderColor: "rgba(0, 218, 157, 0.75)",
+        textAlign: "center",
         fontSize: "0.8rem"
       }
     }
@@ -33,10 +44,12 @@ class ScatterKeyValueRow extends React.Component {
     return(
       <tr>
         <td style={style.cell}>{this.props.height}</td>
-          <input style={{width:"50%"}} type="text" value={parseFloat(this.props.weight) || ""}
-          onChange={this.changeHandlerWeight.bind(this)} />
         <td style={style.cell}>
-          <input style={{width:"50%"}} type="text" value={parseFloat(this.props.shoeSize) || ""}
+          <input style={style.input} type="text" value={parseFloat(this.props.weight)}
+          onChange={this.changeHandlerWeight.bind(this)} />
+        </td>
+        <td style={style.cell}>
+          <input style={style.input} type="text" value={parseFloat(this.props.shoeSize)}
           onChange={this.changeHandlerShoe.bind(this)} />
         </td>
       </tr>
@@ -50,15 +63,17 @@ class ScatterKeyValueTable extends React.Component {
   render() {
     const style = {
       container: {
-        verticalAlign: "top",
-        padding: "20px 40px",
-        color: "white"
+        display:"inline-block",
+        verticalAlign:"top",
+        padding:"20px 20px",
+        color: colors.white,
+        maxHeight: "350px",
+        overflow: "auto",
       },
       cell: {
         minWidth: "100px",
         color: "white",
         fontSize: "1.2rem",
-        borderBottom: "thin solid #ffffff"
       }
     }
     let rows = []

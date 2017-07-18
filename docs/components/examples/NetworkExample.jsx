@@ -1,6 +1,7 @@
 import React from "react"
 import NetworkChart from "replot-network"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
+import colors from "../../colors"
 
 
 class NetworkExample extends React.Component {
@@ -349,14 +350,30 @@ class NetworkExample extends React.Component {
         {optionName: "groupKey", optionType: "hidden", initialValue: "group"},
         {optionName: "labelColor", optionType: "field", input: "string", initialValue: "white"},
         {optionName: "lineColor", optionType: "field", input: "string", initialValue: "white"},
+        {optionName: "width", optionType: "field", input: "number", initialValue: 650},
+        {optionName: "height", optionType: "field", input: "number", initialValue: 450},
       ]
     }
   }
 
   render() {
+
+    let style = {
+      title: {
+        fontSize: "45px",
+        textAlign: "center",
+        color: colors.bodyText,
+        padding: 15,
+        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+      },
+      container: {
+        padding: "80px 50px",
+      }
+    }
+
     return(
-      <div className="container" style={{padding: "80px 50px"}}>
-        <h1 style={{textAlign: "left", color: "white"}}> Network Chart </h1>
+      <div className="container" style={style.container}>
+        <h1 style={style.title}> Network Chart </h1>
         <ComponentContainer optionList={this.state.optionList}>
           <NetworkChart nodes={this.state.nodes} links={this.state.links} />
         </ComponentContainer>

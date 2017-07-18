@@ -1,6 +1,5 @@
 import React from "react"
 
-
 class MapExample extends React.Component {
 
   render() {

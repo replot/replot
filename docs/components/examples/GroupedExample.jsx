@@ -1,7 +1,7 @@
 import React from "react"
 import BarChart from "replot-bar"
-import DataTable from "../DataTable.jsx"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
+import colors from "../../colors"
 
 
 class GroupedExample extends React.Component {
@@ -23,19 +23,33 @@ class GroupedExample extends React.Component {
         {optionName: "xTitle", optionType: "hidden", initialValue: "Year"},
         {optionName: "yTitle", optionType: "hidden", initialValue: "Population"},
         {optionName: "groupKey", optionType: "hidden", initialValue: "country"},
-        {optionName: "maxGraphW", optionType: "field", input: "number", initialValue: 800},
+        {optionName: "maxGraphW", optionType: "field", input: "number", initialValue: 550},
         {optionName: "graphH", optionType: "field", input: "number", initialValue: 600},
         {optionName: "yScale", optionType: "state", states: ["lin", "log"], initialValue: "lin"}
-      ]
+      ],
+      groupedScale: "lin",
+      color: ["#ff8463", "#bfd5a8", "#00da9d", "#009b76"]
     }
   }
 
   render() {
+    let style = {
+      title: {
+        fontSize: "45px",
+        textAlign: "center",
+        color: colors.bodyText,
+        padding: 15,
+        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+      },
+      container: {
+        padding: "80px 50px",
+      }
+    }
     return(
-      <div className="container" style={{padding: "80px 50px"}}>
-        <h1 style={{textAlign: "left", color: "white"}}> Grouped Bar Chart </h1>
+      <div className="container" style={style.container}>
+        <h1 style={style.title}> Grouped Bar Chart </h1>
         <ComponentContainer optionList={this.state.optionList}>
-          <BarChart data={this.state.optionList[0].initialValue} />
+          <BarChart data={this.state.optionList[0].initialValue} color={this.state.color}/>
         </ComponentContainer>
       </div>
     )

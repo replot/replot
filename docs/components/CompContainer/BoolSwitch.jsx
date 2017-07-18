@@ -11,14 +11,14 @@ class BoolButton extends React.Component {
   render() {
     let style = {
       button: {
-        fontSize: "18px",
-        width: "50%",
+        fontSize: "0.8rem",
+        width: "5rem",
         float: "left",
-        padding: "10px 5px",
+        padding: "3px 4px",
         textAlign: "center",
         color: "#FFFFFF",
         backgroundColor: this.props.color,
-        border: "1px solid #3d3d3d",
+        borderRadius: "15px",
         cursor: "pointer",
         transition: "background-color .4s",
         ":hover":{
@@ -42,13 +42,13 @@ class BoolSwitch extends React.Component {
   render() {
     const style = {
       outer: {
-        fontSize: "18px",
-        minHeight: "90px",
-        display: "inline-block",
+        fontSize: "0.8rem",
+        minHeight: "15px",
+        // display: "inline-block",
         verticalAlign: "top",
-        width: "50%",
+        // width: "50%",
         boxSizing: "border-box",
-        marginTop: "8px"
+        marginTop: "8px",
       },
       inner: {
         width: "60%",
@@ -64,11 +64,11 @@ class BoolSwitch extends React.Component {
     let bgColor = ""
     for (var i=0; i < types.length; i++) {
       if (types[i] == this.props.switch) {
-        color = "#00AA00"
-        bgColor = "#00AA00"
+        color = "#0d8d82"
+        bgColor = "#0d8d82"
       } else {
-        color = "#444444"
-        bgColor = "#005500"
+        color = "#0d404e"
+        bgColor = "#23596c"
       }
       let StyledButton = Radium(BoolButton)
       buttons.push(
@@ -80,8 +80,8 @@ class BoolSwitch extends React.Component {
     return(
       <div style={style.outer}>
         <div style={style.inner}>
-          <div>{this.props.name}:</div>
-          <div className="switch">
+          <div style={{display: "inline-block"}}>{this.props.name}:</div>
+          <div className="switch" style={{display: "inline-block", verticalAlign: "middle"}}>
             {buttons}
           </div>
         </div>
