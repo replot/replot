@@ -36,19 +36,16 @@ class LineExample extends React.Component {
           {location: "Antarctica", year: 2015, population: 0.001},
           {location: "Antarctica", year: 2016, population: 0.0001},
         ]},
-        {optionName: "xKey", optionType: "hidden", initialValue: "year"},
-        {optionName: "yKey", optionType: "hidden", initialValue: "population"},
-        {optionName: "titleKey", optionType: "hidden", initialValue: "location"},
-        {optionName: "xLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
-        {optionName: "yLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
-        {optionName: "axisColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "legendColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "width", optionType: "field", input: "number", initialValue: 625},
-        {optionName: "height", optionType: "field", input: "number", initialValue: 500},
-        {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "log"}
+        {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 625},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 500},
+        {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "log"},
+        {optionName: "xLabel", name: "X Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "yLabel", name: "Y Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "xKey", name: "X Axis", optionType: "hidden", initialValue: "year"},
+        {optionName: "yKey", name: "Y Axis", optionType: "hidden", initialValue: "population"},
+        {optionName: "titleKey", name: "Title", optionType: "hidden", initialValue: "location"},
       ],
       lineScale: "log",
-      color: ["#ff5a3c", "#ff8463", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"]
     }
   }
 
@@ -68,23 +65,39 @@ class LineExample extends React.Component {
   }
 
   render() {
+    let colorOptions = [
+      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "legendColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+    ]
     let style = {
       title: {
         fontSize: "45px",
         textAlign: "center",
-        color: colors.bodyText,
+        color: colors[this.props.palette].bodyText,
         padding: 15,
-        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+        textShadow: `0px 5px 18px ${colors[this.props.palette].titleShadow}`,
       },
       container: {
         padding: "80px 50px",
+      },
+      optionsData: {
+        width: "35%",
+        display: "inline-block",
+        verticalAlign: "top",
+        backgroundColor: colors[this.props.palette].optionsTableBg,
+        boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
       }
     }
     return(
       <div className="container" style={style.container}>
         <h1 style={style.title}> Line Chart </h1>
-        <ComponentContainer optionList={this.state.optionList}>
-          <LineChart data={this.state.optionList[0].initialValue} color={this.state.color}/>
+        <ComponentContainer optionList={this.state.optionList}
+          optionsData={style.optionsData}
+          palette={this.props.palette}
+          colorOptions={colorOptions}>
+          <LineChart data={this.state.optionList[0].initialValue}
+            color={colors[this.props.palette].linePalette}/>
         </ComponentContainer>
       </div>
     )

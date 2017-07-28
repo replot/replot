@@ -14,8 +14,7 @@ class OptionsPane extends React.Component {
       options: {
         padding:  "10px",
         fontSize: 0,
-        // color: (this.state.active ? "#00da9d" : "#C0C0C0"),
-        maxHeight: "45%",
+        height: "45%",
         overflow: "auto",
       }
     }

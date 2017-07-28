@@ -16,12 +16,12 @@ class ExamplesSection extends React.Component {
 
     return(
       <SectionContainer>
-        <TreeExample />
-        <BarExample />
-        <GroupedExample />
-        <LineExample />
-        <ScatterExample />
-        <NetworkExample />
+        <TreeExample palette={this.props.palette}/>
+        <BarExample palette={this.props.palette}/>
+        <GroupedExample palette={this.props.palette}/>
+        <LineExample palette={this.props.palette}/>
+        <ScatterExample palette={this.props.palette}/>
+        <NetworkExample palette={this.props.palette}/>
       </SectionContainer>
     )
   }

@@ -20,37 +20,55 @@ class BarExample extends React.Component {
           {population: 786, country: "Nigeria"},
           {population: 456, country: "Bangladesh"},
         ]},
-        {optionName: "xKey", optionType: "hidden", initialValue: "country"},
-        {optionName: "yKey", optionType: "hidden", initialValue: "population"},
-        {optionName: "xTitle", optionType: "hidden", initialValue: "Country"},
-        {optionName: "yTitle", optionType: "hidden", initialValue: "Population"},
-        {optionName: "maxGraphW", optionType: "field", input: "number", initialValue: 600},
-        {optionName: "graphH", optionType: "field", input: "number", initialValue: 550},
-        {optionName: "yScale", optionType: "state", states: ["lin", "log"], initialValue: "lin"}
+        {optionName: "maxGraphW", name: "Width", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "graphH", name: "Height", optionType: "field", input: "number", initialValue: 550},
+        {optionName: "yScale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
+        {optionName: "xTitle", name: "X Title", optionType: "field", initialValue: "Country"},
+        {optionName: "yTitle", name: "Y Title", optionType: "field", initialValue: "Population"},
+        {optionName: "xKey", name: "X Axis", optionType: "hidden", initialValue: "country"},
+        {optionName: "yKey", name: "Y Axis", optionType: "hidden", initialValue: "population"},
       ],
       barScale: "lin",
-      color: ["#ff5a3c", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"]
     }
   }
-
   render() {
+    let colorOptions = [
+      {optionName: "xAxisColor", name: "X Axis Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "gridlineColor", name: "Gridline Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "xTitleColor", name: "X Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "yTitleColor", name: "Y Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "xLabelColor", name: "X Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "yLabelColor", name: "Y Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+    ]
     let style = {
       title: {
         fontSize: "45px",
         textAlign: "center",
-        color: colors.bodyText,
+        color: colors[this.props.palette].bodyText,
         padding: 15,
-        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+        textShadow: `0px 5px 18px ${colors[this.props.palette].titleShadow}`,
       },
       options: {
         container: "80px 50px",
-      }
+      },
+      optionsData: {
+        width: "32%",
+        display: "inline-block",
+        verticalAlign: "top",
+        backgroundColor: colors[this.props.palette].optionsTableBg,
+        boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+      },
     }
     return(
       <div className="container" style={style.container}>
         <h1 style={style.title}> Bar Chart </h1>
-        <ComponentContainer optionList={this.state.optionList}>
-          <BarChart data={this.state.optionList[0].initialValue} color={this.state.color}/>
+        <ComponentContainer optionList={this.state.optionList}
+          optionsData={style.optionsData}
+          palette={this.props.palette}
+          colorOptions={colorOptions}
+          axisColor={colors[this.props.palette].axisColor}>
+          <BarChart data={this.state.optionList[0].initialValue}
+            color={colors[this.props.palette].barPalette}/>
         </ComponentContainer>
       </div>
     )

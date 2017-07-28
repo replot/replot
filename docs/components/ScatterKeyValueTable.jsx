@@ -26,16 +26,16 @@ class ScatterKeyValueRow extends React.Component {
     const style = {
       cell: {
         minWidth: "80px",
-        color: colors.bodyText,
+        color: colors[this.props.palette].bodyText,
         fontSize: "0.8rem",
       },
       input: {
         borderRadius: "15px",
-        backgroundColor: colors.bodyBg,
+        backgroundColor: colors[this.props.palette].inputBackground,
         height: "25px",
         width: "7rem",
-        color: colors.bodyText,
-        borderColor: "rgba(0, 218, 157, 0.75)",
+        color: colors[this.props.palette].bodyText,
+        borderColor: colors[this.props.palette].input,
         textAlign: "center",
         fontSize: "0.8rem"
       }
@@ -66,13 +66,13 @@ class ScatterKeyValueTable extends React.Component {
         display:"inline-block",
         verticalAlign:"top",
         padding:"20px 20px",
-        color: colors.white,
+        color: colors[this.props.palette].white,
         maxHeight: "350px",
         overflow: "auto",
       },
       cell: {
         minWidth: "100px",
-        color: "white",
+        color: colors[this.props.palette].white,
         fontSize: "1.2rem",
       }
     }
@@ -90,7 +90,8 @@ class ScatterKeyValueTable extends React.Component {
           gender={dataPoint.gender} height={dataPoint.height}
           weight={dataPoint.weight} shoeSize={dataPoint.shoeSize}
           updateShoeData={this.props.updateShoeData.bind(this)}
-          updateWeightData={this.props.updateWeightData.bind(this)} />
+          updateWeightData={this.props.updateWeightData.bind(this)}
+          palette={this.props.palette}/>
       )
     }
 
