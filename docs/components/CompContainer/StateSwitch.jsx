@@ -1,5 +1,6 @@
 import React from "react"
 import Radium from "radium"
+import colors from "../../colors"
 
 
 class StateButton extends React.Component {
@@ -11,13 +12,13 @@ class StateButton extends React.Component {
   render() {
     let style = {
       button: {
+        display: "inline-block",
         fontSize: "0.8rem",
-        width: `${this.props.width * 100}%`,
-        minWidth: "5rem",
+        width: "10.5rem",
         float: "left",
         padding: "3px 4px",
         textAlign: "center",
-        color: "#FFFFFF",
+        color: colors[this.props.palette].white,
         backgroundColor: this.props.color,
         borderRadius: "15px",
         cursor: "pointer",
@@ -45,16 +46,23 @@ class StateSwitch extends React.Component {
       outer: {
         fontSize: "0.8rem",
         minHeight: "15px",
-        // display: "inline-block",
         verticalAlign: "top",
-        // width: "50%",
         boxSizing: "border-box",
-        marginTop: "8px"
+        marginTop: "8px",
+        paddingBottom: "8px"
       },
       inner: {
-        width: "60%",
         textAlign: "center",
         margin: "auto"
+      },
+      switchName: {
+        display: "inline-block",
+        margin: "8px",
+        fontSize: "0.9rem"
+      },
+      switches: {
+        display: "inline-block",
+        verticalAlign: "middle",
       }
     }
 
@@ -64,24 +72,27 @@ class StateSwitch extends React.Component {
     let bgColor = ""
     for (var i=0; i < types.length; i++) {
       if (types[i] == this.props.switch) {
-        color = "#0d8d82"
-        bgColor = "#0d8d82"
+        color = colors[this.props.palette].buttonActive
+        bgColor = colors[this.props.palette].buttonActive
       } else {
-        color = "#0d404e"
-        bgColor = "#23596c"
+        color = colors[this.props.palette].button
+        bgColor = colors[this.props.palette].buttonHover
       }
       let StyledButton = Radium(StateButton)
       buttons.push(
-        <StyledButton key={i} title={types[i]} width={1/this.props.states.length}
-        updateFunc={this.props.updateFunc} color={color} bgColor={bgColor}/>
+        <StyledButton key={i} title={types[i]}
+          width={1/this.props.states.length}
+          updateFunc={this.props.updateFunc}
+          color={color} bgColor={bgColor}
+          palette={this.props.palette}/>
       )
     }
 
     return(
       <div style={style.outer}>
         <div style={style.inner}>
-          <div style={{display: "inline-block"}}>{this.props.name}:</div>
-          <div className="switch" style={{display: "inline-block", verticalAlign: "middle"}}>
+          <div style= {style.switchName}>{this.props.name}:</div>
+          <div className="switch" style={style.switches}>
             {buttons}
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react"
-import TreeMapManager from "replot-treemap"
+import TreeMap from "replot-treemap"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
 import colors from "../../colors"
 
@@ -21,18 +21,17 @@ class TreeExample extends React.Component {
           {population: 112, country: "Canada", state: "Ontario", city: "Kingston"},
           {population: 80, country: "Canada", state: "Ontario", city: "Barrie"},
         ]},
-        {optionName: "weightKey", optionType: "hidden", initialValue: "population"},
-        {optionName: "keyOrder", optionType: "hidden", initialValue: ["country", "state", "city"]},
-        {optionName: "width", optionType: "field", input: "number", initialValue: 600},
-        {optionName: "height", optionType: "field", input: "number", initialValue: 400},
-        {optionName: "otherThreshold", optionType: "field", input: "number", initialValue: .025},
-        {optionName: "initialAnimation", optionType: "bool", initialValue: true},
-        {optionName: "displayPercentages", optionType: "bool", initialValue: true},
-        {optionName: "tooltip", optionType: "bool", initialValue: false},
-        {optionName: "tooltipColor", optionType: "state", states:["dark","light"], initialValue: "dark"}
+        {optionName: "initialAnimation", name: "Initial Animation", optionType: "bool", initialValue: true},
+        {optionName: "displayPercentages", name: "Percentages", optionType: "bool", initialValue: true},
+        {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "95%"},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 400},
+        {optionName: "otherThreshold", name: "Other Threshold", optionType: "field", input: "number", initialValue: .025},
+        {optionName: "tooltip", name: "Tooltip", optionType: "bool", initialValue: false},
+        {optionName: "tooltipColor", name: "Tooltip Color", optionType: "state", states:["dark","light"], initialValue: "dark"},
+        {optionName: "weightKey", name: "Weight", optionType: "hidden", initialValue: "population"},
+        {optionName: "keyOrder", name: "Key Order", optionType: "hidden", initialValue: ["country", "state", "city"]},
       ],
       keyOrder: ["country", "state", "city"],
-      color: ["#ff5a3c", "#8fd9a8", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#00da9d", "#009b76"]
     }
   }
 
@@ -41,21 +40,30 @@ class TreeExample extends React.Component {
       title: {
         fontSize: "45px",
         textAlign: "center",
-        color: colors.bodyText,
+        color: colors[this.props.palette].bodyText,
         padding: 15,
-        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+        textShadow: `0px 5px 18px ${colors[this.props.palette].titleShadow}`,
       },
       container: {
         padding: "80px 50px",
       },
+      optionsData: {
+        width: "38%",
+        display: "inline-block",
+        verticalAlign: "top",
+        backgroundColor: colors[this.props.palette].optionsTableBg,
+        boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+      }
     }
     return(
       <div className="container" style={style.container}>
         <h1 style={style.title}> Treemap </h1>
-        <ComponentContainer optionList={this.state.optionList}>
-          <TreeMapManager data={this.state.optionList[0].initialValue}
-            colorPalette={this.state.color}
-            grayscalePalette={this.state.color}/>
+        <ComponentContainer optionList={this.state.optionList}
+          optionsData={style.optionsData}
+          palette={this.props.palette}>
+          <TreeMap data={this.state.optionList[0].initialValue}
+            colorPalette={colors[this.props.palette].treeMapPalette}
+            grayscalePalette={colors[this.props.palette].treeMapPalette}/>
         </ComponentContainer>
       </div>
     )

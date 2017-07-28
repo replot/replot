@@ -345,37 +345,48 @@ class NetworkExample extends React.Component {
         {parent: "Mme.Hucheloup", child: "Enjolras", "value": 1}
       ],
       optionList: [
-        {optionName: "pointColor", optionType: "hidden", initialValue:  ["#ff5a3c", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"]},
-        {optionName: "labelKey", optionType: "hidden", initialValue: "name"},
-        {optionName: "groupKey", optionType: "hidden", initialValue: "group"},
-        {optionName: "labelColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "lineColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "width", optionType: "field", input: "number", initialValue: 650},
-        {optionName: "height", optionType: "field", input: "number", initialValue: 450},
+        {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 650},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 450},
+        {optionName: "labelKey", name: "Label Key", optionType: "hidden", initialValue: "name"},
+        {optionName: "groupKey", name: "Group Key", optionType: "hidden", initialValue: "group"},
       ]
     }
   }
 
   render() {
-
+    let colorOptions = [
+      {optionName: "labelColor", name: "Label Color", optionType: "other", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "lineColor", name : "Line Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+    ]
     let style = {
       title: {
         fontSize: "45px",
         textAlign: "center",
-        color: colors.bodyText,
+        color: colors[this.props.palette].bodyText,
         padding: 15,
-        textShadow: "0px 5px 18px rgba(0, 218, 157, 0.75)",
+        textShadow: `0px 5px 18px ${colors[this.props.palette].titleShadow}`,
       },
       container: {
         padding: "80px 50px",
+      },
+      optionsData: {
+        width: "38%",
+        display: "inline-block",
+        verticalAlign: "top",
+        backgroundColor: colors[this.props.palette].optionsTableBg,
+        boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
       }
     }
 
     return(
       <div className="container" style={style.container}>
         <h1 style={style.title}> Network Chart </h1>
-        <ComponentContainer optionList={this.state.optionList}>
-          <NetworkChart nodes={this.state.nodes} links={this.state.links} />
+        <ComponentContainer optionList={this.state.optionList}
+          optionsData={style.optionsData}
+          palette={this.props.palette}
+          colorOptions={colorOptions}>
+          <NetworkChart nodes={this.state.nodes} links={this.state.links}
+            pointColor={colors[this.props.palette].networkPalette}/>
         </ComponentContainer>
       </div>
     )

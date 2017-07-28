@@ -1,6 +1,7 @@
 import React from "react"
 import SectionContainer from "../components/SectionContainer.jsx"
 import CenteredBlock from "../components/CenteredBlock.jsx"
+import colors from "../colors"
 
 
 class TitleSection extends React.Component {
@@ -17,16 +18,16 @@ class TitleSection extends React.Component {
       title: {
         fontSize: "95px",
         fontFamily: "Helvetica Neue",
-        color: "rgb(223, 227, 230)",
+        color: colors[this.props.palette].white,
         lineHeight: 1.2,
         textAlign: "center",
-        textShadow: "0px 10px 18px rgba(0, 218, 157, 0.75)",
+        textShadow: `0px 10px 18px ${colors[this.props.palette].titleShadow}`,
         marginTop: 8,
         marginBottom: 45
       },
       description: {
         fontSize: "35px",
-        color: "rgb(223, 227, 230)",
+        color: colors[this.props.palette].white,
         lineHeight: 1.2,
         textAlign: "center",
         left: "787px",
@@ -34,7 +35,7 @@ class TitleSection extends React.Component {
       },
       sectionBg: {
         minHeight: "100vh",
-        backgroundImage: "url('static/design2_background.png')",
+        backgroundImage: colors[this.props.palette].backgroundPNG,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "contain",
@@ -45,7 +46,7 @@ class TitleSection extends React.Component {
     return(
       <SectionContainer style={style.sectionBg}>
         <CenteredBlock>
-          <img src="static/design2_logo.png" style={style.logo}/>
+          <img src={colors[this.props.palette].logoPNG} style={style.logo}/>
           <h2 style={style.title}>
             REPLOT
           </h2>

@@ -16,20 +16,20 @@ class DataRow extends React.Component {
   render() {
     const style = {
       cell: {
-        minWidth: "80px",
-        color: colors.bodyText,
+        minWidth: "85px",
+        color: colors[this.props.palette].bodyText,
         fontSize: "0.8rem",
       },
       input: {
         borderRadius: "15px",
-        backgroundColor: colors.bodyBg,
+        backgroundColor: colors[this.props.palette].inputBackground,
         height: "25px",
         width: "6.5rem",
-        color: colors.bodyText,
-        borderColor: "rgba(0, 218, 157, 0.75)",
+        color: colors[this.props.palette].bodyText,
+        borderColor: colors[this.props.palette].input,
         textAlign: "center",
         fontSize: "0.8rem"
-      }
+      },
     }
 
     let columns = []
@@ -63,16 +63,18 @@ class DataTable extends React.Component {
         display:"inline-block",
         verticalAlign:"top",
         padding:"20px 20px",
-        color: colors.white,
-        maxHeight: "45%",
+        color: colors[this.props.palette].white,
+        height: "45%",
         overflow: "auto",
       },
       cell: {
         minWidth: "85px",
-        color: colors.white,
+        color: colors[this.props.palette].white,
         fontSize: "1.2rem",
-        paddingBottom: "12px"
-        // borderBottom: "thin solid #ffffff",
+        paddingBottom: "12px",
+      },
+      table: {
+        width: "90%"
       }
     }
 
@@ -99,13 +101,14 @@ class DataTable extends React.Component {
       rows.push(
         <DataRow key={"row" + rowCount} data={dataPoint}
           keyList={this.props.keyList} weightKey={this.props.weightKey} row={rowCount}
-          updateData={this.props.updateData}/>
+          updateData={this.props.updateData}
+          palette={this.props.palette}/>
       )
     }
 
     return (
       <div style={style.container}>
-        <table>
+        <table style={style.table}>
           <tbody>
             {rows}
           </tbody>

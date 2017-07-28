@@ -5,6 +5,13 @@ import colors from "../../colors"
 
 class FieldSwitch extends React.Component {
 
+
+  componentWillReceiveProp(nextProps){
+    if (this.props.switch !== nextProps.switch){
+      this.changeHandler.bind(this)
+    }
+  }
+  
   changeHandler(e){
     let val
     if (this.props.input === "number") {
@@ -20,35 +27,42 @@ class FieldSwitch extends React.Component {
     const style = {
       outer: {
         fontSize: "0.8rem",
-        minHeight: "15px",
-        // display: "inline-block",
+        minHeight: "1.5rem",
         verticalAlign: "top",
-        textAlign: "center",
-        // width: "50%",
+        textAlign: "left",
         boxSizing: "border-box",
-        marginTop: "8px"
+        marginTop: "8px",
+        backgroundColor: colors[this.props.palette].optionsField,
+        borderRadius: "15px",
+        marginLeft: "15px",
+        marginRight: "15px",
+        border: `1px solid ${colors[this.props.palette].optionsFieldBorder}`
       },
       input: {
-        borderRadius: "15px 15px 15px 15px",
-        backgroundColor: colors.bodyBg,
+        borderRadius: "0px 15px 15px 0px",
+        backgroundColor: colors[this.props.palette].optionsField,
         height: "1.5rem",
         width: "6rem",
-        color: colors.bodyText,
-        borderColor: "rgba(0, 218, 157, 0.50)",
-        textAlign: "center",
+        color: colors[this.props.palette].bodyText,
+        border: 0,
+        textAlign: "right",
         fontSize: "0.8rem",
         display: "inline-block",
+        float: "right",
+        paddingRight: "10px",
+        margin: "2px",
         ":focus":{
           outline: "none",
-          borderColor: "rgba(0, 218, 157, 1)",
-          boxShadow: "0 0 3px 1px #505050"
+          color: colors[this.props.palette].input
         }
       }
     }
 
     return(
       <div style={style.outer}>
-        <div style={{display: "inline-block", marginRight: "5px"}}>{this.props.name}: </div>
+        <span style={{display: "inline-block",
+          paddingLeft: "10px", verticalAlign: "middle",
+          paddingTop: "5px", paddingBottom: "5px"}}>{this.props.name}: </span>
         <input type="text" style={style.input}
           value={this.props.input === "number" ? parseFloat(this.props.switch) : this.props.switch}
           onChange={this.changeHandler.bind(this)}/>
