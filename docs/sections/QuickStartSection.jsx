@@ -33,10 +33,10 @@ class QuickStartSection extends React.Component {
         <h3 style={style.heading}>
           Let's use Replot
         </h3>
-        <CodeBlock>
+        <CodeBlock palette={this.props.palette}>
           npm install replot
         </CodeBlock>
-        <CodeBlock>
+        <CodeBlock palette={this.props.palette}>
           {exampleCode}
         </CodeBlock>
       </SectionContainer>

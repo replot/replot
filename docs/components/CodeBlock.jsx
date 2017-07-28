@@ -10,8 +10,8 @@ class CodeBlock extends React.Component {
       maxWidth: "600px",
       width: "80%",
       padding: "10px",
-      border: `1px solid ${colors.codeBlockBorders}`,
-      borderLeft: `2px solid ${colors.codeBlockLeftBorder}`,
+      border: `1px solid ${colors[this.props.palette].codeBlockBorders}`,
+      borderLeft: `2px solid ${colors[this.props.palette].codeBlockLeftBorder}`,
       whiteSpace: "pre",
       fontFamily: "monospace",
     }

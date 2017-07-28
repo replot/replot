@@ -4,13 +4,9 @@ import React from "react"
 class SectionContainer extends React.Component {
 
   render() {
-    const style = {
-      minHeight: "100vh",
-      padding: "50px",
-    }
 
     return(
-      <div style={style}>
+      <div style={this.props.style}>
         {this.props.children}
       </div>
     )
@@ -18,5 +14,11 @@ class SectionContainer extends React.Component {
 
 }
 
+SectionContainer.defaultProps = {
+  style: {
+    minHeight: "100vh",
+    padding: "50px",
+  }
+}
 
 export default SectionContainer

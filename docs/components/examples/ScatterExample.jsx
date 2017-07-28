@@ -1,6 +1,7 @@
 import React from "react"
 import ScatterPlot from "replot-scatter"
 import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
+import colors from "../../colors"
 
 
 class ScatterExample extends React.Component {
@@ -36,30 +37,55 @@ class ScatterExample extends React.Component {
           {gender: "female", height: 64, weight: 160.5, shoeSize: 7.5},
           {gender: "female", height: 65, weight: 130.5, shoeSize: 7},
         ]},
-        {optionName: "xKey", optionType: "hidden", initialValue: "height"},
-        {optionName: "yKey", optionType: "hidden", initialValue: "weight"},
-        {optionName: "titleKey", optionType: "hidden", initialValue: "gender"},
-        {optionName: "circleKey", optionType: "hidden", initialValue: "shoeSize"},
-        {optionName: "filterBy", optionType: "hidden", initialValue: "none"},
-        {optionName: "xLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
-        {optionName: "yLabel", optionType: "state", states: ["on", "off"], initialValue: "on"},
-        {optionName: "width", optionType: "field", input: "number", initialValue: 800},
-        {optionName: "height", optionType: "field", input: "number", initialValue: 600},
-        {optionName: "minRadius", optionType: "field", input: "number", initialValue: 2.5},
-        {optionName: "maxRadius", optionType: "field", input: "number", initialValue: 10},
-        {optionName: "axisColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "legendColor", optionType: "field", input: "string", initialValue: "white"},
-        {optionName: "scale", optionType: "state", states: ["lin", "log"], initialValue: "log"}
-      ]
+        {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 650},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 500},
+        {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
+        {optionName: "minRadius", name: "Minimum Radius", optionType: "field", input: "number", initialValue: 2.5},
+        {optionName: "maxRadius", name: "Maximum Radius", optionType: "field", input: "number", initialValue: 10},
+        {optionName: "xLabel", name: "X Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "yLabel", name: "Y Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "xKey", name: "X Axis", optionType: "hidden", initialValue: "height"},
+        {optionName: "yKey", name: "Y Axis", optionType: "hidden", initialValue: "weight"},
+        {optionName: "titleKey", name: "Group By", optionType: "hidden", initialValue: "gender"},
+        {optionName: "circleKey", name: "Node Size", optionType: "hidden", initialValue: "shoeSize"},
+      ],
     }
   }
 
   render() {
+    let colorOptions = [
+      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "legendColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+    ]
+    let style = {
+      title: {
+        fontSize: "45px",
+        textAlign: "center",
+        color: colors[this.props.palette].bodyText,
+        padding: 15,
+        textShadow: `0px 5px 18px ${colors[this.props.palette].titleShadow}`,
+      },
+      container: {
+        padding: "80px 50px",
+      },
+      optionsData: {
+        width: "35%",
+        display: "inline-block",
+        verticalAlign: "top",
+        backgroundColor: colors[this.props.palette].optionsTableBg,
+        boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+      }
+    }
     return(
-      <div className="container" style={{padding: "80px 50px"}}>
-        <h1 style={{textAlign: "left", color: "white"}}> Scatter Plot </h1>
-        <ComponentContainer optionList={this.state.optionList}>
-          <ScatterPlot data={this.state.optionList[0].initialValue} />
+      <div className="container" style={style.container}>
+        <h1 style={style.title}> Scatter Plot </h1>
+        <ComponentContainer optionList={this.state.optionList}
+          optionsData={style.optionsData}
+          palette={this.props.palette}
+          colorOptions={colorOptions}>
+          <ScatterPlot data={this.state.optionList[0].initialValue}
+            color={colors[this.props.palette].scatterPalette}/>
         </ComponentContainer>
       </div>
     )

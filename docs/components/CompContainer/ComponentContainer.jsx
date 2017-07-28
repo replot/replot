@@ -7,16 +7,48 @@ import FieldSwitch from "./FieldSwitch.jsx"
 import BoolSwitch from "./BoolSwitch.jsx"
 import StateSwitch from "./StateSwitch.jsx"
 import NonSwitch from "./NonSwitch.jsx"
+import colors from "../../colors"
 
 class Toggle extends React.Component {
 
   render() {
+    let dataLabelColor
+    let optionsLabelColor
+    if (this.props.active == "data") {
+      dataLabelColor = colors[this.props.palette].mainColor
+      optionsLabelColor = colors[this.props.palette].darkAccent
+    } else {
+      dataLabelColor = colors[this.props.palette].darkAccent
+      optionsLabelColor = colors[this.props.palette].mainColor
+    }
+    let style = {
+      dataLabel: {
+        fontSize: "1.25rem",
+        width: "50%",
+        display: "inline-block",
+        textAlign: "center",
+        paddingTop: "10px",
+        paddingBottom: "15px",
+        backgroundColor: colors[this.props.palette].optionsLabelBg,
+        color: dataLabelColor,
+      },
+      optionsLabel: {
+        fontSize: "1.25rem",
+        width: "50%",
+        display: "inline-block",
+        textAlign: "center",
+        paddingTop: "10px",
+        paddingBottom: "15px",
+        backgroundColor: colors[this.props.palette].optionsLabelBg,
+        color: optionsLabelColor
+      }
+    }
     return (
       <div>
-        <div onClick={this.props.handleData} style={{width: "50%", display: "inline-block", textAlign: "center", border: "2px solid #000000"}}>
+        <div onClick={this.props.handleData} style={style.dataLabel}>
           Data
         </div>
-        <div onClick={this.props.handleOptions} style={{width: "50%", display: "inline-block", textAlign: "center", border: "2px solid #000000"}}>
+        <div onClick={this.props.handleOptions} style={style.optionsLabel}>
           Options
         </div>
       </div>
@@ -36,6 +68,22 @@ class ComponentContainer extends React.Component {
     for (let option of this.props.optionList){
       this.state.options[option.optionName] = option.initialValue
     }
+    for (let option of this.props.colorOptions){
+      this.state.options[option.optionName] = option.initialValue
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let newOptions = {}
+    for (let option of nextProps.optionList){
+      newOptions[option.optionName] = option.initialValue
+    }
+    for (let option of nextProps.colorOptions){
+      newOptions[option.optionName] = option.initialValue
+    }
+    this.setState({
+      options: newOptions
+    })
   }
 
   toggleData() {
@@ -125,43 +173,69 @@ class ComponentContainer extends React.Component {
     for (let option of this.props.optionList){
       if (option.optionType === "scatterData") {
         dataTable = (
-          <ScatterKeyValueTable data={this.state.options.data} updateShoeData={this.updateScatterShoeData.bind(this)}
-            updateWeightData={this.updateScatterWeightData.bind(this)} />
+          <ScatterKeyValueTable data={this.state.options.data}
+            updateShoeData={this.updateScatterShoeData.bind(this)}
+            updateWeightData={this.updateScatterWeightData.bind(this)}
+            palette={this.props.palette}/>
         )
       }
       else if (option.optionType === "data"){
         dataTable = (
-          <DataTable data={this.state.options.data} updateData={this.updateDataGen(option.keyList, option.weightKey).bind(this)}
-            keyList={option.keyList} weightKey={option.weightKey}/>
+          <DataTable data={this.state.options.data}
+            updateData={this.updateDataGen(option.keyList, option.weightKey).bind(this)}
+            keyList={option.keyList} weightKey={option.weightKey}
+            palette={this.props.palette}/>
         )
       }
       if (option.optionType === "bool") {
-        switches.push(<BoolSwitch key={option.optionName} name={option.optionName}
+        switches.push(<BoolSwitch key={option.optionName} name={option.name}
           switch={this.state.options[option.optionName]}
-          updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
+          updateFunc={this.updateFuncGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
       } else if (option.optionType === "field") {
-        switches.push(<FieldSwitch key={option.optionName} name={option.optionName}
+        switches.push(<FieldSwitch key={option.optionName} name={option.name}
           switch={this.state.options[option.optionName]} input={option.input}
-          updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
+          updateFunc={this.updateFuncGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
       } else if (option.optionType === "state") {
-        switches.push(<StateSwitch key={option.optionName} name={option.optionName}
+        switches.push(<StateSwitch key={option.optionName} name={option.name}
           switch={this.state.options[option.optionName]} states={option.states}
-          updateFunc={this.updateFuncGen(option.optionName).bind(this)}/>)
+          updateFunc={this.updateFuncGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
       } else if (option.optionType === "hidden") {
-        switches.push(<NonSwitch key={option.optionName} name={option.optionName}
-          switch={this.state.options[option.optionName]} />)
+        switches.push(<NonSwitch key={option.optionName} name={option.name}
+          switch={this.state.options[option.optionName]}
+          palette={this.props.palette}/>)
+      }
+    }
+    for (let option of this.props.colorOptions){
+      if (option.optionType === "field") {
+        switches.push(<FieldSwitch key={option.optionName} name={option.name}
+          switch={this.state.options[option.optionName]} input={option.input}
+          updateFunc={this.updateFuncGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
       }
     }
 
     let newChild = React.cloneElement(this.props.children, this.state.options)
 
+    let style = {
+      chart: {
+        width: "60%",
+        display: "inline-block",
+        verticalAlign: "top",
+      }
+    }
     return (
       <div>
-        <div style={{width: "60%", display: "inline-block", verticalAlign: "top"}}>
+        <div style={style.chart}>
           {newChild}
         </div>
-        <div style={{width: "40%", display: "inline-block", verticalAlign: "top"}}>
-          <Toggle handleData={this.toggleData.bind(this)} handleOptions={this.toggleOptions.bind(this)}/>
+        <div style={this.props.optionsData}>
+          <Toggle handleData={this.toggleData.bind(this)}
+            handleOptions={this.toggleOptions.bind(this)}
+            active={this.state.active}
+            palette={this.props.palette}/>
           {this.state.active == "options" &&
             <OptionsPane>
               {switches}
@@ -177,6 +251,15 @@ class ComponentContainer extends React.Component {
     )
   }
 
+}
+
+ComponentContainer.defaultProps = {
+  optionsData: {
+    width: "38%",
+    display: "inline-block",
+    verticalAlign: "top",
+  },
+  colorOptions: []
 }
 
 ComponentContainer.propTypes = {
