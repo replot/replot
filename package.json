@@ -35,6 +35,8 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "replot-bar": "git+ssh://git@github.com/MacroConnections/replot-bar.git",
+    "replot-boxplot": "git+ssh://git@github.com/MacroConnections/replot-boxplot.git",
+    "replot-core": "git+ssh://git@github.com/MacroConnections/replot-core.git",
     "replot-line": "git+ssh://git@github.com/MacroConnections/replot-line.git",
     "replot-network": "git+ssh://git@github.com/MacroConnections/replot-network.git",
     "replot-scatter": "git+ssh://git@github.com/MacroConnections/replot-scatter.git",

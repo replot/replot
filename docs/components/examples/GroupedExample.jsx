@@ -18,8 +18,8 @@ class GroupedExample extends React.Component {
           {population: 312, country: "United States", year: 2012},
           {population: 908, country: "United States", year: 2010},
         ]},
-        {optionName: "maxGraphW", name: "Width", optionType: "field", input: "number", initialValue: 550},
-        {optionName: "graphH", name: "Height", optionType: "field", input: "number", initialValue: 600},
+        {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "95%"},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 550},
         {optionName: "yScale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
         {optionName: "xTitle", name: "X Title", optionType: "field", initialValue: "Year"},
         {optionName: "yTitle", name: "Y Title", optionType: "field", initialValue: "Population"},
@@ -32,14 +32,18 @@ class GroupedExample extends React.Component {
   }
 
   render() {
-    let colorOptions = [
-      {optionName: "xAxisColor", name: "X Axis Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "gridlineColor", name: "Gridline Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "xTitleColor", name: "X Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "yTitleColor", name: "Y Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "xLabelColor", name: "X Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "yLabelColor", name: "Y Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "legendColor", name: "Legend Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+    let axisColorOptions = [
+      {optionName: "axisColor", name: "X Axis Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "titleColor", name: "X Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "gridColor", name: "Grid Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "lineWidth", name: "line Width", optionType: "field", input: "number", initialValue: 1.5},
+      {optionName: "lineOpacity", name: "line Opacity", optionType: "field", input: "number", initialValue: 1}
+    ]
+    let legendColorOptions = [
+      {optionName: "fontColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "showBorder", name: "Show Legend Border", optionType: "bool", initialValue: false},
+      {optionName: "borderColor", name: "Legend Border Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
     ]
     let style = {
       title: {
@@ -58,6 +62,8 @@ class GroupedExample extends React.Component {
         verticalAlign: "top",
         backgroundColor: colors[this.props.palette].optionsTableBg,
         boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+        marginLeft: "25px",
+        maxWidth: "405px",
       }
     }
     return(
@@ -66,7 +72,8 @@ class GroupedExample extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           optionsData={style.optionsData}
           palette={this.props.palette}
-          colorOptions={colorOptions}>
+          axisColorOptions={axisColorOptions}
+          legendColorOptions={legendColorOptions}>
           <BarChart data={this.state.optionList[0].initialValue}
             color={colors[this.props.palette].groupedBarPalette}/>
         </ComponentContainer>

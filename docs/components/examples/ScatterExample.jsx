@@ -37,26 +37,38 @@ class ScatterExample extends React.Component {
           {gender: "female", height: 64, weight: 160.5, shoeSize: 7.5},
           {gender: "female", height: 65, weight: 130.5, shoeSize: 7},
         ]},
-        {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 650},
+        {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "100%"},
         {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 500},
-        {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
+        {optionName: "yScale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
         {optionName: "minRadius", name: "Minimum Radius", optionType: "field", input: "number", initialValue: 2.5},
         {optionName: "maxRadius", name: "Maximum Radius", optionType: "field", input: "number", initialValue: 10},
-        {optionName: "xLabel", name: "X Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
-        {optionName: "yLabel", name: "Y Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "showTrendline", name: "Show Trendline", optionType: "bool", initialValue: true},
         {optionName: "xKey", name: "X Axis", optionType: "hidden", initialValue: "height"},
         {optionName: "yKey", name: "Y Axis", optionType: "hidden", initialValue: "weight"},
-        {optionName: "titleKey", name: "Group By", optionType: "hidden", initialValue: "gender"},
-        {optionName: "circleKey", name: "Node Size", optionType: "hidden", initialValue: "shoeSize"},
+        {optionName: "showXLabels", name: "X Labels", optionType: "bool", initialValue: true},
+        {optionName: "showYLabels", name: "Y Labels", optionType: "bool", initialValue: true},
+        {optionName: "groupKey", name: "Group By", optionType: "hidden", initialValue: "gender"},
+        {optionName: "weightKey", name: "Node Weight", optionType: "hidden", initialValue: "shoeSize"},
+        {optionName: "showLegend", name: "Show Legend", optionType: "bool", initialValue: true},
       ],
     }
   }
 
   render() {
-    let colorOptions = [
+    let axisColorOptions = [
       {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "legendColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
       {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "lineWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
+    ]
+    let legendColorOptions = [
+      {optionName: "fontColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "showBorder", name: "Show Legend Border", optionType: "bool", initialValue: false},
+      {optionName: "borderColor", name: "Legend Border Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+    ]
+    let graphStyle = [
+      {optionName: "trendlineColor", name: "Trendline Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "trendlineOpacity", name: "Trendline Opacity", optionType: "field", input: "number", initialValue: 0.5}
     ]
     let style = {
       title: {
@@ -75,6 +87,8 @@ class ScatterExample extends React.Component {
         verticalAlign: "top",
         backgroundColor: colors[this.props.palette].optionsTableBg,
         boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+        marginLeft: "25px",
+        maxWidth: "405px",
       }
     }
     return(
@@ -83,7 +97,9 @@ class ScatterExample extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           optionsData={style.optionsData}
           palette={this.props.palette}
-          colorOptions={colorOptions}>
+          axisColorOptions={axisColorOptions}
+          legendColorOptions={legendColorOptions}
+          graphStyle={graphStyle}>
           <ScatterPlot data={this.state.optionList[0].initialValue}
             color={colors[this.props.palette].scatterPalette}/>
         </ComponentContainer>

@@ -25,7 +25,7 @@ class BoolButton extends React.Component {
         transition: "background-color .4s",
         ":hover":{
           backgroundColor: this.props.bgColor
-        }
+        },
       }
     }
 
@@ -49,7 +49,7 @@ class BoolSwitch extends React.Component {
         verticalAlign: "top",
         boxSizing: "border-box",
         marginTop: "8px",
-        paddingBottom: "8px"
+        paddingBottom: "8px",
       },
       inner: {
         textAlign: "center",

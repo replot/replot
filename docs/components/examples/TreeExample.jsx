@@ -23,8 +23,8 @@ class TreeExample extends React.Component {
         ]},
         {optionName: "initialAnimation", name: "Initial Animation", optionType: "bool", initialValue: true},
         {optionName: "displayPercentages", name: "Percentages", optionType: "bool", initialValue: true},
-        {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "95%"},
-        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 400},
+        {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 420},
         {optionName: "otherThreshold", name: "Other Threshold", optionType: "field", input: "number", initialValue: .025},
         {optionName: "tooltip", name: "Tooltip", optionType: "bool", initialValue: false},
         {optionName: "tooltipColor", name: "Tooltip Color", optionType: "state", states:["dark","light"], initialValue: "dark"},
@@ -53,6 +53,8 @@ class TreeExample extends React.Component {
         verticalAlign: "top",
         backgroundColor: colors[this.props.palette].optionsTableBg,
         boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+        marginLeft: "25px",
+        maxWidth: "405px",
       }
     }
     return(

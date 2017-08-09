@@ -68,6 +68,18 @@ class ComponentContainer extends React.Component {
     for (let option of this.props.optionList){
       this.state.options[option.optionName] = option.initialValue
     }
+    this.state.options["axisStyle"] = {}
+    for (let option of this.props.axisColorOptions){
+      this.state.options["axisStyle"][option.optionName] = option.initialValue
+    }
+    this.state.options["legendStyle"] = {}
+    for (let option of this.props.legendColorOptions){
+      this.state.options["legendStyle"][option.optionName] = option.initialValue
+    }
+    this.state.options["graphStyle"] = {}
+    for (let option of this.props.graphStyle){
+      this.state.options["graphStyle"][option.optionName] = option.initialValue
+    }
     for (let option of this.props.colorOptions){
       this.state.options[option.optionName] = option.initialValue
     }
@@ -75,11 +87,20 @@ class ComponentContainer extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     let newOptions = {}
+    newOptions["axisStyle"] = {}
+    newOptions["legendStyle"] = {}
+    newOptions["graphStyle"] = {}
     for (let option of nextProps.optionList){
       newOptions[option.optionName] = option.initialValue
     }
-    for (let option of nextProps.colorOptions){
-      newOptions[option.optionName] = option.initialValue
+    for (let option of nextProps.axisColorOptions){
+      newOptions["axisStyle"][option.optionName] = option.initialValue
+    }
+    for (let option of nextProps.legendColorOptions){
+      newOptions["legendStyle"][option.optionName] = option.initialValue
+    }
+    for (let option of nextProps.graphStyle){
+      newOptions["graphStyle"][option.optionName] = option.initialValue
     }
     this.setState({
       options: newOptions
@@ -131,6 +152,33 @@ class ComponentContainer extends React.Component {
       }
     }
     return updateData
+  }
+
+  updateAxisColorGen(name){
+    let updateColor = function (newSetting) {
+      let newColors = this.state.options
+      newColors["axisStyle"][name] = newSetting
+      this.setState({options: newColors})
+    }
+    return updateColor
+  }
+
+  updateLegendColorGen(name){
+    let updateColor = function (newSetting) {
+      let newColors = this.state.options
+      newColors["legendStyle"][name] = newSetting
+      this.setState({options: newColors})
+    }
+    return updateColor
+  }
+
+  updateGraphStyleGen(name){
+    let updateColor = function (newSetting) {
+      let newColors = this.state.options
+      newColors["graphStyle"][name] = newSetting
+      this.setState({options: newColors})
+    }
+    return updateColor
   }
 
   updateScatterShoeData(mutatedObject) {
@@ -208,6 +256,38 @@ class ComponentContainer extends React.Component {
           palette={this.props.palette}/>)
       }
     }
+    for (let option of this.props.axisColorOptions){
+      if (option.optionType === "field") {
+        switches.push(<FieldSwitch key={option.optionName} name={option.name}
+          switch={this.state.options["axisStyle"][option.optionName]} input={option.input}
+          updateFunc={this.updateAxisColorGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
+      }
+    }
+
+    for (let option of this.props.legendColorOptions){
+      if (option.optionType === "field") {
+        switches.push(<FieldSwitch key={option.optionName} name={option.name}
+          switch={this.state.options["legendStyle"][option.optionName]} input={option.input}
+          updateFunc={this.updateLegendColorGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
+      } else if (option.optionType === "bool") {
+        switches.push(<BoolSwitch key={option.optionName} name={option.name}
+          switch={this.state.options["legendStyle"][option.optionName]}
+          updateFunc={this.updateLegendColorGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
+      }
+    }
+
+    for (let option of this.props.graphStyle){
+      if (option.optionType === "field") {
+        switches.push(<FieldSwitch key={option.optionName} name={option.name}
+          switch={this.state.options["graphStyle"][option.optionName]} input={option.input}
+          updateFunc={this.updateGraphStyleGen(option.optionName).bind(this)}
+          palette={this.props.palette}/>)
+      }
+    }
+
     for (let option of this.props.colorOptions){
       if (option.optionType === "field") {
         switches.push(<FieldSwitch key={option.optionName} name={option.name}
@@ -259,6 +339,9 @@ ComponentContainer.defaultProps = {
     display: "inline-block",
     verticalAlign: "top",
   },
+  axisColorOptions: [],
+  legendColorOptions: [],
+  graphStyle: [],
   colorOptions: []
 }
 

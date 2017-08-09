@@ -20,8 +20,8 @@ class BarExample extends React.Component {
           {population: 786, country: "Nigeria"},
           {population: 456, country: "Bangladesh"},
         ]},
-        {optionName: "maxGraphW", name: "Width", optionType: "field", input: "number", initialValue: 600},
-        {optionName: "graphH", name: "Height", optionType: "field", input: "number", initialValue: 550},
+        {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 450},
         {optionName: "yScale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
         {optionName: "xTitle", name: "X Title", optionType: "field", initialValue: "Country"},
         {optionName: "yTitle", name: "Y Title", optionType: "field", initialValue: "Population"},
@@ -32,13 +32,13 @@ class BarExample extends React.Component {
     }
   }
   render() {
-    let colorOptions = [
-      {optionName: "xAxisColor", name: "X Axis Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "gridlineColor", name: "Gridline Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "xTitleColor", name: "X Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "yTitleColor", name: "Y Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "xLabelColor", name: "X Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "yLabelColor", name: "Y Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+    let axisColorOptions = [
+      {optionName: "axisColor", name: "X Axis Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "titleColor", name: "X Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "gridColor", name: "Grid Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "lineWidth", name: "line Width", optionType: "field", input: "number", initialValue: 1.5},
+      {optionName: "lineOpacity", name: "line Opacity", optionType: "field", input: "number", initialValue: 1}
     ]
     let style = {
       title: {
@@ -57,6 +57,8 @@ class BarExample extends React.Component {
         verticalAlign: "top",
         backgroundColor: colors[this.props.palette].optionsTableBg,
         boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+        marginLeft: "25px",
+        maxWidth: "405px",
       },
     }
     return(
@@ -65,7 +67,7 @@ class BarExample extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           optionsData={style.optionsData}
           palette={this.props.palette}
-          colorOptions={colorOptions}
+          axisColorOptions={axisColorOptions}
           axisColor={colors[this.props.palette].axisColor}>
           <BarChart data={this.state.optionList[0].initialValue}
             color={colors[this.props.palette].barPalette}/>

@@ -36,39 +36,28 @@ class LineExample extends React.Component {
           {location: "Antarctica", year: 2015, population: 0.001},
           {location: "Antarctica", year: 2016, population: 0.0001},
         ]},
-        {optionName: "width", name: "Width", optionType: "field", input: "number", initialValue: 625},
-        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 500},
-        {optionName: "scale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "log"},
-        {optionName: "xLabel", name: "X Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
-        {optionName: "yLabel", name: "Y Label", optionType: "state", states: ["on", "off"], initialValue: "on"},
+        {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "100%"},
+        {optionName: "height", name: "Height", optionType: "field", input: "string", initialValue: 500},
+        {optionName: "yScale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "log"},
+        {optionName: "groupKey", name: "Group By", optionType: "hidden", initialValue: "location"},
         {optionName: "xKey", name: "X Axis", optionType: "hidden", initialValue: "year"},
         {optionName: "yKey", name: "Y Axis", optionType: "hidden", initialValue: "population"},
-        {optionName: "titleKey", name: "Title", optionType: "hidden", initialValue: "location"},
       ],
       lineScale: "log",
     }
   }
 
-  updateLineData(mutatedObject) {
-    let mutatedData = JSON.parse(JSON.stringify(this.state.lineData))
-    let chosenIndex = -1
-    for (let index=0; index < mutatedData.length; index++) {
-      if (mutatedData[index].location === mutatedObject.location && mutatedData[index].year === mutatedObject.year) {
-        chosenIndex = index
-        break
-      }
-    }
-    if (chosenIndex > -1) {
-      mutatedData[chosenIndex].population = parseFloat(mutatedObject.population)
-      this.setState({lineData: mutatedData})
-    }
-  }
-
   render() {
-    let colorOptions = [
+    let axisColorOptions = [
       {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "legendColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
       {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "lineWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
+    ]
+    let legendColorOptions = [
+      {optionName: "fontColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "showBorder", name: "Show Legend Border", optionType: "bool", initialValue: false},
+      {optionName: "borderColor", name: "Legend Border Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
     ]
     let style = {
       title: {
@@ -87,6 +76,8 @@ class LineExample extends React.Component {
         verticalAlign: "top",
         backgroundColor: colors[this.props.palette].optionsTableBg,
         boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
+        marginLeft: "25px",
+        maxWidth: "405px",
       }
     }
     return(
@@ -95,7 +86,8 @@ class LineExample extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           optionsData={style.optionsData}
           palette={this.props.palette}
-          colorOptions={colorOptions}>
+          axisColorOptions={axisColorOptions}
+          legendColorOptions={legendColorOptions}>
           <LineChart data={this.state.optionList[0].initialValue}
             color={colors[this.props.palette].linePalette}/>
         </ComponentContainer>
