@@ -65,6 +65,7 @@ class DataTable extends React.Component {
         padding:"20px 20px",
         color: colors[this.props.palette].white,
         height: "45%",
+        width: "100%",
         overflow: "auto",
       },
       cell: {
