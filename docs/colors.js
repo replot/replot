@@ -9,6 +9,8 @@ const paletteA = {
   groupedBarPalette: ["#ff8463", "#bfd5a8", "#00da9d", "#009b76"],
   linePalette: ["#ff5a3c", "#ff8463", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"],
   scatterPalette: ["#ff8463", "#00da9d"],
+  boxPalette: ["#ff8463", "#00da9d"],
+  boxFill: "#1a5d70",
   dark: "#112e37",
 
   buttonHover: "#23596c",
@@ -90,7 +92,37 @@ const paletteD = {
   dark: "#5e1c2c",
 
   barPalette: ["#D88B67", "#ce6a5d", "#c13d50", "#B21E4B", "#a2375f", "#975873", "#8F7183", "#706475"],
-  treeMapPalette: ["#706475", "#a2375f", "#c13d50"]
+  treeMapPalette: ["#706475", "#a2375f", "#c13d50"],
+  groupedBarPalette: ["#D88B67", "#B21E4B", "#706475"],
+  linePalette: ["#D88B67", "#c13d50", "#B21E4B", "#975873", "#8F7183", "#706475"],
+  scatterPalette: ["#D88B67", "#706475"],
+  networkPalette: ["#D88B67", "#c13d50", "#B21E4B", "#a2375f", "#975873", "#706475"],
+}
+const paletteE = {
+  white: "#f6f6f6",
+  darkGray: "#565f7c",
+  midGray: "#818caa",
+  lightGray: "#bfc5d3",
+  purple: "#9f85de",
+  pink: "#fe7676",
+  orange: "#f36a4a",
+  lightGreen: "#52e79d",
+  green: "#08d377",
+
+  tableBg: "rgba(191, 197, 211, 0.5)",
+  tableShadow: "rgba(86, 95, 124, 0.25)",
+
+  input: "rgba(82, 231, 157, 0.25)",
+
+  buttonActive: "rgba(82, 231, 157, 0.75)",
+
+  barPalette: ["#fe7676", "#f36a4a", "#FFBE47", "#52e79d", "#08d377", "#2FCCBA",  "#9f85de", "#6633AA"],
+  treeMapPalette: ["#fe7676", "#08d377", "#9f85de"],
+  groupedBarPalette: ["#fe7676", "#2FCCBA",  "#9f85de"],
+  linePalette: ["#fe7676", "#FFBE47", "#52e79d", "#2FCCBA",  "#9f85de", "#6633AA"],
+  scatterPalette: ["#2FCCBA", "#fe7676"],
+  networkPalette: ["#fe7676", "#FFBE47", "#08d377", "#2FCCBA",  "#9f85de", "#6633AA"],
+  boxPalette: ["#fe7676", "#08d377"],
 }
 
 const colorsA = {
@@ -109,6 +141,7 @@ const colorsA = {
 
   input: paletteA.greenInput,
   inputBackground: paletteA.darkGreen,
+  inputText: paletteA.greenInput,
 
   button: paletteA.darkGreen,
   buttonActive: paletteA.greenButton,
@@ -132,6 +165,8 @@ const colorsA = {
   linePalette: paletteA.linePalette,
   scatterPalette: paletteA.scatterPalette,
   networkPalette: paletteA.gradientPalette,
+  boxPalette: paletteA.boxPalette,
+  boxFill: paletteA.darkGreen,
 
   axisColor: paletteA.white
 }
@@ -149,6 +184,7 @@ const colorsB = {
 
   input: paletteB.textShadow,
   inputBackground: paletteB.darkBlue,
+  inputText: paletteB.textShadow,
 
   button: paletteB.darkBlue,
   buttonActive: paletteB.buttonActive,
@@ -191,6 +227,7 @@ const colorsC = {
 
   input: paletteC.input,
   inputBackground: paletteC.tableField,
+  inputText: paletteC.input,
 
   button: paletteC.none,
   buttonActive: paletteC.tableBg,
@@ -226,11 +263,14 @@ const colorsD = {
 
   titleShadow: paletteD.tableShadow,
 
+  header: paletteD.dark,
+
   codeBlockLeftBorder: paletteD.pink,
   codeBlockBorders: paletteD.sand,
 
   input: paletteD.input,
   inputBackground: paletteD.tableField,
+  inputText: paletteD.input,
 
   button: paletteD.tableBg,
   buttonActive: paletteD.pink,
@@ -257,9 +297,55 @@ const colorsD = {
 
   axisColor: paletteD.sand
 }
+const colorsE = {
+  backgroundPNG: paletteE.backgroundPNG,
+  logoPNG: paletteE.logoPNG,
+
+  bodyText: paletteE.darkGray,
+  bodyBg: paletteE.white,
+
+  titleShadow: paletteE.white,
+
+  header: paletteE.lightGray,
+
+  codeBlockLeftBorder: paletteE.purple,
+  codeBlockBorders: paletteE.lightGray,
+
+  input: paletteE.lightGreen,
+  inputBackground: paletteE.lightGray,
+  inputText: paletteE.white,
+
+  button: paletteE.none,
+  buttonActive: paletteE.buttonActive,
+  buttonHover: paletteE.tableBg,
+
+  optionsLabelBg: paletteE.midGray,
+  optionsTableBg: paletteE.tableBg,
+  optionsShadow: paletteE.tableShadow,
+  optionsField: paletteE.lightGray,
+  optionsFieldBorder: paletteE.darkGray,
+
+
+  lightAccent: paletteE.white,
+  white: paletteE.darkGray, //used for data header
+  black: paletteE.darkGray,
+  mainColor: paletteE.white, //used for options pane title
+  darkAccent: paletteE.darkGray, //used for options pane title
+
+  barPalette: paletteE.barPalette,
+  treeMapPalette: paletteE.treeMapPalette,
+  groupedBarPalette: paletteE.groupedBarPalette,
+  linePalette: paletteE.linePalette,
+  scatterPalette: paletteE.scatterPalette,
+  networkPalette: paletteE.networkPalette,
+  boxPalette: paletteE.boxPalette,
+  boxFill: paletteE.white,
+
+  axisColor: paletteE.darkGray
+}
 
 let colors = {
-  light: colorsC,
+  light: colorsE,
   dark: colorsA
 }
 

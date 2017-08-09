@@ -14,7 +14,7 @@ class HeaderSection extends React.Component {
         textAlign: "right",
         backgroundColor: colors[this.props.palette].header,
         zIndex: 1,
-        margin: -12,
+        verticalAlign: "top"
 
       },
       dark: {

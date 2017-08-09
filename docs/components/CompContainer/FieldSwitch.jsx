@@ -11,7 +11,7 @@ class FieldSwitch extends React.Component {
       this.changeHandler.bind(this)
     }
   }
-  
+
   changeHandler(e){
     let val
     if (this.props.input === "number") {
@@ -53,7 +53,7 @@ class FieldSwitch extends React.Component {
         margin: "2px",
         ":focus":{
           outline: "none",
-          color: colors[this.props.palette].input
+          color: colors[this.props.palette].inputText
         }
       }
     }

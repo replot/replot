@@ -15,7 +15,7 @@ class ExampleApp extends React.Component {
     super(props)
     this.state = {
       password: "",
-      theme: "dark"
+      theme: "light"
     }
     this.passwordHandler = this.passwordHandler.bind(this)
   }
@@ -61,15 +61,15 @@ class ExampleApp extends React.Component {
           palette={this.state.theme}/>
       </Radium.StyleRoot>
 
-    if (this.state.password != "macro") {
-      return (
-        <CenteredBlock>
-          <h3 style={{color: colors.bodyText}}> Password? </h3>
-          <input style={{textAlign: "center"}} autoFocus type="password"
-            value={this.state.password} onChange={this.passwordHandler}/>
-        </CenteredBlock>
-      )
-    }
+    // if (this.state.password != "macro") {
+    //   return (
+    //     <CenteredBlock>
+    //       <h3 style={{color: colors.bodyText}}> Password? </h3>
+    //       <input style={{textAlign: "center"}} autoFocus type="password"
+    //         value={this.state.password} onChange={this.passwordHandler}/>
+    //     </CenteredBlock>
+    //   )
+    // }
 
     return(
       <div style={style.body}>
