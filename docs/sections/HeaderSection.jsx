@@ -30,7 +30,7 @@ class HeaderSection extends React.Component {
     }
 
     return(
-      <div className="container" style={style.header}>
+      <div className="container" style={{display: "none"}}>
         <h5 style={style.dark} onClick={this.props.setDarkTheme}> Dark Theme </h5>
         <h5 style={style.light} onClick={this.props.setLightTheme}> Light Theme </h5>
       </div>

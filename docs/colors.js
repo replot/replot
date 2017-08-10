@@ -21,9 +21,10 @@ const paletteA = {
   tableFieldBorder: "rgba(0, 218, 157, 0.50)",
   shadow: "#0c3c4a",
 
-  backgroundPNG: "url('static/design2_background.png')",
+  backgroundPNG: "url('static/replot_cover_bg.png')",
   logoPNG: "static/design2_logo.png"
 }
+
 const paletteB = {
   white: "#ffffff",
   pink: "#e74a7a",
@@ -48,9 +49,10 @@ const paletteB = {
   scatterPalette: ["#d5174b", "#fbc9c8"],
   networkPalette: ["#fbc9c8", "#fc9894", "#fc6a67", "#f7535c", "#f03f5c", "#d5174b"],
 
-  backgroundPNG: "url('static/color2_background.png')",
+  backgroundPNG: "url('static/replot_cover_bg.png')",
   logoPNG: "static/color2_logo.png"
 }
+
 const paletteC = {
   gray: "#C5C6B6",
   pink: "#F16B6F",
@@ -74,6 +76,7 @@ const paletteC = {
   scatterPalette: ["#799b3f", "#f46b72"],
   networkPalette: ["#fea9ac", "#f46b72", "#caa56f", "#adcc6f", "#8ebc57", "#799b3f"],
 }
+
 const paletteD = {
   brown: "#3C1B1F",
   pink: "#B21E4B",
@@ -98,6 +101,7 @@ const paletteD = {
   scatterPalette: ["#D88B67", "#706475"],
   networkPalette: ["#D88B67", "#c13d50", "#B21E4B", "#a2375f", "#975873", "#706475"],
 }
+
 const paletteE = {
   white: "#f6f6f6",
   darkGray: "#565f7c",
@@ -130,9 +134,13 @@ const colorsA = {
   logoPNG: paletteA.logoPNG,
 
   bodyText: paletteA.white,
-  bodyBg: paletteA.darkGreen,
+  bodyBg: "#392E3A",
 
-  titleShadow: paletteA.greenInput,
+  getStartedButton: {
+    border: "rgba(255,255,255,0.4)",
+    text: "#fff",
+    bg: "none",
+  },
 
   header: paletteA.dark,
 
@@ -170,6 +178,7 @@ const colorsA = {
 
   axisColor: paletteA.white
 }
+
 const colorsB = {
   backgroundPNG: paletteB.backgroundPNG,
   logoPNG: paletteB.logoPNG,
@@ -211,6 +220,7 @@ const colorsB = {
 
   axisColor: paletteB.white
 }
+
 const colorsC = {
   backgroundPNG: paletteC.backgroundPNG,
   logoPNG: paletteC.logoPNG,
@@ -254,6 +264,7 @@ const colorsC = {
 
   axisColor: paletteC.brown
 }
+
 const colorsD = {
   backgroundPNG: paletteD.backgroundPNG,
   logoPNG: paletteD.logoPNG,
@@ -297,6 +308,7 @@ const colorsD = {
 
   axisColor: paletteD.sand
 }
+
 const colorsE = {
   backgroundPNG: paletteE.backgroundPNG,
   logoPNG: paletteE.logoPNG,

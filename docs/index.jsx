@@ -15,7 +15,7 @@ class ExampleApp extends React.Component {
     super(props)
     this.state = {
       password: "",
-      theme: "light"
+      theme: "dark"
     }
     this.passwordHandler = this.passwordHandler.bind(this)
   }

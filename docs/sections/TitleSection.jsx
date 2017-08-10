@@ -7,6 +7,7 @@ import colors from "../colors"
 class TitleSection extends React.Component {
 
   render() {
+    let palette = colors[this.props.palette]
     let style = {
       logo: {
         left: "820px",
@@ -16,44 +17,56 @@ class TitleSection extends React.Component {
 
       },
       title: {
-        fontSize: "95px",
-        fontFamily: "Helvetica Neue",
+        fontFamily: "Helvetica",
         color: colors[this.props.palette].white,
-        lineHeight: 1.2,
+        fontWeight: "600",
+        fontSize: "3rem",
+      },
+      separator: {
         textAlign: "center",
-        textShadow: `0px 10px 18px ${colors[this.props.palette].titleShadow}`,
-        marginTop: 8,
-        marginBottom: 45
+        width: "5rem",
+        height: "5px",
+        borderBottom: "solid 5px white",
+        display: "block"
       },
       description: {
-        fontSize: "35px",
-        color: colors[this.props.palette].white,
-        lineHeight: 1.2,
+        fontSize: "1.4rem",
+        color: palette.white,
+        width: "80%",
+        maxWidth: "550px",
         textAlign: "center",
-        left: "787px",
-        marginTop: "-25px",
+        marginBottom: "4rem",
       },
       sectionBg: {
         minHeight: "100vh",
-        backgroundImage: colors[this.props.palette].backgroundPNG,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "contain",
-
-
+        backgroundImage: palette.backgroundPNG,
+        backgroundSize: "cover",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        width: "100vw",
+      },
+      getStartedButton: {
+        padding: "8px",
+        text: "1.4rem",
+        textTransform: "uppercase",
+        border: `solid 1px ${palette.getStartedButton.border}`,
+        borderRadius: "5px",
+        color: palette.getStartedButton.text,
+        background: palette.getStartedButton.bg,
       }
     }
     return(
       <SectionContainer style={style.sectionBg}>
-        <CenteredBlock>
-          <img src={colors[this.props.palette].logoPNG} style={style.logo}/>
-          <h2 style={style.title}>
-            REPLOT
-          </h2>
-          <h3 style={style.description}>
-            Beautiful Visualizations for React
-          </h3>
-        </CenteredBlock>
+        <h1 style={style.title}>
+          Replot
+        </h1>
+        <div className="separator" style={style.separator} />
+        <h3 style={style.description}>
+          Native SVG visualizations for React with beautiful defaults and smart animation
+        </h3>
+        <button style={style.getStartedButton}>Get Started</button>
       </SectionContainer>
     )
   }
