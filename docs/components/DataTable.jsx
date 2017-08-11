@@ -21,7 +21,6 @@ class DataRow extends React.Component {
         fontSize: "0.8rem",
       },
       input: {
-        borderRadius: "15px",
         backgroundColor: colors[this.props.palette].inputBackground,
         height: "25px",
         width: "6.5rem",

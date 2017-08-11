@@ -87,18 +87,16 @@ const colorsDark = {
   codeBlockLeftBorder: paletteDark.green,
   codeBlockBorders: paletteDark.gray,
 
-  input: paletteDark.greenInput,
-  inputBackground: paletteDark.darkGreen,
+  input: "rgba(120,0,140,0.2)",
+  inputBackground: "rgba(0,0,0,0.2)",
   inputText: paletteDark.greenInput,
 
   button: paletteDark.darkGreen,
   buttonActive: paletteDark.greenButton,
   buttonHover: paletteDark.buttonHover,
 
-  optionsLabelBg: paletteDark.dark,
-  optionsShadow: paletteDark.shadow,
-  optionsField: paletteDark.tableField,
-  optionsFieldBorder: paletteDark.tableFieldBorder,
+  optionsField: "rgba(0,0,0,0.2)",
+  optionsFieldBorder: "rgba(120,0,140,0.2)",
 
   lightAccent: paletteDark.orange,
   white: paletteDark.white,

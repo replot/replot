@@ -833,18 +833,16 @@ const colorsDark = {
   codeBlockLeftBorder: paletteDark.green,
   codeBlockBorders: paletteDark.gray,
 
-  input: paletteDark.greenInput,
-  inputBackground: paletteDark.darkGreen,
+  input: "rgba(120,0,140,0.2)",
+  inputBackground: "rgba(0,0,0,0.2)",
   inputText: paletteDark.greenInput,
 
   button: paletteDark.darkGreen,
   buttonActive: paletteDark.greenButton,
   buttonHover: paletteDark.buttonHover,
 
-  optionsLabelBg: paletteDark.dark,
-  optionsShadow: paletteDark.shadow,
-  optionsField: paletteDark.tableField,
-  optionsFieldBorder: paletteDark.tableFieldBorder,
+  optionsField: "rgba(0,0,0,0.2)",
+  optionsFieldBorder: "rgba(120,0,140,0.2)",
 
   lightAccent: paletteDark.orange,
   white: paletteDark.white,
@@ -47446,7 +47444,6 @@ var DataRow = function (_React$Component) {
           fontSize: "0.8rem"
         },
         input: {
-          borderRadius: "15px",
           backgroundColor: _colors2.default[this.props.palette].inputBackground,
           height: "25px",
           width: "6.5rem",
@@ -47707,7 +47704,6 @@ var ScatterKeyValueRow = function (_React$Component) {
           fontSize: "0.8rem"
         },
         input: {
-          borderRadius: "15px",
           backgroundColor: _colors2.default[this.props.palette].inputBackground,
           height: "25px",
           width: "7rem",
