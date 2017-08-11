@@ -37803,8 +37803,7 @@ var TreeExample = function (_React$Component) {
           fontSize: "45px",
           textAlign: "center",
           color: _colors2.default[this.props.palette].body.text,
-          padding: 15,
-          textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
+          padding: 15
         },
         container: {
           padding: "80px 50px"
@@ -37814,7 +37813,6 @@ var TreeExample = function (_React$Component) {
           display: "inline-block",
           verticalAlign: "top",
           backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          boxShadow: "10px 10px 5px " + _colors2.default[this.props.palette].optionsShadow,
           marginLeft: "25px",
           maxWidth: "405px"
         }
@@ -48502,8 +48500,7 @@ var BarExample = function (_React$Component) {
           fontSize: "45px",
           textAlign: "center",
           color: _colors2.default[this.props.palette].body.text,
-          padding: 15,
-          textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
+          padding: 15
         },
         options: {
           container: "80px 50px"
@@ -48513,7 +48510,6 @@ var BarExample = function (_React$Component) {
           display: "inline-block",
           verticalAlign: "top",
           backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          boxShadow: "10px 10px 5px " + _colors2.default[this.props.palette].optionsShadow,
           marginLeft: "25px",
           maxWidth: "405px"
         }
@@ -48607,8 +48603,7 @@ var GroupedExample = function (_React$Component) {
           fontSize: "45px",
           textAlign: "center",
           color: _colors2.default[this.props.palette].body.text,
-          padding: 15,
-          textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
+          padding: 15
         },
         container: {
           padding: "80px 50px"
@@ -48618,7 +48613,6 @@ var GroupedExample = function (_React$Component) {
           display: "inline-block",
           verticalAlign: "top",
           backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          boxShadow: "10px 10px 5px " + _colors2.default[this.props.palette].optionsShadow,
           marginLeft: "25px",
           maxWidth: "405px"
         }
@@ -48712,8 +48706,7 @@ var LineExample = function (_React$Component) {
           fontSize: "45px",
           textAlign: "center",
           color: _colors2.default[this.props.palette].body.text,
-          padding: 15,
-          textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
+          padding: 15
         },
         container: {
           padding: "80px 50px"
@@ -48723,7 +48716,6 @@ var LineExample = function (_React$Component) {
           display: "inline-block",
           verticalAlign: "top",
           backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          boxShadow: "10px 10px 5px " + _colors2.default[this.props.palette].optionsShadow,
           marginLeft: "25px",
           maxWidth: "405px"
         }
@@ -58665,8 +58657,7 @@ var ScatterExample = function (_React$Component) {
           fontSize: "45px",
           textAlign: "center",
           color: _colors2.default[this.props.palette].body.text,
-          padding: 15,
-          textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
+          padding: 15
         },
         container: {
           padding: "80px 50px"
@@ -58676,7 +58667,6 @@ var ScatterExample = function (_React$Component) {
           display: "inline-block",
           verticalAlign: "top",
           backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          boxShadow: "10px 10px 5px " + _colors2.default[this.props.palette].optionsShadow,
           marginLeft: "25px",
           maxWidth: "405px"
         }
@@ -68647,8 +68637,7 @@ var NetworkExample = function (_React$Component) {
           fontSize: "45px",
           textAlign: "center",
           color: _colors2.default[this.props.palette].body.text,
-          padding: 15,
-          textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
+          padding: 15
         },
         container: {
           padding: "80px 50px"
@@ -68658,7 +68647,6 @@ var NetworkExample = function (_React$Component) {
           display: "inline-block",
           verticalAlign: "top",
           backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          boxShadow: "10px 10px 5px " + _colors2.default[this.props.palette].optionsShadow,
           marginLeft: "25px",
           maxWidth: "405px"
         }
@@ -78758,8 +78746,7 @@ var BoxPlotExample = function (_React$Component) {
           fontSize: "45px",
           textAlign: "center",
           color: _colors2.default[this.props.palette].body.text,
-          padding: 15,
-          textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
+          padding: 15
         },
         container: {
           padding: "80px 50px"
@@ -78769,7 +78756,6 @@ var BoxPlotExample = function (_React$Component) {
           display: "inline-block",
           verticalAlign: "top",
           backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          boxShadow: "10px 10px 5px " + _colors2.default[this.props.palette].optionsShadow,
           marginLeft: "25px",
           maxWidth: "405px"
         }

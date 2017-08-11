@@ -42,7 +42,6 @@ class TreeExample extends React.Component {
         textAlign: "center",
         color: colors[this.props.palette].body.text,
         padding: 15,
-        textShadow: `0px 5px 18px ${colors[this.props.palette].titleShadow}`,
       },
       container: {
         padding: "80px 50px",
@@ -52,7 +51,6 @@ class TreeExample extends React.Component {
         display: "inline-block",
         verticalAlign: "top",
         backgroundColor: colors[this.props.palette].optionsTableBg,
-        boxShadow: `10px 10px 5px ${colors[this.props.palette].optionsShadow}`,
         marginLeft: "25px",
         maxWidth: "405px",
       }
