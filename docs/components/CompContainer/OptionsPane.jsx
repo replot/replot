@@ -4,8 +4,6 @@ import Radium from "radium"
 
 class OptionsPane extends React.Component {
 
-
-
   render() {
     const style = {
       outer: {
@@ -17,7 +15,6 @@ class OptionsPane extends React.Component {
         overflow: "auto",
       }
     }
-
 
     return (
       <div style={style.outer}>

@@ -62,8 +62,8 @@ class BoxPlotExample extends React.Component {
         padding: 15,
         textShadow: `0px 5px 18px ${colors[this.props.palette].titleShadow}`,
       },
-      options: {
-        container: "80px 50px",
+      container: {
+        padding: "80px 50px",
       },
       optionsData: {
         width: "32%",

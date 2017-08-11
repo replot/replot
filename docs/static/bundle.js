@@ -2744,15 +2744,15 @@ var Toggle = function (_React$Component) {
   _createClass(Toggle, [{
     key: "render",
     value: function render() {
-      var dataLabelColor = void 0;
-      var optionsLabelColor = void 0;
+      var palette = _colors2.default[this.props.palette];
+      var dataLabelColor = palette.darkAccent;
+      var optionsLabelColor = palette.mainColor;
+
       if (this.props.active == "data") {
-        dataLabelColor = _colors2.default[this.props.palette].mainColor;
-        optionsLabelColor = _colors2.default[this.props.palette].darkAccent;
-      } else {
-        dataLabelColor = _colors2.default[this.props.palette].darkAccent;
-        optionsLabelColor = _colors2.default[this.props.palette].mainColor;
+        dataLabelColor = palette.mainColor;
+        optionsLabelColor = palette.darkAccent;
       }
+
       var style = {
         dataLabel: {
           fontSize: "1.25rem",
@@ -2761,7 +2761,7 @@ var Toggle = function (_React$Component) {
           textAlign: "center",
           paddingTop: "10px",
           paddingBottom: "15px",
-          backgroundColor: _colors2.default[this.props.palette].optionsLabelBg,
+          backgroundColor: palette.optionsLabelBg,
           color: dataLabelColor
         },
         optionsLabel: {
@@ -2771,10 +2771,11 @@ var Toggle = function (_React$Component) {
           textAlign: "center",
           paddingTop: "10px",
           paddingBottom: "15px",
-          backgroundColor: _colors2.default[this.props.palette].optionsLabelBg,
+          backgroundColor: palette.optionsLabelBg,
           color: optionsLabelColor
         }
       };
+
       return _react2.default.createElement(
         "div",
         null,
@@ -78760,8 +78761,8 @@ var BoxPlotExample = function (_React$Component) {
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
-        options: {
-          container: "80px 50px"
+        container: {
+          padding: "80px 50px"
         },
         optionsData: {
           width: "32%",

@@ -9,18 +9,19 @@ import StateSwitch from "./StateSwitch.jsx"
 import NonSwitch from "./NonSwitch.jsx"
 import colors from "../../colors"
 
+
 class Toggle extends React.Component {
 
   render() {
-    let dataLabelColor
-    let optionsLabelColor
+    let palette = colors[this.props.palette]
+    let dataLabelColor = palette.darkAccent
+    let optionsLabelColor = palette.mainColor
+
     if (this.props.active == "data") {
-      dataLabelColor = colors[this.props.palette].mainColor
-      optionsLabelColor = colors[this.props.palette].darkAccent
-    } else {
-      dataLabelColor = colors[this.props.palette].darkAccent
-      optionsLabelColor = colors[this.props.palette].mainColor
+      dataLabelColor = palette.mainColor
+      optionsLabelColor = palette.darkAccent
     }
+
     let style = {
       dataLabel: {
         fontSize: "1.25rem",
@@ -29,7 +30,7 @@ class Toggle extends React.Component {
         textAlign: "center",
         paddingTop: "10px",
         paddingBottom: "15px",
-        backgroundColor: colors[this.props.palette].optionsLabelBg,
+        backgroundColor: palette.optionsLabelBg,
         color: dataLabelColor,
       },
       optionsLabel: {
@@ -39,10 +40,11 @@ class Toggle extends React.Component {
         textAlign: "center",
         paddingTop: "10px",
         paddingBottom: "15px",
-        backgroundColor: colors[this.props.palette].optionsLabelBg,
+        backgroundColor: palette.optionsLabelBg,
         color: optionsLabelColor
       }
     }
+
     return (
       <div>
         <div onClick={this.props.handleData} style={style.dataLabel}>
