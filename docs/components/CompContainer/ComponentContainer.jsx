@@ -8,6 +8,7 @@ import BoolSwitch from "./BoolSwitch.jsx"
 import StateSwitch from "./StateSwitch.jsx"
 import NonSwitch from "./NonSwitch.jsx"
 import colors from "../../colors"
+import Radium from "radium"
 
 
 class Toggle extends React.Component {
@@ -307,6 +308,9 @@ class ComponentContainer extends React.Component {
         width: "58%",
         display: "inline-block",
         verticalAlign: "top",
+        "@media (max-width: 800px)": {
+          width: "100%",
+        }
       },
       optionsData: {
         width: "33%",
@@ -315,6 +319,9 @@ class ComponentContainer extends React.Component {
         marginLeft: "5%",
         maxWidth: "405px",
         backgroundColor: colors[this.props.palette].optionsTable.bg,
+        "@media (max-width: 800px)": {
+          display: "none"
+        }
       }
     }
     return (
@@ -356,4 +363,4 @@ ComponentContainer.propTypes = {
   children: PropTypes.element.isRequired
 }
 
-export default ComponentContainer
+export default Radium(ComponentContainer)
