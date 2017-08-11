@@ -26,7 +26,7 @@ class ScatterKeyValueRow extends React.Component {
     const style = {
       cell: {
         minWidth: "80px",
-        color: colors[this.props.palette].bodyText,
+        color: colors[this.props.palette].body.text,
         fontSize: "0.8rem",
       },
       input: {
@@ -34,7 +34,7 @@ class ScatterKeyValueRow extends React.Component {
         backgroundColor: colors[this.props.palette].inputBackground,
         height: "25px",
         width: "7rem",
-        color: colors[this.props.palette].bodyText,
+        color: colors[this.props.palette].body.text,
         borderColor: colors[this.props.palette].input,
         textAlign: "center",
         fontSize: "0.8rem"

@@ -18,7 +18,7 @@ class TitleSection extends React.Component {
       },
       title: {
         fontFamily: "Helvetica",
-        color: colors[this.props.palette].white,
+        color: palette.white,
         fontWeight: "600",
         fontSize: "3rem",
       },
@@ -39,7 +39,7 @@ class TitleSection extends React.Component {
       },
       sectionBg: {
         minHeight: "100vh",
-        backgroundImage: palette.backgroundPNG,
+        backgroundImage: palette.landing.bg,
         backgroundSize: "cover",
         display: "flex",
         justifyContent: "center",

@@ -28,7 +28,8 @@ class ExampleApp extends React.Component {
     this.setState({
       theme: "dark"
     })
-    document.getElementById("body").style.backgroundColor = colors["dark"].bodyBg
+    document.getElementById("body").style.backgroundColor = colors["dark"].body.bg
+    document.getElementById("body").style.backgroundImage = colors["dark"].body.gradient
   }
 
   setLightTheme() {
@@ -42,7 +43,7 @@ class ExampleApp extends React.Component {
     const style = {
       body: {
         backgroundColor: colors[this.state.theme].bodyBg,
-        color: colors[this.state.theme].bodyText,
+        color: colors[this.state.theme].body.text,
         maxWidth: "100%"
       },
     }
@@ -64,7 +65,7 @@ class ExampleApp extends React.Component {
     // if (this.state.password != "macro") {
     //   return (
     //     <CenteredBlock>
-    //       <h3 style={{color: colors.bodyText}}> Password? </h3>
+    //       <h3 style={{color: colors.body.text}}> Password? </h3>
     //       <input style={{textAlign: "center"}} autoFocus type="password"
     //         value={this.state.password} onChange={this.passwordHandler}/>
     //     </CenteredBlock>

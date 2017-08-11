@@ -43,7 +43,7 @@ class FieldSwitch extends React.Component {
         backgroundColor: colors[this.props.palette].optionsField,
         height: "1.5rem",
         width: "6rem",
-        color: colors[this.props.palette].bodyText,
+        color: colors[this.props.palette].body.text,
         border: 0,
         textAlign: "right",
         fontSize: "0.8rem",

@@ -744,7 +744,7 @@ module.exports = ReactDOMComponentTree;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-const paletteA = {
+const paletteDark = {
   orange: "#ff5a3c",
   white: "#dfe3e6",
   darkGreen: "#0d404e",
@@ -767,88 +767,10 @@ const paletteA = {
   tableFieldBorder: "rgba(0, 218, 157, 0.50)",
   shadow: "#0c3c4a",
 
-  backgroundPNG: "url('static/replot_cover_bg.png')",
   logoPNG: "static/design2_logo.png"
 }
 
-const paletteB = {
-  white: "#ffffff",
-  pink: "#e74a7a",
-  coral: "#fc6563",
-  darkBlue: "#2d3a47",
-  darkPink: "#a95874", // or 9a446e
-
-  buttonHover: "#425568",
-  buttonActive: "#fb7f7d",
-
-  textShadow: "rgba(231, 74, 122, 0.75)",
-  tableShadow: "#2b3845",
-  tableBg: "rgba(169, 88, 116, 0.1)",
-  tableLabel: "#331620",
-  tableFieldBorder: "rgba(252, 101, 99, 0.75)",
-  tableField: "#524355",
-
-  barPalette:["#fbc9c8", "#fbb2b0", "#fc9894", "#fc8b85", "#fc6a67", "#f7535c", "#f03f5c", "#d5174b"],
-  treeMapPalette: ["#fc8b85", "#f7535c", "#fbc9c8"],
-  groupedBarPalette: ["#fbc9c8", "#fc6a67", "#f03f5c", "#d5174b"],
-  linePalette: ["#fbc9c8", "#fc9894", "#fc6a67", "#f7535c", "#f03f5c", "#d5174b"],
-  scatterPalette: ["#d5174b", "#fbc9c8"],
-  networkPalette: ["#fbc9c8", "#fc9894", "#fc6a67", "#f7535c", "#f03f5c", "#d5174b"],
-
-  backgroundPNG: "url('static/replot_cover_bg.png')",
-  logoPNG: "static/color2_logo.png"
-}
-
-const paletteC = {
-  gray: "#C5C6B6",
-  pink: "#F16B6F",
-  green: "#AACD6E",
-  orange: "#EA6B41",
-  brown: "#3C3530",
-
-  dark: "#b25c40",
-
-  tableBg: "rgba(234, 107, 65, 0.25)",
-  tableFieldBorder: "rgba(170, 205, 110, 1)",
-  tableField: "#bfbb86",
-  tableShadow: "rgba(60, 53, 48, 0.25)",
-
-  input: "rgba(231, 74, 122, 0.75)",
-
-  barPalette:["#fea9ac", "#fc858f", "#f46b72", "#de836e", "#caa56f", "#adcc6f", "#8ebc57", "#799b3f"],
-  treeMapPalette: ["#fea9ac", "#f46b72", "#8ebc57", "#799b3f"],
-  groupedBarPalette: ["#fea9ac", "#f46b72", "#8ebc57", "#799b3f"],
-  linePalette: ["#fea9ac", "#f46b72", "#de836e", "#caa56f", "#8ebc57", "#799b3f"],
-  scatterPalette: ["#799b3f", "#f46b72"],
-  networkPalette: ["#fea9ac", "#f46b72", "#caa56f", "#adcc6f", "#8ebc57", "#799b3f"],
-}
-
-const paletteD = {
-  brown: "#3C1B1F",
-  pink: "#B21E4B",
-  tan: "#E2BF81",
-  sand: "#F6E1B5",
-
-  tableBg: "rgba(51, 22, 26, 0.75)",
-  tableLabel: "#99163e",
-  tableShadow: "rgb(43, 18, 21)",
-  tableField: "#4c2227",
-
-  input: "rgba(178, 30, 75, 0.5)",
-
-  buttonHover: "rgba(178, 30, 75, 0.5)",
-
-  dark: "#5e1c2c",
-
-  barPalette: ["#D88B67", "#ce6a5d", "#c13d50", "#B21E4B", "#a2375f", "#975873", "#8F7183", "#706475"],
-  treeMapPalette: ["#706475", "#a2375f", "#c13d50"],
-  groupedBarPalette: ["#D88B67", "#B21E4B", "#706475"],
-  linePalette: ["#D88B67", "#c13d50", "#B21E4B", "#975873", "#8F7183", "#706475"],
-  scatterPalette: ["#D88B67", "#706475"],
-  networkPalette: ["#D88B67", "#c13d50", "#B21E4B", "#a2375f", "#975873", "#706475"],
-}
-
-const paletteE = {
+const paletteLight = {
   white: "#f6f6f6",
   darkGray: "#565f7c",
   midGray: "#818caa",
@@ -875,12 +797,17 @@ const paletteE = {
   boxPalette: ["#fe7676", "#08d377"],
 }
 
-const colorsA = {
-  backgroundPNG: paletteA.backgroundPNG,
-  logoPNG: paletteA.logoPNG,
+const colorsDark = {
 
-  bodyText: paletteA.white,
-  bodyBg: "#392E3A",
+  body: {
+    text: paletteDark.white,
+    bg: "#281d29",
+    gradient: "linear-gradient(#3e3a3f,#170c18)",
+  },
+
+  landing: {
+    bg: "url('static/replot_cover_bg.png')",
+  },
 
   getStartedButton: {
     border: "rgba(255,255,255,0.4)",
@@ -888,226 +815,98 @@ const colorsA = {
     bg: "none",
   },
 
-  header: paletteA.dark,
+  header: paletteDark.dark,
 
-  codeBlockLeftBorder: paletteA.green,
-  codeBlockBorders: paletteA.gray,
+  codeBlockLeftBorder: paletteDark.green,
+  codeBlockBorders: paletteDark.gray,
 
-  input: paletteA.greenInput,
-  inputBackground: paletteA.darkGreen,
-  inputText: paletteA.greenInput,
+  input: paletteDark.greenInput,
+  inputBackground: paletteDark.darkGreen,
+  inputText: paletteDark.greenInput,
 
-  button: paletteA.darkGreen,
-  buttonActive: paletteA.greenButton,
-  buttonHover: paletteA.buttonHover,
+  button: paletteDark.darkGreen,
+  buttonActive: paletteDark.greenButton,
+  buttonHover: paletteDark.buttonHover,
 
-  optionsLabelBg: paletteA.dark,
-  optionsTableBg: paletteA.tableBg,
-  optionsShadow: paletteA.shadow,
-  optionsField: paletteA.tableField,
-  optionsFieldBorder: paletteA.tableFieldBorder,
+  optionsLabelBg: paletteDark.dark,
+  optionsTableBg: paletteDark.tableBg,
+  optionsShadow: paletteDark.shadow,
+  optionsField: paletteDark.tableField,
+  optionsFieldBorder: paletteDark.tableFieldBorder,
 
-  lightAccent: paletteA.orange,
-  white: paletteA.white,
-  black: paletteA.darkGreen,
-  mainColor: paletteA.green, //used for options pane title
-  darkAccent: paletteA.gray, //used for options pane title
+  lightAccent: paletteDark.orange,
+  white: paletteDark.white,
+  black: paletteDark.darkGreen,
+  mainColor: paletteDark.green, //used for options pane title
+  darkAccent: paletteDark.gray, //used for options pane title
 
-  barPalette: paletteA.gradientPalette, //used for bar and network
-  treeMapPalette: paletteA.treeMapPalette,
-  groupedBarPalette: paletteA.groupedBarPalette,
-  linePalette: paletteA.linePalette,
-  scatterPalette: paletteA.scatterPalette,
-  networkPalette: paletteA.gradientPalette,
-  boxPalette: paletteA.boxPalette,
-  boxFill: paletteA.darkGreen,
+  barPalette: paletteDark.gradientPalette, //used for bar and network
+  treeMapPalette: paletteDark.treeMapPalette,
+  groupedBarPalette: paletteDark.groupedBarPalette,
+  linePalette: paletteDark.linePalette,
+  scatterPalette: paletteDark.scatterPalette,
+  networkPalette: paletteDark.gradientPalette,
+  boxPalette: paletteDark.boxPalette,
+  boxFill: paletteDark.darkGreen,
 
-  axisColor: paletteA.white
+  axisColor: paletteDark.white
 }
 
-const colorsB = {
-  backgroundPNG: paletteB.backgroundPNG,
-  logoPNG: paletteB.logoPNG,
+const colorsLight = {
+  backgroundPNG: paletteLight.backgroundPNG,
+  logoPNG: paletteLight.logoPNG,
 
-  bodyText: paletteB.white,
-  bodyBg: paletteB.darkBlue,
+  bodyText: paletteLight.darkGray,
+  bodyBg: paletteLight.white,
 
-  titleShadow: paletteB.textShadow,
+  titleShadow: paletteLight.white,
 
-  codeBlockLeftBorder: paletteB.pink,
-  codeBlockBorders: paletteB.white,
+  header: paletteLight.lightGray,
 
-  input: paletteB.textShadow,
-  inputBackground: paletteB.darkBlue,
-  inputText: paletteB.textShadow,
+  codeBlockLeftBorder: paletteLight.purple,
+  codeBlockBorders: paletteLight.lightGray,
 
-  button: paletteB.darkBlue,
-  buttonActive: paletteB.buttonActive,
-  buttonHover: paletteB.buttonHover,
+  input: paletteLight.lightGreen,
+  inputBackground: paletteLight.lightGray,
+  inputText: paletteLight.white,
 
-  optionsLabelBg: paletteB.tableLabel,
-  optionsTableBg: paletteB.tableBg,
-  optionsShadow: paletteB.tableShadow,
-  optionsField: paletteB.tableField,
-  optionsFieldBorder: paletteB.tableFieldBorder,
+  button: paletteLight.none,
+  buttonActive: paletteLight.buttonActive,
+  buttonHover: paletteLight.tableBg,
 
-  lightAccent: paletteB.pink,
-  white: paletteB.white,
-  black: paletteB.darkBlue,
-  mainColor: paletteB.coral, //used for options pane title
-  darkAccent: paletteB.darkPink, //used for options pane title
-
-  barPalette: paletteB.barPalette,
-  treeMapPalette: paletteB.treeMapPalette,
-  groupedBarPalette: paletteB.groupedBarPalette,
-  linePalette: paletteB.linePalette,
-  scatterPalette: paletteB.scatterPalette,
-  networkPalette: paletteB.networkPalette,
-
-  axisColor: paletteB.white
-}
-
-const colorsC = {
-  backgroundPNG: paletteC.backgroundPNG,
-  logoPNG: paletteC.logoPNG,
-
-  bodyText: paletteC.brown,
-  bodyBg: paletteC.gray,
-
-  titleShadow: paletteC.green,
-
-  header: paletteC.green,
-
-  codeBlockLeftBorder: paletteC.pink,
-  codeBlockBorders: paletteC.brown,
-
-  input: paletteC.input,
-  inputBackground: paletteC.tableField,
-  inputText: paletteC.input,
-
-  button: paletteC.none,
-  buttonActive: paletteC.tableBg,
-  buttonHover: paletteC.tableBg,
-
-  optionsLabelBg: paletteC.brown,
-  optionsTableBg: paletteC.tableBg,
-  optionsShadow: paletteC.tableShadow,
-  optionsField: paletteC.tableField,
-  optionsFieldBorder: paletteC.pink,
-
-  lightAccent: paletteC.pink,
-  white: paletteC.brown,
-  black: paletteC.gray,
-  mainColor: paletteC.green, //used for options pane title
-  darkAccent: paletteC.dark, //used for options pane title
-
-  barPalette: paletteC.barPalette,
-  treeMapPalette: paletteC.treeMapPalette,
-  groupedBarPalette: paletteC.groupedBarPalette,
-  linePalette: paletteC.linePalette,
-  scatterPalette: paletteC.scatterPalette,
-  networkPalette: paletteC.networkPalette,
-
-  axisColor: paletteC.brown
-}
-
-const colorsD = {
-  backgroundPNG: paletteD.backgroundPNG,
-  logoPNG: paletteD.logoPNG,
-
-  bodyText: paletteD.tan,
-  bodyBg: paletteD.brown,
-
-  titleShadow: paletteD.tableShadow,
-
-  header: paletteD.dark,
-
-  codeBlockLeftBorder: paletteD.pink,
-  codeBlockBorders: paletteD.sand,
-
-  input: paletteD.input,
-  inputBackground: paletteD.tableField,
-  inputText: paletteD.input,
-
-  button: paletteD.tableBg,
-  buttonActive: paletteD.pink,
-  buttonHover: paletteD.buttonHover,
-
-  optionsLabelBg: paletteD.pink,
-  optionsTableBg: paletteD.tableBg,
-  optionsShadow: paletteD.tableShadow,
-  optionsField: paletteD.tableField,
-  optionsFieldBorder: paletteD.pink,
-
-  lightAccent: paletteD.sand,
-  white: paletteD.tan, //used for data header
-  black: paletteD.brown,
-  mainColor: paletteD.sand, //used for options pane title
-  darkAccent: paletteD.dark, //used for options pane title
-
-  barPalette: paletteD.barPalette,
-  treeMapPalette: paletteD.treeMapPalette,
-  groupedBarPalette: paletteD.groupedBarPalette,
-  linePalette: paletteD.linePalette,
-  scatterPalette: paletteD.scatterPalette,
-  networkPalette: paletteD.networkPalette,
-
-  axisColor: paletteD.sand
-}
-
-const colorsE = {
-  backgroundPNG: paletteE.backgroundPNG,
-  logoPNG: paletteE.logoPNG,
-
-  bodyText: paletteE.darkGray,
-  bodyBg: paletteE.white,
-
-  titleShadow: paletteE.white,
-
-  header: paletteE.lightGray,
-
-  codeBlockLeftBorder: paletteE.purple,
-  codeBlockBorders: paletteE.lightGray,
-
-  input: paletteE.lightGreen,
-  inputBackground: paletteE.lightGray,
-  inputText: paletteE.white,
-
-  button: paletteE.none,
-  buttonActive: paletteE.buttonActive,
-  buttonHover: paletteE.tableBg,
-
-  optionsLabelBg: paletteE.midGray,
-  optionsTableBg: paletteE.tableBg,
-  optionsShadow: paletteE.tableShadow,
-  optionsField: paletteE.lightGray,
-  optionsFieldBorder: paletteE.darkGray,
+  optionsLabelBg: paletteLight.midGray,
+  optionsTableBg: paletteLight.tableBg,
+  optionsShadow: paletteLight.tableShadow,
+  optionsField: paletteLight.lightGray,
+  optionsFieldBorder: paletteLight.darkGray,
 
 
-  lightAccent: paletteE.white,
-  white: paletteE.darkGray, //used for data header
-  black: paletteE.darkGray,
-  mainColor: paletteE.white, //used for options pane title
-  darkAccent: paletteE.darkGray, //used for options pane title
+  lightAccent: paletteLight.white,
+  white: paletteLight.darkGray, //used for data header
+  black: paletteLight.darkGray,
+  mainColor: paletteLight.white, //used for options pane title
+  darkAccent: paletteLight.darkGray, //used for options pane title
 
-  barPalette: paletteE.barPalette,
-  treeMapPalette: paletteE.treeMapPalette,
-  groupedBarPalette: paletteE.groupedBarPalette,
-  linePalette: paletteE.linePalette,
-  scatterPalette: paletteE.scatterPalette,
-  networkPalette: paletteE.networkPalette,
-  boxPalette: paletteE.boxPalette,
-  boxFill: paletteE.white,
+  barPalette: paletteLight.barPalette,
+  treeMapPalette: paletteLight.treeMapPalette,
+  groupedBarPalette: paletteLight.groupedBarPalette,
+  linePalette: paletteLight.linePalette,
+  scatterPalette: paletteLight.scatterPalette,
+  networkPalette: paletteLight.networkPalette,
+  boxPalette: paletteLight.boxPalette,
+  boxFill: paletteLight.white,
 
-  axisColor: paletteE.darkGray
+  axisColor: paletteLight.darkGray
 }
 
 let colors = {
-  light: colorsE,
-  dark: colorsA
+  light: colorsLight,
+  dark: colorsDark
 }
 
-document.getElementById("body").style.backgroundColor = colors.bodyBg
+let body = document.getElementById("body")
+body.style.backgroundColor = colors["dark"].body.bg
+body.style.backgroundImage = colors["dark"].body.gradient
 
 /* harmony default export */ __webpack_exports__["default"] = (colors);
 
@@ -22465,7 +22264,8 @@ var ExampleApp = function (_React$Component) {
       this.setState({
         theme: "dark"
       });
-      document.getElementById("body").style.backgroundColor = _colors2.default["dark"].bodyBg;
+      document.getElementById("body").style.backgroundColor = _colors2.default["dark"].body.bg;
+      document.getElementById("body").style.backgroundImage = _colors2.default["dark"].body.gradient;
     }
   }, {
     key: "setLightTheme",
@@ -22481,7 +22281,7 @@ var ExampleApp = function (_React$Component) {
       var style = {
         body: {
           backgroundColor: _colors2.default[this.state.theme].bodyBg,
-          color: _colors2.default[this.state.theme].bodyText,
+          color: _colors2.default[this.state.theme].body.text,
           maxWidth: "100%"
         }
       };
@@ -22504,7 +22304,7 @@ var ExampleApp = function (_React$Component) {
       // if (this.state.password != "macro") {
       //   return (
       //     <CenteredBlock>
-      //       <h3 style={{color: colors.bodyText}}> Password? </h3>
+      //       <h3 style={{color: colors.body.text}}> Password? </h3>
       //       <input style={{textAlign: "center"}} autoFocus type="password"
       //         value={this.state.password} onChange={this.passwordHandler}/>
       //     </CenteredBlock>
@@ -37780,7 +37580,7 @@ var TitleSection = function (_React$Component) {
         },
         title: {
           fontFamily: "Helvetica",
-          color: _colors2.default[this.props.palette].white,
+          color: palette.white,
           fontWeight: "600",
           fontSize: "3rem"
         },
@@ -37801,7 +37601,7 @@ var TitleSection = function (_React$Component) {
         },
         sectionBg: {
           minHeight: "100vh",
-          backgroundImage: palette.backgroundPNG,
+          backgroundImage: palette.landing.bg,
           backgroundSize: "cover",
           display: "flex",
           justifyContent: "center",
@@ -38001,7 +37801,7 @@ var TreeExample = function (_React$Component) {
         title: {
           fontSize: "45px",
           textAlign: "center",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
@@ -47635,7 +47435,7 @@ var DataRow = function (_React$Component) {
       var style = {
         cell: {
           minWidth: "85px",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           fontSize: "0.8rem"
         },
         input: {
@@ -47643,7 +47443,7 @@ var DataRow = function (_React$Component) {
           backgroundColor: _colors2.default[this.props.palette].inputBackground,
           height: "25px",
           width: "6.5rem",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           borderColor: _colors2.default[this.props.palette].input,
           textAlign: "center",
           fontSize: "0.8rem"
@@ -47896,7 +47696,7 @@ var ScatterKeyValueRow = function (_React$Component) {
       var style = {
         cell: {
           minWidth: "80px",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           fontSize: "0.8rem"
         },
         input: {
@@ -47904,7 +47704,7 @@ var ScatterKeyValueRow = function (_React$Component) {
           backgroundColor: _colors2.default[this.props.palette].inputBackground,
           height: "25px",
           width: "7rem",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           borderColor: _colors2.default[this.props.palette].input,
           textAlign: "center",
           fontSize: "0.8rem"
@@ -48187,7 +47987,7 @@ var FieldSwitch = function (_React$Component) {
           backgroundColor: _colors2.default[this.props.palette].optionsField,
           height: "1.5rem",
           width: "6rem",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           border: 0,
           textAlign: "right",
           fontSize: "0.8rem",
@@ -48700,7 +48500,7 @@ var BarExample = function (_React$Component) {
         title: {
           fontSize: "45px",
           textAlign: "center",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
@@ -48805,7 +48605,7 @@ var GroupedExample = function (_React$Component) {
         title: {
           fontSize: "45px",
           textAlign: "center",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
@@ -48910,7 +48710,7 @@ var LineExample = function (_React$Component) {
         title: {
           fontSize: "45px",
           textAlign: "center",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
@@ -58863,7 +58663,7 @@ var ScatterExample = function (_React$Component) {
         title: {
           fontSize: "45px",
           textAlign: "center",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
@@ -68845,7 +68645,7 @@ var NetworkExample = function (_React$Component) {
         title: {
           fontSize: "45px",
           textAlign: "center",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
@@ -78956,7 +78756,7 @@ var BoxPlotExample = function (_React$Component) {
         title: {
           fontSize: "45px",
           textAlign: "center",
-          color: _colors2.default[this.props.palette].bodyText,
+          color: _colors2.default[this.props.palette].body.text,
           padding: 15,
           textShadow: "0px 5px 18px " + _colors2.default[this.props.palette].titleShadow
         },
