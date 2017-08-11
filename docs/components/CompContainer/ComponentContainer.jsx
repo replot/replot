@@ -306,6 +306,14 @@ class ComponentContainer extends React.Component {
         width: "60%",
         display: "inline-block",
         verticalAlign: "top",
+      },
+      optionsData: {
+        width: "35%",
+        display: "inline-block",
+        verticalAlign: "top",
+        marginLeft: "25px",
+        maxWidth: "405px",
+        backgroundColor: colors[this.props.palette].optionsTableBg,
       }
     }
     return (
@@ -313,7 +321,7 @@ class ComponentContainer extends React.Component {
         <div style={style.chart}>
           {newChild}
         </div>
-        <div style={this.props.optionsData}>
+        <div style={style.optionsData}>
           <Toggle handleData={this.toggleData.bind(this)}
             handleOptions={this.toggleOptions.bind(this)}
             active={this.state.active}
@@ -336,11 +344,6 @@ class ComponentContainer extends React.Component {
 }
 
 ComponentContainer.defaultProps = {
-  optionsData: {
-    width: "38%",
-    display: "inline-block",
-    verticalAlign: "top",
-  },
   axisColorOptions: [],
   legendColorOptions: [],
   graphStyle: [],

@@ -40,6 +40,7 @@ class BarExample extends React.Component {
       {optionName: "lineWidth", name: "line Width", optionType: "field", input: "number", initialValue: 1.5},
       {optionName: "lineOpacity", name: "line Opacity", optionType: "field", input: "number", initialValue: 1}
     ]
+
     let style = {
       title: {
         fontSize: "45px",
@@ -47,23 +48,15 @@ class BarExample extends React.Component {
         color: colors[this.props.palette].body.text,
         padding: 15,
       },
-      options: {
-        container: "80px 50px",
-      },
-      optionsData: {
-        width: "32%",
-        display: "inline-block",
-        verticalAlign: "top",
-        backgroundColor: colors[this.props.palette].optionsTableBg,
-        marginLeft: "25px",
-        maxWidth: "405px",
+      container: {
+        padding: "80px 50px",
       },
     }
+
     return(
       <div className="container" style={style.container}>
         <h1 style={style.title}> Bar Chart </h1>
         <ComponentContainer optionList={this.state.optionList}
-          optionsData={style.optionsData}
           palette={this.props.palette}
           axisColorOptions={axisColorOptions}
           axisColor={colors[this.props.palette].axisColor}>

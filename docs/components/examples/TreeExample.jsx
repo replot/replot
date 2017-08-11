@@ -46,14 +46,6 @@ class TreeExample extends React.Component {
       container: {
         padding: "80px 50px",
       },
-      optionsData: {
-        width: "38%",
-        display: "inline-block",
-        verticalAlign: "top",
-        backgroundColor: colors[this.props.palette].optionsTableBg,
-        marginLeft: "25px",
-        maxWidth: "405px",
-      }
     }
     return(
       <div className="container" style={style.container}>

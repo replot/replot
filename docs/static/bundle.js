@@ -3381,6 +3381,14 @@ var ComponentContainer = function (_React$Component2) {
           width: "60%",
           display: "inline-block",
           verticalAlign: "top"
+        },
+        optionsData: {
+          width: "35%",
+          display: "inline-block",
+          verticalAlign: "top",
+          marginLeft: "25px",
+          maxWidth: "405px",
+          backgroundColor: _colors2.default[this.props.palette].optionsTableBg
         }
       };
       return _react2.default.createElement(
@@ -3393,7 +3401,7 @@ var ComponentContainer = function (_React$Component2) {
         ),
         _react2.default.createElement(
           "div",
-          { style: this.props.optionsData },
+          { style: style.optionsData },
           _react2.default.createElement(Toggle, { handleData: this.toggleData.bind(this),
             handleOptions: this.toggleOptions.bind(this),
             active: this.state.active,
@@ -3417,11 +3425,6 @@ var ComponentContainer = function (_React$Component2) {
 }(_react2.default.Component);
 
 ComponentContainer.defaultProps = {
-  optionsData: {
-    width: "38%",
-    display: "inline-block",
-    verticalAlign: "top"
-  },
   axisColorOptions: [],
   legendColorOptions: [],
   graphStyle: [],
@@ -37807,14 +37810,6 @@ var TreeExample = function (_React$Component) {
         },
         container: {
           padding: "80px 50px"
-        },
-        optionsData: {
-          width: "38%",
-          display: "inline-block",
-          verticalAlign: "top",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          marginLeft: "25px",
-          maxWidth: "405px"
         }
       };
       return _react2.default.createElement(
@@ -48495,6 +48490,7 @@ var BarExample = function (_React$Component) {
     key: "render",
     value: function render() {
       var axisColorOptions = [{ optionName: "axisColor", name: "X Axis Color", optionType: "field", initialValue: _colors2.default[this.props.palette].axisColor }, { optionName: "titleColor", name: "X Title Color", optionType: "field", initialValue: _colors2.default[this.props.palette].axisColor }, { optionName: "labelColor", name: "Label Color", optionType: "field", initialValue: _colors2.default[this.props.palette].axisColor }, { optionName: "gridColor", name: "Grid Color", optionType: "field", initialValue: _colors2.default[this.props.palette].axisColor }, { optionName: "lineWidth", name: "line Width", optionType: "field", input: "number", initialValue: 1.5 }, { optionName: "lineOpacity", name: "line Opacity", optionType: "field", input: "number", initialValue: 1 }];
+
       var style = {
         title: {
           fontSize: "45px",
@@ -48502,18 +48498,11 @@ var BarExample = function (_React$Component) {
           color: _colors2.default[this.props.palette].body.text,
           padding: 15
         },
-        options: {
-          container: "80px 50px"
-        },
-        optionsData: {
-          width: "32%",
-          display: "inline-block",
-          verticalAlign: "top",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          marginLeft: "25px",
-          maxWidth: "405px"
+        container: {
+          padding: "80px 50px"
         }
       };
+
       return _react2.default.createElement(
         "div",
         { className: "container", style: style.container },
@@ -48525,7 +48514,6 @@ var BarExample = function (_React$Component) {
         _react2.default.createElement(
           _ComponentContainer2.default,
           { optionList: this.state.optionList,
-            optionsData: style.optionsData,
             palette: this.props.palette,
             axisColorOptions: axisColorOptions,
             axisColor: _colors2.default[this.props.palette].axisColor },
@@ -48607,14 +48595,6 @@ var GroupedExample = function (_React$Component) {
         },
         container: {
           padding: "80px 50px"
-        },
-        optionsData: {
-          width: "35%",
-          display: "inline-block",
-          verticalAlign: "top",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          marginLeft: "25px",
-          maxWidth: "405px"
         }
       };
       return _react2.default.createElement(
@@ -48710,14 +48690,6 @@ var LineExample = function (_React$Component) {
         },
         container: {
           padding: "80px 50px"
-        },
-        optionsData: {
-          width: "35%",
-          display: "inline-block",
-          verticalAlign: "top",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          marginLeft: "25px",
-          maxWidth: "405px"
         }
       };
       return _react2.default.createElement(
@@ -58661,14 +58633,6 @@ var ScatterExample = function (_React$Component) {
         },
         container: {
           padding: "80px 50px"
-        },
-        optionsData: {
-          width: "35%",
-          display: "inline-block",
-          verticalAlign: "top",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          marginLeft: "25px",
-          maxWidth: "405px"
         }
       };
       return _react2.default.createElement(
@@ -68641,14 +68605,6 @@ var NetworkExample = function (_React$Component) {
         },
         container: {
           padding: "80px 50px"
-        },
-        optionsData: {
-          width: "38%",
-          display: "inline-block",
-          verticalAlign: "top",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          marginLeft: "25px",
-          maxWidth: "405px"
         }
       };
 
@@ -78750,14 +78706,6 @@ var BoxPlotExample = function (_React$Component) {
         },
         container: {
           padding: "80px 50px"
-        },
-        optionsData: {
-          width: "32%",
-          display: "inline-block",
-          verticalAlign: "top",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg,
-          marginLeft: "25px",
-          maxWidth: "405px"
         }
       };
       return _react2.default.createElement(
