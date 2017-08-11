@@ -69,6 +69,19 @@ const colorsDark = {
     bg: "none",
   },
 
+  optionsTable: {
+    bg: "rgba(0,0,0,0.1)",
+  },
+
+  optionsPane: {
+    paneHeader: {
+      bg: "rgba(0,0,0,0.2)",
+      text: "#aaa",
+      activeText: "#ccc",
+      activeBg: "rgba(120,0,140,0.2)",
+    }
+  },
+
   header: paletteDark.dark,
 
   codeBlockLeftBorder: paletteDark.green,
@@ -83,7 +96,6 @@ const colorsDark = {
   buttonHover: paletteDark.buttonHover,
 
   optionsLabelBg: paletteDark.dark,
-  optionsTableBg: paletteDark.tableBg,
   optionsShadow: paletteDark.shadow,
   optionsField: paletteDark.tableField,
   optionsFieldBorder: paletteDark.tableFieldBorder,

@@ -14,43 +14,44 @@ class Toggle extends React.Component {
 
   render() {
     let palette = colors[this.props.palette]
-    let dataLabelColor = palette.darkAccent
-    let optionsLabelColor = palette.mainColor
-
-    if (this.props.active == "data") {
-      dataLabelColor = palette.mainColor
-      optionsLabelColor = palette.darkAccent
+    let style = {
+      button: {
+        fontSize: "1rem",
+        width: "50%",
+        display: "inline-block",
+        textAlign: "center",
+        paddingTop: "5px",
+        paddingBottom: "5px",
+        backgroundColor: palette.optionsPane.paneHeader.bg,
+        color: palette.optionsPane.paneHeader.text,
+        cursor: "pointer",
+      },
+      activeButton: {
+        fontSize: "1rem",
+        width: "50%",
+        display: "inline-block",
+        textAlign: "center",
+        paddingTop: "5px",
+        paddingBottom: "5px",
+        backgroundColor: palette.optionsPane.paneHeader.activeBg,
+        color: palette.optionsPane.paneHeader.activeText,
+      },
     }
 
-    let style = {
-      dataLabel: {
-        fontSize: "1.25rem",
-        width: "50%",
-        display: "inline-block",
-        textAlign: "center",
-        paddingTop: "10px",
-        paddingBottom: "15px",
-        backgroundColor: palette.optionsLabelBg,
-        color: dataLabelColor,
-      },
-      optionsLabel: {
-        fontSize: "1.25rem",
-        width: "50%",
-        display: "inline-block",
-        textAlign: "center",
-        paddingTop: "10px",
-        paddingBottom: "15px",
-        backgroundColor: palette.optionsLabelBg,
-        color: optionsLabelColor
-      }
+    let dataLabelStyle = style.button
+    let optionsLabelStyle = style.activeButton
+
+    if (this.props.active == "data") {
+      dataLabelStyle = style.activeButton
+      optionsLabelStyle = style.button
     }
 
     return (
       <div>
-        <div onClick={this.props.handleData} style={style.dataLabel}>
+        <div onClick={this.props.handleData} style={dataLabelStyle}>
           Data
         </div>
-        <div onClick={this.props.handleOptions} style={style.optionsLabel}>
+        <div onClick={this.props.handleOptions} style={optionsLabelStyle}>
           Options
         </div>
       </div>
@@ -303,17 +304,17 @@ class ComponentContainer extends React.Component {
 
     let style = {
       chart: {
-        width: "60%",
+        width: "58%",
         display: "inline-block",
         verticalAlign: "top",
       },
       optionsData: {
-        width: "35%",
+        width: "33%",
         display: "inline-block",
         verticalAlign: "top",
-        marginLeft: "25px",
+        marginLeft: "5%",
         maxWidth: "405px",
-        backgroundColor: colors[this.props.palette].optionsTableBg,
+        backgroundColor: colors[this.props.palette].optionsTable.bg,
       }
     }
     return (

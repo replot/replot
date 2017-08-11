@@ -815,6 +815,19 @@ const colorsDark = {
     bg: "none",
   },
 
+  optionsTable: {
+    bg: "rgba(0,0,0,0.1)",
+  },
+
+  optionsPane: {
+    paneHeader: {
+      bg: "rgba(0,0,0,0.2)",
+      text: "#aaa",
+      activeText: "#ccc",
+      activeBg: "rgba(120,0,140,0.2)",
+    }
+  },
+
   header: paletteDark.dark,
 
   codeBlockLeftBorder: paletteDark.green,
@@ -829,7 +842,6 @@ const colorsDark = {
   buttonHover: paletteDark.buttonHover,
 
   optionsLabelBg: paletteDark.dark,
-  optionsTableBg: paletteDark.tableBg,
   optionsShadow: paletteDark.shadow,
   optionsField: paletteDark.tableField,
   optionsFieldBorder: paletteDark.tableFieldBorder,
@@ -2745,48 +2757,49 @@ var Toggle = function (_React$Component) {
     key: "render",
     value: function render() {
       var palette = _colors2.default[this.props.palette];
-      var dataLabelColor = palette.darkAccent;
-      var optionsLabelColor = palette.mainColor;
-
-      if (this.props.active == "data") {
-        dataLabelColor = palette.mainColor;
-        optionsLabelColor = palette.darkAccent;
-      }
-
       var style = {
-        dataLabel: {
-          fontSize: "1.25rem",
+        button: {
+          fontSize: "1rem",
           width: "50%",
           display: "inline-block",
           textAlign: "center",
-          paddingTop: "10px",
-          paddingBottom: "15px",
-          backgroundColor: palette.optionsLabelBg,
-          color: dataLabelColor
+          paddingTop: "5px",
+          paddingBottom: "5px",
+          backgroundColor: palette.optionsPane.paneHeader.bg,
+          color: palette.optionsPane.paneHeader.text,
+          cursor: "pointer"
         },
-        optionsLabel: {
-          fontSize: "1.25rem",
+        activeButton: {
+          fontSize: "1rem",
           width: "50%",
           display: "inline-block",
           textAlign: "center",
-          paddingTop: "10px",
-          paddingBottom: "15px",
-          backgroundColor: palette.optionsLabelBg,
-          color: optionsLabelColor
+          paddingTop: "5px",
+          paddingBottom: "5px",
+          backgroundColor: palette.optionsPane.paneHeader.activeBg,
+          color: palette.optionsPane.paneHeader.activeText
         }
       };
+
+      var dataLabelStyle = style.button;
+      var optionsLabelStyle = style.activeButton;
+
+      if (this.props.active == "data") {
+        dataLabelStyle = style.activeButton;
+        optionsLabelStyle = style.button;
+      }
 
       return _react2.default.createElement(
         "div",
         null,
         _react2.default.createElement(
           "div",
-          { onClick: this.props.handleData, style: style.dataLabel },
+          { onClick: this.props.handleData, style: dataLabelStyle },
           "Data"
         ),
         _react2.default.createElement(
           "div",
-          { onClick: this.props.handleOptions, style: style.optionsLabel },
+          { onClick: this.props.handleOptions, style: optionsLabelStyle },
           "Options"
         )
       );
@@ -3378,17 +3391,17 @@ var ComponentContainer = function (_React$Component2) {
 
       var style = {
         chart: {
-          width: "60%",
+          width: "58%",
           display: "inline-block",
           verticalAlign: "top"
         },
         optionsData: {
-          width: "35%",
+          width: "33%",
           display: "inline-block",
           verticalAlign: "top",
-          marginLeft: "25px",
+          marginLeft: "5%",
           maxWidth: "405px",
-          backgroundColor: _colors2.default[this.props.palette].optionsTableBg
+          backgroundColor: _colors2.default[this.props.palette].optionsTable.bg
         }
       };
       return _react2.default.createElement(
