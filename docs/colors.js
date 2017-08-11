@@ -4,12 +4,12 @@ const paletteDark = {
   darkGreen: "#0d404e",
   green: "#00da9d",
   gray: "#7f9298",
-  gradientPalette: ["#ff5a3c", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"],
-  treeMapPalette: ["#ff5a3c", "#8fd9a8", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#00da9d", "#009b76"],
-  groupedBarPalette: ["#ff8463", "#bfd5a8", "#00da9d", "#009b76"],
-  linePalette: ["#ff5a3c", "#ff8463", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"],
-  scatterPalette: ["#ff8463", "#00da9d"],
-  boxPalette: ["#ff8463", "#00da9d"],
+  gradientPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  treeMapPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  groupedBarPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  linePalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  scatterPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  boxPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
   boxFill: "#1a5d70",
   dark: "#112e37",
 
@@ -42,8 +42,8 @@ const paletteLight = {
 
   buttonActive: "rgba(82, 231, 157, 0.75)",
 
-  barPalette: ["#fe7676", "#f36a4a", "#FFBE47", "#52e79d", "#08d377", "#2FCCBA",  "#9f85de", "#6633AA"],
-  treeMapPalette: ["#fe7676", "#08d377", "#9f85de"],
+  barPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  treeMapPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
   groupedBarPalette: ["#fe7676", "#2FCCBA",  "#9f85de"],
   linePalette: ["#fe7676", "#FFBE47", "#52e79d", "#2FCCBA",  "#9f85de", "#6633AA"],
   scatterPalette: ["#2FCCBA", "#fe7676"],
@@ -55,8 +55,8 @@ const colorsDark = {
 
   body: {
     text: paletteDark.white,
-    bg: "#281d29",
-    gradient: "linear-gradient(#3e3a3f,#170c18)",
+    bg: "rgb(58, 48, 64)",
+    gradient: "linear-gradient(rgb(58, 48, 64),rgb(58, 48, 64))",
   },
 
   landing: {
@@ -87,16 +87,16 @@ const colorsDark = {
   codeBlockLeftBorder: paletteDark.green,
   codeBlockBorders: paletteDark.gray,
 
-  input: "rgba(120,0,140,0.2)",
+  input: "rgba(0,0,0,0.0)",
   inputBackground: "rgba(0,0,0,0.2)",
   inputText: paletteDark.greenInput,
 
-  button: paletteDark.darkGreen,
-  buttonActive: paletteDark.greenButton,
-  buttonHover: paletteDark.buttonHover,
+  button: "rgba(80,0,120,0.2)",
+  buttonActive: "rgba(80,0,120,0.5)",
+  buttonHover: "rgba(80,0,120,0.4)",
 
-  optionsField: "rgba(0,0,0,0.2)",
-  optionsFieldBorder: "rgba(120,0,140,0.2)",
+  optionsField: "rgba(0,0,0,0)",
+  optionsFieldBorder: "rgba(0,0,0,0.2)",
 
   lightAccent: paletteDark.orange,
   white: paletteDark.white,
