@@ -750,12 +750,12 @@ const paletteDark = {
   darkGreen: "#0d404e",
   green: "#00da9d",
   gray: "#7f9298",
-  gradientPalette: ["#ff5a3c", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"],
-  treeMapPalette: ["#ff5a3c", "#8fd9a8", "#ff8463", "#ffaf8c", "#FFD2AD", "#bfd5a8", "#00da9d", "#009b76"],
-  groupedBarPalette: ["#ff8463", "#bfd5a8", "#00da9d", "#009b76"],
-  linePalette: ["#ff5a3c", "#ff8463", "#FFD2AD", "#bfd5a8", "#8fd9a8", "#00da9d", "#009b76"],
-  scatterPalette: ["#ff8463", "#00da9d"],
-  boxPalette: ["#ff8463", "#00da9d"],
+  gradientPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  treeMapPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  groupedBarPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  linePalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  scatterPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  boxPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
   boxFill: "#1a5d70",
   dark: "#112e37",
 
@@ -788,8 +788,8 @@ const paletteLight = {
 
   buttonActive: "rgba(82, 231, 157, 0.75)",
 
-  barPalette: ["#fe7676", "#f36a4a", "#FFBE47", "#52e79d", "#08d377", "#2FCCBA",  "#9f85de", "#6633AA"],
-  treeMapPalette: ["#fe7676", "#08d377", "#9f85de"],
+  barPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
+  treeMapPalette: ["#fea30d", "#fd7c54", "#d1638c", "#4a4cda", "#0071bb", "#1f02fa"],
   groupedBarPalette: ["#fe7676", "#2FCCBA",  "#9f85de"],
   linePalette: ["#fe7676", "#FFBE47", "#52e79d", "#2FCCBA",  "#9f85de", "#6633AA"],
   scatterPalette: ["#2FCCBA", "#fe7676"],
@@ -801,8 +801,8 @@ const colorsDark = {
 
   body: {
     text: paletteDark.white,
-    bg: "#281d29",
-    gradient: "linear-gradient(#3e3a3f,#170c18)",
+    bg: "rgb(58, 48, 64)",
+    gradient: "linear-gradient(rgb(58, 48, 64),rgb(58, 48, 64))",
   },
 
   landing: {
@@ -833,16 +833,16 @@ const colorsDark = {
   codeBlockLeftBorder: paletteDark.green,
   codeBlockBorders: paletteDark.gray,
 
-  input: "rgba(120,0,140,0.2)",
+  input: "rgba(0,0,0,0.0)",
   inputBackground: "rgba(0,0,0,0.2)",
   inputText: paletteDark.greenInput,
 
-  button: paletteDark.darkGreen,
-  buttonActive: paletteDark.greenButton,
-  buttonHover: paletteDark.buttonHover,
+  button: "rgba(80,0,120,0.2)",
+  buttonActive: "rgba(80,0,120,0.5)",
+  buttonHover: "rgba(80,0,120,0.4)",
 
-  optionsField: "rgba(0,0,0,0.2)",
-  optionsFieldBorder: "rgba(120,0,140,0.2)",
+  optionsField: "rgba(0,0,0,0)",
+  optionsFieldBorder: "rgba(0,0,0,0.2)",
 
   lightAccent: paletteDark.orange,
   white: paletteDark.white,
@@ -2734,6 +2734,10 @@ var _colors = __webpack_require__(7);
 
 var _colors2 = _interopRequireDefault(_colors);
 
+var _radium = __webpack_require__(28);
+
+var _radium2 = _interopRequireDefault(_radium);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3391,7 +3395,10 @@ var ComponentContainer = function (_React$Component2) {
         chart: {
           width: "58%",
           display: "inline-block",
-          verticalAlign: "top"
+          verticalAlign: "top",
+          "@media (max-width: 800px)": {
+            width: "100%"
+          }
         },
         optionsData: {
           width: "33%",
@@ -3399,7 +3406,10 @@ var ComponentContainer = function (_React$Component2) {
           verticalAlign: "top",
           marginLeft: "5%",
           maxWidth: "405px",
-          backgroundColor: _colors2.default[this.props.palette].optionsTable.bg
+          backgroundColor: _colors2.default[this.props.palette].optionsTable.bg,
+          "@media (max-width: 800px)": {
+            display: "none"
+          }
         }
       };
       return _react2.default.createElement(
@@ -3447,7 +3457,7 @@ ComponentContainer.propTypes = {
   children: _propTypes2.default.element.isRequired
 };
 
-exports.default = ComponentContainer;
+exports.default = (0, _radium2.default)(ComponentContainer);
 
 /***/ }),
 /* 20 */
@@ -7935,7 +7945,10 @@ var SectionContainer = function (_React$Component) {
 SectionContainer.defaultProps = {
   style: {
     minHeight: "100vh",
-    padding: "50px"
+    padding: "50px",
+    "@media (min-width: 800px)": {
+      padding: "100px"
+    }
   }
 };
 
@@ -37820,7 +37833,7 @@ var TreeExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 50px"
+          padding: "80px 0px"
         }
       };
       return _react2.default.createElement(
@@ -48508,7 +48521,7 @@ var BarExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 50px"
+          padding: "80px 0px"
         }
       };
 
@@ -48603,7 +48616,7 @@ var GroupedExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 50px"
+          padding: "80px 0px"
         }
       };
       return _react2.default.createElement(
@@ -48698,7 +48711,7 @@ var LineExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 50px"
+          padding: "80px 0px"
         }
       };
       return _react2.default.createElement(
@@ -58641,7 +58654,7 @@ var ScatterExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 50px"
+          padding: "80px 0px"
         }
       };
       return _react2.default.createElement(
@@ -68613,7 +68626,7 @@ var NetworkExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 50px"
+          padding: "80px 0px"
         }
       };
 
@@ -78714,7 +78727,7 @@ var BoxPlotExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 50px"
+          padding: "80px 0px"
         }
       };
       return _react2.default.createElement(

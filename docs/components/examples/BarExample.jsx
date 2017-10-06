@@ -49,7 +49,7 @@ class BarExample extends React.Component {
         padding: 15,
       },
       container: {
-        padding: "80px 50px",
+        padding: "80px 0px",
       },
     }
 
