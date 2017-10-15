@@ -1,10 +1,10 @@
 {
   "name": "replot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Visualizations meet the virtual-dom",
   "main": "index.js",
   "scripts": {
-    "watcher": "cd docs && webpack --watch",
+    "watch": "cd docs && webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
