@@ -16,26 +16,30 @@ class Toggle extends React.Component {
   render() {
     let palette = colors[this.props.palette]
     let style = {
+      container: {
+        padding: "10px 20px",
+      },
       button: {
-        fontSize: "1rem",
-        width: "50%",
+        fontSize: "1.2rem",
+        fontWeight: "700",
         display: "inline-block",
-        textAlign: "center",
-        paddingTop: "5px",
-        paddingBottom: "5px",
-        backgroundColor: palette.optionsPane.paneHeader.bg,
+        textAlign: "left",
+        padding: "5px 10px 5px 0px",
+        marginLeft: "10px",
+        marginRight: "30px",
         color: palette.optionsPane.paneHeader.text,
         cursor: "pointer",
       },
       activeButton: {
-        fontSize: "1rem",
-        width: "50%",
+        fontSize: "1.2rem",
+        fontWeight: "700",
         display: "inline-block",
-        textAlign: "center",
-        paddingTop: "5px",
-        paddingBottom: "5px",
-        backgroundColor: palette.optionsPane.paneHeader.activeBg,
-        color: palette.optionsPane.paneHeader.activeText,
+        textAlign: "left",
+        padding: "5px 10px 5px 0px",
+        marginLeft: "5px",
+        marginRight: "30px",
+        color: palette.optionsPane.paneHeader.text,
+        borderBottom: palette.optionsPane.paneHeader.activeBorder
       },
     }
 
@@ -48,7 +52,7 @@ class Toggle extends React.Component {
     }
 
     return (
-      <div>
+      <div style={style.container}>
         <div onClick={this.props.handleData} style={dataLabelStyle}>
           Data
         </div>
@@ -317,8 +321,10 @@ class ComponentContainer extends React.Component {
         display: "inline-block",
         verticalAlign: "top",
         marginLeft: "5%",
-        maxWidth: "405px",
-        backgroundColor: colors[this.props.palette].optionsTable.bg,
+        maxWidth: "550px",
+        padding: "10px",
+        border: "solid 1px rgba(0, 0, 0, 0.2)",
+        boxShadow: "-2px 2px 5px rgba(0, 0, 0, 0.2)",
         "@media (max-width: 800px)": {
           display: "none"
         }

@@ -16,9 +16,10 @@ class DataRow extends React.Component {
   render() {
     const style = {
       cell: {
-        minWidth: "85px",
+        minWidth: "75px",
         color: colors[this.props.palette].body.text,
         fontSize: "0.8rem",
+        fontWeight: "300",
       },
       input: {
         backgroundColor: colors[this.props.palette].inputBackground,
@@ -27,7 +28,8 @@ class DataRow extends React.Component {
         color: colors[this.props.palette].body.text,
         borderColor: colors[this.props.palette].input,
         textAlign: "center",
-        fontSize: "0.8rem"
+        fontSize: "0.8rem",
+        fontWeight: "300",
       },
     }
 
@@ -70,7 +72,8 @@ class DataTable extends React.Component {
       cell: {
         minWidth: "85px",
         color: colors[this.props.palette].white,
-        fontSize: "1.2rem",
+        fontSize: "0.9rem",
+        fontWeight: "700",
         paddingBottom: "12px",
       },
       table: {

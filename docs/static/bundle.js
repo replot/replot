@@ -793,7 +793,7 @@ const colorsDark = {
 
   body: {
     text: paletteDark.white,
-    bg: "rgb(58, 48, 64)",
+    bg: "#1f1f2b",
     gradient: "linear-gradient(rgb(58, 48, 64),rgb(58, 48, 64))",
   },
 
@@ -814,9 +814,8 @@ const colorsDark = {
   optionsPane: {
     paneHeader: {
       bg: "rgba(0,0,0,0.2)",
-      text: "#aaa",
-      activeText: "#ccc",
-      activeBg: "rgba(120,0,140,0.2)",
+      text: "rgba(255,255,255,0.8)",
+      activeBorder: "solid 2px rgba(255,79,47,1)"
     }
   },
 
@@ -829,9 +828,9 @@ const colorsDark = {
   inputBackground: "rgba(0,0,0,0.2)",
   inputText: paletteDark.greenInput,
 
-  button: "rgba(80,0,120,0.2)",
-  buttonActive: "rgba(80,0,120,0.5)",
-  buttonHover: "rgba(80,0,120,0.4)",
+  button: "rgba(194,194,194,0.25)",
+  buttonActive: "rgba(255,79,47,1)",
+  buttonHover: "rgba(255,79,47,0.5)",
 
   optionsField: "rgba(0,0,0,0)",
   optionsFieldBorder: "rgba(0,0,0,0.2)",
@@ -908,7 +907,7 @@ let colors = {
 
 let body = document.getElementById("body")
 body.style.backgroundColor = colors["dark"].body.bg
-body.style.backgroundImage = colors["dark"].body.gradient
+// body.style.backgroundImage = colors["dark"].body.gradient
 
 /* harmony default export */ __webpack_exports__["default"] = (colors);
 
@@ -2772,26 +2771,30 @@ var Toggle = function (_React$Component) {
     value: function render() {
       var palette = _colors2.default[this.props.palette];
       var style = {
+        container: {
+          padding: "10px 20px"
+        },
         button: {
-          fontSize: "1rem",
-          width: "50%",
+          fontSize: "1.2rem",
+          fontWeight: "700",
           display: "inline-block",
-          textAlign: "center",
-          paddingTop: "5px",
-          paddingBottom: "5px",
-          backgroundColor: palette.optionsPane.paneHeader.bg,
+          textAlign: "left",
+          padding: "5px 10px 5px 0px",
+          marginLeft: "10px",
+          marginRight: "30px",
           color: palette.optionsPane.paneHeader.text,
           cursor: "pointer"
         },
         activeButton: {
-          fontSize: "1rem",
-          width: "50%",
+          fontSize: "1.2rem",
+          fontWeight: "700",
           display: "inline-block",
-          textAlign: "center",
-          paddingTop: "5px",
-          paddingBottom: "5px",
-          backgroundColor: palette.optionsPane.paneHeader.activeBg,
-          color: palette.optionsPane.paneHeader.activeText
+          textAlign: "left",
+          padding: "5px 10px 5px 0px",
+          marginLeft: "5px",
+          marginRight: "30px",
+          color: palette.optionsPane.paneHeader.text,
+          borderBottom: palette.optionsPane.paneHeader.activeBorder
         }
       };
 
@@ -2805,7 +2808,7 @@ var Toggle = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        null,
+        { style: style.container },
         _react2.default.createElement(
           "div",
           { onClick: this.props.handleData, style: dataLabelStyle },
@@ -3417,8 +3420,10 @@ var ComponentContainer = function (_React$Component2) {
           display: "inline-block",
           verticalAlign: "top",
           marginLeft: "5%",
-          maxWidth: "405px",
-          backgroundColor: _colors2.default[this.props.palette].optionsTable.bg,
+          maxWidth: "550px",
+          padding: "10px",
+          border: "solid 1px rgba(0, 0, 0, 0.2)",
+          boxShadow: "-2px 2px 5px rgba(0, 0, 0, 0.2)",
           "@media (max-width: 800px)": {
             display: "none"
           }
@@ -37464,9 +37469,10 @@ var DataRow = function (_React$Component) {
     value: function render() {
       var style = {
         cell: {
-          minWidth: "85px",
+          minWidth: "75px",
           color: _colors2.default[this.props.palette].body.text,
-          fontSize: "0.8rem"
+          fontSize: "0.8rem",
+          fontWeight: "300"
         },
         input: {
           backgroundColor: _colors2.default[this.props.palette].inputBackground,
@@ -37475,7 +37481,8 @@ var DataRow = function (_React$Component) {
           color: _colors2.default[this.props.palette].body.text,
           borderColor: _colors2.default[this.props.palette].input,
           textAlign: "center",
-          fontSize: "0.8rem"
+          fontSize: "0.8rem",
+          fontWeight: "300"
         }
       };
 
@@ -37555,7 +37562,8 @@ var DataTable = function (_React$Component2) {
         cell: {
           minWidth: "85px",
           color: _colors2.default[this.props.palette].white,
-          fontSize: "1.2rem",
+          fontSize: "0.9rem",
+          fontWeight: "700",
           paddingBottom: "12px"
         },
         table: {

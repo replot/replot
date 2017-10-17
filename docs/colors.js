@@ -55,7 +55,7 @@ const colorsDark = {
 
   body: {
     text: paletteDark.white,
-    bg: "rgb(58, 48, 64)",
+    bg: "#1f1f2b",
     gradient: "linear-gradient(rgb(58, 48, 64),rgb(58, 48, 64))",
   },
 
@@ -76,9 +76,8 @@ const colorsDark = {
   optionsPane: {
     paneHeader: {
       bg: "rgba(0,0,0,0.2)",
-      text: "#aaa",
-      activeText: "#ccc",
-      activeBg: "rgba(120,0,140,0.2)",
+      text: "rgba(255,255,255,0.8)",
+      activeBorder: "solid 2px rgba(255,79,47,1)"
     }
   },
 
@@ -91,9 +90,9 @@ const colorsDark = {
   inputBackground: "rgba(0,0,0,0.2)",
   inputText: paletteDark.greenInput,
 
-  button: "rgba(80,0,120,0.2)",
-  buttonActive: "rgba(80,0,120,0.5)",
-  buttonHover: "rgba(80,0,120,0.4)",
+  button: "rgba(194,194,194,0.25)",
+  buttonActive: "rgba(255,79,47,1)",
+  buttonHover: "rgba(255,79,47,0.5)",
 
   optionsField: "rgba(0,0,0,0)",
   optionsFieldBorder: "rgba(0,0,0,0.2)",
@@ -170,6 +169,6 @@ let colors = {
 
 let body = document.getElementById("body")
 body.style.backgroundColor = colors["dark"].body.bg
-body.style.backgroundImage = colors["dark"].body.gradient
+// body.style.backgroundImage = colors["dark"].body.gradient
 
 export default colors
