@@ -49,6 +49,7 @@ class BarExample extends React.Component {
       },
       container: {
         padding: "80px 0px",
+        maxHeight: "1000px"
       },
     }
 

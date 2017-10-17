@@ -38538,7 +38538,8 @@ var BarExample = function (_React$Component) {
           padding: 15
         },
         container: {
-          padding: "80px 0px"
+          padding: "80px 0px",
+          maxHeight: "1000px"
         }
       };
 
