@@ -70,9 +70,6 @@ class MapExample extends React.Component {
           ]},
           {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "100%"},
           {optionName: "height", name: "Height", optionType: "field", input: "string", initialValue: 500},
-          {optionName: "weightKey", name: "Weight using", optionType: "field", input: "string", initialValue: "total1516"},
-          {optionName: "IDKey", name: "IDKey", optionType: "field", input: "string", initialValue: "code"},
-          {optionName: "colorRange", name: "Color Range", optionType: "hidden", initialValue: ["#225588", "#ffffff"]},
       ]
     }
   }
@@ -91,11 +88,11 @@ class MapExample extends React.Component {
     return(
       <div className="container" style={style.container}>
         <h1 style={style.title}> Map </h1>
-        <ComponentContainer optionList={this.state.optionList}
-          palette={this.props.palette}>
-          <Map data={this.state.optionList[0].initialValue}
-            region="US" />
-        </ComponentContainer>
+        <br />
+        <Map data={this.state.optionList[0].initialValue}
+          region="US" colorRange={["#225588", "#ffffff"]}
+          IDKey="code" weightKey="total1516"
+          />
       </div>
     )
   }

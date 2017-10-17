@@ -12,6 +12,7 @@ class OptionsPane extends React.Component {
       options: {
         padding:  "10px",
         height: "45%",
+        maxHeight: "300px",
         overflow: "auto",
       }
     }

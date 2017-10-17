@@ -323,7 +323,6 @@ class ComponentContainer extends React.Component {
         marginLeft: "5%",
         maxWidth: "550px",
         padding: "10px",
-        maxHeight: "400px",
         border: "solid 1px rgba(0, 0, 0, 0.2)",
         boxShadow: "-2px 2px 5px rgba(0, 0, 0, 0.2)",
         "@media (max-width: 800px)": {
