@@ -42,6 +42,7 @@
     "replot-network": "git+ssh://git@github.com/MacroConnections/replot-network.git",
     "replot-scatter": "git+ssh://git@github.com/MacroConnections/replot-scatter.git",
     "replot-treemap": "git+ssh://git@github.com/MacroConnections/replot-treemap.git",
+    "replot-map": "git+ssh://git@github.com/MacroConnections/replot-map.git",
     "webpack": "^3.5.3"
   }
 }

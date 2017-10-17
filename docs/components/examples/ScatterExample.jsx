@@ -73,7 +73,6 @@ class ScatterExample extends React.Component {
     let style = {
       title: {
         fontSize: "45px",
-        textAlign: "center",
         color: colors[this.props.palette].body.text,
         padding: 15,
       },

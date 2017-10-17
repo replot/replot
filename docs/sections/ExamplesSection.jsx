@@ -5,7 +5,6 @@ import BarExample from "../components/examples/BarExample.jsx"
 import GroupedExample from "../components/examples/GroupedExample.jsx"
 import LineExample from "../components/examples/LineExample.jsx"
 import ScatterExample from "../components/examples/ScatterExample.jsx"
-import NetworkExample from "../components/examples/NetworkExample.jsx"
 import MapExample from "../components/examples/MapExample.jsx"
 import BoxPlotExample from "../components/examples/BoxPlotExample.jsx"
 
@@ -23,7 +22,7 @@ class ExamplesSection extends React.Component {
         <GroupedExample palette={this.props.palette}/>
         <LineExample palette={this.props.palette}/>
         <ScatterExample palette={this.props.palette}/>
-        <NetworkExample palette={this.props.palette}/>
+        <MapExample palette={this.props.palette} />
       </SectionContainer>
     )
   }
