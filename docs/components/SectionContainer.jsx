@@ -18,7 +18,7 @@ SectionContainer.defaultProps = {
   style: {
     minHeight: "100vh",
     padding: "50px",
-    "@media (min-width: 800px)": {
+    "@media (minWidth: 800px)": {
       padding: "100px",
     }
   }

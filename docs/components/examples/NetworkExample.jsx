@@ -184,6 +184,13 @@ class NetworkExample extends React.Component {
       {optionName: "labelColor", name: "Label Color", optionType: "other", input: "string", initialValue: colors[this.props.palette].axisColor},
       {optionName: "lineColor", name : "Line Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
     ]
+    let graphStyle = [
+      {optionName: "pointRadius", name: "Node Radius", optionType: "field", input: "number", initialValue: 5},
+      {optionName: "lineWidth", name: "Edge Width", optionType: "field", input: "number", initialValue: 1},
+      {optionName: "lineColor", name: "Edge Color", optionType: "field", input: "string", initialValue: "#9b9b9b"},
+      {optionName: "lineOpacity", name: "Edge Opacity", optionType: "field", input: "number", initialValue: 0.25},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: "#1b1b1b"},
+    ]
     let style = {
       title: {
         fontSize: "45px",
@@ -202,9 +209,13 @@ class NetworkExample extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           optionsData={style.optionsData}
           palette={this.props.palette}
-          colorOptions={colorOptions}>
-          <NetworkChart nodes={this.state.nodes} links={this.state.links}
-            color={colors[this.props.palette].networkPalette}/>
+          colorOptions={colorOptions}
+          graphStyle={graphStyle}>
+          <NetworkChart
+            nodes={this.state.nodes}
+            links={this.state.links}
+            width="100%"
+          />
         </ComponentContainer>
       </div>
     )
