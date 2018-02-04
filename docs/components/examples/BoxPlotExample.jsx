@@ -1,7 +1,6 @@
 import React from "react"
 import BoxPlot from "replot-boxplot"
-import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
-import colors from "../../colors"
+import {ComponentContainer, ColorTheme} from "replot-helpers"
 
 class BoxPlotExample extends React.Component {
   constructor(props){
@@ -32,7 +31,7 @@ class BoxPlotExample extends React.Component {
           {gender: "male", score: 91}
         ]},
         {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
-        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: "450"},
+        {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 450},
         {optionName: "initialAnimation", name: "Initial Animation", optionType: "bool", initialValue: true},
         {optionName: "tooltip", name: "Tooltip", optionType: "bool", initialValue: false},
         {optionName: "tooltipColor", name: "Tooltip Color", optionType: "state", states: ["dark", "light"], initialValue: "dark"},
@@ -44,10 +43,10 @@ class BoxPlotExample extends React.Component {
   }
   render() {
     let axisColorOptions = [
-      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "titleColor", name: "Title Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "titleColor", name: "Title Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
       {optionName: "lineWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
     ]
     let graphStyle = [
@@ -57,7 +56,7 @@ class BoxPlotExample extends React.Component {
     let style = {
       title: {
         fontSize: "45px",
-        color: colors[this.props.palette].body.text,
+        color: ColorTheme[this.props.palette].body.text,
         padding: 15,
       },
       container: {
@@ -73,7 +72,7 @@ class BoxPlotExample extends React.Component {
           axisColorOptions={axisColorOptions}
           graphStyle={graphStyle}>
           <BoxPlot data={this.state.optionList[0].initialValue}
-            color={colors[this.props.palette].boxPalette}/>
+            color={ColorTheme[this.props.palette].boxPalette}/>
         </ComponentContainer>
       </div>
     )

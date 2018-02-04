@@ -7,12 +7,11 @@ import LineExample from "../components/examples/LineExample.jsx"
 import ScatterExample from "../components/examples/ScatterExample.jsx"
 import MapExample from "../components/examples/MapExample.jsx"
 import BoxPlotExample from "../components/examples/BoxPlotExample.jsx"
+import NetworkExample from "../components/examples/NetworkExample.jsx"
 
 class ExamplesSection extends React.Component {
 
   render() {
-
-    // <MapExample />
 
     return(
       <SectionContainer>
@@ -23,6 +22,7 @@ class ExamplesSection extends React.Component {
         <LineExample palette={this.props.palette}/>
         <ScatterExample palette={this.props.palette}/>
         <MapExample palette={this.props.palette} />
+        <NetworkExample palette={this.props.palette} />
       </SectionContainer>
     )
   }

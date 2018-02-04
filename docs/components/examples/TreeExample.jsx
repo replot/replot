@@ -1,7 +1,6 @@
 import React from "react"
 import TreeMap from "replot-treemap"
-import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
-import colors from "../../colors"
+import {ComponentContainer, ColorTheme} from "replot-helpers"
 
 
 class TreeExample extends React.Component {
@@ -116,7 +115,7 @@ class TreeExample extends React.Component {
     let style = {
       title: {
         fontSize: "45px",
-        color: colors[this.props.palette].body.text,
+        color: ColorTheme[this.props.palette].body.text,
         padding: 15,
       },
       container: {
@@ -130,8 +129,8 @@ class TreeExample extends React.Component {
           optionsData={style.optionsData}
           palette={this.props.palette}>
           <TreeMap data={this.state.optionList[0].initialValue}
-            colorPalette={colors[this.props.palette].treeMapPalette}
-            grayscalePalette={colors[this.props.palette].treeMapPalette}/>
+            colorPalette={ColorTheme[this.props.palette].treeMapPalette}
+            grayscalePalette={ColorTheme[this.props.palette].treeMapPalette}/>
         </ComponentContainer>
       </div>
     )
