@@ -1,5 +1,5 @@
 import React from "react"
-import colors from "../colors"
+import {ColorTheme} from "replot-helpers"
 
 
 class CodeBlock extends React.Component {
@@ -10,8 +10,8 @@ class CodeBlock extends React.Component {
       maxWidth: "600px",
       width: "80%",
       padding: "10px",
-      border: `1px solid ${colors[this.props.palette].codeBlockBorders}`,
-      borderLeft: `2px solid ${colors[this.props.palette].codeBlockLeftBorder}`,
+      border: `1px solid ${ColorTheme[this.props.palette].codeBlockBorders}`,
+      borderLeft: `2px solid ${ColorTheme[this.props.palette].codeBlockLeftBorder}`,
       whiteSpace: "pre",
       fontFamily: "monospace",
     }

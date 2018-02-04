@@ -1,5 +1,5 @@
 import React from "react"
-import colors from "../colors.js"
+import {ColorTheme} from "replot-helpers"
 
 
 
@@ -12,7 +12,7 @@ class HeaderSection extends React.Component {
         position: "fixed",
         width: "100%",
         textAlign: "right",
-        backgroundColor: colors[this.props.palette].header,
+        backgroundColor: ColorTheme[this.props.palette].header,
         zIndex: 1,
         verticalAlign: "top"
 
