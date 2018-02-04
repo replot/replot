@@ -1,8 +1,6 @@
 import React from "react"
 import ScatterPlot from "replot-scatter"
-import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
-import colors from "../../colors"
-
+import {ComponentContainer, ColorTheme} from "replot-helpers"
 
 class ScatterExample extends React.Component {
 
@@ -56,24 +54,24 @@ class ScatterExample extends React.Component {
 
   render() {
     let axisColorOptions = [
-      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
       {optionName: "lineWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
     ]
     let legendColorOptions = [
-      {optionName: "fontColor", name: "Legend Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "fontColor", name: "Legend Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
       {optionName: "showBorder", name: "Show Legend Border", optionType: "bool", initialValue: false},
-      {optionName: "borderColor", name: "Legend Border Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "borderColor", name: "Legend Border Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
     ]
     let graphStyle = [
-      {optionName: "trendlineColor", name: "Trendline Color", optionType: "field", input: "string", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "trendlineColor", name: "Trendline Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
       {optionName: "trendlineOpacity", name: "Trendline Opacity", optionType: "field", input: "number", initialValue: 0.5}
     ]
     let style = {
       title: {
         fontSize: "45px",
-        color: colors[this.props.palette].body.text,
+        color: ColorTheme[this.props.palette].body.text,
         padding: 15,
       },
       container: {
@@ -90,7 +88,7 @@ class ScatterExample extends React.Component {
           legendColorOptions={legendColorOptions}
           graphStyle={graphStyle}>
           <ScatterPlot data={this.state.optionList[0].initialValue}
-            color={colors[this.props.palette].scatterPalette}/>
+            color={ColorTheme[this.props.palette].scatterPalette}/>
         </ComponentContainer>
       </div>
     )

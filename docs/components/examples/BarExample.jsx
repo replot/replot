@@ -1,7 +1,6 @@
 import React from "react"
 import BarChart from "replot-bar"
-import ComponentContainer from "../CompContainer/ComponentContainer.jsx"
-import colors from "../../colors"
+import {ComponentContainer, ColorTheme} from "replot-helpers"
 
 
 class BarExample extends React.Component {
@@ -33,10 +32,10 @@ class BarExample extends React.Component {
   }
   render() {
     let axisColorOptions = [
-      {optionName: "axisColor", name: "X Axis Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "titleColor", name: "X Title Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "labelColor", name: "Label Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
-      {optionName: "gridColor", name: "Grid Color", optionType: "field", initialValue: colors[this.props.palette].axisColor},
+      {optionName: "axisColor", name: "X Axis Color", optionType: "field", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "titleColor", name: "X Title Color", optionType: "field", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "labelColor", name: "Label Color", optionType: "field", initialValue: ColorTheme[this.props.palette].axisColor},
+      {optionName: "gridColor", name: "Grid Color", optionType: "field", initialValue: ColorTheme[this.props.palette].axisColor},
       {optionName: "lineWidth", name: "line Width", optionType: "field", input: "number", initialValue: 1.5},
       {optionName: "lineOpacity", name: "line Opacity", optionType: "field", input: "number", initialValue: 1}
     ]
@@ -44,7 +43,7 @@ class BarExample extends React.Component {
     let style = {
       title: {
         fontSize: "45px",
-        color: colors[this.props.palette].body.text,
+        color: ColorTheme[this.props.palette].body.text,
         padding: 15,
       },
       container: {
@@ -59,9 +58,9 @@ class BarExample extends React.Component {
         <ComponentContainer optionList={this.state.optionList}
           palette={this.props.palette}
           axisColorOptions={axisColorOptions}
-          axisColor={colors[this.props.palette].axisColor}>
+          axisColor={ColorTheme[this.props.palette].axisColor}>
           <BarChart data={this.state.optionList[0].initialValue}
-            color={colors[this.props.palette].barPalette}/>
+            color={ColorTheme[this.props.palette].barPalette}/>
         </ComponentContainer>
       </div>
     )
