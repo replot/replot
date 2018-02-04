@@ -1,13 +1,12 @@
 import React from "react"
-import SectionContainer from "../components/SectionContainer.jsx"
+import {SectionContainer, ColorTheme} from "replot-helpers"
 import CenteredBlock from "../components/CenteredBlock.jsx"
-import colors from "../colors"
 
 
 class TitleSection extends React.Component {
 
   render() {
-    let palette = colors[this.props.palette]
+    let palette = ColorTheme[this.props.palette]
     let style = {
       logo: {
         left: "820px",

@@ -1,5 +1,5 @@
 import React from "react"
-import SectionContainer from "../components/SectionContainer.jsx"
+import {SectionContainer} from "replot-helpers"
 import CodeBlock from "../components/CodeBlock.jsx"
 
 const exampleCode = `import Treemap from ‘replot’

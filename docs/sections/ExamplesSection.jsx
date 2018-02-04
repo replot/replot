@@ -1,5 +1,5 @@
 import React from "react"
-import SectionContainer from "../components/SectionContainer.jsx"
+import {SectionContainer} from "replot-helpers"
 import TreeExample from "../components/examples/TreeExample.jsx"
 import BarExample from "../components/examples/BarExample.jsx"
 import GroupedExample from "../components/examples/GroupedExample.jsx"
