@@ -43,31 +43,27 @@ class ScatterExample extends React.Component {
         {optionName: "showTrendline", name: "Show Trendline", optionType: "bool", initialValue: true},
         {optionName: "xKey", name: "X Axis", optionType: "hidden", initialValue: "height"},
         {optionName: "yKey", name: "Y Axis", optionType: "hidden", initialValue: "weight"},
+        {optionName: "xTitle", name: "X Axis", optionType: "field", input: "string", initialValue: "Height"},
+        {optionName: "yTitle", name: "Y Axis", optionType: "field", input: "string", initialValue: "Weight"},
         {optionName: "showXLabels", name: "X Labels", optionType: "bool", initialValue: true},
         {optionName: "showYLabels", name: "Y Labels", optionType: "bool", initialValue: true},
         {optionName: "groupKey", name: "Group By", optionType: "hidden", initialValue: "gender"},
         {optionName: "weightKey", name: "Node Weight", optionType: "hidden", initialValue: "shoeSize"},
         {optionName: "showLegend", name: "Show Legend", optionType: "bool", initialValue: true},
+        {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "graphTitleColor", name: "Title Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "tickColor", name: "Ticks Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "axisWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
+        {optionName: "legendFontColor", name: "Legend Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "showBorder", name: "Show Legend Border", optionType: "bool", initialValue: false},
+        {optionName: "legendBorderColor", name: "Legend Border Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
       ],
     }
   }
 
   render() {
-    let axisColorOptions = [
-      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "lineWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
-    ]
-    let legendColorOptions = [
-      {optionName: "fontColor", name: "Legend Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "showBorder", name: "Show Legend Border", optionType: "bool", initialValue: false},
-      {optionName: "borderColor", name: "Legend Border Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-    ]
-    let graphStyle = [
-      {optionName: "trendlineColor", name: "Trendline Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "trendlineOpacity", name: "Trendline Opacity", optionType: "field", input: "number", initialValue: 0.5}
-    ]
     let style = {
       title: {
         fontSize: "45px",
@@ -83,10 +79,7 @@ class ScatterExample extends React.Component {
         <h1 style={style.title}> Scatter Plot </h1>
         <ComponentContainer optionList={this.state.optionList}
           optionsData={style.optionsData}
-          palette={this.props.palette}
-          axisColorOptions={axisColorOptions}
-          legendColorOptions={legendColorOptions}
-          graphStyle={graphStyle}>
+          palette={this.props.palette}>
           <ScatterPlot data={this.state.optionList[0].initialValue}
             color={ColorTheme[this.props.palette].scatterPalette}/>
         </ComponentContainer>
