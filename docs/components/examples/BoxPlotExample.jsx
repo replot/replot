@@ -36,23 +36,21 @@ class BoxPlotExample extends React.Component {
         {optionName: "tooltip", name: "Tooltip", optionType: "bool", initialValue: false},
         {optionName: "tooltipColor", name: "Tooltip Color", optionType: "state", states: ["dark", "light"], initialValue: "dark"},
         {optionName: "xTitle", name: "X Axis", optionType: "field", input: "string", initialValue: "Gender"},
+        {optionName: "yTitle", name: "Y Axis", optionType: "field", input: "string", initialValue: "Score"},
         {optionName: "weightKey", name: "Weight", optionType: "hidden", initialValue: "score"},
         {optionName: "groupKey", name: "Group By", optionType: "hidden", initialValue: "gender"},
+        {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "graphTitleColor", name: "Title Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "tickColor", name: "Tick Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
+        {optionName: "axisWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
+        {optionName: "boxFill", name: "Box Fill", optionType: "field", input: "string", initialValue: "rgba(245,245,245,0.1)"},
+        {optionName: "lineWidth", name: "Box Line Witdh", optionType: "field", input: "number", initialValue: 2.5}
       ]
     }
   }
   render() {
-    let axisColorOptions = [
-      {optionName: "axisColor", name: "Axis Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "labelColor", name: "Label Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "titleColor", name: "Title Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "gridColor", name: "Grid Color", optionType: "field", input: "string", initialValue: ColorTheme[this.props.palette].axisColor},
-      {optionName: "lineWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
-    ]
-    let graphStyle = [
-      {optionName: "fill", name: "Box Fill", optionType: "field", input: "string", initialValue: "rgba(245,245,245,0.1)"},
-      {optionName: "lineWidth", name: "Line Witdh", optionType: "field", input: "number", initialValue: 2.5}
-    ]
     let style = {
       title: {
         fontSize: "45px",
@@ -68,9 +66,7 @@ class BoxPlotExample extends React.Component {
         <h1 style={style.title}> Box Plot </h1>
         <ComponentContainer optionList={this.state.optionList}
           optionsData={style.optionsData}
-          palette={this.props.palette}
-          axisColorOptions={axisColorOptions}
-          graphStyle={graphStyle}>
+          palette={this.props.palette}>
           <BoxPlot data={this.state.optionList[0].initialValue}
             color={ColorTheme[this.props.palette].boxPalette}/>
         </ComponentContainer>

@@ -29,7 +29,7 @@ class GroupedBarExample extends React.Component {
         {optionName: "width", name: "Width", optionType: "field", input: "string", initialValue: "98%"},
         {optionName: "height", name: "Height", optionType: "field", input: "number", initialValue: 450},
         {optionName: "yScale", name: "Scale", optionType: "state", states: ["lin", "log"], initialValue: "lin"},
-        {optionName: "xTitle", name: "X Title", optionType: "field", initialValue: "Country"},
+        {optionName: "xTitle", name: "X Title", optionType: "field", initialValue: "Year"},
         {optionName: "yTitle", name: "Y Title", optionType: "field", initialValue: "Population"},
         {optionName: "axisColor", name: "Axis Color", optionType: "field", initialValue: ColorTheme[this.props.palette].axisColor},
         {optionName: "axisWidth", name: "Axis Line Width", optionType: "field", input: "number", initialValue: 1.5},
