@@ -1,5 +1,5 @@
 import React from "react"
-import {SectionContainer} from "replot-helpers"
+import {SectionContainer, ColorTheme} from "replot-helpers"
 import TreeExample from "../components/examples/TreeExample.jsx"
 import BarExample from "../components/examples/BarExample.jsx"
 import GroupedBarExample from "../components/examples/GroupedBarExample.jsx"
@@ -12,10 +12,23 @@ import NetworkExample from "../components/examples/NetworkExample.jsx"
 class ExamplesSection extends React.Component {
 
   render() {
+    const style = {
+      title: {
+        fontSize: "45px",
+        color: ColorTheme[this.props.palette].body.text,
+        padding: 15,
+      },
+      container: {
+        padding: "80px 0px",
+      },
+    }
 
     return(
       <SectionContainer>
-        <TreeExample palette={this.props.palette}/>
+        <div style={style.container}>
+          <h1 style={style.title}> Treemap </h1>
+          <TreeExample palette={this.props.palette}/>
+        </div>
         <BarExample palette={this.props.palette}/>
         <GroupedBarExample palette={this.props.palette}/>
         <BoxPlotExample palette={this.props.palette}/>
