@@ -112,19 +112,8 @@ class TreeExample extends React.Component {
   }
 
   render() {
-    let style = {
-      title: {
-        fontSize: "45px",
-        color: ColorTheme[this.props.palette].body.text,
-        padding: 15,
-      },
-      container: {
-        padding: "80px 0px",
-      },
-    }
     return(
       <ComponentContainer optionList={this.state.optionList}
-        optionsData={style.optionsData}
         palette={this.props.palette}>
         <TreeMap data={this.state.optionList[0].initialValue}
           colorPalette={ColorTheme[this.props.palette].treeMapPalette}

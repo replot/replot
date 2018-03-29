@@ -29,7 +29,10 @@ class ExamplesSection extends React.Component {
           <h1 style={style.title}> Treemap </h1>
           <TreeExample palette={this.props.palette}/>
         </div>
-        <BarExample palette={this.props.palette}/>
+        <div style={style.container}>
+          <h1 style={style.title}> Bar Chart </h1>
+          <BarExample palette={this.props.palette}/>
+        </div>
         <GroupedBarExample palette={this.props.palette}/>
         <BoxPlotExample palette={this.props.palette}/>
         <LineExample palette={this.props.palette}/>
