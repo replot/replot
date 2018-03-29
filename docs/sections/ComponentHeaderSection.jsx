@@ -14,7 +14,7 @@ const ComponentHeaderSection = ({title, type, palette}) => {
       backgroundColor: ColorTheme[palette].body.bg,
       zIndex: 1,
     },
-    link: {
+    titleLink: {
       color: ColorTheme[palette].body.text,
       textDecorationLine: "none",
       margin: "0px auto 0px 20px",
@@ -23,21 +23,28 @@ const ComponentHeaderSection = ({title, type, palette}) => {
       fontSize: "28px",
       margin: "0px",
     },
+    optionLink: {
+      color: ColorTheme[palette].body.text,
+      textDecorationLine: "none",
+      margin: "0px 20px 0px 0px",
+    },
     option: {
       fontSize: "16px",
-      color: ColorTheme[palette].body.text,
-      margin: "0px 20px 0px 0px",
-      cursor: "pointer",
-    }
+      margin: "0px",
+    },
   }
 
   return(
     <div style={style.header}>
-      <a style={style.link} href={`/${type}`}>
+      <a style={style.titleLink} href={`/${type}`}>
         <h5 style={style.title}>{title}</h5>
       </a>
-      <h5 style={style.option}>Examples</h5>
-      <h5 style={style.option}>Documentation</h5>
+      <a style={style.optionLink} href="#examples">
+        <h5 style={style.option}> Examples </h5>
+      </a>
+      <a style={style.optionLink} href="#doc">
+        <h5 style={style.option}> Documentation </h5>
+      </a>
     </div>
   )
 }
