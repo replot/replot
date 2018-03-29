@@ -20,6 +20,7 @@ const ComponentDocSection = ({doc, palette}) => {
 
   return(
     <SectionContainer>
+      <a class="anchor" id="doc"/>
       <h2 style={style.title}>Documentation</h2>
       <div style={style.body} dangerouslySetInnerHTML={{__html: marked(doc)}}/>
     </SectionContainer>
