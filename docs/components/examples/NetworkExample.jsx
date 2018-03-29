@@ -109,26 +109,12 @@ class NetworkExample extends React.Component {
   }
 
   render() {
-    let style = {
-      title: {
-        fontSize: "45px",
-        color: ColorTheme[this.props.palette].body.text,
-        padding: 15,
-      },
-      container: {
-        padding: "80px 0px",
-      },
-    }
     return(
-      <div className="container" style={style.container}>
-        <h1 style={style.title}> Network Chart </h1>
-        <br />
-        <ComponentContainer optionList={this.state.optionList}
-          palette={this.props.palette}>
-          <NetworkChart data={links}
-            nodes={this.state.optionList[0].initialValue}/>
-        </ComponentContainer>
-      </div>
+      <ComponentContainer optionList={this.state.optionList}
+        palette={this.props.palette}>
+        <NetworkChart data={links}
+          nodes={this.state.optionList[0].initialValue}/>
+      </ComponentContainer>
     )
   }
 }

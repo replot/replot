@@ -77,6 +77,26 @@ const barExamples = [
   {name: "Grouped", imgURL: "/static/img/bar/example-grouped.png", pageURL: "#"},
 ]
 
+const lineExamples = [
+  {name: "Basic", imgURL: "/static/img/line/example-basic.png", pageURL: "#"},
+]
+
+const scatterExamples = [
+  {name: "Basic", imgURL: "/static/img/scatter/example-basic.png", pageURL: "#"},
+]
+
+const boxplotExamples = [
+  {name: "Basic", imgURL: "/static/img/boxplot/example-basic.png", pageURL: "#"},
+]
+
+const mapExamples = [
+  {name: "Basic", imgURL: "/static/img/map/example-basic.png", pageURL: "#"},
+]
+
+const networkExamples = [
+  {name: "Basic", imgURL: "/static/img/network/example-basic.png", pageURL: "#"},
+]
+
 switch (window.location.pathname) {
   case '/':
     ReactDOM.render(
@@ -100,6 +120,51 @@ switch (window.location.pathname) {
         examples={barExamples}
       />,
       document.getElementById("replot-bar")
+    )
+    break
+  case '/line':
+    ReactDOM.render(
+      <ComponentPage
+        componentTitle="Line Chart" componentType="line"
+        examples={lineExamples}
+      />,
+      document.getElementById("replot-line")
+    )
+    break
+  case '/scatter':
+    ReactDOM.render(
+      <ComponentPage
+        componentTitle="Scatter Plot" componentType="scatter"
+        examples={scatterExamples}
+      />,
+      document.getElementById("replot-scatter")
+    )
+    break
+  case '/boxplot':
+    ReactDOM.render(
+      <ComponentPage
+        componentTitle="Box Plot" componentType="boxplot"
+        examples={boxplotExamples}
+      />,
+      document.getElementById("replot-boxplot")
+    )
+    break
+  case '/map':
+    ReactDOM.render(
+      <ComponentPage
+        componentTitle="Map Chart" componentType="map"
+        examples={mapExamples}
+      />,
+      document.getElementById("replot-map")
+    )
+    break
+  case '/network':
+    ReactDOM.render(
+      <ComponentPage
+        componentTitle="Network Chart" componentType="network"
+        examples={networkExamples}
+      />,
+      document.getElementById("replot-network")
     )
     break
   default:
