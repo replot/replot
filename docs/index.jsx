@@ -7,21 +7,15 @@ import ExamplesSection from "./sections/ExamplesSection.jsx"
 import QuickStartSection from "./sections/QuickStartSection.jsx"
 import HeaderSection from "./sections/HeaderSection.jsx"
 import CenteredBlock from "./components/CenteredBlock.jsx"
+import ComponentPage from "./pages/ComponentPage.jsx"
 
-
-class ExampleApp extends React.Component {
+class HomePage extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      password: "",
       theme: "dark"
     }
-    this.passwordHandler = this.passwordHandler.bind(this)
-  }
-
-  passwordHandler(e) {
-    this.setState({password: e.target.value})
   }
 
   setDarkTheme() {
@@ -62,16 +56,6 @@ class ExampleApp extends React.Component {
           palette={this.state.theme}/>
       </Radium.StyleRoot>
 
-    // if (this.state.password != "macro") {
-    //   return (
-    //     <CenteredBlock>
-    //       <h3 style={{color: ColorTheme.body.text}}> Password? </h3>
-    //       <input style={{textAlign: "center"}} autoFocus type="password"
-    //         value={this.state.password} onChange={this.passwordHandler}/>
-    //     </CenteredBlock>
-    //   )
-    // }
-
     return(
       <div style={style.body}>
         {app}
@@ -80,10 +64,30 @@ class ExampleApp extends React.Component {
   }
 }
 
-ExampleApp = Radium(ExampleApp)
+HomePage = Radium(HomePage)
 
+const treemapExamples = [
+  {name: "Basic", imgURL: "/static/img/treemap/example-basic.png", pageURL: "#"},
+  {name: "Vertical", imgURL: "/static/img/treemap/example-vertical.png", pageURL: "#"},
+  {name: "Nested", imgURL: "/static/img/treemap/example-nested.png", pageURL: "#"},
+]
 
-ReactDOM.render(
-  <ExampleApp />,
-  document.getElementById("react-app")
-)
+switch (window.location.pathname) {
+  case '/':
+    ReactDOM.render(
+      <HomePage />,
+      document.getElementById("replot-home")
+    )
+    break
+  case '/treemap':
+    ReactDOM.render(
+      <ComponentPage
+        componentTitle="Treemap" componentType="treemap"
+        examples={treemapExamples}
+      />,
+      document.getElementById("replot-treemap")
+    )
+    break
+  default:
+    /* TODO: Display a 404 page */
+}
