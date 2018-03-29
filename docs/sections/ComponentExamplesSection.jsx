@@ -16,7 +16,7 @@ const ComponentExamplesSection = ({examples, palette}) => {
 
   return(
     <SectionContainer>
-      <a class="anchor" id="examples"/>
+      <a className="anchor" id="examples"/>
       <h2 style={style.title}>Examples</h2>
       <GridContainer palette={palette} data={examples}/>
     </SectionContainer>

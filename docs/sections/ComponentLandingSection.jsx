@@ -18,8 +18,11 @@ const ComponentLandingSection = ({type, palette}) => {
 
   let content
   switch (type) {
-    case 'treemap':
+    case "treemap":
       content = <TreeExample palette={palette}/>
+      break
+    case "bar":
+      content = <BarExample palette={palette}/>
       break
     default:
       content = null

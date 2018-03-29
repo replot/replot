@@ -72,6 +72,11 @@ const treemapExamples = [
   {name: "Nested", imgURL: "/static/img/treemap/example-nested.png", pageURL: "#"},
 ]
 
+const barExamples = [
+  {name: "Basic", imgURL: "/static/img/bar/example-basic.png", pageURL: "#"},
+  {name: "Grouped", imgURL: "/static/img/bar/example-grouped.png", pageURL: "#"},
+]
+
 switch (window.location.pathname) {
   case '/':
     ReactDOM.render(
@@ -86,6 +91,15 @@ switch (window.location.pathname) {
         examples={treemapExamples}
       />,
       document.getElementById("replot-treemap")
+    )
+    break
+  case '/bar':
+    ReactDOM.render(
+      <ComponentPage
+        componentTitle="Bar Chart" componentType="bar"
+        examples={barExamples}
+      />,
+      document.getElementById("replot-bar")
     )
     break
   default:
