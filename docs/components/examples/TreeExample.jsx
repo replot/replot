@@ -123,16 +123,13 @@ class TreeExample extends React.Component {
       },
     }
     return(
-      <div className="container" style={style.container}>
-        <h1 style={style.title}> Treemap </h1>
-        <ComponentContainer optionList={this.state.optionList}
-          optionsData={style.optionsData}
-          palette={this.props.palette}>
-          <TreeMap data={this.state.optionList[0].initialValue}
-            colorPalette={ColorTheme[this.props.palette].treeMapPalette}
-            grayscalePalette={ColorTheme[this.props.palette].treeMapPalette}/>
-        </ComponentContainer>
-      </div>
+      <ComponentContainer optionList={this.state.optionList}
+        optionsData={style.optionsData}
+        palette={this.props.palette}>
+        <TreeMap data={this.state.optionList[0].initialValue}
+          colorPalette={ColorTheme[this.props.palette].treeMapPalette}
+          grayscalePalette={ColorTheme[this.props.palette].treeMapPalette}/>
+      </ComponentContainer>
     )
   }
 
