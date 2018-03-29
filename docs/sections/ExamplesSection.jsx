@@ -33,12 +33,30 @@ class ExamplesSection extends React.Component {
           <h1 style={style.title}> Bar Chart </h1>
           <BarExample palette={this.props.palette}/>
         </div>
-        <GroupedBarExample palette={this.props.palette}/>
-        <BoxPlotExample palette={this.props.palette}/>
-        <LineExample palette={this.props.palette}/>
-        <ScatterExample palette={this.props.palette}/>
-        <MapExample palette={this.props.palette} />
-        <NetworkExample palette={this.props.palette} />
+        <div style={style.container}>
+          <h1 style={style.title}> Grouped Bar Chart </h1>
+          <GroupedBarExample palette={this.props.palette}/>
+        </div>
+        <div style={style.container}>
+          <h1 style={style.title}> Box Plot </h1>
+          <BoxPlotExample palette={this.props.palette}/>
+        </div>
+        <div style={style.container}>
+          <h1 style={style.title}> Line Chart </h1>
+          <LineExample palette={this.props.palette}/>
+        </div>
+        <div style={style.container}>
+          <h1 style={style.title}> Scatter Plot </h1>
+          <ScatterExample palette={this.props.palette}/>
+        </div>
+        <div style={style.container}>
+          <h1 style={style.title}> Map Chart </h1>
+          <MapExample palette={this.props.palette} />
+        </div>
+        <div style={style.container}>
+          <h1 style={style.title}> Network Chart </h1>
+          <NetworkExample palette={this.props.palette} />
+        </div>
       </SectionContainer>
     )
   }

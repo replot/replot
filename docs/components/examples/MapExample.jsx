@@ -143,26 +143,12 @@ class MapExample extends React.Component {
   }
 
   render() {
-    let style = {
-      title: {
-        fontSize: "45px",
-        color: ColorTheme[this.props.palette].body.text,
-        padding: 15,
-      },
-      container: {
-        padding: "80px 0px",
-      },
-    }
     return(
-      <div className="container" style={style.container}>
-        <h1 style={style.title}> Map Chart </h1>
-        <br />
-        <ComponentContainer optionList={this.state.optionList}
-          palette={this.props.palette}>
-          <Map data={this.state.optionList[0].initialValue}
-            paths={WORLD}/>
-        </ComponentContainer>
-      </div>
+      <ComponentContainer optionList={this.state.optionList}
+        palette={this.props.palette}>
+        <Map data={this.state.optionList[0].initialValue}
+          paths={WORLD}/>
+      </ComponentContainer>
     )
   }
 }

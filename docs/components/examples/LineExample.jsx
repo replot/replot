@@ -67,26 +67,12 @@ class LineExample extends React.Component {
   }
 
   render() {
-    let style = {
-      title: {
-        fontSize: "45px",
-        color: ColorTheme[this.props.palette].body.text,
-        padding: 15,
-      },
-      container: {
-        padding: "80px 0px",
-      },
-    }
     return(
-      <div className="container" style={style.container}>
-        <h1 style={style.title}> Line Chart </h1>
-        <ComponentContainer optionList={this.state.optionList}
-          optionsData={style.optionsData}
-          palette={this.props.palette}>
-          <LineChart data={this.state.optionList[0].initialValue}
-            color={ColorTheme[this.props.palette].linePalette}/>
-        </ComponentContainer>
-      </div>
+      <ComponentContainer optionList={this.state.optionList}
+        palette={this.props.palette}>
+        <LineChart data={this.state.optionList[0].initialValue}
+          color={ColorTheme[this.props.palette].linePalette}/>
+      </ComponentContainer>
     )
   }
 
