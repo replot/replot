@@ -7,7 +7,7 @@ class CodeBlock extends React.Component {
   render() {
     const style = {
       margin: "50px auto",
-      maxWidth: "600px",
+      maxWidth: "800px",
       width: "80%",
       padding: "10px",
       border: `1px solid ${ColorTheme[this.props.palette].codeBlockBorders}`,
