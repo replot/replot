@@ -8,6 +8,13 @@ import ExampleCodeSection from "../sections/ExampleCodeSection.jsx"
 import {BasicTreemap, basicTreemapCode, basicTreemapData} from "../components/examples/treemap/Basic.jsx"
 import {VerticalTreemap, verticalTreemapCode, verticalTreemapData} from "../components/examples/treemap/Vertical.jsx"
 import {NestedTreemap, nestedTreemapCode, nestedTreemapData} from "../components/examples/treemap/Nested.jsx"
+import {BasicBar, basicBarCode, basicBarData} from "../components/examples/bar/Basic.jsx"
+import {GroupedBar, groupedBarCode, groupedBarData} from "../components/examples/bar/Grouped.jsx"
+import {BasicLine, basicLineCode, basicLineData} from "../components/examples/line/Basic.jsx"
+import {BasicScatter, basicScatterCode, basicScatterData} from "../components/examples/scatter/Basic.jsx"
+import {BasicBoxplot, basicBoxplotCode, basicBoxplotData} from "../components/examples/boxplot/Basic.jsx"
+import {BasicNetwork, basicNetworkCode, basicNetworkData} from "../components/examples/network/Basic.jsx"
+import {BasicMap, basicMapCode, basicMapData} from "../components/examples/map/Basic.jsx"
 
 
 class ExamplePage extends React.Component {
@@ -73,21 +80,75 @@ class ExamplePage extends React.Component {
         break
 
       case "bar":
+        switch (this.props.exampleType) {
+          case "basic":
+            Chart = BasicBar
+            title = "Basic Bar Chart"
+            code = basicBarCode
+            data = basicBarData
+            break
+          case "grouped":
+            Chart = GroupedBar
+            title = "Grouped Bar Chart"
+            code = groupedBarCode
+            data = groupedBarData
+            break
+        }
         break
 
       case "line":
+        switch (this.props.exampleType) {
+          case "basic":
+            Chart = BasicLine
+            title = "Basic Line Chart"
+            code = basicLineCode
+            data = basicLineData
+            break
+        }
         break
 
       case "scatter":
+        switch (this.props.exampleType) {
+          case "basic":
+            Chart = BasicScatter
+            title = "Basic Scatter Chart"
+            code = basicScatterCode
+            data = basicScatterData
+            break
+        }
         break
 
       case "boxplot":
+        switch (this.props.exampleType) {
+          case "basic":
+            Chart = BasicBoxplot
+            title = "Basic Box Plot"
+            code = basicBoxplotCode
+            data = basicBoxplotData
+            break
+        }
         break
 
       case "map":
+        switch (this.props.exampleType) {
+          case "basic":
+            Chart = BasicMap
+            title = "Basic Map Chart"
+            code = basicMapCode
+            data = basicMapData
+            break
+        }
         break
 
       case "network":
+        switch (this.props.exampleType) {
+          case "basic":
+            Chart = BasicNetwork
+            title = "Basic Network Chart"
+            code = basicNetworkCode
+            data = basicNetworkData
+            break
+        }
         break
 
       default:

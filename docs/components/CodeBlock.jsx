@@ -14,6 +14,7 @@ class CodeBlock extends React.Component {
       borderLeft: `2px solid ${ColorTheme[this.props.palette].codeBlockLeftBorder}`,
       whiteSpace: "pre",
       fontFamily: "monospace",
+      overflowX: "scroll"
     }
 
     return(
