@@ -8,6 +8,7 @@ import QuickStartSection from "./sections/QuickStartSection.jsx"
 import HeaderSection from "./sections/HeaderSection.jsx"
 import CenteredBlock from "./components/CenteredBlock.jsx"
 import ComponentPage from "./pages/ComponentPage.jsx"
+import ExamplePage from "./pages/ExamplePage.jsx"
 
 class HomePage extends React.Component {
 
@@ -66,107 +67,63 @@ class HomePage extends React.Component {
 
 HomePage = Radium(HomePage)
 
-const treemapExamples = [
-  {name: "Basic", imgURL: "/static/img/treemap/example-basic.png", pageURL: "#"},
-  {name: "Vertical", imgURL: "/static/img/treemap/example-vertical.png", pageURL: "#"},
-  {name: "Nested", imgURL: "/static/img/treemap/example-nested.png", pageURL: "#"},
-]
+const componentTitles = {
+  treemap: "Treemap",
+  bar: "Bar Chart",
+  line: "Line Chart",
+  scatter: "Scatter Chart",
+  boxplot: "Box Plot",
+  map: "Map Chart",
+  network: "Network Chart",
+}
 
-const barExamples = [
-  {name: "Basic", imgURL: "/static/img/bar/example-basic.png", pageURL: "#"},
-  {name: "Grouped", imgURL: "/static/img/bar/example-grouped.png", pageURL: "#"},
-]
+const componentExamples = {
+  treemap: [
+    {name: "Basic", imgURL: "/static/img/treemap/example-basic.png", pageURL: "/examples/treemap/basic"},
+    {name: "Vertical", imgURL: "/static/img/treemap/example-vertical.png", pageURL: "/examples/treemap/vertical"},
+    {name: "Nested", imgURL: "/static/img/treemap/example-nested.png", pageURL: "/examples/treemap/nested"},
+  ],
+  bar: [
+    {name: "Basic", imgURL: "/static/img/bar/example-basic.png", pageURL: "#"},
+    {name: "Grouped", imgURL: "/static/img/bar/example-grouped.png", pageURL: "#"},
+  ],
+  line: [
+    {name: "Basic", imgURL: "/static/img/line/example-basic.png", pageURL: "#"},
+  ],
+  scatter: [
+    {name: "Basic", imgURL: "/static/img/scatter/example-basic.png", pageURL: "#"},
+  ],
+  boxplot: [
+    {name: "Basic", imgURL: "/static/img/boxplot/example-basic.png", pageURL: "#"},
+  ],
+  map: [
+    {name: "Basic", imgURL: "/static/img/map/example-basic.png", pageURL: "#"},
+  ],
+  network: [
+    {name: "Basic", imgURL: "/static/img/network/example-basic.png", pageURL: "#"},
+  ],
+}
 
-const lineExamples = [
-  {name: "Basic", imgURL: "/static/img/line/example-basic.png", pageURL: "#"},
-]
-
-const scatterExamples = [
-  {name: "Basic", imgURL: "/static/img/scatter/example-basic.png", pageURL: "#"},
-]
-
-const boxplotExamples = [
-  {name: "Basic", imgURL: "/static/img/boxplot/example-basic.png", pageURL: "#"},
-]
-
-const mapExamples = [
-  {name: "Basic", imgURL: "/static/img/map/example-basic.png", pageURL: "#"},
-]
-
-const networkExamples = [
-  {name: "Basic", imgURL: "/static/img/network/example-basic.png", pageURL: "#"},
-]
-
-switch (window.location.pathname) {
-  case '/':
-    ReactDOM.render(
-      <HomePage />,
-      document.getElementById("replot-home")
-    )
-    break
-  case '/treemap':
-    ReactDOM.render(
-      <ComponentPage
-        componentTitle="Treemap" componentType="treemap"
-        examples={treemapExamples}
-      />,
-      document.getElementById("replot-treemap")
-    )
-    break
-  case '/bar':
-    ReactDOM.render(
-      <ComponentPage
-        componentTitle="Bar Chart" componentType="bar"
-        examples={barExamples}
-      />,
-      document.getElementById("replot-bar")
-    )
-    break
-  case '/line':
-    ReactDOM.render(
-      <ComponentPage
-        componentTitle="Line Chart" componentType="line"
-        examples={lineExamples}
-      />,
-      document.getElementById("replot-line")
-    )
-    break
-  case '/scatter':
-    ReactDOM.render(
-      <ComponentPage
-        componentTitle="Scatter Plot" componentType="scatter"
-        examples={scatterExamples}
-      />,
-      document.getElementById("replot-scatter")
-    )
-    break
-  case '/boxplot':
-    ReactDOM.render(
-      <ComponentPage
-        componentTitle="Box Plot" componentType="boxplot"
-        examples={boxplotExamples}
-      />,
-      document.getElementById("replot-boxplot")
-    )
-    break
-  case '/map':
-    ReactDOM.render(
-      <ComponentPage
-        componentTitle="Map Chart" componentType="map"
-        examples={mapExamples}
-      />,
-      document.getElementById("replot-map")
-    )
-    break
-  case '/network':
-    ReactDOM.render(
-      <ComponentPage
-        componentTitle="Network Chart" componentType="network"
-        examples={networkExamples}
-      />,
-      document.getElementById("replot-network")
-    )
-    break
-  default:
-    /* TODO: Display a 404 page */
+const paths = window.location.pathname.split('/')
+if (paths[1] === '') {
+  ReactDOM.render(
+    <HomePage />,
+    document.getElementById("replot-home")
+  )
+} else if (paths[2] === '') {
+  ReactDOM.render(
+    <ComponentPage
+      componentTitle={componentTitles[paths[1]]} componentType={paths[1]}
+      examples={componentExamples[paths[1]]}
+    />,
+    document.getElementById("page")
+  )
+} else {
+  ReactDOM.render(
+    <ExamplePage
+      componentTitle={componentTitles[paths[1]]} componentType={paths[1]}
+      exampleType={paths[2]}
+    />,
+    document.getElementById("page")
+  )
 }
