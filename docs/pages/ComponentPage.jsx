@@ -37,7 +37,7 @@ class ComponentPage extends React.Component {
   loadDoc(type) {
     let req = new XMLHttpRequest()
     req.open("GET", `https://api.github.com/repos/replot/replot-${type}/readme`)
-    req.setRequestHeader("Accept", "application/vnd.github.v3.html")
+    req.setRequestHeader("Accept", "application/vnd.github.v3.raw")
     req.onreadystatechange = () => {
       if (req.readyState === 4 && req.status === 200 || req.status == 0) {
         this.setState({

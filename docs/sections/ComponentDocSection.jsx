@@ -1,5 +1,6 @@
 import React from "react"
 import marked from "marked"
+import hljs from "highlight.js"
 import {ColorTheme, SectionContainer} from "replot-helpers"
 
 
@@ -17,6 +18,12 @@ const ComponentDocSection = ({doc, palette}) => {
       margin: "auto",
     }
   }
+
+  marked.setOptions({
+    highlight: (code) => {
+      return hljs.highlightAuto(code).value
+    }
+  })
 
   return(
     <SectionContainer>
