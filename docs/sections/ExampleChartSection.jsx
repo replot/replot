@@ -11,7 +11,6 @@ const ExampleChartSection = ({palette, title, children}) => {
       padding: 15,
     },
     container: {
-      paddingTop: "80px",
       textAlign: "center",
     },
   }

@@ -79,28 +79,28 @@ const componentTitles = {
 
 const componentExamples = {
   treemap: [
-    {name: "Basic", imgURL: "/static/img/treemap/example-basic.png", pageURL: "/examples/treemap/basic"},
-    {name: "Vertical", imgURL: "/static/img/treemap/example-vertical.png", pageURL: "/examples/treemap/vertical"},
-    {name: "Nested", imgURL: "/static/img/treemap/example-nested.png", pageURL: "/examples/treemap/nested"},
+    {name: "Basic", imgURL: "/static/img/treemap/example-basic.png", pageURL: "/treemap/basic"},
+    {name: "Vertical", imgURL: "/static/img/treemap/example-vertical.png", pageURL: "/treemap/vertical"},
+    {name: "Nested", imgURL: "/static/img/treemap/example-nested.png", pageURL: "/treemap/nested"},
   ],
   bar: [
-    {name: "Basic", imgURL: "/static/img/bar/example-basic.png", pageURL: "#"},
-    {name: "Grouped", imgURL: "/static/img/bar/example-grouped.png", pageURL: "#"},
+    {name: "Basic", imgURL: "/static/img/bar/example-basic.png", pageURL: "/bar/basic"},
+    {name: "Grouped", imgURL: "/static/img/bar/example-grouped.png", pageURL: "/bar/grouped"},
   ],
   line: [
-    {name: "Basic", imgURL: "/static/img/line/example-basic.png", pageURL: "#"},
+    {name: "Basic", imgURL: "/static/img/line/example-basic.png", pageURL: "/line/basic"},
   ],
   scatter: [
-    {name: "Basic", imgURL: "/static/img/scatter/example-basic.png", pageURL: "#"},
+    {name: "Basic", imgURL: "/static/img/scatter/example-basic.png", pageURL: "/scatter/basic"},
   ],
   boxplot: [
-    {name: "Basic", imgURL: "/static/img/boxplot/example-basic.png", pageURL: "#"},
+    {name: "Basic", imgURL: "/static/img/boxplot/example-basic.png", pageURL: "/boxplot/basic"},
   ],
   map: [
-    {name: "Basic", imgURL: "/static/img/map/example-basic.png", pageURL: "#"},
+    {name: "Basic", imgURL: "/static/img/map/example-basic.png", pageURL: "/map/basic"},
   ],
   network: [
-    {name: "Basic", imgURL: "/static/img/network/example-basic.png", pageURL: "#"},
+    {name: "Basic", imgURL: "/static/img/network/example-basic.png", pageURL: "/network/basic"},
   ],
 }
 
