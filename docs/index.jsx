@@ -98,6 +98,10 @@ const componentExamples = {
   ],
   map: [
     {name: "Basic", imgURL: "/static/img/map/example-basic.png", pageURL: "/map/basic"},
+    {name: "Red", imgURL: "/static/img/map/example-red.png", pageURL: "/map/red"},
+    {name: "Logarithmic", imgURL: "/static/img/map/example-logarithmic.png", pageURL: "/map/logarithmic"},
+    {name: "Custom Tooltip", imgURL: "/static/img/map/example-custom-tooltip.png", pageURL: "/map/custom_tooltip"},
+    {name: "Zoomed", imgURL: "/static/img/map/example-zoomed.png", pageURL: "/map/zoomed"},
   ],
   network: [
     {name: "Basic", imgURL: "/static/img/network/example-basic.png", pageURL: "/network/basic"},

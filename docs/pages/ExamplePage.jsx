@@ -15,6 +15,10 @@ import {BasicScatter, basicScatterCode, basicScatterData} from "../components/ex
 import {BasicBoxplot, basicBoxplotCode, basicBoxplotData} from "../components/examples/boxplot/Basic.jsx"
 import {BasicNetwork, basicNetworkCode, basicNetworkData} from "../components/examples/network/Basic.jsx"
 import {BasicMap, basicMapCode, basicMapData} from "../components/examples/map/Basic.jsx"
+import {RedMap, redMapCode, redMapData} from "../components/examples/map/Red.jsx"
+import {LogarithmicMap, logarithmicMapCode, logarithmicMapData} from "../components/examples/map/Logarithmic.jsx"
+import {CustomTooltipMap, customTooltipMapCode, customTooltipMapData} from "../components/examples/map/CustomTooltip.jsx"
+import {ZoomedMap, zoomedMapCode, zoomedMapData} from "../components/examples/map/Zoomed.jsx"
 
 
 class ExamplePage extends React.Component {
@@ -136,6 +140,30 @@ class ExamplePage extends React.Component {
             title = "Basic Map Chart"
             code = basicMapCode
             data = basicMapData
+            break
+          case "red":
+            Chart = RedMap
+            title = "Red Map Chart"
+            code = redMapCode
+            data = redMapData
+            break
+          case "logarithmic":
+            Chart = LogarithmicMap
+            title = "Logarithmic Map Chart"
+            code = logarithmicMapCode
+            data = logarithmicMapData
+            break
+          case "custom_tooltip":
+            Chart = CustomTooltipMap
+            title = "Custom Tooltip"
+            code = customTooltipMapCode
+            data = customTooltipMapData
+            break
+          case "zoomed":
+            Chart = ZoomedMap
+            title = "Zoomed Map Chart"
+            code = zoomedMapCode
+            data = zoomedMapData
             break
         }
         break
