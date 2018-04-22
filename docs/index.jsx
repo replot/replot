@@ -104,7 +104,16 @@ const componentExamples = {
     {name: "Zoomed", imgURL: "/static/img/map/example-zoomed.png", pageURL: "/map/zoomed"},
   ],
   network: [
+    {name: "Advanced", imgURL: "/static/img/network/example-advanced.png", pageURL: "/network/advanced"},
     {name: "Basic", imgURL: "/static/img/network/example-basic.png", pageURL: "/network/basic"},
+    {name: "Bold", imgURL: "/static/img/network/example-bold.png", pageURL: "/network/bold"},
+    {name: "Custom Color", imgURL: "/static/img/network/example-custom-color.png", pageURL: "/network/custom_color"},
+    {name: "Custom Tooltip", imgURL: "/static/img/network/example-custom-tooltip.png", pageURL: "/network/custom_tooltip"},
+    {name: "Grouped", imgURL: "/static/img/network/example-grouped.png", pageURL: "/network/grouped"},
+    {name: "Labeled", imgURL: "/static/img/network/example-labeled.png", pageURL: "/network/labeled"},
+    {name: "Pastel", imgURL: "/static/img/network/example-pastel.png", pageURL: "/network/pastel"},
+    {name: "Weighted Links", imgURL: "/static/img/network/example-weighted-links.png", pageURL: "/network/weighted_links"},
+    {name: "Weighted Nodes", imgURL: "/static/img/network/example-weighted-nodes.png", pageURL: "/network/weighted_nodes"},
   ],
 }
 

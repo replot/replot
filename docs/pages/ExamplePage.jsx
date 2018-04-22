@@ -13,7 +13,16 @@ import {GroupedBar, groupedBarCode, groupedBarData} from "../components/examples
 import {BasicLine, basicLineCode, basicLineData} from "../components/examples/line/Basic.jsx"
 import {BasicScatter, basicScatterCode, basicScatterData} from "../components/examples/scatter/Basic.jsx"
 import {BasicBoxplot, basicBoxplotCode, basicBoxplotData} from "../components/examples/boxplot/Basic.jsx"
+import {AdvancedNetwork, advancedNetworkCode, advancedNetworkData} from "../components/examples/network/Advanced.jsx"
 import {BasicNetwork, basicNetworkCode, basicNetworkData} from "../components/examples/network/Basic.jsx"
+import {BoldNetwork, boldNetworkCode, boldNetworkData} from "../components/examples/network/Bold.jsx"
+import {CustomColorNetwork, customColorNetworkCode, customColorNetworkData} from "../components/examples/network/CustomColor.jsx"
+import {CustomTooltipNetwork, customTooltipNetworkCode, customTooltipNetworkData} from "../components/examples/network/CustomTooltip.jsx"
+import {GroupedNetwork, groupedNetworkCode, groupedNetworkData} from "../components/examples/network/Grouped.jsx"
+import {LabeledNetwork, labeledNetworkCode, labeledNetworkData} from "../components/examples/network/Labeled.jsx"
+import {PastelNetwork, pastelNetworkCode, pastelNetworkData} from "../components/examples/network/Pastel.jsx"
+import {WeightedLinksNetwork, weightedLinksNetworkCode, weightedLinksNetworkData} from "../components/examples/network/WeightedLinks.jsx"
+import {WeightedNodesNetwork, weightedNodesNetworkCode, weightedNodesNetworkData} from "../components/examples/network/WeightedNodes.jsx"
 import {BasicMap, basicMapCode, basicMapData} from "../components/examples/map/Basic.jsx"
 import {RedMap, redMapCode, redMapData} from "../components/examples/map/Red.jsx"
 import {LogarithmicMap, logarithmicMapCode, logarithmicMapData} from "../components/examples/map/Logarithmic.jsx"
@@ -170,11 +179,65 @@ class ExamplePage extends React.Component {
 
       case "network":
         switch (this.props.exampleType) {
+          case "advanced":
+            Chart = AdvancedNetwork
+            title = "Advanced Network Chart"
+            code = advancedNetworkCode
+            data = advancedNetworkData
+            break
           case "basic":
             Chart = BasicNetwork
             title = "Basic Network Chart"
             code = basicNetworkCode
             data = basicNetworkData
+            break
+          case "bold":
+            Chart = BoldNetwork
+            title = "Bold Network Chart"
+            code = boldNetworkCode
+            data = boldNetworkData
+            break
+          case "custom_color":
+            Chart = CustomColorNetwork
+            title = "Custom Color"
+            code = customColorNetworkCode
+            data = customColorNetworkData
+            break
+          case "custom_tooltip":
+            Chart = CustomTooltipNetwork
+            title = "Custom Tooltip"
+            code = customTooltipNetworkCode
+            data = customTooltipNetworkData
+            break
+          case "grouped":
+            Chart = GroupedNetwork
+            title = "Grouped Network Chart"
+            code = groupedNetworkCode
+            data = groupedNetworkData
+            break
+          case "labeled":
+            Chart = LabeledNetwork
+            title = "Labeled Network Chart"
+            code = labeledNetworkCode
+            data = labeledNetworkData
+            break
+          case "pastel":
+            Chart = PastelNetwork
+            title = "Pastel Network Chart"
+            code = pastelNetworkCode
+            data = pastelNetworkData
+            break
+          case "weighted_links":
+            Chart = WeightedLinksNetwork
+            title = "Weighted Links Network Chart"
+            code = weightedLinksNetworkCode
+            data = weightedLinksNetworkData
+            break
+          case "weighted_nodes":
+            Chart = WeightedNodesNetwork
+            title = "Weighted Nodes Network Chart"
+            code = weightedNodesNetworkCode
+            data = weightedNodesNetworkData
             break
         }
         break

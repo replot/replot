@@ -2,13 +2,9 @@ import React from "react"
 import NetworkChart from "replot-network"
 
 
-const basicNetworkCode = `<NetworkChart data={data} parentKey="exporter" childKey="importer"
-  nodes={nodes} nodeKey="country" groupKey="region"
-  weightedLinks={true} linkKey="volume" nodeWeightKey="exports"
-  lineColor="#FFF" width="100%" height={450}
-/>`
+const basicNetworkCode = `<NetworkChart data={trades} parentKey="exporter" childKey="importer" height={450} />`
 
-const basicNetworkData = `const data = [
+const basicNetworkData = `const trades = [
   {exporter: "Germany", importer: "European Union", volume: 1468990},
   {exporter: "Netherlands", importer: "European Union", volume: 798744},
   {exporter: "European Union", importer: "France", volume: 745931},
@@ -43,40 +39,10 @@ const basicNetworkData = `const data = [
   {exporter: "United Kingdom", importer: "United States", volume: 116675},
   {exporter: "Germany", importer: "Switzerland", volume: 115041},
   {exporter: "Ireland", importer: "European Union", volume: 105853},
-]
-const nodes = [
-  {region: "Europe", country: "Germany", exports: 1283000},
-  {region: "Europe", country: "European Union", exports: 2659000},
-  {region: "Europe", country: "Netherlands", exports: 460100},
-  {region: "Europe", country: "France", exports: 505400},
-  {region: "America", country: "United States", exports: 1471000},
-  {region: "America", country: "Canada", exports: 402400},
-  {region: "Europe", country: "Belgium", exports: 250800},
-  {region: "Asia", country: "China", exports: 2011000},
-  {region: "Asia", country: "Hong Kong", exports: 487700},
-  {region: "Europe", country: "United Kingdom", exports: 412100},
-  {region: "Europe", country: "Italy", exports: 436300},
-  {region: "America", country: "Mexico", exports: 359300},
-  {region: "Asia", country: "Russia", exports: 259300},
-  {region: "Europe", country: "Spain", exports: 266300},
-  {region: "Asia", country: "Japan", exports: 641400},
-  {region: "Europe", country: "Switzerland", exports: 301100},
-  {region: "Asia", country: "South Korea", exports: 509000},
-  {region: "Europe", country: "Poland", exports: 188300},
-  {region: "Europe", country: "Austria", exports: 142900},
-  {region: "Europe", country: "Czech Republic", exports: 131000},
-  {region: "Europe", country: "Sweden", exports: 151100},
-  {region: "Europe", country: "Norway", exports: 102900},
-  {region: "Asia", country: "Turkey", exports: 152000},
-  {region: "Europe", country: "Hungary", exports: 89440},
-  {region: "Oceania", country: "Australia", exports: 184300},
-  {region: "Europe", country: "Denmark", exports: 95970},
-  {region: "Asia", country: "Taiwan", exports: 314800},
-  {region: "Europe", country: "Ireland", exports: 125500},
 ]`
 
 const BasicNetwork = ({}) => {
-  const data = [
+  const trades = [
     {exporter: "Germany", importer: "European Union", volume: 1468990},
     {exporter: "Netherlands", importer: "European Union", volume: 798744},
     {exporter: "European Union", importer: "France", volume: 745931},
@@ -112,44 +78,14 @@ const BasicNetwork = ({}) => {
     {exporter: "Germany", importer: "Switzerland", volume: 115041},
     {exporter: "Ireland", importer: "European Union", volume: 105853},
   ]
-  const nodes = [
-    {region: "Europe", country: "Germany", exports: 1283000},
-    {region: "Europe", country: "European Union", exports: 2659000},
-    {region: "Europe", country: "Netherlands", exports: 460100},
-    {region: "Europe", country: "France", exports: 505400},
-    {region: "America", country: "United States", exports: 1471000},
-    {region: "America", country: "Canada", exports: 402400},
-    {region: "Europe", country: "Belgium", exports: 250800},
-    {region: "Asia", country: "China", exports: 2011000},
-    {region: "Asia", country: "Hong Kong", exports: 487700},
-    {region: "Europe", country: "United Kingdom", exports: 412100},
-    {region: "Europe", country: "Italy", exports: 436300},
-    {region: "America", country: "Mexico", exports: 359300},
-    {region: "Asia", country: "Russia", exports: 259300},
-    {region: "Europe", country: "Spain", exports: 266300},
-    {region: "Asia", country: "Japan", exports: 641400},
-    {region: "Europe", country: "Switzerland", exports: 301100},
-    {region: "Asia", country: "South Korea", exports: 509000},
-    {region: "Europe", country: "Poland", exports: 188300},
-    {region: "Europe", country: "Austria", exports: 142900},
-    {region: "Europe", country: "Czech Republic", exports: 131000},
-    {region: "Europe", country: "Sweden", exports: 151100},
-    {region: "Europe", country: "Norway", exports: 102900},
-    {region: "Asia", country: "Turkey", exports: 152000},
-    {region: "Europe", country: "Hungary", exports: 89440},
-    {region: "Oceania", country: "Australia", exports: 184300},
-    {region: "Europe", country: "Denmark", exports: 95970},
-    {region: "Asia", country: "Taiwan", exports: 314800},
-    {region: "Europe", country: "Ireland", exports: 125500},
-  ]
-  return (
-    <NetworkChart data={data} parentKey="exporter" childKey="importer"
-      nodes={nodes} nodeKey="country" groupKey="region"
-      weightedLinks={true} linkKey="volume" nodeWeightKey="exports"
-      lineColor="#FFF" width="100%" height={450}
-    />
+  return(
+    <div style={{ display: "inline-block" }}>
+      <NetworkChart data={trades} parentKey="exporter" childKey="importer" height={450}
+      />
+    </div>
   )
 }
+
 
 export {
   BasicNetwork,
