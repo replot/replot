@@ -17,11 +17,11 @@ const ComponentHeaderSection = ({title, type, palette}) => {
     titleLink: {
       color: ColorTheme[palette].body.text,
       textDecorationLine: "none",
-      margin: "0px auto 0px 20px",
+      margin: "0 10px",
     },
     title: {
       fontSize: "28px",
-      margin: "0px",
+      margin: "0px auto 0px 20px",
     },
     optionLink: {
       color: ColorTheme[palette].body.text,
@@ -36,9 +36,11 @@ const ComponentHeaderSection = ({title, type, palette}) => {
 
   return(
     <div style={style.header}>
-      <a style={style.titleLink} href={`/${type}`}>
-        <h5 style={style.title}>{title}</h5>
-      </a>
+      <h5 style={style.title}>
+        <a style={style.titleLink} href='/'>Replot</a>
+        /
+        <a style={style.titleLink} href={`/${type}`}>{title}</a>
+      </h5>
       <a style={style.optionLink} href="#examples">
         <h5 style={style.option}> Examples </h5>
       </a>
