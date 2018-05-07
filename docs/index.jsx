@@ -28,6 +28,15 @@ const componentExamples = {
   ],
   line: [
     {name: "Basic", imgURL: "/static/img/line/example-basic.png", pageURL: "/line/basic"},
+    {name: "Grouped", imgURL: "/static/img/line/example-basic-grouped.png", pageURL: "/line/basic_grouped"},
+    {name: "Bold", imgURL: "/static/img/line/example-bold.png", pageURL: "/line/bold"},
+    {name: "Custom Color", imgURL: "/static/img/line/example-custom-color.png", pageURL: "/line/custom_color"},
+    {name: "Custom Tooltip", imgURL: "/static/img/line/example-custom-tooltip.png", pageURL: "/line/custom_tooltip"},
+    {name: "Logarithmic", imgURL: "/static/img/line/example-logarithmic.png", pageURL: "/line/logarithmic"},
+    {name: "Minimalistic", imgURL: "/static/img/line/example-minimalistic.png", pageURL: "/line/minimalistic"},
+    {name: "Retro", imgURL: "/static/img/line/example-retro.png", pageURL: "/line/retro"},
+    {name: "Shaded", imgURL: "/static/img/line/example-shaded.png", pageURL: "/line/shaded"},
+    {name: "Titled", imgURL: "/static/img/line/example-titled.png", pageURL: "/line/titled"},
   ],
   scatter: [
     {name: "Basic", imgURL: "/static/img/scatter/example-basic.png", pageURL: "/scatter/basic"},
