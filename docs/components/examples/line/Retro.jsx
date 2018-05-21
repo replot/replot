@@ -7,7 +7,7 @@ const retroLineCode = `let colors = ["#33FF00", "#FFB000", "#E1E1E1"]
   color={colors} xTitle="Year" yTitle="Index Value"
   axisColor="#00FF66" tickColor="#00FF66" gridColor="#00FF66"
   labelColor="#00FF66" graphTitleColor="#00FF66" legendFontColor="#00FF66"
-  labelFontFamily="Courier" titleFontFamily="Courier" legendFontFamily="Courier"
+  labelFontFamily="Courier" graphTitleFontFamily="Courier" legendFontFamily="Courier"
 />`
 
 const retroLineData = `const markets = [
@@ -89,7 +89,7 @@ const RetroLine = ({}) => {
         color={colors} xTitle="Year" yTitle="Index Value"
         axisColor="#00FF66" tickColor="#00FF66" gridColor="#00FF66"
         labelColor="#00FF66" graphTitleColor="#00FF66" legendFontColor="#00FF66"
-        labelFontFamily="Courier" titleFontFamily="Courier" legendFontFamily="Courier"
+        labelFontFamily="Courier" graphTitleFontFamily="Courier" legendFontFamily="Courier"
       />
     </div>
   )
