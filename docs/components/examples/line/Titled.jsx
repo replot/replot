@@ -84,8 +84,6 @@ const TitledLine = ({}) => {
         graphTitle="Annual Trends in Market Indices"
         xTitle="Year"
         yTitle="Index Value"
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"
-        graphTitleColor="#AAA"
       />
     </div>
   )

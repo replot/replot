@@ -83,7 +83,6 @@ const BoldLine = ({}) => {
     	<LineChart data={markets} groupKey="index" xKey="year" yKey="value" height={450}
     		lineWidth={5} pointWidth={10}
 				axisWidth={4} tickWidth={4} gridWidth={4}
-      	axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"
     	/>
 		</div>
   )

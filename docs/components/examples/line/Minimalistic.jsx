@@ -86,8 +86,6 @@ const MinimalisticLine = ({}) => {
       <LineChart data={markets} groupKey="index" xKey="year" yKey="value" height={450}
         showYAxisLine={false}
         pointWidth={2} color={colors}
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"
-        graphTitleColor="#AAA"
       />
     </div>
   )

@@ -34,8 +34,7 @@ const BasicLine = ({}) => {
   ]
   return (
     <div style={{ display: "inline-block" }}>
-      <LineChart data={data} xKey="year" yKey="value" height={450}
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"/>
+      <LineChart data={data} xKey="year" yKey="value" height={450}/>
     </div>
   )
 }

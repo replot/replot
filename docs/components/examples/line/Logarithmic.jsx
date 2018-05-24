@@ -80,8 +80,6 @@ const LogarithmicLine = ({}) => {
     <div style={{ display: "inline-block" }}>
       <LineChart data={markets} groupKey="index" xKey="year" yKey="value" height={450}
         yScale="log"
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"
-        graphTitleColor="#AAA"
       />
     </div>
   )

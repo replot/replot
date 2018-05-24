@@ -94,7 +94,6 @@ const CustomColorLine = ({}) => {
     <div style={{ display: "inline-block" }}>
       <LineChart data={markets} groupKey="index" xKey="year" yKey="value" height={450}
         color={colorMe}
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"
       />
     </div>
   )

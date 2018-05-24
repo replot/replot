@@ -92,7 +92,6 @@ const CustomTooltipLine = ({}) => {
     <div style={{ display: "inline-block" }}>
       <LineChart data={markets} groupKey="index" xKey="year" yKey="value" height={450}
         tooltipColor="light" tooltipContents={fillTooltip}
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"
       />
     </div>
   )

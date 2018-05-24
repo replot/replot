@@ -78,8 +78,7 @@ const BasicGroupedLine = ({}) => {
   ]
   return (
     <div style={{ display: "inline-block" }}>
-      <LineChart data={markets} groupKey="index" xKey="year" yKey="value" height={450}
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"/>
+      <LineChart data={markets} groupKey="index" xKey="year" yKey="value" height={450}/>
     </div>
   )
 }

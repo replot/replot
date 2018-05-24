@@ -79,7 +79,6 @@ const ShadedLine = ({}) => {
   return (
     <div style={{ display: "inline-block" }}>
       <LineChart data={markets} groupKey="index" xKey="year" yKey="value" shadeArea={true} height={450}
-        axisColor="#AAA" tickColor="#AAA" gridColor="#AAA" labelColor="#AAA" legendFontColor="#AAA"
       />
     </div>
   )
