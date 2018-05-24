@@ -21,6 +21,13 @@ import {RetroLine, retroLineCode, retroLineData} from "../components/examples/li
 import {ShadedLine, shadedLineCode, shadedLineData} from "../components/examples/line/Shaded.jsx"
 import {TitledLine, titledLineCode, titledLineData} from "../components/examples/line/Titled.jsx"
 import {BasicScatter, basicScatterCode, basicScatterData} from "../components/examples/scatter/Basic.jsx"
+import {BasicGroupedScatter, basicGroupedScatterCode, basicGroupedScatterData} from "../components/examples/scatter/BasicGrouped.jsx"
+import {CustomColorScatter, customColorScatterCode, customColorScatterData} from "../components/examples/scatter/CustomColor.jsx"
+import {CustomTooltipScatter, customTooltipScatterCode, customTooltipScatterData} from "../components/examples/scatter/CustomTooltip.jsx"
+import {LogarithmicScatter, logarithmicScatterCode, logarithmicScatterData} from "../components/examples/scatter/Logarithmic.jsx"
+import {MinimalisticScatter, minimalisticScatterCode, minimalisticScatterData} from "../components/examples/scatter/Minimalistic.jsx"
+import {RetroScatter, retroScatterCode, retroScatterData} from "../components/examples/scatter/Retro.jsx"
+import {TitledScatter, titledScatterCode, titledScatterData} from "../components/examples/scatter/Titled.jsx"
 import {BasicBoxplot, basicBoxplotCode, basicBoxplotData} from "../components/examples/boxplot/Basic.jsx"
 import {AdvancedNetwork, advancedNetworkCode, advancedNetworkData} from "../components/examples/network/Advanced.jsx"
 import {BasicNetwork, basicNetworkCode, basicNetworkData} from "../components/examples/network/Basic.jsx"
@@ -190,6 +197,48 @@ class ExamplePage extends React.Component {
             title = "Basic Scatter Chart"
             code = basicScatterCode
             data = basicScatterData
+            break
+          case "basic_grouped":
+            Chart = BasicGroupedScatter
+            title = "Grouped Scatter Chart"
+            code = basicGroupedScatterCode
+            data = basicGroupedScatterData
+            break
+          case "custom_color":
+            Chart = CustomColorScatter
+            title = "Custom Color Scatter Chart"
+            code = customColorScatterCode
+            data = customColorScatterData
+            break
+          case "custom_tooltip":
+            Chart = CustomTooltipScatter
+            title = "Custom Tooltip Scatter Chart"
+            code = customTooltipScatterCode
+            data = customTooltipScatterData
+            break
+          case "logarithmic":
+            Chart = LogarithmicScatter
+            title = "Logarithmic Scatter Chart"
+            code = logarithmicScatterCode
+            data = logarithmicScatterData
+            break
+          case "minimalistic":
+            Chart = MinimalisticScatter
+            title = "Minimalistic Scatter Chart"
+            code = minimalisticScatterCode
+            data = minimalisticScatterData
+            break
+          case "retro":
+            Chart = RetroScatter
+            title = "Retro Scatter Chart"
+            code = retroScatterCode
+            data = retroScatterData
+            break
+          case "titled":
+            Chart = TitledScatter
+            title = "Titled Scatter Chart"
+            code = titledScatterCode
+            data = titledScatterData
             break
         }
         break

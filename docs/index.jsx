@@ -40,6 +40,13 @@ const componentExamples = {
   ],
   scatter: [
     {name: "Basic", imgURL: "/static/img/scatter/example-basic.png", pageURL: "/scatter/basic"},
+    {name: "Grouped", imgURL: "/static/img/scatter/example-basic-grouped.png", pageURL: "/scatter/basic_grouped"},
+    {name: "Custom Color", imgURL: "/static/img/scatter/example-custom-color.png", pageURL: "/scatter/custom_color"},
+    {name: "Custom Tooltip", imgURL: "/static/img/scatter/example-custom-tooltip.png", pageURL: "/scatter/custom_tooltip"},
+    {name: "Logarithmic", imgURL: "/static/img/scatter/example-logarithmic.png", pageURL: "/scatter/logarithmic"},
+    {name: "Minimalistic", imgURL: "/static/img/scatter/example-minimalistic.png", pageURL: "/scatter/minimalistic"},
+    {name: "Retro", imgURL: "/static/img/scatter/example-retro.png", pageURL: "/scatter/retro"},
+    {name: "Titled", imgURL: "/static/img/scatter/example-titled.png", pageURL: "/scatter/titled"},
   ],
   boxplot: [
     {name: "Basic", imgURL: "/static/img/boxplot/example-basic.png", pageURL: "/boxplot/basic"},
