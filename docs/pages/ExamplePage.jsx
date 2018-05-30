@@ -11,7 +11,23 @@ import {NestedTreemap, nestedTreemapCode, nestedTreemapData} from "../components
 import {BasicBar, basicBarCode, basicBarData} from "../components/examples/bar/Basic.jsx"
 import {GroupedBar, groupedBarCode, groupedBarData} from "../components/examples/bar/Grouped.jsx"
 import {BasicLine, basicLineCode, basicLineData} from "../components/examples/line/Basic.jsx"
+import {BasicGroupedLine, basicGroupedLineCode, basicGroupedLineData} from "../components/examples/line/BasicGrouped.jsx"
+import {BoldLine, boldLineCode, boldLineData} from "../components/examples/line/Bold.jsx"
+import {CustomColorLine, customColorLineCode, customColorLineData} from "../components/examples/line/CustomColor.jsx"
+import {CustomTooltipLine, customTooltipLineCode, customTooltipLineData} from "../components/examples/line/CustomTooltip.jsx"
+import {LogarithmicLine, logarithmicLineCode, logarithmicLineData} from "../components/examples/line/Logarithmic.jsx"
+import {MinimalisticLine, minimalisticLineCode, minimalisticLineData} from "../components/examples/line/Minimalistic.jsx"
+import {RetroLine, retroLineCode, retroLineData} from "../components/examples/line/Retro.jsx"
+import {ShadedLine, shadedLineCode, shadedLineData} from "../components/examples/line/Shaded.jsx"
+import {TitledLine, titledLineCode, titledLineData} from "../components/examples/line/Titled.jsx"
 import {BasicScatter, basicScatterCode, basicScatterData} from "../components/examples/scatter/Basic.jsx"
+import {BasicGroupedScatter, basicGroupedScatterCode, basicGroupedScatterData} from "../components/examples/scatter/BasicGrouped.jsx"
+import {CustomColorScatter, customColorScatterCode, customColorScatterData} from "../components/examples/scatter/CustomColor.jsx"
+import {CustomTooltipScatter, customTooltipScatterCode, customTooltipScatterData} from "../components/examples/scatter/CustomTooltip.jsx"
+import {LogarithmicScatter, logarithmicScatterCode, logarithmicScatterData} from "../components/examples/scatter/Logarithmic.jsx"
+import {MinimalisticScatter, minimalisticScatterCode, minimalisticScatterData} from "../components/examples/scatter/Minimalistic.jsx"
+import {RetroScatter, retroScatterCode, retroScatterData} from "../components/examples/scatter/Retro.jsx"
+import {TitledScatter, titledScatterCode, titledScatterData} from "../components/examples/scatter/Titled.jsx"
 import {BasicBoxplot, basicBoxplotCode, basicBoxplotData} from "../components/examples/boxplot/Basic.jsx"
 import {AdvancedNetwork, advancedNetworkCode, advancedNetworkData} from "../components/examples/network/Advanced.jsx"
 import {BasicNetwork, basicNetworkCode, basicNetworkData} from "../components/examples/network/Basic.jsx"
@@ -117,6 +133,60 @@ class ExamplePage extends React.Component {
             code = basicLineCode
             data = basicLineData
             break
+          case "basic_grouped":
+            Chart = BasicGroupedLine
+            title = "Grouped Line Chart"
+            code = basicGroupedLineCode
+            data = basicGroupedLineData
+            break
+          case "bold":
+            Chart = BoldLine
+            title = "Bold Line Chart"
+            code = boldLineCode
+            data = boldLineData
+            break
+          case "custom_color":
+            Chart = CustomColorLine
+            title = "Custom Color Line Chart"
+            code = customColorLineCode
+            data = customColorLineData
+            break
+          case "custom_tooltip":
+            Chart = CustomTooltipLine
+            title = "Custom Tooltip Line Chart"
+            code = customTooltipLineCode
+            data = customTooltipLineData
+            break
+          case "logarithmic":
+            Chart = LogarithmicLine
+            title = "Logarithmic Line Chart"
+            code = logarithmicLineCode
+            data = logarithmicLineData
+            break
+          case "minimalistic":
+            Chart = MinimalisticLine
+            title = "Minimalistic Line Chart"
+            code = minimalisticLineCode
+            data = minimalisticLineData
+            break
+          case "retro":
+            Chart = RetroLine
+            title = "Retro Line Chart"
+            code = retroLineCode
+            data = retroLineData
+            break
+          case "shaded":
+            Chart = ShadedLine
+            title = "Shaded Line Chart"
+            code = shadedLineCode
+            data = shadedLineData
+            break
+          case "titled":
+            Chart = TitledLine
+            title = "Titled Line Chart"
+            code = titledLineCode
+            data = titledLineData
+            break
         }
         break
 
@@ -127,6 +197,48 @@ class ExamplePage extends React.Component {
             title = "Basic Scatter Chart"
             code = basicScatterCode
             data = basicScatterData
+            break
+          case "basic_grouped":
+            Chart = BasicGroupedScatter
+            title = "Grouped Scatter Chart"
+            code = basicGroupedScatterCode
+            data = basicGroupedScatterData
+            break
+          case "custom_color":
+            Chart = CustomColorScatter
+            title = "Custom Color Scatter Chart"
+            code = customColorScatterCode
+            data = customColorScatterData
+            break
+          case "custom_tooltip":
+            Chart = CustomTooltipScatter
+            title = "Custom Tooltip Scatter Chart"
+            code = customTooltipScatterCode
+            data = customTooltipScatterData
+            break
+          case "logarithmic":
+            Chart = LogarithmicScatter
+            title = "Logarithmic Scatter Chart"
+            code = logarithmicScatterCode
+            data = logarithmicScatterData
+            break
+          case "minimalistic":
+            Chart = MinimalisticScatter
+            title = "Minimalistic Scatter Chart"
+            code = minimalisticScatterCode
+            data = minimalisticScatterData
+            break
+          case "retro":
+            Chart = RetroScatter
+            title = "Retro Scatter Chart"
+            code = retroScatterCode
+            data = retroScatterData
+            break
+          case "titled":
+            Chart = TitledScatter
+            title = "Titled Scatter Chart"
+            code = titledScatterCode
+            data = titledScatterData
             break
         }
         break
