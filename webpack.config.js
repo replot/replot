@@ -1,6 +1,6 @@
 module.exports = function() {
   return {
-    entry: "./src/index.js",
+    entry: "./src/index.jsx",
     devtool: "source-map",
     output: {
       path: __dirname,
