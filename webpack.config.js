@@ -17,6 +17,13 @@ module.exports = function() {
           query: {
             "presets": ["es2015", "react"]
           }
+        },
+        {
+          test: /\.js$/,
+          loader: "babel-loader",
+          query: {
+            "presets": ["es2015", "react", "es2015-riot"]
+          }
         }
       ]
     }
