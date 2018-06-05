@@ -1,6 +1,6 @@
 {
   "name": "replot",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Visualizations meet the virtual-dom",
   "main": "index.js",
   "scripts": {
@@ -20,11 +20,14 @@
   ],
   "author": "Sanjay Guruprasad <sanjay@softrade.in> (http://sanjaypojo.com/)",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
   "bugs": {
     "url": "https://github.com/replot/replot/issues"
   },
   "homepage": "https://github.com/replot/replot#readme",
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
