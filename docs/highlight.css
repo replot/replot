@@ -15,6 +15,18 @@ pre code {
   background-color: transparent;
 }
 
+code {
+  font-size: 16px;
+}
+
+a {
+  color: #5bc0de;s
+}
+
+h2, h3 {
+  margin-top: 80px;
+}
+
 .hljs-comment {
   color: #969896;
 }
