@@ -45,7 +45,7 @@
     "replot-bar": "^0.4.1",
     "replot-boxplot": "^0.2.0",
     "replot-core": "^0.2.1",
-    "replot-helpers": "^0.2.0",
+    "replot-helpers": "^0.2.1",
     "replot-line": "^0.6.0",
     "replot-map": "^0.3.0",
     "replot-network": "^0.3.0",

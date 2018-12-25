@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import Radium from "radium"
 import {ColorTheme} from "replot-helpers"
 import ComponentPage from "./pages/ComponentPage.jsx"
+import SupportedRegionsPage from "./pages/SupportedRegionsPage.jsx"
 import ExamplePage from "./pages/ExamplePage.jsx"
 import HomePage from "./pages/HomePage.jsx"
 
@@ -84,6 +85,11 @@ if (paths[1] === '') {
       componentTitle={componentTitles[paths[1]]} componentType={paths[1]}
       examples={componentExamples[paths[1]]}
     />,
+    document.getElementById("page")
+  )
+} else if (paths[1] === 'map' && paths[2] === 'supported_regions') {
+  ReactDOM.render(
+    <SupportedRegionsPage />,
     document.getElementById("page")
   )
 } else {

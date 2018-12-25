@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import Radium from "radium"
-import {SectionContainer, ColorTheme} from "replot-helpers"
+import {ColorTheme} from "replot-helpers"
 import ComponentHeaderSection from "../sections/ComponentHeaderSection.jsx"
 import ComponentLandingSection from "../sections/ComponentLandingSection.jsx"
 import ComponentExamplesSection from "../sections/ComponentExamplesSection.jsx"
