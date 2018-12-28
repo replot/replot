@@ -47,6 +47,9 @@ const ComponentHeaderSection = ({title, type, palette}) => {
       <a style={style.optionLink} href="#doc">
         <h5 style={style.option}> Documentation </h5>
       </a>
+      <a style={style.optionLink} href={`https://github.com/replot/replot-${type}`} target="_blank">
+        <h5 style={style.option}> Source </h5>
+      </a>
     </div>
   )
 }
