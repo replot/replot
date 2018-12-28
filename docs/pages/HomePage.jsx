@@ -6,6 +6,7 @@ import TitleSection from "../sections/TitleSection.jsx"
 import ExamplesSection from "../sections/ExamplesSection.jsx"
 import QuickStartSection from "../sections/QuickStartSection.jsx"
 import HeaderSection from "../sections/HeaderSection.jsx"
+import FooterSection from "../sections/FooterSection.jsx"
 
 
 class HomePage extends React.Component {
@@ -51,7 +52,7 @@ class HomePage extends React.Component {
           palette={this.state.theme}/>
         <ExamplesSection
           palette={this.state.theme}/>
-        <QuickStartSection
+        <FooterSection
           palette={this.state.theme}/>
       </Radium.StyleRoot>
 

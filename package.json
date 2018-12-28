@@ -42,6 +42,7 @@
     "radium": "^0.21.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-scroll": "^1.7.10",
     "replot-bar": "^0.4.1",
     "replot-boxplot": "^0.2.0",
     "replot-core": "^0.2.1",

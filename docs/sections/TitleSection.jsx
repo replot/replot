@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-scroll"
 import {SectionContainer, ColorTheme} from "replot-helpers"
 import CenteredBlock from "../components/CenteredBlock.jsx"
 
@@ -49,10 +50,12 @@ class TitleSection extends React.Component {
       },
       getStartedButton: {
         padding: "8px",
+        cursor: "pointer",
+        fontWeight: "600",
         text: "1.4rem",
         textTransform: "uppercase",
-        border: `solid 1px ${palette.getStartedButton.border}`,
-        borderRadius: "5px",
+        border: `solid 3px ${palette.getStartedButton.border}`,
+        borderRadius: "8px",
         color: palette.getStartedButton.text,
         background: palette.getStartedButton.bg,
       }
@@ -66,7 +69,9 @@ class TitleSection extends React.Component {
         <h3 style={style.description}>
           Native SVG visualizations for React with beautiful defaults and smart animation
         </h3>
-        <button style={style.getStartedButton}>Get Started</button>
+        <Link to="map_example" smooth={true} offset={80} style={style.getStartedButton}>
+          Get Started
+        </Link>
       </SectionContainer>
     )
   }

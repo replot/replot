@@ -28,6 +28,10 @@ class ExamplesSection extends React.Component {
 
     return(
       <SectionContainer>
+        <div id="map_example" style={style.container}>
+          <a href="/map" style={style.link}><h1 style={style.title}> Map Chart </h1></a>
+          <MapExample palette={this.props.palette} />
+        </div>
         <div style={style.container}>
           <a href="/treemap" style={style.link}><h1 style={style.title}> Treemap </h1></a>
           <TreeExample palette={this.props.palette}/>
@@ -51,10 +55,6 @@ class ExamplesSection extends React.Component {
         <div style={style.container}>
           <a href="/scatter" style={style.link}><h1 style={style.title}> Scatter Plot </h1></a>
           <ScatterExample palette={this.props.palette}/>
-        </div>
-        <div style={style.container}>
-          <a href="/map" style={style.link}><h1 style={style.title}> Map Chart </h1></a>
-          <MapExample palette={this.props.palette} />
         </div>
         <div style={style.container}>
           <a href="/network" style={style.link}><h1 style={style.title}> Network Chart </h1></a>
