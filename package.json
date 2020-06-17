@@ -34,7 +34,7 @@
     "babel-preset-es2015-riot": "^1.1.0",
     "babel-preset-react": "^6.24.1",
     "concat-map": "0.0.1",
-    "eslint": "^3.19.0",
+    "eslint": "^4.18.2",
     "eslint-plugin-react": "^6.10.3",
     "highlight.js": "^9.12.0",
     "marked": "^0.3.19",
